@@ -50,37 +50,39 @@ const PublicationDetail = ({ data, pageContext }) => {
         </div>
 
         <div className="container own_sub_container">
-        </div>
-      </section>
-      <main className="spotlight">
-        <div className="container my-5">
-          <div className="row">
-            <div className="col-lg-4 profilepic">
-              <GatsbyImage
-                image={img}
-                alt={slug}
-              />
 
-            </div>
-            <div className="col-lg-8">
-              <div className="p-15 mt-4">
-                <h1 className="display-4">{title}</h1>
+          <main className="spotlight">
+            <div className="container my-5">
+              <div className="row">
+                <div className="col-lg-4">
+                  <GatsbyImage
+                    image={img}
+                    alt={slug}
+                    className="profilepic"
+                  />
 
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+                </div>
+                <div className="col-lg-8">
+                  <div className="p-15 mt-4">
+                    <p className="lead text-muted">Abstract</p>
+
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col text-lg-start">
+                  <Link to={`/publications/${prev}`}>Previous</Link>
+                </div>
+                <div className="col text-lg-end">
+                  <Link to={`/publications/${next}`}>Next</Link>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="row">
-            <div className="col">
-              <Link to={`/publications/${prev}`}>Previous</Link>
-            </div>
-            <div className="col">
-              <Link to={`/publications/${next}`}>Next</Link>
-            </div>
-          </div>
+          </main>
         </div>
-      </main>
+      </section>
     </Layout>
 
   )
@@ -91,20 +93,20 @@ export default PublicationDetail
 
 
 export const query = graphql`
-    query MyQuery($slug: String) {
-      image: markdownRemark(frontmatter: {slug: {eq: $slug}}) {
-        html
+        query MyQuery($slug: String) {
+          image: markdownRemark(frontmatter: {slug: {eq: $slug}}) {
+          html
         frontmatter {
           slug
           title
-          authors
-          img {
-            childImageSharp {
-              gatsbyImageData(
-                width: 200
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+        authors
+        img {
+          childImageSharp {
+          gatsbyImageData(
+            width: 200
+        placeholder: BLURRED
+        formats: [AUTO, WEBP, AVIF]
+        )
             }
           }
         }

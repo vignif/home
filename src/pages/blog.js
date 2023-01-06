@@ -8,32 +8,41 @@ const Blog = ({ data }) => {
   const blog = data.allFile.edges
   console.log(blog)
   return (
-  <Layout>
-    <div className="container my-5 own_container">
-      <div className="container">
-        <h1>Blog</h1>
-        {blog.map(pub => (
-          <div key={pub.id}>
-            <>
-              <div className="">
-                <div className="col-8" style={{ padding: 0 + 'em' }}>
-                  <h3>{pub.node.childMarkdownRemark.frontmatter.title}</h3>
-                  <p>{pub.node.childMarkdownRemark.frontmatter.date}</p>
-                </div>
-                <div className="col-4 text-end">
-                  <Link to={`/blog/${pub.node.childMarkdownRemark.frontmatter.slug}`} className="">More Info
-                  </Link>
-                  <a href={pub.node.childMarkdownRemark.frontmatter.url} className="" target="_blank" rel="noreferrer">Paper</a>
-                </div>
-              </div>
-            </>
+    <Layout>
+
+      <section className="py-5 text-center container own_container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">Blog</h1>
+            <p className="lead text-muted"> Welcome to my page</p>
           </div>
-        ))}
-      </div>
-      <Link to="/">Go back to the homepage</Link>
-    </div>
-  </Layout>
-)}
+        </div>
+        <div className="container own_sub_container">
+          <div className="container">
+            {blog.map(pub => (
+              <div key={pub.id}>
+                <>
+                  <div className="">
+                    <div className="col-8" style={{ padding: 0 + 'em' }}>
+                      <h3>{pub.node.childMarkdownRemark.frontmatter.title}</h3>
+                      <p>{pub.node.childMarkdownRemark.frontmatter.date}</p>
+                    </div>
+                    <div className="col-4 text-end">
+                      <Link to={`/blog/${pub.node.childMarkdownRemark.frontmatter.slug}`} className="">More Info
+                      </Link>
+                      <a href={pub.node.childMarkdownRemark.frontmatter.url} className="" target="_blank" rel="noreferrer">Paper</a>
+                    </div>
+                  </div>
+                </>
+              </div>
+            ))}
+          </div>
+          <Link to="/">Go back to the homepage</Link>
+        </div>
+      </section>
+    </Layout>
+  )
+}
 
 export default Blog
 
