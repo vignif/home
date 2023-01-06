@@ -9,7 +9,7 @@ const Blog = ({ data }) => {
   console.log(blog)
   return (
   <Layout>
-    <div className="container  my-5">
+    <div className="container my-5 own_container">
       <div className="container">
         <h1>Blog</h1>
         {blog.map(pub => (

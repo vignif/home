@@ -6,6 +6,7 @@ url: https://www.icsr2022.it/
 img: images/emotion.png
 tags: ['emotion', 'hri']
 venue: 2022 International Conference on Social Robotics (ICSR)
+authors: ["francesco-vigni", "alessandra-rossi","linda-miccio", "silvia-rossi"]
 ---
 
 Non-anthropomorphic robots have issues in conveying internal state during a Human-Robot Interaction (HRI). A possible approach

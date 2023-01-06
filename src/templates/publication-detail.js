@@ -22,25 +22,36 @@ const PublicationDetail = ({ data, pageContext }) => {
   console.log(pageContext)
   var next = ""
   var prev = ""
-  if(pageContext.prev) {
+  if (pageContext.prev) {
     prev = pageContext.prev.frontmatter.slug
     console.log(prev)
   }
-  if(pageContext.next) {
+  if (pageContext.next) {
     next = pageContext.next.frontmatter.slug
     console.log(next)
   }
-  
+
   const { html } = data.image
   const { title, slug } = data.image.frontmatter
-  // console.log(img.childImageSharp.fluid.src)
-  // const html = "ciaohtml"
-  // console.log(html)
+  const authors = data.image.frontmatter.authors
   const img = getImage(data.image.frontmatter.img)
-  // const next = data.others.edges[0].frontmatter.next.slug
+  console.log(authors)
 
   return (
     <Layout>
+
+
+      <section className="py-5 text-center container own_container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">{title}</h1>
+            <p className="lead text-muted"> {authors}</p>
+          </div>
+        </div>
+
+        <div className="container own_sub_container">
+        </div>
+      </section>
       <main className="spotlight">
         <div className="container my-5">
           <div className="row">
@@ -65,7 +76,7 @@ const PublicationDetail = ({ data, pageContext }) => {
               <Link to={`/publications/${prev}`}>Previous</Link>
             </div>
             <div className="col">
-            <Link to={`/publications/${next}`}>Next</Link>
+              <Link to={`/publications/${next}`}>Next</Link>
             </div>
           </div>
         </div>
@@ -86,6 +97,7 @@ export const query = graphql`
         frontmatter {
           slug
           title
+          authors
           img {
             childImageSharp {
               gatsbyImageData(

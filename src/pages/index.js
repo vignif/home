@@ -24,8 +24,14 @@ const IndexPage = () => (
         </div>
       </div>
       <div className="row">
-        <Link to="/about/" className="btn btn-danger">About</Link>
-        <Link to="/page-2/" className="btn btn-secondary my-2">Go to page 2</Link>
+        <div class="col-md-12">
+          <Link to="/about/" className="btn btn-danger pull-right">About</Link>
+        </div>
+
+        <div class="col-md-12 pull-left">
+          <Link to="/page-2/" className="btn btn-secondary my-2">Go to page 2</Link>
+        </div>
+
       </div>
     </section>
   </Layout>
@@ -34,5 +40,5 @@ const IndexPage = () => (
 export default IndexPage
 
 export const Head = () => (
-    <Seo />
+  <Seo />
 )
