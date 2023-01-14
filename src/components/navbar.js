@@ -12,7 +12,7 @@ const ExactNavLink = props => (
 
 const Navbar = ({ siteTitle }) => {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-md navbar-dark bg-primary container">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand" href="#">{siteTitle}</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"

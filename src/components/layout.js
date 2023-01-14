@@ -15,13 +15,18 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  var year = new Date().getFullYear();
   return (
     <div className="container-fluid p-0">
       <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
       <main>
         {children}
       </main>
+      <footer className="footer mt-auto py-3">
+        <div className="container">
+          <span className="text-muted"> &#169; Francesco Vigni {year} </span>
+          </div>
+      </footer>
     </div>
   )
 }
