@@ -32,7 +32,7 @@ const PublicationDetail = ({ data, pageContext }) => {
   }
 
   const { html } = data.image
-  const { title, slug } = data.image.frontmatter
+  const { title, slug, venue, date, url } = data.image.frontmatter
   const authors = data.image.frontmatter.authors
   const img = getImage(data.image.frontmatter.img)
   console.log(authors)
@@ -48,21 +48,31 @@ const PublicationDetail = ({ data, pageContext }) => {
             <p className="lead text-muted"> {authors}</p>
           </div>
         </div>
-
+        <div className="row">
+        <div class="col-md-12">
+          <hr class="hr-text" data-content="Info"/>
+        </div>
+      </div>
         <div className="container own_sub_container">
 
           <main className="spotlight">
             <div className="container my-5">
               <div className="row">
-                <div className="col-lg-4">
+                <div className="col-lg-3">
                   <GatsbyImage
                     image={img}
                     alt={slug}
-                    className="profilepic"
+                    className="pub_pic"
                   />
 
                 </div>
                 <div className="col-lg-8">
+                  <div className="p-15">
+                    <p>Venue: {venue}</p>
+                    <p>Date: {date}</p>
+                    <p>Link: {url}</p>
+
+                  </div>
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
 
@@ -93,17 +103,19 @@ export default PublicationDetail
 
 
 export const query = graphql`
-        query MyQuery($slug: String) {
+        query PublicationDetailQuery($slug: String) {
           image: markdownRemark(frontmatter: {slug: {eq: $slug}}) {
           html
         frontmatter {
           slug
           title
-        authors
+          venue
+          authors
+          date (formatString: "MMMM DD, YYYY")
         img {
           childImageSharp {
           gatsbyImageData(
-            width: 200
+            width: 400
         placeholder: BLURRED
         formats: [AUTO, WEBP, AVIF]
         )

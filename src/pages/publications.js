@@ -16,7 +16,11 @@ const Publications = ({ data }) => {
             <p className="lead text-muted"> Welcome to my page</p>
           </div>
         </div>
-
+        <div className="row">
+          <div class="col-md-12">
+            <hr class="hr-text" data-content="Conferences" />
+          </div>
+        </div>
         <div className="container own_sub_container">
           {publications.map(pub => (
             console.log(pub.authors),
@@ -33,7 +37,7 @@ const Publications = ({ data }) => {
                         console.log(index),
                         console.log(pub.authors.length),
                         <p key={author.id} className="authors_list">
-                          
+
                           {/* // put a comma between authors_list */}
                           {index > 0 && index < pub.authors.length - 1 && ", "}
                           {index > 0 && index === pub.authors.length - 1 && " and "}
@@ -84,4 +88,3 @@ query GetPublications {
       }
     }
 }
-`

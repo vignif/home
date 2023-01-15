@@ -7,7 +7,6 @@
 // You can delete this file if you're not using it
 
 const path = require('path')
-const { nextTick } = require('process')
 
 exports.createPages = async ({ graphql, actions }) => {
     const { data } = await graphql(`

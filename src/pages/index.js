@@ -23,6 +23,14 @@ const IndexPage = () => (
 
         </div>
       </div>
+
+      <div className="row">
+        <div class="col-md-12">
+          <hr class="hr-text" data-content="Highlights"/>
+        </div>
+      </div>
+      <b>PUT THE VIDEOS HERE</b>
+
       <div className="row">
         <div class="col-md-12">
           <hr class="hr-text" data-content="News"/>
