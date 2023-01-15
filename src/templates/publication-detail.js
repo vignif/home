@@ -5,19 +5,19 @@ import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 
 const PublicationDetail = ({ data, pageContext }) => {
-  console.log(data)
+  // console.log(data)
   const pub = data.publication
   // console.log(pageContext)
   var next = ""
   var prev = ""
-  if (pageContext.prev) {
-    prev = pageContext.prev.slug
-    console.log(prev)
+  if (pageContext.previous) {
+    prev = pageContext.previous.slug
   }
   if (pageContext.next) {
     next = pageContext.next.slug
-    console.log(next)
   }
+  console.log("prev", prev)
+  console.log("next", next)
   const { title, slug, venue, date, url, abstract } = pub
   const authors = pub.authors
   const img = getImage(pub.img)
@@ -32,9 +32,6 @@ const PublicationDetail = ({ data, pageContext }) => {
             <h1 className="fw-light">{title}</h1>
             {
               authors.map((author, index) => (
-                console.log(author),
-                console.log(index),
-                console.log(pub.authors.length),
                 <p key={author.id} className="authors_list">
 
                   {/* // put a comma between authors_list */}
@@ -80,10 +77,10 @@ const PublicationDetail = ({ data, pageContext }) => {
 
               <div className="row">
                 <div className="col text-lg-start">
-                  <Link to={`/publications/${prev}`}>Previous</Link>
+                  {prev && <Link to={`/publications/${prev}`}>Previous</Link>}
                 </div>
                 <div className="col text-lg-end">
-                  <Link to={`/publications/${next}`}>Next</Link>
+                  {next && <Link to={`/publications/${next}`}>next</Link>}
                 </div>
               </div>
             </div>
