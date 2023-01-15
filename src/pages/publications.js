@@ -41,7 +41,7 @@ const Publications = ({ data }) => {
                           {/* // put a comma between authors_list */}
                           {index > 0 && index < pub.authors.length - 1 && ", "}
                           {index > 0 && index === pub.authors.length - 1 && " and "}
-                          <p className="authors_list">{author.name} {author.surname}</p>
+                          <p className="authors_list">{author.name} <a href={author.web}>{author.surname}</a></p>
                         </p>
                       ))}
                   </div>
@@ -86,6 +86,7 @@ query GetPublications {
         slug
         tags
         title
+        url
       }
     }
 }`

@@ -24,8 +24,6 @@ const PublicationDetail = ({ data, pageContext }) => {
   
   return (
     <Layout>
-
-
       <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
@@ -33,8 +31,6 @@ const PublicationDetail = ({ data, pageContext }) => {
             {
               authors.map((author, index) => (
                 <p key={author.id} className="authors_list">
-
-                  {/* // put a comma between authors_list */}
                   {index > 0 && index < pub.authors.length - 1 && ", "}
                   {index > 0 && index === pub.authors.length - 1 && " and "}
                   <p className="authors_list">{author.name} {author.surname}</p>
@@ -64,7 +60,8 @@ const PublicationDetail = ({ data, pageContext }) => {
                   <div className="p-15">
                     <p>Venue: {venue}</p>
                     <p>Date: {date}</p>
-                    <p>Link: {url}</p>
+                    {/* <p>Link: {url}</p> */}
+                    <p>Link: <a href={url} target="_blank" rel="noreferrer">{url}</a></p>
 
                   </div>
                   <div className="p-15 mt-4">
@@ -102,6 +99,7 @@ query CreatePublicationPage($slug: String) {
     title
     slug
     venue
+    url
     abstract
     authors {
       slug
