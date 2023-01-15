@@ -4,39 +4,24 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 
-// export function Product({ pageContext }) {
-//   const { product } = pageContext
-//   console.log(product)
-//   return (
-//     <div>
-//       Name: {product.name}
-//       Price: {product.p
-// import * as styles from '../styles/pub.module.css'
-//       Description: {product.description}
-//     </div>
-//   )
-// }
-
 const PublicationDetail = ({ data, pageContext }) => {
   console.log(data)
-  console.log(pageContext)
+  const pub = data.publication
+  // console.log(pageContext)
   var next = ""
   var prev = ""
   if (pageContext.prev) {
-    prev = pageContext.prev.frontmatter.slug
+    prev = pageContext.prev.slug
     console.log(prev)
   }
   if (pageContext.next) {
-    next = pageContext.next.frontmatter.slug
+    next = pageContext.next.slug
     console.log(next)
   }
-
-  const { html } = data.image
-  const { title, slug, venue, date, url } = data.image.frontmatter
-  const authors = data.image.frontmatter.authors
-  const img = getImage(data.image.frontmatter.img)
-  console.log(authors)
-
+  const { title, slug, venue, date, url, abstract } = pub
+  const authors = pub.authors
+  const img = getImage(pub.img)
+  
   return (
     <Layout>
 
@@ -45,14 +30,26 @@ const PublicationDetail = ({ data, pageContext }) => {
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">{title}</h1>
-            <p className="lead text-muted"> {authors}</p>
+            {
+              authors.map((author, index) => (
+                console.log(author),
+                console.log(index),
+                console.log(pub.authors.length),
+                <p key={author.id} className="authors_list">
+
+                  {/* // put a comma between authors_list */}
+                  {index > 0 && index < pub.authors.length - 1 && ", "}
+                  {index > 0 && index === pub.authors.length - 1 && " and "}
+                  <p className="authors_list">{author.name} {author.surname}</p>
+                </p>
+              ))}
           </div>
         </div>
         <div className="row">
-        <div class="col-md-12">
-          <hr class="hr-text" data-content="Info"/>
+          <div class="col-md-12">
+            <hr class="hr-text" data-content="Info" />
+          </div>
         </div>
-      </div>
         <div className="container own_sub_container">
 
           <main className="spotlight">
@@ -76,7 +73,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
 
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    <div dangerouslySetInnerHTML={{ __html: abstract }} />
                   </div>
                 </div>
               </div>
@@ -103,24 +100,22 @@ export default PublicationDetail
 
 
 export const query = graphql`
-        query PublicationDetailQuery($slug: String) {
-          image: markdownRemark(frontmatter: {slug: {eq: $slug}}) {
-          html
-        frontmatter {
-          slug
-          title
-          venue
-          authors
-          date (formatString: "MMMM DD, YYYY")
-        img {
-          childImageSharp {
-          gatsbyImageData(
-            width: 400
-        placeholder: BLURRED
-        formats: [AUTO, WEBP, AVIF]
-        )
-            }
-          }
-        }
-        }
-    }`
+query CreatePublicationPage($slug: String) {
+  publication: publicationsJson(slug: {eq: $slug}) {
+    title
+    slug
+    venue
+    abstract
+    authors {
+      slug
+      name
+      surname
+    }
+    date(formatString: "MMMM DD, YYYY")
+    img {
+      childImageSharp {
+        gatsbyImageData(width: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+      }
+    }
+  }
+}`
