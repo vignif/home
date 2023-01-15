@@ -87,4 +87,4 @@ query GetPublications {
         title
       }
     }
-}
+}`
