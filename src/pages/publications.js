@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import { Seo } from "../components/seo"
 
 const Publications = ({ data }) => {
-  const publications = data.allFile.edges
+  const publications = data.allPublicationsJson.nodes
   return (
     <Layout>
 
@@ -19,21 +19,32 @@ const Publications = ({ data }) => {
 
         <div className="container own_sub_container">
           {publications.map(pub => (
-            console.log(pub),
+            console.log(pub.authors),
             <div key={pub.id}>
               <>
                 <div className="row">
                   <div className="col-8" style={{ padding: 0 + 'em' }}>
-                    <h5>{pub.node.childMarkdownRemark.frontmatter.title}</h5>
-                    <p>{pub.node.childMarkdownRemark.frontmatter.date}</p>
-                    <p>{pub.node.childMarkdownRemark.frontmatter.authors}</p>
+                    <h5>{pub.title}</h5>
+                    <p>{pub.date}</p>
+
+                    {
+                      pub.authors.map((author, index) => (
+                        console.log(author),
+                        console.log(index),
+                        console.log(pub.authors.length),
+                        <p key={author.id} className="authors_list">
+                          
+                          {/* // put a comma between authors_list */}
+                          {index > 0 && index < pub.authors.length - 1 && ", "}
+                          {index > 0 && index === pub.authors.length - 1 && " and "}
+                          <p className="authors_list">{author.name} {author.surname}</p>
+                        </p>
+                      ))}
                   </div>
                   <div className="col-4 text-end">
-                    <Link to={`/publications/${pub.node.childMarkdownRemark.frontmatter.slug}`} className="btn btn-link">More Info
+                    <Link to={`/publications/${pub.slug}`} className="btn btn-link">More Info
                     </Link>
-
-
-                    <a href={pub.node.childMarkdownRemark.frontmatter.url} className="btn btn-link" target="_blank" rel="noreferrer">Paper</a>
+                    <a href={pub.url} className="btn btn-link" target="_blank" rel="noreferrer">Paper</a>
                   </div>
                 </div>
               </>
@@ -55,25 +66,22 @@ export const Head = () => (
 
 // export page query
 export const query = graphql`
-query MyQuery {
-  allFile(
-    filter: {sourceInstanceName: {eq: "publications"}, relativeDirectory: {in: ""}}
-    sort: {childrenMarkdownRemark: {frontmatter: {date: ASC}}}
-  ) {
-    edges {
-      node {
-        sourceInstanceName
-        childMarkdownRemark {
-          frontmatter {
-            slug
-            title
-            date(formatString: "DD/MM/yyyy")
-            tags
-            url
-          }
+query GetPublications {
+  allPublicationsJson (sort: {date: ASC}) {
+      nodes {
+        id
+        authors{
+          id
+          name
+          surname
+          web
+          slug
         }
+        abstract
+        slug
+        tags
+        title
       }
     }
-  }
 }
 `

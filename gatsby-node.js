@@ -46,3 +46,12 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
 }
+// link PersonsJson.slug to PublicationsJson.authors
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions;
+    createTypes(`
+      type PublicationsJson implements Node @infer { 
+        authors: [PersonsJson] @link(by: "slug", from: "authors")
+      }
+    `);
+  };

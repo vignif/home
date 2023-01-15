@@ -37,6 +37,7 @@ module.exports = {
     },
     `gatsby-plugin-gatsby-cloud`,
     `gatsby-transformer-remark`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -55,8 +56,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `publications`,
+        path: `${__dirname}/data/publications.json`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `publications_md`,
         path: `${__dirname}/data/publications/`,
       },
-    }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `persons`,
+        path: `${__dirname}/data/persons.json`,
+      },
+    },
   ],
 }
