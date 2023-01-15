@@ -4,7 +4,7 @@
         "date": "2022-12-16",
         "slug": "icsr-approach",
         "url": "https://www.icsr2022.it/",
-        "img": "images/approach.png",
+        "img": "./publications/images/approach.png",
         "tags": [
                 "approaching",
                 "gaze",
@@ -22,7 +22,7 @@
         "date": "2022-12-16",
         "slug": "icsr-emotions",
         "url": "https://www.icsr2022.it/",
-        "img": "images/emotion.png",
+        "img": "./publications/images/emotion.png",
         "tags": [
                 "emotion",
                 "hri"
@@ -42,7 +42,7 @@
         "date": "2019-01-16",
         "slug": "icra-handshake",
         "url": "https://ieeexplore.ieee.org/document/8793490",
-        "img": "images/hand.png",
+        "img": "./publications/images/hand.png",
         "tags": [
                 "handshake",
                 "icra"
@@ -61,7 +61,7 @@
         "date": "2022-08-31",
         "slug": "roman-roomba",
         "url": "https://ieeexplore.ieee.org/document/9900699",
-        "img": "images/roomba.png",
+        "img": "./publications/images/roomba.png",
         "tags": [
                 "acustic cues",
                 "roman"
