@@ -6,6 +6,24 @@
       "web": "francescovigni.com"
     },
     {
+      "name": "Espen",
+      "surname": "Knoop",
+      "slug": "espen-knopp",
+      "web": "espenknoop.com"
+    },
+    {
+      "name": "Domenico",
+      "surname": "Prattichizzo",
+      "slug": "domenico-prattichizzo",
+      "web": "domenicoprattichizzo.com"
+    },
+    {
+      "name": "Monica",
+      "surname": "Malvezzi",
+      "slug": "monica-malvezzi",
+      "web": "monicamalvezzi.com"
+    },
+    {
         "name": "Linda",
         "surname": "Miccio",
         "slug": "linda-miccio",
@@ -21,6 +39,24 @@
       "name": "Alessandra",
       "surname": "Rossi",
       "slug": "alessandra-rossi",
+      "web": "link"
+    },
+    {
+      "name": "Georgios",
+      "surname": "Angelopoulos",
+      "slug": "georgios-angelopoulos",
+      "web": "link"
+    },
+    {
+      "name": "Giuseppina",
+      "surname": "Russo",
+      "slug": "giuseppina-russo",
+      "web": "link"
+    },
+    {
+      "name": "Mario",
+      "surname": "Turco",
+      "slug": "mario-turco",
       "web": "link"
     }
   ]

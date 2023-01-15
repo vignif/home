@@ -13,7 +13,7 @@ const Publications = ({ data }) => {
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">Publications</h1>
-            <p className="lead text-muted"> Welcome to my page</p>
+            <p className="lead text-muted">Stand on the shoulders of giants</p>
           </div>
         </div>
         <div className="row">
@@ -51,6 +51,7 @@ const Publications = ({ data }) => {
                     <a href={pub.url} className="btn btn-link" target="_blank" rel="noreferrer">Paper</a>
                   </div>
                 </div>
+                <hr />
               </>
             </div>
           ))}
@@ -71,7 +72,7 @@ export const Head = () => (
 // export page query
 export const query = graphql`
 query GetPublications {
-  allPublicationsJson (sort: {date: ASC}) {
+  allPublicationsJson (sort: {date: DESC}) {
       nodes {
         id
         authors{
