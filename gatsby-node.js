@@ -11,7 +11,7 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
     const { data } = await graphql(`
         query PubPage {
-            allPublicationsJson(sort: {date: ASC}) {
+            allPublicationsJson(sort: {date: DESC}) {
                 edges {
                 node {
                     slug
