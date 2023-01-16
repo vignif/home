@@ -62,13 +62,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `publications_md`,
-        path: `${__dirname}/data/publications/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `persons`,
         path: `${__dirname}/data/persons.json`,
       },
