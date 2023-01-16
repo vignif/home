@@ -26,7 +26,7 @@ const PublicationDetail = ({ data, pageContext }) => {
     <Layout>
       <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
-          <div className="col-lg-6 col-md-8 mx-auto">
+          <div className="col-md-8 mx-auto">
             <h1 className="fw-light">{title}</h1>
             {
               authors.map((author, index) => (
