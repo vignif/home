@@ -8,7 +8,7 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
-import mapVideo from "../../data/videos/output.mp4"
+import mapVideo from "../../data/videos/map.mp4"
 
 const AboutPage = () => {
   const { social } = useSiteMetadata()
