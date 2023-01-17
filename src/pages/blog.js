@@ -30,7 +30,6 @@ const Blog = ({ data }) => {
                     <div className="col-4 text-end">
                       <Link to={`/blog/${pub.node.childMarkdownRemark.frontmatter.slug}`} className="">More Info
                       </Link>
-                      <a href={pub.node.childMarkdownRemark.frontmatter.url} className="" target="_blank" rel="noreferrer">Paper</a>
                     </div>
                   </div>
                 </>
