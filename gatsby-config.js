@@ -3,6 +3,11 @@ module.exports = {
     title: `Francesco Vigni`,
     description: `Francesco Vigni's personal website`,
     author: `@francescovigni`,
+    social: {
+      twitter: `https://twitter.com/superdado_5`,
+      github: `https://github.com/vignif`,
+      linkedin: `https://www.linkedin.com/in/francesco-vigni/`
+    },
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -50,6 +55,13 @@ module.exports = {
       options: {
         name: `blog`,
         path: `${__dirname}/data/blog/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `news`,
+        path: `${__dirname}/data/news/`,
       },
     },
     {
