@@ -84,6 +84,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
 
+        {/* NEWS SECTION */}
         <div className="row">
           <div className="col-md-12">
             <hr className="hr-text" data-content="News" />
@@ -92,16 +93,16 @@ const IndexPage = ({ data }) => {
 
         {news.map((node) => (
           <>
-          <div className="row" key={node.uniqueId}>
-            <div className="col-sm-2 own_sub_container">
-              <p className="own_date">{node.childMarkdownRemark.frontmatter.date}</p>
-            </div>
+            <div className="row" key={node.uniqueId}>
+              <div className="col-sm-2 own_sub_container">
+                <p className="own_date">{node.childMarkdownRemark.frontmatter.date}</p>
+              </div>
 
-            <div className="col-md-10">
-              <div className="justify" dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }} />
+              <div className="col-md-10">
+                <div className="justify" dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }} />
+              </div>
             </div>
-          </div>
-          </> 
+          </>
         ))}
         <div className="row">
           <div className="col-md-12">
@@ -115,7 +116,7 @@ const IndexPage = ({ data }) => {
             <hr className="hr-text" data-content="Training" />
           </div>
         </div>
-
+        {/* SOCIAL ICONS */}
         <div className="row justify-content-center">
           <div className="col-md-1">
             <a href={social.github} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">

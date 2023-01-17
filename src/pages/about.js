@@ -8,36 +8,46 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
+import mapVideo from "../../data/videos/output.mp4"
+
 const AboutPage = () => {
   const { social } = useSiteMetadata()
-  
+
   return (
 
-  <Layout>
-    <section className="py-5 text-center container own_container">
-      <div className="row py-lg-5">
-        <div className="col-lg-6 col-md-8 mx-auto">
-          <h1 className="fw-light">About Me</h1>
-          <p className="lead text-muted"> Welcome to my page</p>
+    <Layout>
+      <section className="py-5 text-center container own_container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">About me</h1>
+            {/* <p className="lead text-muted">A curious dude</p> */}
+          </div>
+        </div>
+        <div className="row">
+          <div class="col-md-12">
+            <hr class="hr-text" data-content="" />
+          </div>
         </div>
 
-        <div className="container my-5 own_sub_container">
+        <div className="container my-2 own_sub_container">
 
           <div className="container">
-            <h1 className="fw-light">What you need to know</h1>
-            <p>
-              <ul>
-                <li>Bootstrap 5 support with SASS</li>
-                <li>Customize theme via <span className="font-monospace ">layout.scss</span></li>
-                <li>If any issue report to <a href="https://github.com/r-ichard/gatsby-starter-bootstrap-5" target="_blank" rel="noopener noreferrer">Github Repo</a></li>
-              </ul>
-            </p>
-            <p>Created by <a href="https://github.com/r-ichard" target="_blank" rel="noopener noreferrer">Richard Raduly</a></p>
+            <div className="row justify-content-around">
+              <div className="col-md-6">
+                <video className="embed-responsive embed-responsive-16by9 about-video img-fluid" controls={false} muted={true} autoPlay={true} loop={false}>
+                  <source className="embed-responsive-item" src={mapVideo} type="video/mp4" />
+                </video>
+                <p className="lead text-muted">Some of my important spots.</p>
+              </div>
+              <div className="col-md-6">
+                <h5>Contacts</h5>
+                <p className="">Hi! I'm always looking for persons that share my same interests and want to collaborate or build cool stuff!</p>
+                <p className="">If this resonates with you feel free to email me @</p>
+              </div>
+            </div>
           </div>
-          <Link to="/">Go back to the homepage</Link>
         </div>
-      </div>
-      <div className="row justify-content-center">
+        <div className="row justify-content-center">
           <div className="col-md-1">
             <a href={social.github} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
               <FontAwesomeIcon icon={faGithub} size="2x" />
@@ -54,10 +64,10 @@ const AboutPage = () => {
             </a>
           </div>
         </div>
-    </section>
+      </section>
 
-  </Layout>
-)
+    </Layout>
+  )
 }
 
 export default AboutPage
