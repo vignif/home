@@ -77,7 +77,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                   {prev && <Link to={`/publications/${prev}`}>Previous</Link>}
                 </div>
                 <div className="col text-lg-end">
-                  {next && <Link to={`/publications/${next}`}>next</Link>}
+                  {next && <Link to={`/publications/${next}`}>Next</Link>}
                 </div>
               </div>
             </div>
