@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import { Seo } from "../components/seo"
+import Layout from "../../components/layout"
+import { Seo } from "../../components/seo"
 
 const Blog = ({ data }) => {
   console.log(data)
@@ -42,7 +42,7 @@ const Blog = ({ data }) => {
                         </div>
 
                         <div className="col-md-2 text-center">                          
-                          <Link to={`/blog/${pub.node.childMarkdownRemark.frontmatter.slug}`} className="btn btn-link">Read
+                          <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-link">Read
                           </Link>
                         </div>
                       </div>
@@ -79,8 +79,10 @@ query MyQuery {
       node {
         sourceInstanceName
         childMarkdownRemark {
-          frontmatter {
+          fields{
             slug
+          }
+          frontmatter {
             title
             date(formatString: "DD MMM, YYYY")
             tags

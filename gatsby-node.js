@@ -8,6 +8,20 @@
 
 const path = require('path')
 
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+    const { createNodeField } = actions
+    if (node.internal.type === `MarkdownRemark`) {
+        const slug = createFilePath({ node, getNode, basePath: `pages` })
+        createNodeField({
+            node,
+            name: `slug`,
+            value: slug,
+        })
+    }
+}
+
 exports.createPages = async ({ graphql, actions }) => {
     const { data } = await graphql(`
         query PubPage {
@@ -39,6 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
 }
+
 // link PersonsJson.slug to PublicationsJson.authors
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions;
