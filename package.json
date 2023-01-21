@@ -28,6 +28,7 @@
     "sass": "1.49.11"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "prettier": "2.5.1"
   },
   "keywords": [
@@ -38,6 +39,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
