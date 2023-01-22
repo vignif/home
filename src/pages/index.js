@@ -4,7 +4,6 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
-import Video from "../components/video"
 import { graphql } from "gatsby"
 
 import { useSiteMetadata } from "../hooks/use-site-metadata"
@@ -29,7 +28,7 @@ const IndexPage = ({ data }) => {
         <div className="row py-lg-5">
           <div className="col-sm-8  mx-auto">
             <h1 className="fw-light">Francesco Vigni</h1>
-            <p className="lead text-muted"> Ciao!</p>
+            <p className="lead text-muted">Ciao!</p>
             <p className="justify">
               I am a PhD student at the University of Naples Federico II, Italy where I study how robots can learn to interact in a human-like way.
               Here I collect some of my achievements as well as some of my hobbies.
