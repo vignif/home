@@ -36,13 +36,13 @@ const Publications = ({ data }) => {
                         console.log(author),
                         console.log(index),
                         console.log(pub.authors.length),
-                        <p key={author.id} className="authors_list">
+                        <div key={author.id} className="authors_list">
 
                           {/* // put a comma between authors_list */}
                           {index > 0 && index < pub.authors.length - 1 && ", "}
                           {index > 0 && index === pub.authors.length - 1 && " and "}
                           <p className="authors_list">{author.name} <a href={author.web}>{author.surname}</a></p>
-                        </p>
+                        </div>
                       ))}
                   </div>
                   <div className="col-4 text-end">
