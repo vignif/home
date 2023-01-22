@@ -39,8 +39,8 @@ const PublicationDetail = ({ data, pageContext }) => {
           </div>
         </div>
         <div className="row">
-          <div class="col-md-12">
-            <hr class="hr-text" data-content="Info" />
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="Info" />
           </div>
         </div>
         <div className="container own_sub_container">

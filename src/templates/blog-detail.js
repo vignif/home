@@ -51,7 +51,7 @@ const BlogDetail = ({ props, data, pageContext }) => {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <hr className="hr-text" data-content="" />
+            <hr className="hr-text" data-content={date} />
           </div>
         </div>
         <div className="container own_sub_container">
@@ -59,25 +59,8 @@ const BlogDetail = ({ props, data, pageContext }) => {
           <main className="spotlight">
             <div className="container my-5">
               <div className="row">
-                <div className="col-lg-3">
-                  {/* <GatsbyImage
-                    image={img}
-                    alt={slug}
-                    className="pub_pic"
-                  /> */}
-
-                </div>
-                <div className="col-lg-8">
-                  <div className="p-15">
-                    {/* <p>Venue: {venue}</p> */}
-                    <p>Date: {date}</p>
-                    {/* <p>Link: {url}</p> */}
-                    {/* <p>Link: <a href={url} target="_blank" rel="noreferrer">{url}</a></p> */}
-
-                  </div>
+                <div className="col-lg-8 mx-auto">
                   <div className="p-15 mt-4">
-                    <p className="lead text-muted">Abstract</p>
-
                     <div dangerouslySetInnerHTML={{ __html: content }} />
                   </div>
                 </div>

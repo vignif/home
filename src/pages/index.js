@@ -113,7 +113,7 @@ const IndexPage = ({ data }) => {
 
         <div className="row">
           <div className="col-md-12">
-            <hr className="hr-text" data-content="Training" />
+            <hr className="hr-text" data-content="Socials" />
           </div>
         </div>
         {/* SOCIAL ICONS */}

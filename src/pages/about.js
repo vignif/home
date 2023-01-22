@@ -47,6 +47,11 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="Socials" />
+          </div>
+        </div>
         <div className="row justify-content-center">
           <div className="col-md-1">
             <a href={social.github} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
