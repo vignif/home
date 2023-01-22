@@ -9,8 +9,7 @@ date: 2023-01-01
 For long time, I have been using frameworks like Wordpress in order to set up my own website.
 Recently I learned about gatsby and I decided to give it a try.
 
-I designed this theme from scratch using bootstrap and I am really happy with the result.
-
+I designed this website starting from @r-ichard/gatsby-starter-bootstrap-5 and I customized it as I wanted.
 The flexibility of gatsby is amazing, I can easily add new pages and posts and I can also customize the theme as I want.
 
 <ul>
