@@ -55,8 +55,42 @@ exports.createPages = ({ graphql, actions }) => {
         });
     })
 
-    
-    return Promise.all([publications])
+    const blogs = graphql(`
+        query QueryBlogs {
+            allFile(
+                filter: {sourceInstanceName: {eq: "blog"}}
+                sort: {childrenMarkdownRemark: {frontmatter: {date: DESC}}}) 
+            {
+            edges {
+            node {
+                childMarkdownRemark {
+                fields { slug }
+                }}
+            next {
+                childMarkdownRemark {
+                fields { slug }
+                }}
+            previous{
+                childMarkdownRemark {
+                fields { slug }
+                }}
+            }}
+        }
+      `).then(result => {
+        result.data.allFile.edges.forEach(({ node, next, previous }) => {
+            createPage({
+                path: '/blog' + node.childMarkdownRemark.fields.slug,
+                component: path.resolve('./src/templates/blog-detail.js'),
+                context: {
+                    slug: node.childMarkdownRemark.fields.slug,
+                    next: next,
+                    previous: previous
+                },
+            });
+        });
+    })
+
+    return Promise.all([publications, blogs])
 };
 
 // link PersonsJson.slug to PublicationsJson.authors
