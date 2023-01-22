@@ -7,7 +7,8 @@ module.exports = {
     social: {
       twitter: `https://twitter.com/superdado_5`,
       github: `https://github.com/vignif`,
-      linkedin: `https://www.linkedin.com/in/francesco-vigni/`
+      linkedin: `https://www.linkedin.com/in/francesco-vigni/`,
+      google: `https://scholar.google.com/citations?user=ksO3xN0AAAAJ&hl=en`
     },
   },
   plugins: [
@@ -15,6 +16,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-gatsby-cloud`,
+    `gatsby-plugin-mdx`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-json`,
     {

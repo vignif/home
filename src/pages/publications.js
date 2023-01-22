@@ -87,6 +87,7 @@ query GetPublications {
         tags
         title
         url
+        venue
       }
     }
 }`

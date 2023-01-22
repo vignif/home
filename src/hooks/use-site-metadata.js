@@ -12,6 +12,7 @@ export const useSiteMetadata = () => {
               twitter
               github
               linkedin
+              google
             }
           }
       }
