@@ -85,8 +85,7 @@ query MyQuery {
           frontmatter {
             title
             date(formatString: "DD MMM, YYYY")
-            tags
-            url
+
           }
         }
       }
