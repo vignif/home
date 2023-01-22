@@ -17,8 +17,8 @@ const Publications = ({ data }) => {
           </div>
         </div>
         <div className="row">
-          <div class="col-md-12">
-            <hr class="hr-text" data-content="Conferences" />
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="Conferences" />
           </div>
         </div>
         <div className="container own_sub_container">

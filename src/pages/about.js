@@ -24,8 +24,8 @@ const AboutPage = () => {
           </div>
         </div>
         <div className="row">
-          <div class="col-md-12">
-            <hr class="hr-text" data-content="" />
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="" />
           </div>
         </div>
 
