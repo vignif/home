@@ -10,7 +10,7 @@ import { graphql } from "gatsby"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 import handVideo from "../../data/videos/hand.mp4"
 import handShakeVideo from "../../data/videos/handshake.mp4"
@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => {
   const { social } = useSiteMetadata()
   console.log(social)
   const news = data.allFile.nodes;
-  // console.log(news);
+  console.log(news);
   return (
     <Layout>
       <section className="py-5 text-center container own_container">
@@ -92,8 +92,8 @@ const IndexPage = ({ data }) => {
         </div>
 
         {news.map((node) => (
-          <>
-            <div className="row" key={node.uniqueId}>
+          <div key={node.id} className="row">
+            <>
               <div className="col-sm-2 own_sub_container">
                 <p className="own_date">{node.childMarkdownRemark.frontmatter.date}</p>
               </div>
@@ -101,8 +101,8 @@ const IndexPage = ({ data }) => {
               <div className="col-md-10">
                 <div className="justify" dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }} />
               </div>
-            </div>
-          </>
+            </>
+          </div>
         ))}
         <div className="row">
           <div className="col-md-12">
@@ -118,6 +118,11 @@ const IndexPage = ({ data }) => {
         </div>
         {/* SOCIAL ICONS */}
         <div className="row justify-content-center">
+          <div className="col-md-1">
+            <a href={social.google} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
+              <FontAwesomeIcon icon={faGoogle} size="2x" />
+            </a>
+          </div>
           <div className="col-md-1">
             <a href={social.github} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
               <FontAwesomeIcon icon={faGithub} size="2x" />
@@ -155,6 +160,7 @@ query MyQuery {
   )
   {
     nodes {
+      id
       childMarkdownRemark {
         frontmatter {
           date(formatString: "DD MMM, YYYY")
