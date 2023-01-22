@@ -1,7 +1,7 @@
 ---
 title: Ciao
 slug: ciao
-date: 2022-12-09
+date: 2023-01-01
 ---
 
 <H2>This is my first post on gatsby</H2>
