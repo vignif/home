@@ -77,6 +77,7 @@ query MyQuery {
   ) {
     edges {
       node {
+        id
         sourceInstanceName
         childMarkdownRemark {
           fields{
