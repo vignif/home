@@ -22,37 +22,42 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 }
 
-exports.createPages = async ({ graphql, actions }) => {
-    const { data } = await graphql(`
-        query PubPage {
-            allPublicationsJson(sort: {date: DESC}) {
-                edges {
-                node {
-                    slug
-                }
-                next {
-                    slug
-                }
-                previous {
-                    slug
-                }
-                }
-            }
-        }
-    `)
-    data.allPublicationsJson.edges.forEach(edge => {
-        actions.createPage({
-            path: '/publications/' + edge.node.slug,
-            component: path.resolve('./src/templates/publication-detail.js'),
-            context: {
-                slug: edge.node.slug,
-                next: edge.next,
-                previous: edge.previous
-            },
-        })
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions;
+
+    const publications = graphql(`
+          query PubPage {
+              allPublicationsJson(sort: {date: DESC}) {
+                  edges {
+                  node {
+                      slug
+                  }
+                  next {
+                      slug
+                  }
+                  previous {
+                      slug
+                  }
+                  }
+              }
+          }
+      `).then(result => {
+        result.data.allPublicationsJson.edges.forEach(({ node, next, previous }) => {
+            createPage({
+                path: '/publications/' + node.slug,
+                component: path.resolve('./src/templates/publication-detail.js'),
+                context: {
+                    slug: node.slug,
+                    next: next,
+                    previous: previous
+                },
+            });
+        });
     })
 
-}
+    
+    return Promise.all([publications])
+};
 
 // link PersonsJson.slug to PublicationsJson.authors
 exports.createSchemaCustomization = ({ actions }) => {
@@ -62,4 +67,4 @@ exports.createSchemaCustomization = ({ actions }) => {
         authors: [PersonsJson] @link(by: "slug", from: "authors")
       }
     `);
-  };
+};
