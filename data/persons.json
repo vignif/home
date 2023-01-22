@@ -8,55 +8,51 @@
     {
       "name": "Espen",
       "surname": "Knoop",
-      "slug": "espen-knopp",
-      "web": "espenknoop.com"
+      "slug": "espen-knopp"
     },
     {
       "name": "Domenico",
       "surname": "Prattichizzo",
       "slug": "domenico-prattichizzo",
-      "web": "domenicoprattichizzo.com"
+      "web": "https://scholar.google.com/citations?hl=en&user=mMjWcPAAAAAJ"
     },
     {
       "name": "Monica",
       "surname": "Malvezzi",
       "slug": "monica-malvezzi",
-      "web": "monicamalvezzi.com"
+      "web": "https://scholar.google.com/citations?user=M0NWWgcAAAAJ&hl=en"
     },
     {
         "name": "Linda",
         "surname": "Miccio",
-        "slug": "linda-miccio",
-        "web": "alink.com"
+        "slug": "linda-miccio"
     },
     {
         "name": "Silvia",
         "surname": "Rossi",
         "slug": "silvia-rossi",
-        "web": "silviarossi.com"
+        "web": "https://scholar.google.com/citations?user=Q_F1-QIAAAAJ&hl=en&oi=ao"
     },
     {
       "name": "Alessandra",
       "surname": "Rossi",
       "slug": "alessandra-rossi",
-      "web": "link"
+      "web": "https://scholar.google.com/citations?hl=en&user=ETBNEJ0AAAAJ"
     },
     {
       "name": "Georgios",
       "surname": "Angelopoulos",
       "slug": "georgios-angelopoulos",
-      "web": "link"
+      "web": "https://scholar.google.com/citations?hl=en&user=C2jDeBkAAAAJ"
     },
     {
       "name": "Giuseppina",
       "surname": "Russo",
-      "slug": "giuseppina-russo",
-      "web": "link"
+      "slug": "giuseppina-russo"
     },
     {
       "name": "Mario",
       "surname": "Turco",
-      "slug": "mario-turco",
-      "web": "link"
+      "slug": "mario-turco"
     }
   ]
