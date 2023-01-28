@@ -78,5 +78,5 @@ const AboutPage = () => {
 export default AboutPage
 
 export const Head = () => (
-  <Seo title="About Gatsby Bootsrap 5 starter" />
+  <Seo title="About me" />
 )
