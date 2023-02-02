@@ -117,23 +117,23 @@ const IndexPage = ({ data }) => {
         </div>
         {/* SOCIAL ICONS */}
         <div className="row justify-content-center">
-          <div className="col-md-1">
-            <a href={social.google} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
+          <div className="col-1 mx-1">
+            <a href={social.google} target="_blank" rel="noreferrer" className="">
               <FontAwesomeIcon icon={faGoogle} size="2x" />
             </a>
           </div>
-          <div className="col-md-1">
-            <a href={social.github} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
+          <div className="col-1 mx-1">
+            <a href={social.github} target="_blank" rel="noreferrer" className="">
               <FontAwesomeIcon icon={faGithub} size="2x" />
             </a>
           </div>
-          <div className="col-md-1">
-            <a href={social.twitter} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
+          <div className="col-1 mx-1">
+            <a href={social.twitter} target="_blank" rel="noreferrer" className="">
               <FontAwesomeIcon icon={faTwitter} size="2x" />
             </a>
           </div>
-          <div className="col-md-1">
-            <a href={social.linkedin} target="_blank" rel="noreferrer" className="col-sm-2 mx-auto">
+          <div className="col-1 mx-1">
+            <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
               <FontAwesomeIcon icon={faLinkedin} size="2x" />
             </a>
           </div>
