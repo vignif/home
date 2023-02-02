@@ -1,9 +1,9 @@
 [
     {
         "title": "Exploring Non-Verbal Strategies for Initiating an HRI",
-        "date": "2022-12-16",
+        "date": "2023-02-01",
         "slug": "icsr-approach",
-        "url": "https://www.icsr2022.it/",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_25",
         "img": "./images/publications/approach.png",
         "tags": [
                 "approaching",
@@ -19,9 +19,9 @@
     },
     {
         "title": "On The Emotional Transparency of a Non-Humanoid Social Robot",
-        "date": "2022-12-16",
+        "date": "2023-02-01",
         "slug": "icsr-emotions",
-        "url": "https://www.icsr2022.it/",
+        "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_26",
         "img": "./images/publications/emotion.png",
         "tags": [
                 "emotion",
