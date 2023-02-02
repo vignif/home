@@ -28,8 +28,8 @@ const Publications = ({ data }) => {
               <>
                 <div className="row">
                   <div className="col-8" style={{ padding: 0 + 'em' }}>
-                    <h5>{pub.title}</h5>
-                    <p>{pub.date}</p>
+                    <h6>{pub.title}</h6>
+                    <p className="mb-1">{pub.venue}</p>
 
                     {
                       pub.authors.map((author, index) => (
@@ -88,6 +88,7 @@ query GetPublications {
         title
         url
         venue
+        date(formatString: "MMM YYYY")
       }
     }
 }`

@@ -29,6 +29,12 @@ $text: #ffffff;
   // text-center: center;
   // vertical-align: middle;
 }
+
+div > div.card {
+margin-left: auto !important;
+margin-right: auto !important;
+}
+
 }
 
 .own_sub_container{
