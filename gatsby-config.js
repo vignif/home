@@ -12,6 +12,14 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingIds: [process.env.GA_TRACKING_ID],
+        head: true,
+        anonymize: true,
+      }
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -81,13 +89,5 @@ module.exports = {
         path: `${__dirname}/data/persons.json`,
       },
     },
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [process.env.GA_TRACKING_ID],
-        head: true,
-        anonymize: true,
-      }
-    }
   ],
 }
