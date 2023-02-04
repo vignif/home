@@ -81,5 +81,13 @@ module.exports = {
         path: `${__dirname}/data/persons.json`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [process.env.GA_TRACKING_ID],
+        head: true,
+        anonymize: true,
+      }
+    }
   ],
 }
