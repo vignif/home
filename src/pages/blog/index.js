@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
+import { HiOutlineSearch } from 'react-icons/hi';
 
 const Blog = ({ data }) => {
   console.log(data)
@@ -11,7 +12,7 @@ const Blog = ({ data }) => {
     <Layout>
 
       <section className="py-5 text-center container own_container">
-      <div className="row py-lg-5">
+        <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">Blog</h1>
             {/* <p className="lead text-muted">Random sht</p> */}
@@ -33,20 +34,26 @@ const Blog = ({ data }) => {
 
                     <div className="card m-3">
                       <div className="row card-body p-2 blog_cards">
-                        <div className="col-sm-2 own_sub_container">
-                          <p className="own_date">{date}</p>
+                        {/* <div className="col-sm-2 own_sub_container">
+                          <p className="own_date">{pub.date}</p>
+                        </div> */}
+
+                        <div className="col-md-10">
+                          <p className="m-auto">{title}</p>
+                          <p className="m-auto fw-lighter">{date}</p>
                         </div>
 
-                        <div className="col-md-8">
-                          <h5 className="justify">{title}</h5>
-                        </div>
-
-                        <div className="col-md-2 text-center">                          
-                          <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-link">Read
-                          </Link>
+                        <div className="col-md-2">
+                          <div className="row">
+                            <div className="col text-center">
+                              <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Read
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
+
                   </>
                 </div>
               )
@@ -55,7 +62,7 @@ const Blog = ({ data }) => {
           </div>
           <center>
 
-          <Link to="/">Go back to the homepage</Link>
+            <Link to="/">Go back to the homepage</Link>
           </center>
         </div>
       </section>
