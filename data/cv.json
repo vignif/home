@@ -1,0 +1,53 @@
+[
+    {
+        "title": "Early Stage Researcher - MSCA Fellow",
+        "employer": "University of Naples Federico II",
+        "date-start": "2022-12-01",
+        "date-end": "",
+        "where": "Naples, Italy",
+        "slug": "perseo",
+        "url": "http://www.smile.unina.it/perseo/esr-12/",
+        "icon": "FaRobot"
+        
+    },
+    {
+        "title": "Robotics Engineer",
+        "employer": "Roboception GmbH",
+        "date-start": "2022-07-01",
+        "date-end": "2022-11-30",
+        "where": "Munich, Germany",
+        "slug": "roboception",
+        "url": "https://roboception.com/en/",
+        "icon": "FaRobot"
+    },
+    {
+        "title": "Licensed Engineer",
+        "employer": "Polytechnic University of Turin",
+        "date-start": "2022-12-01",
+        "date-end": "",
+        "where": "Turin, Italy",
+        "slug": "engineer",
+        "url": "https://www.polito.it/",
+        "icon": "FaRobot"
+    },
+    {
+        "title": "Autonomous Systems Developer",
+        "employer": "STtech GmbH",
+        "date-start": "2020-04-01",
+        "date-end": "2021-06-31",
+        "where": "Munich, Germany",
+        "slug": "engineer",
+        "url": "https://www.sttech.de/",
+        "icon": "FaRobot"   
+    },
+    {
+        "title": "Research Assistant",
+        "employer": "Technical University of Munich",
+        "date-start": "2019-04-01",
+        "date-end": "2020-03-31",
+        "where": "Munich, Germany",
+        "slug": "engineer",
+        "url": "https://www.mirmi.tum.de/mirmi/home/",
+        "icon": "FaRobot"   
+    }
+]

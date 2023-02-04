@@ -19,9 +19,13 @@ import teleVideo from "../../data/videos/telepresence.mp4"
 const IndexPage = ({ data }) => {
   // console.log(data)
   const { social } = useSiteMetadata()
-  console.log(social)
-  const news = data.allFile.nodes;
-  console.log(news);
+  console.log(data)
+  const news = data.news.nodes;
+
+  // console.log(news);
+  const cvs = data.cv.nodes;
+  const number_of_cv = cvs.length;
+  // console.log(number_of_cv);
   return (
     <Layout>
       <section className="py-5 text-center container own_container">
@@ -44,10 +48,7 @@ const IndexPage = ({ data }) => {
               alt="A Gatsby astronaut"
               className="img-fluid profilepic"
             />
-
-
           </div>
-
         </div>
 
         <div className="row">
@@ -108,6 +109,34 @@ const IndexPage = ({ data }) => {
             <hr className="hr-text" data-content="Step by step" />
           </div>
         </div>
+        <div className="container py-5">
+          <div className="main-timeline">
+            {cvs.map((cv, index) => {
+              const start = cv.date_start;
+              const end = cv.date_end;
+              const employer = cv.employer;
+              const where = cv.where;
+              const title = cv.title;
+              return (
+                <div key={cv.id}>
+                  <>
+                    <div className={index%2 === 0 ? `timeline left` : `timeline right`}>
+                      <div className="card">
+                        <div className="card-body p-4">
+                          <h3>{title}</h3>
+                          <p className="mb-0">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto
+                            mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                            dignissim per, habeo iusto primis ea eam.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                </div>
+              )
+            }
+            )}
+          </div>
+        </div>
 
 
         <div className="row">
@@ -153,7 +182,7 @@ export const Head = () => (
 //query data from the graphql server
 export const query = graphql`
 query MyQuery {
-  allFile(
+  news: allFile(
     filter: {sourceInstanceName: {eq: "news"}}
     sort: {childrenMarkdownRemark: {frontmatter: {date: DESC}}}
   )
@@ -166,6 +195,18 @@ query MyQuery {
         }
         html
       }
+    }
+  },
+cv: allCvJson {
+    nodes {
+      id
+      employer
+      date_start
+      date_end
+      slug
+      title
+      url
+      where
     }
   }
 }
