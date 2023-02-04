@@ -6,8 +6,9 @@
         "date-end": "",
         "where": "Naples, Italy",
         "slug": "perseo",
+        "extra":"Perseo Project",
         "url": "http://www.smile.unina.it/perseo/esr-12/",
-        "icon": "FaRobot"
+        "icon": "fa-robot"
         
     },
     {
@@ -17,8 +18,9 @@
         "date-end": "2022-11-30",
         "where": "Munich, Germany",
         "slug": "roboception",
+        "extra":"",
         "url": "https://roboception.com/en/",
-        "icon": "FaRobot"
+        "icon": "fa-cicio"
     },
     {
         "title": "Licensed Engineer",
@@ -27,8 +29,9 @@
         "date-end": "",
         "where": "Turin, Italy",
         "slug": "engineer",
+        "extra":"",
         "url": "https://www.polito.it/",
-        "icon": "FaRobot"
+        "icon": "fa-cicio"
     },
     {
         "title": "Autonomous Systems Developer",
@@ -37,8 +40,9 @@
         "date-end": "2021-06-31",
         "where": "Munich, Germany",
         "slug": "engineer",
+        "extra":"",
         "url": "https://www.sttech.de/",
-        "icon": "FaRobot"   
+        "icon": "fa-cicio"   
     },
     {
         "title": "Research Assistant",
@@ -47,7 +51,42 @@
         "date-end": "2020-03-31",
         "where": "Munich, Germany",
         "slug": "engineer",
+        "extra":"",
         "url": "https://www.mirmi.tum.de/mirmi/home/",
-        "icon": "FaRobot"   
+        "icon": "fa-cicio"   
+    },
+    {
+        "title": "Daimler Cloud Services Consultant",
+        "employer": "Kadacon GmbH",
+        "date-start": "2019-02-01",
+        "date-end": "2020-03-31",
+        "where": "Area Mid-North Italy",
+        "slug": "engineer",
+        "extra":"",
+        "url": "https://kadacon.com/",
+        "icon": "fa-cicio"   
+    },
+    {
+        "title": "Master Degree in Robotics and Automation Engineering",
+        "employer": "University of Siena",
+        "date-start": "2018-10-01",
+        "date-end": "2020-03-31",
+        "where": "Siena, Italy",
+        "slug": "engineer",
+        "extra": "Thesis: “A Closed Loop Approach to Human-Robot Handshake“ - 110/110 e Lode",
+        "url": "https://computer-automation.unisi.it/it",
+        "icon": "fa-cicio"   
+    },
+    {
+        "title": "Bachelor Degree in Management Engineering",
+        "employer": "University of Siena",
+        "date-start": "2015-10-01",
+        "date-end": "2020-03-31",
+        "where": "Siena, Italy",
+        "slug": "engineer",
+        "extra":"Thesis: “Analisi e confronti di sistemi di trading basate sul trend following” - 92/110",
+        "url": "https://ing-gestionale.unisi.it/it",
+        "icon": "fa-cicio"   
     }
+
 ]
