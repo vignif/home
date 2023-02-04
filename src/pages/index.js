@@ -11,6 +11,8 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
+import { HiLink } from 'react-icons/hi'
+
 import handVideo from "../../data/videos/hand.mp4"
 import handShakeVideo from "../../data/videos/handshake.mp4"
 import carlaVideo from "../../data/videos/carla.mp4"
@@ -117,16 +119,23 @@ const IndexPage = ({ data }) => {
               const employer = cv.employer;
               const where = cv.where;
               const title = cv.title;
+              const icon = cv.icon;
+              const extra = cv.extra;
+              const link = cv.url;
               return (
                 <div key={cv.id}>
                   <>
-                    <div className={index%2 === 0 ? `timeline left` : `timeline right`}>
+                    <div className={index % 2 === 0 ? `timeline left` : `timeline right`}>
                       <div className="card">
-                        <div className="card-body p-4">
-                          <h3>{title}</h3>
-                          <p className="mb-0">Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto
-                            mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua
-                            dignissim per, habeo iusto primis ea eam.</p>
+                        <div className="card-body p-2">
+                          <h5> {title}</h5>
+                          <p className="mb-0">
+                          <a href={link} target="_blank" rel="noreferrer" className="">
+                            <HiLink />
+                          </a>{employer} - {where}</p>
+                          <p className="mb-0 fw-light">{start}</p>
+                          <p className="mb-0 fw-light">{extra}</p>
+
                         </div>
                       </div>
                     </div>
@@ -201,12 +210,13 @@ cv: allCvJson {
     nodes {
       id
       employer
-      date_start
-      date_end
+      date_start(formatString: "MMM, YYYY")
       slug
       title
       url
       where
+      extra
+      icon
     }
   }
 }
