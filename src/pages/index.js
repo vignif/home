@@ -111,7 +111,7 @@ const IndexPage = ({ data }) => {
             <hr className="hr-text" data-content="Step by step" />
           </div>
         </div>
-        <div className="container py-5">
+        <div className="py-5">
           <div className="main-timeline">
             {cvs.map((cv, index) => {
               const start = cv.date_start;
