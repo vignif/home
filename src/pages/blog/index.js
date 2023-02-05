@@ -28,29 +28,28 @@ const Blog = ({ data }) => {
             {blog.map(pub => {
               const date = pub.node.childMarkdownRemark.frontmatter.date;
               const title = pub.node.childMarkdownRemark.frontmatter.title;
+              const subtitle = pub.node.childMarkdownRemark.frontmatter.subtitle;
               return (
                 <div key={pub.id}>
                   <>
 
-                    <div className="card m-3">
+                    <div className="card m-3 w-75  mx-auto">
                       <div className="row card-body p-2 blog_cards">
-                        {/* <div className="col-sm-2 own_sub_container">
-                          <p className="own_date">{pub.date}</p>
-                        </div> */}
-
-                        <div className="col-md-10">
-                          <p className="m-auto">{title}</p>
-                          <p className="m-auto fw-lighter">{date}</p>
-                        </div>
 
                         <div className="col-md-2">
                           <div className="row">
-                            <div className="col text-center">
+                            <div className="col text-end">
                               <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Read
                               </Link>
                             </div>
                           </div>
                         </div>
+                        <div className="col-md-10">
+                          <p className="m-auto">{title}</p>
+                          <p className="m-auto fw-light">{subtitle}</p>
+                          <p className="m-auto fw-lighter">{date}</p>
+                        </div>
+
                       </div>
                     </div>
 
@@ -93,7 +92,7 @@ query MyQuery {
           frontmatter {
             title
             date(formatString: "DD MMM, YYYY")
-
+            subtitle
           }
         }
       }

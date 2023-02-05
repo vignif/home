@@ -1,5 +1,6 @@
 ---
 title: Robots from the future
+subtitle: Let's talk about robots and how they can improve our lives outside of factories.
 slug: robots
 date: 2023-01-22
 ---
