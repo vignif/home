@@ -67,7 +67,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
 
-                    <div dangerouslySetInnerHTML={{ __html: abstract }} />
+                    <div className="justify" dangerouslySetInnerHTML={{ __html: abstract }} />
                   </div>
                 </div>
               </div>

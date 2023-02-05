@@ -5,16 +5,16 @@ import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 
 const BlogDetail = ({ props, data, pageContext }) => {
-  console.log(data)
+  // console.log(data)
   console.log(pageContext)
-  console.log(props)
+  // console.log(props)
   var next = ""
   var prev = ""
   if (pageContext.previous) {
-    prev = pageContext.previous.slug
+    prev = pageContext.previous.childMarkdownRemark.fields.slug
   }
   if (pageContext.next) {
-    next = pageContext.next.slug
+    next = pageContext.next.childMarkdownRemark.fields.slug
   }
   console.log("prev", prev)
   console.log("next", next)
@@ -61,17 +61,17 @@ const BlogDetail = ({ props, data, pageContext }) => {
               <div className="row">
                 <div className="col-lg-8 mx-auto">
                   <div className="p-15 mt-4">
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                    <div className="justify" dangerouslySetInnerHTML={{ __html: content }} />
                   </div>
                 </div>
               </div>
 
               <div className="row">
                 <div className="col text-lg-start">
-                  {/* {prev && <Link to={`/blog/${prev}`}>Previous</Link>} */}
+                  {prev && <Link to={`/blog${prev}`}>Previous</Link>}
                 </div>
                 <div className="col text-lg-end">
-                  {/* {next && <Link to={`/blog/${next}`}>Next</Link>} */}
+                  {next && <Link to={`/blog${next}`}>Next</Link>}
                 </div>
               </div>
             </div>
