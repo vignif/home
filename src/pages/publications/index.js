@@ -5,7 +5,7 @@ import { Seo } from "../../components/seo"
 import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
 
 const AltPublications = ({ data }) => {
-  console.log(data)
+  // console.log(data)
   const publications = data.allPublicationsJson.nodes
   return (
     <Layout>
@@ -41,9 +41,9 @@ const AltPublications = ({ data }) => {
                         <p className="m-auto">{pub.title}</p>
                         {
                           pub.authors.map((author, index) => (
-                            console.log(author),
-                            console.log(index),
-                            console.log(pub.authors.length),
+                            // console.log(author),
+                            // console.log(index),
+                            // console.log(pub.authors.length),
                             <div key={author.id} className="authors_list fw-light">
 
                               {/* // put a comma between authors_list */}
