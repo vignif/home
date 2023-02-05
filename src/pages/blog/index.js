@@ -5,9 +5,9 @@ import { Seo } from "../../components/seo"
 import { HiOutlineSearch } from 'react-icons/hi';
 
 const Blog = ({ data }) => {
-  console.log(data)
+  // console.log(data)
   const blog = data.allFile.edges
-  console.log(blog)
+  // console.log(blog)
   return (
     <Layout>
 
@@ -29,8 +29,9 @@ const Blog = ({ data }) => {
               const date = pub.node.childMarkdownRemark.frontmatter.date;
               const title = pub.node.childMarkdownRemark.frontmatter.title;
               const subtitle = pub.node.childMarkdownRemark.frontmatter.subtitle;
+              // console.log(pub.node.childMarkdownRemark)
               return (
-                <div key={pub.id}>
+                <div key={pub.node.id}>
                   <>
 
                     <div className="card m-3 w-75  mx-auto">

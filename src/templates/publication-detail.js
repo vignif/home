@@ -16,8 +16,8 @@ const PublicationDetail = ({ data, pageContext }) => {
   if (pageContext.next) {
     next = pageContext.next.slug
   }
-  console.log("prev", prev)
-  console.log("next", next)
+  // console.log("prev", prev)
+  // console.log("next", next)
   const { title, slug, venue, date, url, abstract } = pub
   const authors = pub.authors
   const img = getImage(pub.img)
@@ -30,11 +30,11 @@ const PublicationDetail = ({ data, pageContext }) => {
             <h1 className="fw-light">{title}</h1>
             {
               authors.map((author, index) => (
-                <p key={author.id} className="authors_list">
+                <div key={author.slug} className="authors_list">
                   {index > 0 && index < pub.authors.length - 1 && ", "}
                   {index > 0 && index === pub.authors.length - 1 && " and "}
                   <p className="authors_list">{author.name} {author.surname}</p>
-                </p>
+                </div>
               ))}
           </div>
         </div>
