@@ -61,7 +61,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                     <p>Venue: {venue}</p>
                     <p>Date: {date}</p>
                     {/* <p>Link: {url}</p> */}
-                    <p>Link: <a href={url} target="_blank" rel="noreferrer">{url}</a></p>
+                    <p>Link: <a href={url} target="_blank" rel="noreferrer">{title}</a></p>
 
                   </div>
                   <div className="p-15 mt-4">
@@ -109,7 +109,7 @@ query CreatePublicationPage($slug: String) {
     date(formatString: "MMMM DD, YYYY")
     img {
       childImageSharp {
-        gatsbyImageData(width: 400, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+        gatsbyImageData(width: 400, placeholder: BLURRED, quality: 90, formats: [AUTO, WEBP, AVIF])
       }
     }
   }

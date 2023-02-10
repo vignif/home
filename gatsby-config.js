@@ -28,6 +28,18 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-json`,
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Francesco Vigni`,
+        short_name: `Francesco Vigni`,
+        start_url: `/`,
+        background_color: `#334699`,
+        theme_color: `#334699`,
+        display: `standalone`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

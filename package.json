@@ -1,5 +1,5 @@
 {
-  "name": "@r-ichard/gatsby-starter-bootstrap-5",
+  "name": "@vignif/home",
   "private": false,
   "description": "A simple starter to get up and developing quickly with Gatsby 5 and Bootstrap 5",
   "version": "2.0.2",
@@ -17,7 +17,7 @@
     "gatsby-plugin-google-analytics": "^5.5.0",
     "gatsby-plugin-google-gtag": "^5.5.0",
     "gatsby-plugin-image": "^3.1.0",
-    "gatsby-plugin-manifest": "^5.1.0",
+    "gatsby-plugin-manifest": "^5.6.0",
     "gatsby-plugin-mdx": "^5.4.0",
     "gatsby-plugin-offline": "^6.1.0",
     "gatsby-plugin-sass": "^6.1.0",
