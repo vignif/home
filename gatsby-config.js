@@ -40,6 +40,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/logo.png',
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -52,18 +58,6 @@ module.exports = {
         sassOptions: {
           precision: 6,
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-bootstrap-5`,
-        short_name: `gb5-starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `standalone`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     {
