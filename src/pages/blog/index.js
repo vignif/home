@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
-import { HiOutlineSearch } from 'react-icons/hi';
+import { HiOutlineNewspaper } from 'react-icons/hi';
 
 const Blog = ({ data }) => {
   // console.log(data)
@@ -68,9 +68,9 @@ const Blog = ({ data }) => {
         <div className="container own_sub_container">
 
           {blog.map(pub => {
-              const date = pub.node.childMarkdownRemark.frontmatter.date;
-              const title = pub.node.childMarkdownRemark.frontmatter.title;
-              const subtitle = pub.node.childMarkdownRemark.frontmatter.subtitle;
+            const date = pub.node.childMarkdownRemark.frontmatter.date;
+            const title = pub.node.childMarkdownRemark.frontmatter.title;
+            const subtitle = pub.node.childMarkdownRemark.frontmatter.subtitle;
             return (
               <div key={pub.node.id}>
                 <>
@@ -81,18 +81,18 @@ const Blog = ({ data }) => {
                           <p className="own_date">{pub.date}</p>
                         </div> */}
 
-                      <div className="col-md-10">
-                        
-                      <p className="m-auto">{title}</p>
-                          <p className="m-auto fw-light">{subtitle}</p>
-                          <p className="m-auto fw-lighter">{date}</p>
+                      <div className="col-md-11">
+
+                        <p className="m-auto">{title}</p>
+                        <p className="m-auto fw-light">{subtitle}</p>
+                        <p className="m-auto fw-lighter">{date}</p>
                       </div>
 
-                      <div className="col-md-2">
+                      <div className="col-md-1">
                         <div className="row">
                           <div className="col text-center">
-                          <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Read
-                              </Link>
+                            <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-outline-primary me-2"><HiOutlineNewspaper />&nbsp;Read
+                            </Link>
                           </div>
                         </div>
                       </div>

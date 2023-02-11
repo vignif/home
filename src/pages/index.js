@@ -41,7 +41,7 @@ const IndexPage = ({ data }) => {
               As Early-stage Researcher within the MSCA <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, I study how robots can exploit their social-cues in order to initiate interactions with humans.
             </p>
           </div>
-          <div className="col-sm-4 ms-auto">
+          <div className="col-sm-4 ms-auto mb-3">
             <StaticImage
               src="../../data/images/me_square.jpg"
               width={250}

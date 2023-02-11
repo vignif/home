@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
+import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft } from "react-icons/hi"
 
 const PublicationDetail = ({ data, pageContext }) => {
   // console.log(data)
@@ -21,7 +22,7 @@ const PublicationDetail = ({ data, pageContext }) => {
   const { title, slug, venue, date, url, abstract } = pub
   const authors = pub.authors
   const img = getImage(pub.img)
-  
+
   return (
     <Layout>
       <section className="py-5 text-center container own_container">
@@ -72,12 +73,12 @@ const PublicationDetail = ({ data, pageContext }) => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-5">
                 <div className="col text-lg-start">
-                  {prev && <Link to={`/publications/${prev}`}>Previous</Link>}
+                  {prev && <Link to={`/publications/${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Previous</Link>}
                 </div>
                 <div className="col text-lg-end">
-                  {next && <Link to={`/publications/${next}`}>Next</Link>}
+                    {next && <Link to={`/publications/${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Next</Link>}
                 </div>
               </div>
             </div>
@@ -85,7 +86,6 @@ const PublicationDetail = ({ data, pageContext }) => {
         </div>
       </section>
     </Layout>
-
   )
 }
 

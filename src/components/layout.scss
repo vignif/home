@@ -159,7 +159,7 @@ margin-right: auto !important;
   right: -13px;
   background-color: $primary;
   border: 5px solid #ffffff;
-  top: 15px;
+  top: 7px;
   border-radius: 40%;
   z-index: 1;
 }
@@ -186,6 +186,7 @@ margin-right: auto !important;
   border: medium solid white;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
+  display: none;
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -197,6 +198,7 @@ margin-right: auto !important;
   left: 30px;
   border: medium solid white;
   border-width: 10px 10px 10px 0;
+  display: none;
   border-color: transparent white transparent transparent;
 }
 
@@ -214,13 +216,13 @@ pre {
 @media screen and (max-width: 600px) {
   /* Place the timelime to the left */
   .main-timeline::after {
-    left: 31px;
+    left: 10px;
   }
 
   /* Full-width containers */
   .timeline {
     width: 100%;
-    padding-left: 70px;
+    padding-left: 30px;
     padding-right: 25px;
   }
 
@@ -229,13 +231,14 @@ pre {
     left: 60px;
     border: medium solid white;
     border-width: 10px 10px 10px 0;
+    display: none;
     border-color: transparent white transparent transparent;
   }
 
   /* Make sure all circles are at the same spot */
   .left::after,
   .right::after {
-    left: 18px;
+    left: -2px;
   }
 
   .left::before {

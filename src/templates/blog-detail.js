@@ -4,6 +4,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 
+import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft } from "react-icons/hi"
+
 const BlogDetail = ({ props, data, pageContext }) => {
   // console.log(data)
   console.log(pageContext)
@@ -66,12 +68,12 @@ const BlogDetail = ({ props, data, pageContext }) => {
                 </div>
               </div>
 
-              <div className="row">
+              <div className="row mt-5">
                 <div className="col text-lg-start">
-                  {prev && <Link to={`/blog${prev}`}>Previous</Link>}
+                  {prev && <Link to={`/publications/${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Previous</Link>}
                 </div>
                 <div className="col text-lg-end">
-                  {next && <Link to={`/blog${next}`}>Next</Link>}
+                    {next && <Link to={`/publications/${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Next</Link>}
                 </div>
               </div>
             </div>
