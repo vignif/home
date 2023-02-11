@@ -69,11 +69,11 @@ const BlogDetail = ({ props, data, pageContext }) => {
               </div>
 
               <div className="row mt-5">
-                <div className="col text-lg-start">
-                  {prev && <Link to={`/publications/${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Previous</Link>}
+                <div className="col text-start">
+                  {prev && <Link to={`/blog${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Newer</Link>}
                 </div>
-                <div className="col text-lg-end">
-                    {next && <Link to={`/publications/${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Next</Link>}
+                <div className="col text-end">
+                    {next && <Link to={`/blog${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Older</Link>}
                 </div>
               </div>
             </div>
