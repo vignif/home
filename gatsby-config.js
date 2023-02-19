@@ -96,5 +96,19 @@ module.exports = {
         path: `${__dirname}/data/cv.json`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `miscpubs`,
+        path: `${__dirname}/data/miscpubs.json`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `research`,
+        path: `${__dirname}/data/research/`,
+      },
+    },
   ],
 }

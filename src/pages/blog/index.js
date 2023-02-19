@@ -40,7 +40,7 @@ const Blog = ({ data }) => {
                         <p className="m-auto fw-lighter">{date}</p>
                       </div>
 
-                      <div className="col-md-2">
+                      <div className="col-lg-2">
                         <div className="row">
                           <div className="col text-center">
                             <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="btn btn-outline-primary me-2"><HiOutlineNewspaper />&nbsp;Read

@@ -8,7 +8,8 @@ const Publications = ({ data }) => {
   // console.log(data)
   const publications = data.publications.nodes
   const tags = data.tags.group
-  // console.log(tags)
+  const misc = data.misc.nodes
+  // console.log(data.misc)
   return (
     <Layout>
 
@@ -25,7 +26,6 @@ const Publications = ({ data }) => {
           </div>
         </div>
         <div className="container own_sub_container">
-
           {publications.map(pub => {
             // const date = pub.node.childMarkdownRemark.frontmatter.date;
             // const title = pub.node.childMarkdownRemark.frontmatter.title;
@@ -51,7 +51,7 @@ const Publications = ({ data }) => {
                               <p className="authors_list">{author.name} <a href={author.web} target="_blank" rel="noreferrer">{author.surname}</a></p>
                             </div>
                           ))}
-                        <p className="m-auto fw-lighter">{pub.venue}</p>
+                        <p className="m-auto fw-lighter">{pub.venue} - {pub.date}</p>
                       </div>
 
                       <div className="col-md-2">
@@ -72,8 +72,60 @@ const Publications = ({ data }) => {
             )
           }
           )}
-
         </div>
+
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="Miscellaneous" />
+          </div>
+        </div>
+
+        <div className="container own_sub_container">
+          {misc.map(pub => {
+            // const date = pub.node.childMarkdownRemark.frontmatter.date;
+            // const title = pub.node.childMarkdownRemark.frontmatter.title;
+            return (
+              <div key={pub.id}>
+                <>
+
+                  <div className="card m-3">
+                    <div className="row card-body p-2 blog_cards">
+                      <div className="col-md-10">
+                        <p className="m-auto">{pub.title}</p>
+                        {
+                          pub.authors.map((author, index) => (
+                            <div key={author.id} className="authors_list fw-light">
+                              {index > 0 && index < pub.authors.length - 1 && ", "}
+                              {index > 0 && index === pub.authors.length - 1 && " and "}
+                              <p className="authors_list">{author.name} <a href={author.web} target="_blank" rel="noreferrer">{author.surname}</a></p>
+                            </div>
+                          ))}
+                        <p className="m-auto fw-lighter">{pub.venue}</p>
+                        <p className="m-auto fw-lighter">{pub.date}</p>
+                      </div>
+
+                      <div className="col-md-2">
+                        <div className="row">
+                          <div className="col text-center">
+                            {console.log(pub)}
+                            <a href={pub.attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText /><br/>Get</a>
+                          </div>
+                          <div className="col text-center">
+                            <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              </div>
+            )
+          }
+          )}
+        </div>
+
+
         <div className="row">
           <div className="col-md-12">
             <hr className="hr-text" data-content="Tags" />
@@ -84,8 +136,7 @@ const Publications = ({ data }) => {
           <div className="col-md-12">
             {
               tags.map(tag => (
-                console.log(tag),
-                <div key={tag.id} className="authors_list fw-light">
+                <div key={tag.fieldValue} className="authors_list fw-light">
                   <Link to={`/tags/${tag.fieldValue}`} className="btn btn-warning m-2">{tag.fieldValue}</Link>
                 </div>
               ))}
@@ -141,5 +192,22 @@ query GetPublications {
     }
     totalCount
   }
-
+  misc: allMiscpubsJson {
+    nodes {
+      id
+      title
+      date(formatString: "MMM YYYY")
+      slug
+      attach{
+        name
+        publicURL
+      }
+      authors{
+          id
+          name
+          surname
+          web
+        }
+    }
+  }
 }`

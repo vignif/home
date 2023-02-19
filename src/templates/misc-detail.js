@@ -7,7 +7,7 @@ import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload}
 import { Seo } from "../components/seo"
 
 
-const PublicationDetail = ({ data, pageContext }) => {
+const MiscDetail = ({ data, pageContext }) => {
   // console.log(data)
   const pub = data.publication
   // console.log(pageContext)
@@ -19,13 +19,12 @@ const PublicationDetail = ({ data, pageContext }) => {
   if (pageContext.next) {
     next = pageContext.next.slug
   }
-  // console.log("prev", prev)
-  // console.log("next", next)
   const { title, slug, venue, date, url, abstract } = pub
   const authors = pub.authors
   const img = getImage(pub.img)
   const attach = pub.attach
   const tags = pub.tags
+  const details = pub.details
   console.log(tags)
   return (
     <Layout>
@@ -49,32 +48,18 @@ const PublicationDetail = ({ data, pageContext }) => {
           </div>
         </div>
         <div className="container own_sub_container">
-
           <main className="spotlight">
             <div className="container my-5">
               <div className="row">
-                <div className="col-lg-3">
-                  <GatsbyImage
-                    image={img}
-                    alt={slug}
-                    className="pub_pic"
-                  />
-
-                </div>
-                <div className="col-lg-8">
+                
+                <div className="col-lg-9 m-auto">
                   <div className="p-15">
-                    <p>Venue: {venue}</p>
-                    <p>Date: {date}</p>
-                    <p>Link: <a href={url} target="_blank" rel="noreferrer">{title}</a></p>
+
+                    <p>Institution: {venue}</p>
+                    <p>Major: {details}</p>
+                    <p>Graduated: {date}</p>
+                    
                     {attach.name === "nofile" ? null : <p>Additional Info: <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary">Get <HiOutlineDownload/></a></p>}
-                    <p>Tags:
-                      {
-                        tags.map((tag, index) => (
-                          <div key={tag} className="authors_list fw-light">
-                            <Link to={`/tags/${tag}`} className="btn btn-outline-primary m-2">{tag}</Link>
-                          </div>
-                        ))}
-                    </p>
                   </div>
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
@@ -101,7 +86,7 @@ const PublicationDetail = ({ data, pageContext }) => {
 }
 
 // Step 3: Export your component
-export default PublicationDetail
+export default MiscDetail
 
 export const Head = ({ data }) => (
   <Seo title={data.publication.title} description={data.publication.abstract} />
@@ -110,12 +95,11 @@ export const Head = ({ data }) => (
 
 export const query = graphql`
 query CreatePublicationPage($slug: String) {
-  publication: publicationsJson(slug: {eq: $slug}) {
+  publication: miscpubsJson(slug: {eq: $slug}) {
     title
     slug
     venue
-    tags
-    url
+    details
     abstract
     authors {
       slug
@@ -127,11 +111,6 @@ query CreatePublicationPage($slug: String) {
       name
       publicURL
     }
-    date(formatString: "MMMM DD, YYYY")
-    img {
-      childImageSharp {
-        gatsbyImageData(width: 400, placeholder: BLURRED, quality: 90, formats: [AUTO, WEBP, AVIF])
-      }
-    }
+    date(formatString: "MMM, YYYY")
   }
 }`

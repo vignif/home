@@ -115,9 +115,42 @@ exports.createPages = ({ graphql, actions }) => {
                 },
             })
         })
-  })
+    })
 
-    return Promise.all([publications, blogs])
+
+    const misc = graphql(`
+          query PubPage {
+              allMiscpubsJson(sort: {date: DESC}) {
+                  edges {
+                  node {
+                      slug
+                  }
+                  next {
+                      slug
+                  }
+                  previous {
+                      slug
+                  }
+                  }
+              }
+          }
+      `).then(result => {
+        result.data.allMiscpubsJson.edges.forEach(({ node, next, previous }) => {
+            createPage({
+                path: '/publications/' + node.slug,
+                component: path.resolve('./src/templates/misc-detail.js'),
+                context: {
+                    slug: node.slug,
+                    next: next,
+                    previous: previous
+                },
+            });
+        });
+    })
+
+
+
+    return Promise.all([publications, blogs, tags])
 };
 
 // link PersonsJson.slug to PublicationsJson.authors
@@ -126,6 +159,13 @@ exports.createSchemaCustomization = ({ actions }) => {
     createTypes(`
       type PublicationsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
+      }
+    `);
+
+    createTypes(`
+      type MiscpubsJson implements Node @infer { 
+        authors: [PersonsJson] @link(by: "slug", from: "authors")
+        attach: File @fileByRelativePath
       }
     `);
 };

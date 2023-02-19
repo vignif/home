@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import {Seo} from "../components/seo"
+import { Seo } from "../components/seo"
 import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
 import { Link } from "gatsby"
 
@@ -17,7 +17,9 @@ const TagTemplate = ({ data, pageContext }) => {
       <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
-            <h1 className="fw-light">Publications tagged with: ''{tag}''</h1>
+            <h1 className="fw-light"><pre>find / -tag "{tag}"</pre></h1>
+            {/* find / -tag "{tag}" */}
+            {/* <h1 className="fw-light">{totalCount} Publication{totalCount === 1 ? "" : "s"}  */}
             <p className="lead text-muted"></p>
           </div>
         </div>
@@ -27,9 +29,6 @@ const TagTemplate = ({ data, pageContext }) => {
             <hr className="hr-text" data-content="" />
           </div>
         </div>
-
-        {/* <h1>{tag}</h1> */}
-        <div>{totalCount} publication{totalCount === 1 ? "" : "s"} tagged with "{tag}"</div>
 
 
         <div className="row pb-5">
@@ -70,7 +69,9 @@ const TagTemplate = ({ data, pageContext }) => {
 
           </div>
         </div>
-
+        <div className="col-md-12 p-2">
+          <Link to={`/tags/`} className="btn btn-primary m-2">All Tags</Link>
+        </div>
       </section>
     </Layout>
   )
@@ -101,7 +102,7 @@ export default TagTemplate
 export const Head = ({ data, pageContext }) => (
   console.log("here"),
   console.log(pageContext),
-  <Seo title={"FV - tag - "+ pageContext.tag} />
+  <Seo title={"FV - tag - " + pageContext.tag} />
 )
 
 export const pageQuery = graphql`

@@ -5,6 +5,7 @@
         "slug": "icsr-approach",
         "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_25",
         "img": "./images/publications/approach.png",
+        "attach":"./research/ICSR_138.pdf",
         "tags": [
                 "approaching",
                 "gaze",
@@ -23,6 +24,7 @@
         "slug": "icsr-emotions",
         "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_26",
         "img": "./images/publications/emotion.png",
+        "attach":"./research/ICSR_140.pdf",
         "tags": [
                 "emotion",
                 "hri"
@@ -43,6 +45,7 @@
         "slug": "icra-handshake",
         "url": "https://ieeexplore.ieee.org/document/8613850",
         "img": "./images/publications/hand.png",
+        "attach": "./research/nofile.txt",
         "tags": [
                 "handshake",
                 "icra"
@@ -62,6 +65,7 @@
         "slug": "roman-roomba",
         "url": "https://ieeexplore.ieee.org/document/9900699",
         "img": "./images/publications/roomba.png",
+        "attach": "./research/nofile.txt",
         "tags": [
                 "acustic cues",
                 "roman"

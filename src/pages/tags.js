@@ -33,7 +33,7 @@ const TagsPage = ({ data }) => {
 
             {tags.map(tag => (
               <div key={tag} className="authors_list fw-light">
-                <Link className="btn btn-warning m-2" to={`/tags/${_.kebabCase(tag)}`}>
+                <Link className="btn btn-warning m-2" to={`/tags/${tag}`}>
                   {tag} ({tagCounts[tag]})
                 </Link>
               </div>
