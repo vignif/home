@@ -4,9 +4,11 @@ import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
 import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
 
-const AltPublications = ({ data }) => {
+const Publications = ({ data }) => {
   // console.log(data)
-  const publications = data.allPublicationsJson.nodes
+  const publications = data.publications.nodes
+  const tags = data.tags.group
+  // console.log(tags)
   return (
     <Layout>
 
@@ -41,9 +43,6 @@ const AltPublications = ({ data }) => {
                         <p className="m-auto">{pub.title}</p>
                         {
                           pub.authors.map((author, index) => (
-                            // console.log(author),
-                            // console.log(index),
-                            // console.log(pub.authors.length),
                             <div key={author.id} className="authors_list fw-light">
 
                               {/* // put a comma between authors_list */}
@@ -73,27 +72,46 @@ const AltPublications = ({ data }) => {
             )
           }
           )}
-          <center>
 
-            <Link to="/">Go back to the homepage</Link>
-          </center>
         </div>
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="Tags" />
+          </div>
+        </div>
+
+        <div className="row pb-5">
+          <div className="col-md-12">
+            {
+              tags.map(tag => (
+                <div key={tag.id} className="authors_list fw-light">
+                  <Link to={`/tags/${tag.fieldValue}`} className="btn btn-warning m-2">{tag.fieldValue}</Link>
+                </div>
+              ))}
+          </div>
+        </div>
+
+
+        <center>
+          <Link to="/">Go back to the homepage</Link>
+        </center>
+
       </section>
     </Layout>
   )
 }
 
-export default AltPublications
+export default Publications
 
 export const Head = () => (
-  <Seo title="AltPublications" />
+  <Seo title="Publications" />
 )
 
 
 // export page query
 export const query = graphql`
 query GetPublications {
-  allPublicationsJson (sort: {date: DESC}) {
+  publications: allPublicationsJson (sort: {date: DESC}) {
       nodes {
         id
         authors{
@@ -112,4 +130,11 @@ query GetPublications {
         date(formatString: "MMM YYYY")
       }
     }
+  tags: allPublicationsJson {
+    group(field: {tags: SELECT}) {
+      fieldValue
+    }
+    totalCount
+  }
+
 }`
