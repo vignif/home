@@ -58,7 +58,7 @@ const IndexPage = ({ data }) => {
             <hr className="hr-text" data-content="Highlights" />
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
 
           <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
