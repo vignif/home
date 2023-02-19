@@ -90,7 +90,7 @@ const Publications = ({ data }) => {
                 </div>
               ))}
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12 p-2">
             <Link to={`/tags/`} className="btn btn-primary m-2">All Tags</Link>
 
           </div>
