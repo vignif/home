@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 
+import { Seo } from "../components/seo"
 import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft } from "react-icons/hi"
 
 const BlogDetail = ({ props, data, pageContext }) => {
@@ -87,6 +88,12 @@ const BlogDetail = ({ props, data, pageContext }) => {
 
 // Step 3: Export your component
 export default BlogDetail
+
+export const Head = ({ data }) => (
+  console.log("here"),
+  console.log(data),
+  <Seo title={"FV - "+data.file.childMarkdownRemark.frontmatter.title} />
+)
 
 
 export const query = graphql`
