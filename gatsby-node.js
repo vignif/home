@@ -90,6 +90,33 @@ exports.createPages = ({ graphql, actions }) => {
         });
     })
 
+    const tags = graphql(`
+    {
+      allPublicationsJson {
+        edges {
+          node {
+            tags
+          }
+        }
+      }
+    }
+  `).then(result => {
+        const tags = result.data.allPublicationsJson.edges
+            .map(edge => edge.node.tags)
+            .reduce((acc, curr) => acc.concat(curr), [])
+            .filter((tag, index, self) => self.indexOf(tag) === index)
+
+        tags.forEach(tag => {
+            createPage({
+                path: `/tags/${tag}/`,
+                component: path.resolve('./src/templates/tag-template.js'),
+                context: {
+                    tag,
+                },
+            })
+        })
+  })
+
     return Promise.all([publications, blogs])
 };
 
