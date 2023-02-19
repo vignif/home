@@ -84,10 +84,15 @@ const Publications = ({ data }) => {
           <div className="col-md-12">
             {
               tags.map(tag => (
+                console.log(tag),
                 <div key={tag.id} className="authors_list fw-light">
                   <Link to={`/tags/${tag.fieldValue}`} className="btn btn-warning m-2">{tag.fieldValue}</Link>
                 </div>
               ))}
+          </div>
+          <div className="col-md-12">
+            <Link to={`/tags/`} className="btn btn-primary m-2">All Tags</Link>
+
           </div>
         </div>
 
