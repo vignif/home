@@ -60,25 +60,25 @@ const IndexPage = ({ data }) => {
         </div>
         <div className="row">
 
-          <div className="col-sm-3">
+          <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={handVideo} type="video/mp4" />
             </video>
             <p className="lead text-muted">Handshake prototype</p>
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={handShakeVideo} type="video/mp4" />
             </video>
             <p className="lead text-muted">@icra2019</p>
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={carlaVideo} type="video/mp4" />
             </video>
             <p className="lead text-muted">How do you <a href="https://github.com/vignif/carla-parking">park</a>?</p>
           </div>
-          <div className="col-sm-3">
+          <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={teleVideo} type="video/mp4" />
             </video>
