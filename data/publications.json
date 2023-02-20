@@ -7,9 +7,9 @@
         "img": "./images/publications/approach.png",
         "attach":"./research/ICSR_138.pdf",
         "tags": [
-                "approaching",
-                "gaze",
-                "hri"
+                "approach",
+                "non-verbal cues",
+                "icsr"
         ],
         "venue": "2022 International Conference on Social Robotics (ICSR)",
         "authors": [
@@ -26,8 +26,9 @@
         "img": "./images/publications/emotion.png",
         "attach":"./research/ICSR_140.pdf",
         "tags": [
-                "emotion",
-                "hri"
+                "emotions",
+                "non-humanoid",
+                "icsr"
         
         ],
         "venue": "2022 International Conference on Social Robotics (ICSR)",
@@ -48,7 +49,8 @@
         "attach": "./research/nofile.txt",
         "tags": [
                 "handshake",
-                "icra"
+                "icra",
+                "non-verbal cues"
         ],
         "venue": "2019 IEEE International Conference on Robotics and Automation (ICRA)",
         "authors": [
@@ -67,7 +69,8 @@
         "img": "./images/publications/roomba.png",
         "attach": "./research/nofile.txt",
         "tags": [
-                "acustic cues",
+                "non-verbal cues",
+                "non-humanoid",
                 "roman"
         ],
         "venue": "2022 IEEE International Conference on Robot and Human Interactive (RO-MAN)",
