@@ -7,6 +7,8 @@ import { Seo } from "../components/seo"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { TbTie, TbHome } from 'react-icons/tb';
+
 
 import mapVideo from "../../data/videos/map.mp4"
 
@@ -43,51 +45,53 @@ const AboutPage = () => {
                 <h5>Contacts</h5>
                 <p className="">Hi! I'm always looking for persons that share my same interests and want to collaborate or build cool stuff!</p>
                 <p className="">If this resonates with you feel free to email me @</p>
-                <ul>
+              <ul className="list-unstyled">
                   <li className="lead text-muted">
-                    vignif@gmail.com
+                     <TbHome/> vignif@gmail.com
                   </li>
 
                   <li className="lead text-muted">
-                    francesco.vigni@unina.it
+                    <TbTie/> francesco.vigni@unina.it
                   </li>
                 </ul>
-                <p className="mt-5">Or contact me on one of the socials below!</p>
-              </div>
+
+                
+              <p className="mt-5">Or contact me on one of the socials below!</p>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-12">
-            <hr className="hr-text" data-content="Socials" />
-          </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <hr className="hr-text" data-content="Socials" />
         </div>
-        {/* SOCIAL ICONS */}
-        <div className="row justify-content-center">
-          <div className="col-1 mx-1">
-            <a href={social.google} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGoogle} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.github} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.twitter} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faTwitter} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-          </div>
+      </div>
+      {/* SOCIAL ICONS */}
+      <div className="row justify-content-center">
+        <div className="col-1 mx-1">
+          <a href={social.google} target="_blank" rel="noreferrer" className="">
+            <FontAwesomeIcon icon={faGoogle} size="2x" />
+          </a>
         </div>
-      </section>
+        <div className="col-1 mx-1">
+          <a href={social.github} target="_blank" rel="noreferrer" className="">
+            <FontAwesomeIcon icon={faGithub} size="2x" />
+          </a>
+        </div>
+        <div className="col-1 mx-1">
+          <a href={social.twitter} target="_blank" rel="noreferrer" className="">
+            <FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+        </div>
+        <div className="col-1 mx-1">
+          <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
+            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+          </a>
+        </div>
+      </div>
+    </section>
 
-    </Layout>
+    </Layout >
   )
 }
 
