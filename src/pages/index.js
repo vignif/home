@@ -53,6 +53,11 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
 
+        
+        <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
+          <source className="embed-responsive-item" src="https://www.youtube.com/watch?v=dYF6OnRqmeI" type="video/mp4" />
+        </video>
+
         <div className="row">
           <div className="col-md-12">
             <hr className="hr-text" data-content="Highlights" />
@@ -130,9 +135,9 @@ const IndexPage = ({ data }) => {
                         <div className="card-body p-2">
                           <h5> {title}</h5>
                           <p className="mb-0">
-                          <a href={link} target="_blank" rel="noreferrer" className="">
-                            <HiLink />
-                          </a>{employer} - {where}</p>
+                            <a href={link} target="_blank" rel="noreferrer" className="">
+                              <HiLink />
+                            </a>{employer} - {where}</p>
                           <p className="mb-0 fw-light">{start}</p>
                           <p className="mb-0 fw-light">{extra}</p>
 
