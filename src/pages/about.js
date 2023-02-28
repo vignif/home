@@ -6,7 +6,7 @@ import { Seo } from "../components/seo"
 
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub, faTwitter, faGoogle} from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
 import mapVideo from "../../data/videos/map.mp4"
 
@@ -43,6 +43,16 @@ const AboutPage = () => {
                 <h5>Contacts</h5>
                 <p className="">Hi! I'm always looking for persons that share my same interests and want to collaborate or build cool stuff!</p>
                 <p className="">If this resonates with you feel free to email me @</p>
+                <ul>
+                  <li className="lead text-muted">
+                    vignif@gmail.com
+                  </li>
+
+                  <li className="lead text-muted">
+                    francesco.vigni@unina.it
+                  </li>
+                </ul>
+                <p className="mt-5">Or contact me on one of the socials below!</p>
               </div>
             </div>
           </div>
