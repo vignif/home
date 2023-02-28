@@ -36,10 +36,13 @@ const IndexPage = ({ data }) => {
             <h1 className="fw-light">Francesco Vigni</h1>
             <p className="lead text-muted">Ciao!</p>
             <p className="justify">
-              I am a PhD student at the University of Naples Federico II, Italy where I study how robots can learn to interact in a human-like way.
-              Here I collect some of my achievements as well as some of my hobbies.
-              As Early-stage Researcher within the MSCA <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, I study how robots can exploit their social-cues in order to initiate interactions with humans.
+              I'm a robotic nerd that loves learning.
+              As a PhD student at the University of Naples Federico II, Italy I study how robots can learn to interact in a human-like way.
+              The future expects robot to be able to interact with humans in a natural way and somebody has to make it happen ;).<br/>
+              I am funded by the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie Innovative Training Network (ITN) funded by the European Commission that allows me to collaborate with the top european researchers in the field.
+              Here I collect some of my works and interests.
             </p>
+            
           </div>
           <div className="col-sm-4 ms-auto mb-3">
             <StaticImage
