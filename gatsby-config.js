@@ -27,6 +27,7 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-json`,
+    `gatsby-remark-responsive-iframe`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
