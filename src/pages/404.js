@@ -1,20 +1,89 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import {Seo} from "../components/seo"
+import { Seo } from "../components/seo"
 
-const NotFoundPage = () => (
-  <Layout>
-    <div className="container text-center my-5">
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </div>
+import { useSiteMetadata } from "../hooks/use-site-metadata"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { TbTie, TbHome } from 'react-icons/tb';
 
-  </Layout>
-)
 
-export default NotFoundPage
+import mapVideo from "../../data/videos/map.mp4"
+
+const Page404 = () => {
+  const { social } = useSiteMetadata()
+
+  return (
+
+    <Layout>
+      <section className="py-5 text-center container own_container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">You got lost my friend!</h1>
+            <p className="lead text-muted">404: Page not Found</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="" />
+          </div>
+        </div>
+
+        <div className="container my-2 own_sub_container">
+
+          <div className="container">
+            <div className="row justify-content-center ">
+              <div className="col-md-6 text-center">
+                <p>I guess you didn't find what you were looking for!</p>
+                <div>
+                <iframe src="https://giphy.com/embed/26n6WywJyh39n1pBu" allowFullScreen></iframe>
+
+                <p className="">Maybe the <Link to="/">home page</Link> would help you!</p>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="Socials" />
+          </div>
+        </div>
+        {/* SOCIAL ICONS */}
+        <div className="row justify-content-center">
+          <div className="col-1 mx-1">
+            <a href={social.google} target="_blank" rel="noreferrer" className="">
+              <FontAwesomeIcon icon={faGoogle} size="2x" />
+            </a>
+          </div>
+          <div className="col-1 mx-1">
+            <a href={social.github} target="_blank" rel="noreferrer" className="">
+              <FontAwesomeIcon icon={faGithub} size="2x" />
+            </a>
+          </div>
+          <div className="col-1 mx-1">
+            <a href={social.twitter} target="_blank" rel="noreferrer" className="">
+              <FontAwesomeIcon icon={faTwitter} size="2x" />
+            </a>
+          </div>
+          <div className="col-1 mx-1">
+            <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
+              <FontAwesomeIcon icon={faLinkedin} size="2x" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </Layout >
+  )
+}
+
+export default Page404
 
 export const Head = () => (
-    <Seo title="404: Not found" />
+  <Seo title="You got lost" />
 )
