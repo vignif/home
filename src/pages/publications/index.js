@@ -101,7 +101,7 @@ const Publications = ({ data }) => {
                             </div>
                           ))}
                         <p className="m-auto fw-lighter">{pub.venue}</p>
-                        <p className="m-auto fw-lighter">{pub.date}</p>
+                        <p className="m-auto fw-lighter">{pub.type} - {pub.date}</p>
                       </div>
 
                       <div className="col-md-2">
@@ -202,6 +202,7 @@ query GetPublications {
         name
         publicURL
       }
+      type
       authors{
           id
           name
