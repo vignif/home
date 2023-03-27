@@ -4,6 +4,10 @@ module.exports = {
     title: `Francesco Vigni`,
     description: `Francesco Vigni's personal website`,
     author: `@francescovigni`,
+    keywords: `researcher, robotics, artificial intelligence, human-robot interaction, HRI`,
+    image: `data/images/me_square.jpg`,
+    siteUrl: `https://francescovigni.com`,
+    twitterUsername: `@superdado_5`,
     social: {
       twitter: `https://twitter.com/superdado_5`,
       github: `https://github.com/vignif`,

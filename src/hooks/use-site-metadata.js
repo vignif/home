@@ -8,6 +8,10 @@ export const useSiteMetadata = () => {
             title
             description
             author
+            keywords
+            image
+            siteUrl
+            twitterUsername
             social{
               twitter
               github
