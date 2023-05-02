@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import { Seo } from "../components/seo"
+import { Seo } from "../components/seo.js"
 
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,7 @@ import { TbTie, TbHome } from 'react-icons/tb';
 
 import mapVideo from "../../data/videos/map.mp4"
 
-const AboutPage = () => {
+const Contacts = () => {
   const { social } = useSiteMetadata()
 
   return (
@@ -21,7 +21,7 @@ const AboutPage = () => {
       <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
-            <h1 className="fw-light">About me</h1>
+            <h1 className="fw-light">Contacts</h1>
             {/* <p className="lead text-muted">A curious dude</p> */}
           </div>
         </div>
@@ -42,7 +42,6 @@ const AboutPage = () => {
                 <p className="lead text-muted">Some of my important spots.</p>
               </div>
               <div className="col-md-6">
-                <h5>Contacts</h5>
                 <p className="">Hi! I'm always looking for persons that share my same interests and want to collaborate or build cool stuff!</p>
                 <p className="">If this resonates with you feel free to email me @</p>
               <ul className="list-unstyled">
@@ -91,12 +90,12 @@ const AboutPage = () => {
       </div>
     </section>
 
-    </Layout >
+    </Layout>
   )
 }
 
-export default AboutPage
+export default Contacts
 
 export const Head = () => (
-  <Seo title="About me" />
+  <Seo title="Contacts"/>
 )

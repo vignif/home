@@ -11,10 +11,11 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
 
-import { HiLink } from 'react-icons/hi'
 
 import handVideo from "../../data/videos/hand.mp4"
 import handShakeVideo from "../../data/videos/handshake.mp4"
+
+import { HiLink, HiFingerPrint } from 'react-icons/hi'
 import carlaVideo from "../../data/videos/carla.mp4"
 import teleVideo from "../../data/videos/telepresence.mp4"
 
@@ -36,13 +37,14 @@ const IndexPage = ({ data }) => {
             <h1 className="fw-light">Francesco Vigni</h1>
             <p className="lead text-muted">Ciao!</p>
             <p className="justify">
-              I'm a robotic nerd that loves learning.
-              As a PhD student at the University of Naples Federico II, Italy I study how robots can learn to interact in a human-like way.
-              The future expects robot to be able to interact with humans in a natural way and somebody has to make it happen ;).<br/>
-              I am funded by the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie European Training Network (ETN) funded by the European Commission that allows me to collaborate with the top european researchers in the field.
-              Here I collect some of my works and interests.
+              I spend my time exploring the world of robots, their  brains (AI) and their impact on our societies. <br />
+
+              Currently, I am pursuing my PhD at the University of Naples Federico II, Italy where I study how robots can learn to interact in a human-like way.
+              The future expects robot to be able to interact with humans in a natural way and somebody has to make it happen ;).<br />
+              I am part of the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie European Training Network (ETN) funded by the European Commission that allows me to collaborate with the top european researchers in the field. <br />
+              In this website, I collect some of my works and interests.
             </p>
-            
+
           </div>
           <div className="col-sm-4 ms-auto mb-3">
             <StaticImage
