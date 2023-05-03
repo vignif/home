@@ -111,6 +111,18 @@ const IndexPage = ({ data }) => {
             </>
           </div>
         ))}
+
+        
+        <div className="row justify-content-center">
+          <div className="col-sm-auto">
+            <a href="https://www.linkedin.com/in/francesco-vigni-1b1b0b1a5/" target="_blank" rel="noreferrer">
+              <Link className="btn btn-outline-primary btn mt-3" to="/news">
+                All the news
+              </Link>
+            </a>
+          </div>
+        </div>
+
         <div className="row">
           <div className="col-md-12">
             <hr className="hr-text" data-content="Step by step" />
@@ -195,10 +207,11 @@ export const Head = () => (
 
 //query data from the graphql server
 export const query = graphql`
-query MyQuery {
+query NewsCV {
   news: allFile(
     filter: {sourceInstanceName: {eq: "news"}}
     sort: {childrenMarkdownRemark: {frontmatter: {date: DESC}}}
+    limit: 9
   )
   {
     nodes {

@@ -56,7 +56,11 @@ const Blog = ({ data }) => {
           }
           )}
           <center>
-
+            <div className="row">
+              <div className="col-md-12">
+                <hr className="hr-text" data-content="" />
+              </div>
+            </div>
             <Link to="/">Go back to the homepage</Link>
           </center>
         </div>

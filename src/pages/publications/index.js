@@ -146,7 +146,11 @@ const Publications = ({ data }) => {
 
           </div>
         </div>
-
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="" />
+          </div>
+        </div>
 
         <center>
           <Link to="/">Go back to the homepage</Link>
