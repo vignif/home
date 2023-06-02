@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
+import AudioButton from "../components/play_audio"
 import { graphql } from "gatsby"
 
 import { useSiteMetadata } from "../hooks/use-site-metadata"
@@ -35,7 +36,8 @@ const IndexPage = ({ data }) => {
         <div className="row py-lg-5">
           <div className="col-sm-8  mx-auto">
             <h1 className="fw-light">Francesco Vigni</h1>
-            <p className="lead text-muted">Ciao!</p>
+            <p className="lead text-muted mb-0">/franˈt͡ʃe.sko ˈvi.ɲi/ - <AudioButton/></p>
+            <p className="lead text-muted">he/him - <a href="https://dpcpsi.nih.gov/sites/default/files/NIH-Draft-Guidance-on-Pronouns-Usage-PUBLIC-508_dmh.pdf" target="_blank" rel="noreferrer" className="lead text-muted">Why?</a></p>
             <p className="justify">
               I spend my time exploring the world of robots, their  brains (AI) and their impact on our societies. <br />
 
