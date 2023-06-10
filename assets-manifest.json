@@ -45,7 +45,8 @@
   "component---src-pages-contacts-js.js": "component---src-pages-contacts-js-80864d1b0349b0f97a40.js",
   "component---src-pages-index-js-094961dc4526a33cb755.js.map": "component---src-pages-index-js-094961dc4526a33cb755.js.map",
   "component---src-pages-index-js-78986b563d1a0baa4479.js.map": "component---src-pages-index-js-78986b563d1a0baa4479.js.map",
-  "component---src-pages-index-js.js": "component---src-pages-index-js-78986b563d1a0baa4479.js",
+  "component---src-pages-index-js-a4b26842742184020b0c.js.map": "component---src-pages-index-js-a4b26842742184020b0c.js.map",
+  "component---src-pages-index-js.js": "component---src-pages-index-js-a4b26842742184020b0c.js",
   "component---src-pages-news-js-89369d052fabd2e60ba8.js.map": "component---src-pages-news-js-89369d052fabd2e60ba8.js.map",
   "component---src-pages-news-js-cf1f334ed04063593edd.js.map": "component---src-pages-news-js-cf1f334ed04063593edd.js.map",
   "component---src-pages-news-js.js": "component---src-pages-news-js-89369d052fabd2e60ba8.js",
@@ -84,7 +85,8 @@
   "webpack-runtime-01e83f35c4d1b2a44a47.js.map": "webpack-runtime-01e83f35c4d1b2a44a47.js.map",
   "webpack-runtime-2b8c7744355391a6d63c.js.map": "webpack-runtime-2b8c7744355391a6d63c.js.map",
   "webpack-runtime-4282993f0d6c8beb6c1d.js.map": "webpack-runtime-4282993f0d6c8beb6c1d.js.map",
+  "webpack-runtime-5797fa9263ac8b940fa6.js.map": "webpack-runtime-5797fa9263ac8b940fa6.js.map",
   "webpack-runtime-8a8c6477db22b4bfc285.js.map": "webpack-runtime-8a8c6477db22b4bfc285.js.map",
   "webpack-runtime-c6e8bcc200d5ef3b3b87.js.map": "webpack-runtime-c6e8bcc200d5ef3b3b87.js.map",
-  "webpack-runtime.js": "webpack-runtime-4282993f0d6c8beb6c1d.js"
+  "webpack-runtime.js": "webpack-runtime-5797fa9263ac8b940fa6.js"
 }
