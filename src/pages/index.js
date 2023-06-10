@@ -54,7 +54,7 @@ const IndexPage = ({ data }) => {
               width={250}
               quality={95}
               formats={["AUTO", "WEBP"]}
-              alt="A Gatsby astronaut"
+              alt="Francesco Vigni"
               className="img-fluid profilepic"
             />
           </div>
