@@ -1,8 +1,30 @@
 [
     {
+        "title": "Sweet Robot O’Mine - How a Cheerful Robot Boosts Users' Performance in a Game Scenario",
+        "date": "2023-08-28",
+        "slug": "sweet-robot",
+        "location": "Busan, Korea",
+        "url": "/",
+        "img": "",
+        "attach":"./research/nofile.txt",
+        "tags": [
+                "humanoid",
+                "non-verbal cues",
+                "roman"
+        ],
+        "venue": "2023 IEEE International Conference on Robot and Human Interactive (RO-MAN)",
+        "authors": [
+                "francesco-vigni",
+                "antonio-andriella",
+                "silvia-rossi"
+        ],
+        "abstract": "TBD"
+    },
+    {
         "title": "Exploring Non-Verbal Strategies for Initiating an HRI",
         "date": "2023-02-01",
         "slug": "icsr-approach",
+        "location": "Florence, Italy",
         "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_25",
         "img": "./images/publications/approach.png",
         "attach":"./research/ICSR_138.pdf",
@@ -22,6 +44,7 @@
         "title": "On The Emotional Transparency of a Non-Humanoid Social Robot",
         "date": "2023-02-01",
         "slug": "icsr-emotions",
+        "location": "Florence, Italy",
         "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_26",
         "img": "./images/publications/emotion.png",
         "attach":"./research/ICSR_140.pdf",
@@ -44,6 +67,7 @@
         "title": "The Role of Closed-Loop Hand Control in Handshaking Interactions",
         "date": "2019-01-16",
         "slug": "icra-handshake",
+        "location": "Montreal, Canada",
         "url": "https://ieeexplore.ieee.org/document/8613850",
         "img": "./images/publications/hand.png",
         "attach": "./research/nofile.txt",
@@ -65,6 +89,7 @@
         "title": "Familiar Acoustic Cues for Legible Service Robots",
         "date": "2022-08-31",
         "slug": "roman-roomba",
+        "location": "Naples, Italy",
         "url": "https://ieeexplore.ieee.org/document/9900699",
         "img": "./images/publications/roomba.png",
         "attach": "./research/nofile.txt",
