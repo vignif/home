@@ -27,5 +27,8 @@ I had discovered a new world.
 
 For my master thesis I got the opportunity to work closely with Disney Research Zurich, where I worked on a project that was later presented at the ICRA 2019 where it won the Best Paper Finalist Award on Human-Robot Interaction track.
 
+Years went by, I accepted the unknown. I moved to Munich for a research assistant position at the Technical University of Munich, where I worked on the development of a new generation of hands for robots, that can be used in across different environments.
+
+My curiosity led me to explore the industrial world of robotics, where I helped two organizations to 1) improve the navigation stack of an indoor mobile robot, and 2) to support the way manipulators can see their environments with edge-cutting vision technologies.
 
 Fast forward to today, I am a PhD student at the University of Naples Federico II, working on the development of a new generation of social robots that can swiftly understand social context and adapt their behavior accordingly.
