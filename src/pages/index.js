@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
           <div className="col-sm-8  mx-auto">
             <h1 className="fw-light">Francesco Vigni</h1>
             <p className="lead text-muted mb-0">/franˈt͡ʃe.sko ˈvi.ɲi/ - <AudioButton /></p>
-            <p className="lead text-muted">he/him - <a href="https://dpcpsi.nih.gov/sites/default/files/NIH-Draft-Guidance-on-Pronouns-Usage-PUBLIC-508_dmh.pdf" target="_blank" rel="noreferrer" className="lead text-muted">Why?</a></p>
+            <p className="lead text-muted">he/him  <a href="https://dpcpsi.nih.gov/sites/default/files/NIH-Draft-Guidance-on-Pronouns-Usage-PUBLIC-508_dmh.pdf" target="_blank" rel="noreferrer" className="lead text-muted" style={{fontSize:"small"}}>why?</a></p>
             <p className="justify">
               I spend my time exploring the world of robots, their  brains (AI) and their impact on our societies. <br />
 
@@ -74,19 +74,19 @@ const IndexPage = ({ data }) => {
             <p className="lead text-muted">Handshake prototype</p>
           </div>
           <div className="col-sm-auto col-lg-3">
-            <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
+            <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls={false} muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={handShakeVideo} type="video/mp4" />
             </video>
             <p className="lead text-muted">@icra2019</p>
           </div>
           <div className="col-sm-auto col-lg-3">
-            <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
+            <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls={false} muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={carlaVideo} type="video/mp4" />
             </video>
             <p className="lead text-muted">How do you <a href="https://github.com/vignif/carla-parking">park</a>?</p>
           </div>
           <div className="col-sm-auto col-lg-3">
-            <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls muted={true} autoPlay={true} loop={true}>
+            <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls={false} muted={true} autoPlay={true} loop={true}>
               <source className="embed-responsive-item" src={teleVideo} type="video/mp4" />
             </video>
             <p className="lead text-muted">Telepresence robot</p>
@@ -114,7 +114,7 @@ const IndexPage = ({ data }) => {
           </div>
         ))}
 
-        
+
         <div className="row justify-content-center">
           <div className="col-sm-auto">
             <a href="https://www.linkedin.com/in/francesco-vigni-1b1b0b1a5/" target="_blank" rel="noreferrer">
