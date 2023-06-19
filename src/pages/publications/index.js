@@ -56,13 +56,24 @@ const Publications = ({ data }) => {
 
                       <div className="col-md-2">
                         <div className="row">
-                          <div className="col text-center">
-                            <a href={pub.url} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText />&nbsp;Paper</a>
-                          </div>
-                          <div className="col text-center">
-                            <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info
-                            </Link>
-                          </div>
+
+                          {/* \\ if pub is "TBD" then don't show the button */}
+                          {pub.abstract == "TBD" && (
+                            <><div className="col text-center">
+                              <a href={pub.url} target="_blank" rel="noreferrer" className="btn  disabled me-2">Not Yet Presented</a>
+                            </div></>
+                          )}
+                          {pub.abstract != "TBD" && (
+                            <>
+                              <div className="col text-center">
+                                <a href={pub.url} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText />&nbsp;Paper</a>
+                              </div>
+                              <div className="col text-center">
+                                <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info
+                                </Link>
+                              </div>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -108,7 +119,7 @@ const Publications = ({ data }) => {
                         <div className="row">
                           <div className="col text-center">
                             {console.log(pub)}
-                            <a href={pub.attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText /><br/>Get</a>
+                            <a href={pub.attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText /><br />Get</a>
                           </div>
                           <div className="col text-center">
                             <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info
@@ -184,6 +195,7 @@ query GetPublications {
         abstract
         slug
         tags
+        location
         title
         url
         venue
