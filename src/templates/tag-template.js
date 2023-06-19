@@ -35,7 +35,7 @@ const TagTemplate = ({ data, pageContext }) => {
           <div className="col-md-12">
             {edges.map(({ node }) => {
               console.log(node)
-              const { title, date } = node
+              const { title, date, venue, location } = node
               return (
                 <div key={node.slug}>
                   <>
@@ -44,7 +44,7 @@ const TagTemplate = ({ data, pageContext }) => {
 
                         <div className="col-md-10 text-start">
                           <b className="m-auto">{title}</b>
-                          <p>{date}</p>
+                          <p>{venue} - {location}</p>
                         </div>
 
                         <div className="col-md-2">
@@ -114,6 +114,8 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           slug
           url
+          venue
+          location
           authors{
             id
             name
