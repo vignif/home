@@ -60,13 +60,26 @@ const Publications = ({ data }) => {
                           {/* \\ if pub is "TBD" then don't show the button */}
                           {pub.abstract == "TBD" && (
                             <><div className="col text-center">
-                              <a href={pub.url} target="_blank" rel="noreferrer" className="btn  disabled me-2">Not Yet Presented</a>
+                              <a href={pub.url} target="_blank" rel="noreferrer" className="btn disabled me-2">Not Yet Presented</a>
                             </div></>
                           )}
                           {pub.abstract != "TBD" && (
                             <>
                               <div className="col text-center">
-                                <a href={pub.url} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText />&nbsp;Paper</a>
+                                {/* <a href={pub.url} rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText />&nbsp;Paper</a> */}
+
+
+                                <div>
+                                  {pub.url !== "" ? (
+                                    <a href={pub.url} rel="noreferrer" className="btn btn-outline-primary">
+                                      <HiDocumentText />&nbsp;Paper
+                                    </a>
+                                  ) : (
+                                    <span className="btn btn-outline-primary disabled">
+                                      <HiDocumentText />&nbsp;Paper
+                                    </span>
+                                  )}
+                                </div>
                               </div>
                               <div className="col text-center">
                                 <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info

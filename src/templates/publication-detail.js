@@ -66,7 +66,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                     <p>Venue: {venue}</p>
                     <p>Date: {date}</p>
                     
-                    <p> Link: 
+                    <p> Link: <t/>
                     {url === "/" ? (
                       <span className="fst-italic"> Proceedings not yet available</span>
                       ) : (
