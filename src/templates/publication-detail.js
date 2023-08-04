@@ -3,8 +3,10 @@ import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
-import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload} from "react-icons/hi"
+import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload, HiOutlineDocumentSearch } from "react-icons/hi"
 import { Seo } from "../components/seo"
+
+import { RiSlideshow2Line } from "react-icons/ri"
 
 
 const PublicationDetail = ({ data, pageContext }) => {
@@ -65,8 +67,16 @@ const PublicationDetail = ({ data, pageContext }) => {
                   <div className="p-15">
                     <p>Venue: {venue}</p>
                     <p>Date: {date}</p>
-                    <p>Link: <a href={url} target="_blank" rel="noreferrer">{title}</a></p>
-                    {attach.name === "nofile" ? null : <p>Additional Info: <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary">Get <HiOutlineDownload/></a></p>}
+                    
+                    <p> Link: 
+                    {url === "/" ? (
+                      <span className="fst-italic"> Proceedings not yet available</span>
+                      ) : (
+                        <a href={url} target="_blank" rel="noreferrer">{title}</a>
+                        )}
+                    </p>        
+
+                    {attach.name === "nofile" ? null : <p>Additional Info: <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary">Get <HiOutlineDownload /></a></p>}
                     <p>Tags:
                       {
                         tags.map((tag, index) => (
@@ -75,6 +85,11 @@ const PublicationDetail = ({ data, pageContext }) => {
                           </div>
                         ))}
                     </p>
+
+                    <p>{pub.alternate_link &&
+                      <p>Additional Info: <a href={pub.alternate_link} target="_blank" rel="noreferrer" className="btn btn-warning m-1"><HiOutlineDocumentSearch size={30} /></a>
+                      </p>
+                    }</p>
                   </div>
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
@@ -116,6 +131,7 @@ query CreatePublicationPage($slug: String) {
     venue
     tags
     url
+    alternate_link @include(if: true) 
     abstract
     authors {
       slug
