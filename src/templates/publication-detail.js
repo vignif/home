@@ -6,8 +6,6 @@ import { Link } from "gatsby"
 import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload, HiOutlineDocumentSearch } from "react-icons/hi"
 import { Seo } from "../components/seo"
 
-import { RiSlideshow2Line } from "react-icons/ri"
-
 
 const PublicationDetail = ({ data, pageContext }) => {
   // console.log(data)
