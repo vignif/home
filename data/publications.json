@@ -7,6 +7,7 @@
         "url": "/",
         "img": "",
         "attach":"./research/nofile.txt",
+        "alternate_link":"https://events.infovaya.com/presentation?id=97910",
         "tags": [
                 "humanoid",
                 "non-verbal cues",
@@ -18,7 +19,7 @@
                 "antonio-andriella",
                 "silvia-rossi"
         ],
-        "abstract": "TBD"
+        "abstract": "The ability to impact the attitudes and behaviours of others is a key aspect of human-human interaction. The same capability is a desideratum in human-robot interaction, when it can have an impact on healthy behaviours. The robot's interaction style plays a significant role in achieving effective communication, leading to better outcomes, improved user experience, and overall enhanced robot performance. Nonetheless, little is known about how different robots' communication styles impact users' performance and decision-making. In this article, we build upon previous work, in which a robot was endowed with two personality behavioural patterns: one more antagonist and other-comparative and the other one more agreeable and self-comparative. We conducted a user study where N=66 participants played a game with a robot displaying the two multimodal communication styles. Our results indicated that i) participants' decision-making was not influenced by the designed robot's communication styles, ii) participants who interacted with the agreeable robot performed better in the game, and iii) the more participants are knowledgeable about robots, the lower they performed in the game."
     },
     {
         "title": "Exploring Non-Verbal Strategies for Initiating an HRI",
