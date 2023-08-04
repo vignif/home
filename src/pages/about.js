@@ -113,7 +113,7 @@ const Contacts = () => {
               </div>
               <div className="mb-3">
                 <label for="exampleFormControlTextarea1" className="form-label">Your message</label>
-                <textarea className="form-control" type="text" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                <textarea className="form-control" type="text" id="exampleFormControlTextarea1" rows="3" name="message" required></textarea>
               </div>
 
               <button type="submit" className="btn btn-outline-primary mb-3 align-items-center">
