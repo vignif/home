@@ -7,8 +7,8 @@ import { Seo } from "../components/seo.js"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { TbTie, TbHome, TbAlignJustified } from 'react-icons/tb';
-
+import { TbTie, TbHome, TbAlignJustified, TbSend } from 'react-icons/tb';
+import { GrSend } from "react-icons/gr"
 
 import mapVideo from "../../data/videos/map.mp4"
 
@@ -37,10 +37,10 @@ const Contacts = () => {
           <div className="container">
             <div className="row justify-content-around">
               <div className="col-md-12">
-              
-                <p className="lead " style={{textAlign: "justify"}}>Francesco Vigni is a licensed information engineer and PhD student of the EU project PERSEO and part of the PriscaLab based at the University of Naples Federico II in Naples, Italy. He is also affiliated with the Interdepartmental Center for Advances in Robotic Surgery (ICAROS) and enrolled in the graduate school Information and Communication Technology for Health (ICTH) of the same university. He received his M.Sc in computer and automation engineering with honours at the University of Siena in Italy. His first conference paper was awarded the Best Paper Award Finalist on HRI at ICRA2019 in Montreal, Canada. Currently, his work focuses on designing, developing, and testing metrics for social HRI that are inspired by the natural bidirectional communication that commonly happens among humans. This strategy can improve natural encounters between robots and humans.</p>
+
+                <p className="lead " style={{ textAlign: "justify" }}>Francesco Vigni is a licensed information engineer and PhD student of the EU project PERSEO and part of the PriscaLab based at the University of Naples Federico II in Naples, Italy. He is also affiliated with the Interdepartmental Center for Advances in Robotic Surgery (ICAROS) and enrolled in the graduate school Information and Communication Technology for Health (ICTH) of the same university. He received his M.Sc in computer and automation engineering with honours at the University of Siena in Italy. His first conference paper was awarded the Best Paper Award Finalist on HRI at ICRA2019 in Montreal, Canada. Currently, his work focuses on designing, developing, and testing metrics for social HRI that are inspired by the natural bidirectional communication that commonly happens among humans. This strategy can improve natural encounters between robots and humans.</p>
               </div>
-             
+
             </div>
           </div>
         </div>
@@ -64,20 +64,64 @@ const Contacts = () => {
               <div className="col-md-6">
                 <p className="">Hi! I'm always looking for persons that share my same interests and want to collaborate or build cool stuff!</p>
                 <p className="">If this resonates with you feel free to email me @</p>
-                <ul className="list-unstyled">
-                  <li className="lead text-muted">
-                    <TbHome /> vignif@gmail.com
+                <ul className="list-unstyled" style={{ border: "groove", alignContent: "center" }}>
+                  <li className="lead text-black">
+                    <TbHome /> <a href="mailto:vignif@gmail.com">vignif@gmail.com</a>
                   </li>
 
-                  <li className="lead text-muted">
-                    <TbTie /> francesco.vigni@unina.it
+                  <li className="lead text-black">
+                    <TbTie /> <a href="mailto:francesco.vigni@unina.it">francesco.vigni@unina.it </a>
                   </li>
                 </ul>
 
-
-                <p className="mt-5">Or contact me on one of the socials below!</p>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+            <hr className="hr-text" data-content="" />
+          </div>
+        </div>
+
+        <div className="container my-2 own_sub_container">
+          <p className="text-center">Or use the following form.</p>
+          <div className="form">
+            <form
+              action="https://api.slapform.com/NuzhKyThj"
+              method="POST"
+              target="_blank"
+            >
+
+              <div className="mb-3">
+                <input className="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Full name"
+                  required
+                />
+
+              </div>
+              <div className="mb-3">
+                <input className="form-control"
+                  type="email"
+                  name="email"
+                  placeholder="name@example.com"
+                  required
+                />
+
+              </div>
+              <div className="mb-3">
+                <label for="exampleFormControlTextarea1" className="form-label">Your message</label>
+                <textarea className="form-control" type="text" id="exampleFormControlTextarea1" rows="3" required></textarea>
+              </div>
+
+              <button type="submit" className="btn btn-outline-primary mb-3 align-items-center">
+                <TbSend /> Send
+              </button>
+            </form>
+
+
           </div>
         </div>
         <div className="row">
