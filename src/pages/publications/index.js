@@ -71,7 +71,7 @@ const Publications = ({ data }) => {
 
                                 <div>
                                   {pub.url !== "" ? (
-                                    <a href={pub.url} rel="noreferrer" className="btn btn-outline-primary">
+                                    <a href={pub.url} rel="noreferrer" target="_blank" className="btn btn-outline-primary">
                                       <HiDocumentText />&nbsp;Paper
                                     </a>
                                   ) : (
