@@ -59,7 +59,9 @@ const MiscDetail = ({ data, pageContext }) => {
                     {details === null ? null : <p>Major: {details}</p>}
                     <p>Date: {date}</p>
                     
-                    {attach.name === "nofile" ? null : <p>Additional Info: <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary">Get <HiOutlineDownload/></a></p>}
+                    {attach.name &&
+                    <p>Additional Info: <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary">Get <HiOutlineDownload/></a>
+                    </p>}
                   </div>
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
