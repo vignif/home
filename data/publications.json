@@ -7,7 +7,7 @@
         "url": "",
         "img": "./images/publications/sweet.png",
         "attach":{
-                "get":"./research/nofile.txt",
+                "get":"",
                 "video":"https://www.youtube.com/watch?v=VgfcLbxTpK4"
         },
         "alternate_link":"https://events.infovaya.com/presentation?id=97910",
@@ -83,7 +83,7 @@
         "img": "./images/publications/hand.png",
         "attach":{
                 "get":"",
-                "video":""
+                "video":"https://www.youtube.com/watch?v=81vSuxVPW4o&pp=ygVAVGhlIFJvbGUgb2YgQ2xvc2VkLUxvb3AgSGFuZCBDb250cm9sIGluIEhhbmRzaGFraW5nIEludGVyYWN0aW9ucw%3D%3D"
         },
         "tags": [
                 "handshake",
