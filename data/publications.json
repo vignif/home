@@ -1,19 +1,23 @@
 [
     {
         "title": "Sweet Robot O’Mine - How a Cheerful Robot Boosts Users' Performance in a Game Scenario",
-        "date": "2023-08-28",
+        "date": "2023-08-30",
         "slug": "sweet-robot",
         "location": "Busan, Korea",
         "url": "",
-        "img": "",
-        "attach":"./research/nofile.txt",
+        "img": "./images/publications/sweet.png",
+        "attach":{
+                "get":"./research/nofile.txt",
+                "video":"https://www.youtube.com/watch?v=VgfcLbxTpK4"
+        },
         "alternate_link":"https://events.infovaya.com/presentation?id=97910",
         "tags": [
-                "humanoid",
+                "social robot",
                 "non-verbal cues",
-                "roman"
+                "roman",
+                "robot game"
         ],
-        "venue": "2023 IEEE International Conference on Robot and Human Interactive (RO-MAN)",
+        "venue": "32nd IEEE International Conference on Robot and Human Interactive Communication (RO-MAN 2023)",
         "authors": [
                 "francesco-vigni",
                 "antonio-andriella",
@@ -28,13 +32,16 @@
         "location": "Florence, Italy",
         "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_25",
         "img": "./images/publications/approach.png",
-        "attach":"./research/ICSR_138.pdf",
+        "attach":{
+                "get":"./research/ICSR_138.pdf",
+                "video":""
+        },
         "tags": [
                 "approach",
                 "non-verbal cues",
                 "icsr"
         ],
-        "venue": "2022 International Conference on Social Robotics (ICSR)",
+        "venue": "14th International Conference on Social Robotics (ICSR 2022)",
         "authors": [
                 "francesco-vigni",
                 "silvia-rossi"
@@ -48,14 +55,17 @@
         "location": "Florence, Italy",
         "url": "https://link.springer.com/chapter/10.1007/978-3-031-24667-8_26",
         "img": "./images/publications/emotion.png",
-        "attach":"./research/ICSR_140.pdf",
+        "attach":{
+                "get":"./research/ICSR_140.pdf",
+                "video":""
+        },
         "tags": [
                 "emotions",
                 "non-humanoid",
                 "icsr"
         
         ],
-        "venue": "2022 International Conference on Social Robotics (ICSR)",
+        "venue": "14th International Conference on Social Robotics (ICSR 2022)",
         "authors": [
                 "francesco-vigni",
                 "alessandra-rossi",
@@ -71,13 +81,16 @@
         "location": "Montreal, Canada",
         "url": "https://ieeexplore.ieee.org/document/8613850",
         "img": "./images/publications/hand.png",
-        "attach": "./research/nofile.txt",
+        "attach":{
+                "get":"",
+                "video":""
+        },
         "tags": [
                 "handshake",
                 "icra",
                 "non-verbal cues"
         ],
-        "venue": "2019 IEEE International Conference on Robotics and Automation (ICRA)",
+        "venue": "IEEE International Conference on Robotics and Automation (ICRA 2019)",
         "authors": [
                 "francesco-vigni",
                 "espen-knopp",
@@ -93,13 +106,16 @@
         "location": "Naples, Italy",
         "url": "https://ieeexplore.ieee.org/document/9900699",
         "img": "./images/publications/roomba.png",
-        "attach": "./research/nofile.txt",
+        "attach":{
+                "get":"",
+                "video":""
+        },
         "tags": [
                 "non-verbal cues",
                 "non-humanoid",
                 "roman"
         ],
-        "venue": "2022 IEEE International Conference on Robot and Human Interactive (RO-MAN)",
+        "venue": "31st IEEE International Conference on Robot and Human Interactive Communication (RO-MAN 2022)",
         "authors": [
                 "georgios-angelopoulos",
                 "francesco-vigni",
