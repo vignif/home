@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
-import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload, HiOutlineDocumentSearch } from "react-icons/hi"
+import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload, HiOutlineDocumentSearch, HiPlay } from "react-icons/hi"
 import { Seo } from "../components/seo"
 
 
@@ -24,7 +24,8 @@ const PublicationDetail = ({ data, pageContext }) => {
   const { title, slug, venue, date, url, abstract } = pub
   const authors = pub.authors
   const img = getImage(pub.img)
-  const attach = pub.attach
+  const attach = pub.attach.get
+  const video_link = pub.attach.video
   const tags = pub.tags
   console.log(tags)
   return (
@@ -65,16 +66,15 @@ const PublicationDetail = ({ data, pageContext }) => {
                   <div className="p-15">
                     <p>Venue: {venue}</p>
                     <p>Date: {date}</p>
-                    
-                    <p> Link: <t/>
-                    {url === "/" ? (
-                      <span className="fst-italic"> Proceedings not yet available</span>
+
+                    <p> Link: <t />
+                      {url === "/" ? (
+                        <span className="fst-italic"> Proceedings not yet available</span>
                       ) : (
                         <a href={url} target="_blank" rel="noreferrer">{title}</a>
-                        )}
-                    </p>        
+                      )}
+                    </p>
 
-                    {attach.name === "nofile" ? null : <p>Additional Info: <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary">Get <HiOutlineDownload /></a></p>}
                     <p>Tags:
                       {
                         tags.map((tag, index) => (
@@ -84,10 +84,25 @@ const PublicationDetail = ({ data, pageContext }) => {
                         ))}
                     </p>
 
-                    <p>{pub.alternate_link &&
-                      <p>Additional Info: <a href={pub.alternate_link} target="_blank" rel="noreferrer" className="btn btn-warning m-1"><HiOutlineDocumentSearch size={30} /></a>
-                      </p>
-                    }</p>
+
+                    <p>Additional Info:
+
+                      {
+                        attach &&
+                          <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary m-1">Get <HiOutlineDownload /></a>
+                      }
+
+                      {
+                        pub.alternate_link &&
+                        <a href={pub.alternate_link} target="_blank" rel="noreferrer" className="btn btn-primary m-1">More <HiOutlineDocumentSearch /></a>
+                      }
+
+                      {
+                        video_link &&
+                        <a href={video_link} target="_blank" rel="noreferrer" className="btn btn-warning m-1">Video <HiPlay/></a>
+                      }
+                    </p>
+
                   </div>
                   <div className="p-15 mt-4">
                     <p className="lead text-muted">Abstract</p>
@@ -137,9 +152,13 @@ query CreatePublicationPage($slug: String) {
       surname
     }
     attach {
-      base
-      name
-      publicURL
+      get 
+      {
+        base
+        name
+        publicURL
+      }
+      video
     }
     date(formatString: "MMMM DD, YYYY")
     img {
