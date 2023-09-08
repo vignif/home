@@ -49,80 +49,80 @@ const PublicationDetail = ({ data, pageContext }) => {
             <hr className="hr-text" data-content="Info" />
           </div>
         </div>
-        <div className="container own_sub_container">
-
-          <main className="spotlight">
-            <div className="container my-5">
-              <div className="row">
-                <div className="col-lg-3">
-                  <GatsbyImage
-                    image={img}
-                    alt={slug}
-                    className="pub_pic"
-                  />
-
-                </div>
-                <div className="col-lg-8">
-                  <div className="p-15">
-                    <p>Venue: {venue}</p>
-                    <p>Date: {date}</p>
-
-                    <p> Link: <t />
-                      {url === "/" ? (
-                        <span className="fst-italic"> Proceedings not yet available</span>
-                      ) : (
-                        <a href={url} target="_blank" rel="noreferrer">{title}</a>
-                      )}
-                    </p>
-
-                    <p>Tags:
-                      {
-                        tags.map((tag, index) => (
-                          <div key={tag} className="authors_list fw-light">
-                            <Link to={`/tags/${tag}`} className="btn btn-outline-primary m-2">{tag}</Link>
-                          </div>
-                        ))}
-                    </p>
 
 
-                    <p>Additional Info:
+        <main className="spotlight">
 
-                      {
-                        attach &&
-                          <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary m-1">Get <HiOutlineDownload /></a>
-                      }
+          <div className="row">
+            <div className="col-lg-3">
+              <GatsbyImage
+                image={img}
+                alt={slug}
+                className="pub_pic"
+              />
 
-                      {
-                        pub.alternate_link &&
-                        <a href={pub.alternate_link} target="_blank" rel="noreferrer" className="btn btn-primary m-1">More <HiOutlineDocumentSearch /></a>
-                      }
+            </div>
+            <div className="col-lg-8">
+              <div className="p-15">
+                <p>Venue: {venue}</p>
+                <p>Date: {date}</p>
 
-                      {
-                        video_link &&
-                        <a href={video_link} target="_blank" rel="noreferrer" className="btn btn-warning m-1">Video <HiPlay/></a>
-                      }
-                    </p>
+                <p> Link: <t />
+                  {url === "/" ? (
+                    <span className="fst-italic"> Proceedings not yet available</span>
+                  ) : (
+                    <a href={url} target="_blank" rel="noreferrer">{title}</a>
+                  )}
+                </p>
 
-                  </div>
-                  <div className="p-15 mt-4">
-                    <p className="lead text-muted">Abstract</p>
+                <p>Tags:
+                  {
+                    tags.map((tag, index) => (
+                      <div key={tag} className="authors_list fw-light">
+                        <Link to={`/tags/${tag}`} className="btn btn-outline-primary m-2">{tag}</Link>
+                      </div>
+                    ))}
+                </p>
 
-                    <div className="justify" dangerouslySetInnerHTML={{ __html: abstract }} />
-                  </div>
-                </div>
+
+                <p>Additional Info:
+
+                  {
+                    attach &&
+                    <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary m-1">Get <HiOutlineDownload /></a>
+                  }
+
+                  {
+                    pub.alternate_link &&
+                    <a href={pub.alternate_link} target="_blank" rel="noreferrer" className="btn btn-primary m-1">More <HiOutlineDocumentSearch /></a>
+                  }
+
+                  {
+                    video_link &&
+                    <a href={video_link} target="_blank" rel="noreferrer" className="btn btn-warning m-1">Video <HiPlay /></a>
+                  }
+                </p>
+
               </div>
+              <div className="p-15 mt-4">
+                <p className="lead text-muted">Abstract</p>
 
-              <div className="row mt-5">
-                <div className="col text-lg-start">
-                  {prev && <Link to={`/publications/${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Previous</Link>}
-                </div>
-                <div className="col text-lg-end">
-                  {next && <Link to={`/publications/${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Next</Link>}
-                </div>
+                <div className="justify" dangerouslySetInnerHTML={{ __html: abstract }} />
               </div>
             </div>
-          </main>
-        </div>
+          </div>
+
+          <div className="row mt-5">
+            <div className="col text-lg-start">
+              {prev && <Link to={`/publications/${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Previous</Link>}
+            </div>
+            <div className="col text-lg-end">
+              {next && <Link to={`/publications/${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Next</Link>}
+            </div>
+          </div>
+
+        </main>
+
       </section>
     </Layout>
   )
