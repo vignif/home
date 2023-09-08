@@ -42,9 +42,9 @@ const IndexPage = ({ data }) => {
               I spend my time exploring the world of robots, their  brains (AI) and their impact on our societies. <br />
 
               Currently, I am pursuing my PhD at the University of Naples Federico II, Italy where I study how robots can learn to interact in a human-like way.
-              The future expects robot to be able to interact with humans in a natural way and somebody has to make it happen ;).<br />
-              I am part of the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie European Training Network (ETN) funded by the European Commission that allows me to collaborate with the top european researchers in the field. <br />
-              In this website, I collect some of my works and interests.
+              The future expects robots to be able to interact with humans naturally and somebody has to make it happen ;).<br />
+              I am part of the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie International Training Network (ITN) funded by the European Commission that allows me to collaborate with the top European researchers in the field. <br />
+              On this website, I collect some of my works and interests.
             </p>
 
           </div>
