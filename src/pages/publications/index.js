@@ -4,6 +4,8 @@ import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
 import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
 
+// #TODO: handshake is a JOURNAL, is RAL! CHANGE IT!
+
 const Publications = ({ data }) => {
   // console.log(data)
   const publications = data.publications.nodes
