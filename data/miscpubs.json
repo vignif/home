@@ -5,7 +5,7 @@
         "slug": "irim2023",
         "url": "https://i-rim.it/en/",
         "img": "./images/publications/irim.png",
-        "attach": "./research/nofile.txt",
+        "attach": "",
         "type": "I-RIM 3D",
         "tags": [
                 "social robot",
@@ -26,7 +26,7 @@
         "slug": "hri2023",
         "url": "https://sites.google.com/view/concatenate-hri/home",
         "img": "./images/publications/system.png",
-        "attach": "./research/nofile.txt",
+        "attach": "",
         "type": "Workshop paper",
         "tags": [
                 "interaction-centric",
