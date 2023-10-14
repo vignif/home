@@ -3,14 +3,28 @@ import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
 import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
+import _ from "lodash"
 
 // #TODO: handshake is a JOURNAL, is RAL! CHANGE IT!
 
 const Publications = ({ data }) => {
+  const tagCounts = _.countBy(
+    data.tags.edges.map(edge => edge.node.tags).flat()
+  )
   // console.log(data)
   const publications = data.publications.nodes
-  const tags = data.tags.group
+  // const tags = data.tags.group
   const misc = data.misc.nodes
+  const tags = Object.keys(tagCounts).sort()
+
+  const tagObjects = Object.keys(tagCounts).map((tag) => ({
+    name: tag,
+    count: tagCounts[tag],
+  }));
+
+
+  const sortedTags = tagObjects.sort((a, b) => b.count - a.count);
+
   return (
     <Layout>
 
@@ -169,14 +183,16 @@ const Publications = ({ data }) => {
         </div>
 
         <div className="row pb-5">
-          <div className="col-md-12">
-            {
-              tags.map(tag => (
-                <div key={tag.fieldValue} className="authors_list fw-light">
-                  <Link to={`/tags/${tag.fieldValue}`} className="btn btn-warning m-2">{tag.fieldValue}</Link>
-                </div>
-              ))}
+          <div className="col">
+            {sortedTags.map(tagObj => (
+              <div key={tagObj.name} className="authors_list fw-light col-2">
+                <Link className="btn btn-warning m-2" to={`/tags/${tagObj.name}`}>
+                  {tagObj.name} ({tagObj.count})
+                </Link>
+              </div>
+            ))}
           </div>
+
           <div className="col-md-12 p-2">
             <Link to={`/tags/`} className="btn btn-primary m-2">All Tags</Link>
 
@@ -219,19 +235,20 @@ query GetPublications {
         }
         abstract
         slug
-        tags
         location
         title
         url
         venue
         date(formatString: "MMM YYYY")
+        
       }
     }
   tags: allPublicationsJson {
-    group(field: {tags: SELECT}) {
-      fieldValue
-    }
-    totalCount
+    edges {
+        node {
+          tags
+        }
+      }
   }
   misc: allMiscpubsJson {
     nodes {

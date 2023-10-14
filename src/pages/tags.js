@@ -9,6 +9,13 @@ const TagsPage = ({ data }) => {
     data.allPublicationsJson.edges.map(edge => edge.node.tags).flat()
   )
   const tags = Object.keys(tagCounts).sort()
+  const tagObjects = Object.keys(tagCounts).map((tag) => ({
+    name: tag,
+    count: tagCounts[tag],
+  }));
+
+
+  const sortedTags = tagObjects.sort((a, b) => b.count - a.count);
 
 
   return (
@@ -31,13 +38,14 @@ const TagsPage = ({ data }) => {
         <div className="row pb-5">
           <div className="col">
 
-            {tags.map(tag => (
-              <div key={tag} className="authors_list fw-light">
-                <Link className="btn btn-warning m-2" to={`/tags/${tag}`}>
-                  {tag} ({tagCounts[tag]})
+            {sortedTags.map(tagObj => (
+              <div key={tagObj.name} className="authors_list fw-light col-2">
+                <Link className="btn btn-warning m-2" to={`/tags/${tagObj.name}`}>
+                  {tagObj.name} ({tagObj.count})
                 </Link>
               </div>
             ))}
+
           </div>
         </div>
 
