@@ -134,7 +134,7 @@ const Publications = ({ data }) => {
                               <p className="authors_list">{author.name} <a href={author.web} target="_blank" rel="noreferrer">{author.surname}</a></p>
                             </div>
                           ))}
-                        <p className="m-auto fw-lighter">{pub.venue} - {pub.date}</p>
+                        <p className="m-auto fw-lighter">{pub.type} - {pub.date}</p>
 
                       </div>
 
@@ -169,12 +169,7 @@ const Publications = ({ data }) => {
             )
           }
           )}
-
-
-
-
         </div>
-
 
         <div className="row">
           <div className="col-md-12">
