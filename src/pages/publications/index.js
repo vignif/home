@@ -11,7 +11,6 @@ const Publications = ({ data }) => {
   const publications = data.publications.nodes
   const tags = data.tags.group
   const misc = data.misc.nodes
-  // console.log(data.misc)
   return (
     <Layout>
 
@@ -29,18 +28,12 @@ const Publications = ({ data }) => {
         </div>
         <div className="container own_sub_container">
           {publications.map(pub => {
-            // const date = pub.node.childMarkdownRemark.frontmatter.date;
-            // const title = pub.node.childMarkdownRemark.frontmatter.title;
             return (
               <div key={pub.id}>
                 <>
 
                   <div className="card m-3">
                     <div className="row card-body p-2 blog_cards">
-                      {/* <div className="col-sm-2 own_sub_container">
-                          <p className="own_date">{pub.date}</p>
-                        </div> */}
-
                       <div className="col-md-10">
                         <p className="m-auto">{pub.title}</p>
                         {
@@ -54,6 +47,7 @@ const Publications = ({ data }) => {
                             </div>
                           ))}
                         <p className="m-auto fw-lighter">{pub.venue} - {pub.date}</p>
+
                       </div>
 
                       <div className="col-md-2">
@@ -108,8 +102,6 @@ const Publications = ({ data }) => {
 
         <div className="container own_sub_container">
           {misc.map(pub => {
-            // const date = pub.node.childMarkdownRemark.frontmatter.date;
-            // const title = pub.node.childMarkdownRemark.frontmatter.title;
             return (
               <div key={pub.id}>
                 <>
@@ -121,34 +113,52 @@ const Publications = ({ data }) => {
                         {
                           pub.authors.map((author, index) => (
                             <div key={author.id} className="authors_list fw-light">
+
+                              {/* // put a comma between authors_list */}
                               {index > 0 && index < pub.authors.length - 1 && ", "}
                               {index > 0 && index === pub.authors.length - 1 && " and "}
                               <p className="authors_list">{author.name} <a href={author.web} target="_blank" rel="noreferrer">{author.surname}</a></p>
                             </div>
                           ))}
-                        <p className="m-auto fw-lighter">{pub.venue}</p>
-                        <p className="m-auto fw-lighter">{pub.type} - {pub.date}</p>
+                        <p className="m-auto fw-lighter">{pub.venue} - {pub.date}</p>
+
                       </div>
 
                       <div className="col-md-2">
                         <div className="row">
-                          <div className="col text-center">
-                            {console.log(pub)}
-                            <a href={pub.attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-outline-primary"><HiDocumentText /><br />Get</a>
-                          </div>
-                          <div className="col text-center">
-                            <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info
-                            </Link>
-                          </div>
+
+
+                          <>
+                            <div className="col text-center">
+                              <div>
+                                {
+                                  pub.attach &&
+                                  < a href={pub.attach.publicURL} rel="noreferrer" target="_blank" className="btn btn-outline-primary">
+                                    <HiDocumentText />&nbsp;Paper
+                                  </a>
+                                }
+                              </div>
+                            </div>
+                            <div className="col text-center">
+                              <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2"><HiOutlineSearch />&nbsp;Info
+                              </Link>
+                            </div>
+                          </>
+
                         </div>
                       </div>
                     </div>
                   </div>
+
                 </>
               </div>
             )
           }
           )}
+
+
+
+
         </div>
 
 
@@ -183,7 +193,7 @@ const Publications = ({ data }) => {
         </center>
 
       </section>
-    </Layout>
+    </Layout >
   )
 }
 
