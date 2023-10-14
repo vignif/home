@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
-import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload, HiOutlineDocumentSearch, HiPlay } from "react-icons/hi"
+import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft, HiOutlineDownload, HiOutlineDocumentSearch, HiPlay, HiDocumentText } from "react-icons/hi"
 import { Seo } from "../components/seo"
 
 
@@ -53,8 +53,8 @@ const PublicationDetail = ({ data, pageContext }) => {
 
         <main className="spotlight">
 
-          <div className="row">
-            <div className="col-lg-3">
+          <div className="row justify-content-around">
+            <div className="col-lg-4">
               <GatsbyImage
                 image={img}
                 alt={slug}
@@ -62,34 +62,15 @@ const PublicationDetail = ({ data, pageContext }) => {
               />
 
             </div>
-            <div className="col-lg-8">
-              <div className="p-15">
+            <div className="col-lg-6">
+              <div className="p-15 text-start">
                 <p>Venue: {venue}</p>
                 <p>Date: {date}</p>
-
-                <p> Link: <t />
-                  {url === "/" ? (
-                    <span className="fst-italic"> Proceedings not yet available</span>
-                  ) : (
-                    <a href={url} target="_blank" rel="noreferrer">{title}</a>
-                  )}
-                </p>
-
-                <p>Tags:
-                  {
-                    tags.map((tag, index) => (
-                      <div key={tag} className="authors_list fw-light">
-                        <Link to={`/tags/${tag}`} className="btn btn-outline-primary m-2">{tag}</Link>
-                      </div>
-                    ))}
-                </p>
-
-
-                <p>Additional Info:
-
+                <p>
+                  <a href={url} target="_blank" rel="noreferrer" className="btn btn-primary m-1">Paper <HiDocumentText /></a>
                   {
                     attach &&
-                    <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary m-1">Get <HiOutlineDownload /></a>
+                    <a href={attach.publicURL} target="_blank" rel="noreferrer" className="btn btn-primary m-1">Annex <HiOutlineDownload /></a>
                   }
 
                   {
@@ -103,12 +84,20 @@ const PublicationDetail = ({ data, pageContext }) => {
                   }
                 </p>
 
+                <p>Tags:
+                  {
+                    tags.map((tag, index) => (
+                      <div key={tag} className="authors_list fw-light">
+                        {index > 0 && index < pub.authors.length + 1 && ", "}
+                        <p className="authors_list"> <Link to={`/tags/${tag}`}>{tag}</Link></p>
+                      </div>
+                    ))}
+                </p>
               </div>
-              <div className="p-15 mt-4">
-                <p className="lead text-muted">Abstract</p>
-
-                <div className="justify" dangerouslySetInnerHTML={{ __html: abstract }} />
-              </div>
+            </div>
+            <div className="p-15 mt-4 col-lg-11">
+              <p className="lead text-muted">Abstract</p>
+              <div className="justify" dangerouslySetInnerHTML={{ __html: abstract }} />
             </div>
           </div>
 
