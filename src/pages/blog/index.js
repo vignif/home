@@ -25,56 +25,73 @@ const Blog = ({ data }) => {
             <hr className="hr-text" data-content="" />
           </div>
         </div>
-        <div className="container own_sub_container">
-          <div class="row">
-            {blog.map(pub => {
-              console.log(pub.node)
-              const date = pub.node.childMarkdownRemark.frontmatter.date;
-              const title = pub.node.childMarkdownRemark.frontmatter.title;
-              const subtitle = pub.node.childMarkdownRemark.frontmatter.subtitle;
+        <section className="wrapper">
+          <div className="container-fostrap">
+            <div className="content">
+              <div className="container">
+                <div className="row justify-content-around m-auto">
+                  {blog.map(pub => {
+                    console.log(pub.node)
+                    const date = pub.node.childMarkdownRemark.frontmatter.date;
+                    const title = pub.node.childMarkdownRemark.frontmatter.title;
+                    const subtitle = pub.node.childMarkdownRemark.frontmatter.subtitle;
+                    const url = `/blog${pub.node.childMarkdownRemark.fields.slug}`
+                    const image = getImage(pub.node.childMarkdownRemark.frontmatter.img)
+                    console.log(image)
+                    return (
+                      <div key={pub.node.id} className="d-contents">
+                        <>
+                          <div className="col-xs-12 col-sm-5">
+                            <div className="card">
+                              <div className="img-card">
+                                <GatsbyImage image={image} alt="" style={{
+                                  // position: 'absolute',
+                                  // height: '100%',
+                                  // width: '100%',
+                                  // inset: 0,
+                                  display: 'block',
+                                  verticalAlign: 'middle',
+                                }} />
+                              </div>
+                              <div className="card-content">
+                                <h4 className="card-title">
+                                  <a href={url}> {title}
+                                  </a>
+                                </h4>
+                                <div className="content">
+                                  <a href={url}>
+                                    <p className="title is-4">{subtitle}</p>
+                                  </a>
+                                  <p className="subtitle is-6">{date}</p>
+                                </div>
 
-              const image = getImage(pub.node.childMarkdownRemark.frontmatter.img)
-              console.log(image)
-              return (
-                <div key={pub.node.id}>
-                  <>
-                    <div class="col-5">
-                      <div className="card">
-                        <div className="card-image">
-                          <GatsbyImage image={image} alt="" />
-                        </div>
-                        <div className="card-content">
-                          <div className="content">
-                            <a href="/mere-blog-theme/2019/09/04/fifth-post/">
-                              <p className="title is-4">{title}</p>
-                            </a>
-                            <p className="subtitle is-6">{subtitle} - {date}</p>
+                                <div className="card-read-more">
+                                  <a href={url} className="btn btn-link btn-block">
+                                    Read More
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                          <div className="has-text-centered">
-
-                            <Link to={`/blog${pub.node.childMarkdownRemark.fields.slug}`} className="button is-dark is-fullwidth"><HiOutlineNewspaper />&nbsp;Read
-                            </Link>
-                          </div>
-                        </div>
+                        </>
                       </div>
-                    </div>
-                  </>
-                </div>
 
-              )
-            }
-            )}
-          </div>
-          <center>
-            <div className="row">
-              <div className="col-md-12">
-                <hr className="hr-text" data-content="" />
+                    )
+                  }
+                  )}
+                </div>
+                <center>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <hr className="hr-text" data-content="" />
+                    </div>
+                  </div>
+                  <Link to="/">Go back to the homepage</Link>
+                </center>
               </div>
             </div>
-            <Link to="/">Go back to the homepage</Link>
-          </center>
-        </div>
-
+          </div>
+        </section>
       </section>
     </Layout>
   )
