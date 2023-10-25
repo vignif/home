@@ -45,10 +45,6 @@ const Blog = ({ data }) => {
                             <div className="card">
                               <div className="img-card">
                                 <GatsbyImage image={image} alt="" style={{
-                                  // position: 'absolute',
-                                  // height: '100%',
-                                  // width: '100%',
-                                  // inset: 0,
                                   display: 'block',
                                   verticalAlign: 'middle',
                                 }} />
