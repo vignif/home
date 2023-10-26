@@ -3,6 +3,7 @@ title: A machine that thinks
 subtitle: Little by little, we are getting closer to the day when machines will be able to think like humans.
 slug: ai
 date: 2023-02-11
+img: "../images/blogs/mountain.jpg"
 ---
 
 <h3>Can it think?</h3>

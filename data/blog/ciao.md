@@ -3,6 +3,7 @@ title: Ciao
 subtitle: New year, new website
 slug: ciao
 date: 2023-01-01
+img: "../images/blogs/barcelona.jpg"
 ---
 
 <H2>This is my first post on gatsby</H2>

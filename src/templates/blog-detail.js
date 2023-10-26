@@ -21,36 +21,23 @@ const BlogDetail = ({ props, data, pageContext }) => {
   }
   console.log("prev", prev)
   console.log("next", next)
-  // const { title, slug, venue, date, url, abstract } = pub
-  // const authors = pub.authors
-
+  
   const blog = data.file.childMarkdownRemark
   console.log(data.file.childMarkdownRemark)
-  // const {frontmatter} = data.file.childMarkdownRemark
   const title = blog.frontmatter.title
+  const subtitle = blog.frontmatter.subtitle
   const date = blog.frontmatter.date
   const content = blog.html
-  // const authors = ["asd", "asdf"]
 
-  // const title = "titkl"
-  // const date = "date"
-  // const img = getImage(pub.img)
+  const image = getImage(blog.frontmatter.img)
   
   return (
     <Layout>
       <section className="py-5 text-center container own_container">
-        <div className="row py-lg-5">
-          <div className="col-md-8 mx-auto">
-            <h1 className="fw-light">{title}</h1>
-            {/* {
-              authors.map((author, index) => (
-                <p key={author.id} className="authors_list">
-                  {index > 0 && index < pub.authors.length - 1 && ", "}
-                  {index > 0 && index === pub.authors.length - 1 && " and "}
-                  <p className="authors_list">{author.name} {author.surname}</p>
-                </p>
-              ))} */}
-          </div>
+        <div className="row blog_header ">
+          <GatsbyImage image={image} alt="" className="imgBlogTitle" />
+          <div className="overlay blog_title animate-charcter">{title}</div>
+          <div className="overlay blog_subtitle">{subtitle}</div>
         </div>
         <div className="row">
           <div className="col-md-12">
@@ -60,7 +47,7 @@ const BlogDetail = ({ props, data, pageContext }) => {
         <div className="container own_sub_container">
 
           <main className="spotlight">
-            <div className="container my-5">
+            <div className="container">
               <div className="row">
                 <div className="col-lg-8 mx-auto">
                   <div className="p-15 mt-4">
@@ -74,7 +61,7 @@ const BlogDetail = ({ props, data, pageContext }) => {
                   {prev && <Link to={`/blog${prev}`} className="btn btn-outline-primary"><HiOutlineArrowCircleLeft />&nbsp;Newer</Link>}
                 </div>
                 <div className="col text-end">
-                    {next && <Link to={`/blog${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Older</Link>}
+                  {next && <Link to={`/blog${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Older</Link>}
                 </div>
               </div>
             </div>
@@ -92,7 +79,7 @@ export default BlogDetail
 export const Head = ({ data }) => (
   console.log("here"),
   console.log(data),
-  <Seo title={"FV - "+data.file.childMarkdownRemark.frontmatter.title} />
+  <Seo title={"FV - " + data.file.childMarkdownRemark.frontmatter.title} />
 )
 
 
@@ -109,7 +96,14 @@ query GetBlog($slug: String) {
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        subtitle
         slug
+        img{
+              childImageSharp 
+              {
+                gatsbyImageData(width: 1000, placeholder: BLURRED, quality: 100, formats: [AUTO, WEBP, AVIF])
+              }
+            }
       }
       html
     }

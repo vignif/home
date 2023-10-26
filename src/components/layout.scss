@@ -333,7 +333,8 @@ h1.heading {
   border-top-left-radius:2px;
   border-top-right-radius:2px;
   display:block;
-    overflow: hidden;
+  overflow: hidden;
+  vertical-align: bottom;
 }
 .img-card img{
   width: 100%;
@@ -365,4 +366,69 @@ h1.heading {
   padding:10px;
   font-weight:600;
   text-transform: uppercase
+}
+
+.blog_header{
+  position: relative;
+  
+ 
+}
+.imgBlogTitle{
+  border-radius: 5px;
+}
+
+.blog_header .blog_title{
+
+  position: absolute; /* Position the background text */
+  text-align: left;
+  font-size: 3em;
+  vertical-align: middle;
+
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  /* Here we go */
+  block-size: auto;
+  width:auto;
+  background: #fff;
+  
+  mix-blend-mode: normal;
+  margin: 1rem;
+}
+
+.blog_header .blog_subtitle{
+  
+  text-align: left;
+  font-size: 1em;
+  vertical-align: middle;
+  top: 5.5em;
+
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 5px;  
+  padding: 5px 10px;
+
+  /* Here we go */
+  block-size: auto;
+  width:auto;
+  background: #fff;
+  mix-blend-mode: normal;
+  margin: 1rem;
+}
+
+.overlay {
+  position: absolute; 
+  // background: rgba(57, 57, 57, 0.5);
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 26%, rgba(255,255,255,0) 100%);
+  background-size: inherit;
+
+
+  height: 200px;
+  /* center overlay text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

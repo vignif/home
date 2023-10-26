@@ -3,6 +3,7 @@ title: Blogging is a communication channel
 subtitle: Some of my blogs are available in the perseo project
 slug: robots
 date: 2023-05-01
+img: "../images/blogs/snow.jpg"
 ---
 
 

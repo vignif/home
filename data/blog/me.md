@@ -3,6 +3,7 @@ title: Passions never grow old
 subtitle: It's a mee Francesco! (semicit.)
 slug: roots
 date: 2023-05-11
+img: "../images/blogs/sea.jpg"
 ---
 
 
