@@ -6,6 +6,7 @@ date: 2023-05-11
 img: "../images/blogs/sea.jpg"
 ---
 
+<H2>Passions never grow old</H2>
 
 I grew up as a very curios kid, with my hands and mind always busy solving some non existent problem.
 I loved understanding the mechanism of the toys and their misteries.
