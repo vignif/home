@@ -38,7 +38,14 @@ const Contacts = () => {
             <div className="row justify-content-around">
               <div className="col-md-12">
 
-                <p className="lead " style={{ textAlign: "justify" }}>Francesco Vigni is a licensed information engineer and PhD student of the EU project PERSEO and part of the PriscaLab based at the University of Naples Federico II in Naples, Italy. He is also affiliated with the Interdepartmental Center for Advances in Robotic Surgery (ICAROS) and enrolled in the graduate school Information and Communication Technology for Health (ICTH) of the same university. He received his M.Sc in computer and automation engineering with honours at the University of Siena in Italy. His first conference paper was awarded the Best Paper Award Finalist on HRI at ICRA2019 in Montreal, Canada. Currently, his work focuses on designing, developing, and testing metrics for social HRI that are inspired by the natural bidirectional communication that commonly happens among humans. This strategy can improve natural encounters between robots and humans.</p>
+                <p className="lead" style={{ textAlign: "justify" }}>
+                Francesco is an Italian Dominican engineer investing his efforts in research in Human-Robot Interaction. 
+                He is an early-stage researcher in the European Horizon 2020 research and innovation programme PERSEO. 
+                He is affiliated with the Interdepartmental Center for Advances in Robotic Surgery (ICAROS) and enrolled in the graduate school Information and Communication Technology for Health (ICTH) of University of Naples Federico II in Naples, Italy. 
+                Before this experience, he received his M.Sc. in computer and automation engineering with honours at the University of Siena in Italy. 
+                His work focuses on exploiting the social cues of robots to facilitate spontaneous interactions. Within this focus, Francesco is designing and testing behaviours for social robots that are inspired by the natural bidirectional communication that commonly happens among humans.
+                This approach can improve natural encounters between humans and robots, paving the way for large-scale social robots’ adoption.
+                </p>
               </div>
 
             </div>
