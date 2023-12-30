@@ -13,7 +13,9 @@
   "9669f50073b0240cdeec1c2cfeb451939b213fb9.js": "9669f50073b0240cdeec1c2cfeb451939b213fb9-c59956957c33e3e51a01.js",
   "app-be7707fe6686108cc048.js.LICENSE.txt": "app-be7707fe6686108cc048.js.LICENSE.txt",
   "app-be7707fe6686108cc048.js.map": "app-be7707fe6686108cc048.js.map",
-  "app.js": "app-be7707fe6686108cc048.js",
+  "app-e3c2e655dd2c2f0096cd.js.LICENSE.txt": "app-e3c2e655dd2c2f0096cd.js.LICENSE.txt",
+  "app-e3c2e655dd2c2f0096cd.js.map": "app-e3c2e655dd2c2f0096cd.js.map",
+  "app.js": "app-e3c2e655dd2c2f0096cd.js",
   "component---src-pages-404-js-208befc702356afbab00.js.map": "component---src-pages-404-js-208befc702356afbab00.js.map",
   "component---src-pages-404-js.js": "component---src-pages-404-js-208befc702356afbab00.js",
   "component---src-pages-about-js-1c9a75bf222408063503.js.map": "component---src-pages-about-js-1c9a75bf222408063503.js.map",
@@ -21,7 +23,8 @@
   "component---src-pages-blog-index-js-ba329934e3797bf0a38a.js.map": "component---src-pages-blog-index-js-ba329934e3797bf0a38a.js.map",
   "component---src-pages-blog-index-js.js": "component---src-pages-blog-index-js-ba329934e3797bf0a38a.js",
   "component---src-pages-index-js-026d6930720c23f9b9ec.js.map": "component---src-pages-index-js-026d6930720c23f9b9ec.js.map",
-  "component---src-pages-index-js.js": "component---src-pages-index-js-026d6930720c23f9b9ec.js",
+  "component---src-pages-index-js-cf67cc2c655a43f4f05e.js.map": "component---src-pages-index-js-cf67cc2c655a43f4f05e.js.map",
+  "component---src-pages-index-js.js": "component---src-pages-index-js-cf67cc2c655a43f4f05e.js",
   "component---src-pages-news-js-89369d052fabd2e60ba8.js.map": "component---src-pages-news-js-89369d052fabd2e60ba8.js.map",
   "component---src-pages-news-js.js": "component---src-pages-news-js-89369d052fabd2e60ba8.js",
   "component---src-pages-publications-index-js-1e92b1c19286d0ba1939.js.map": "component---src-pages-publications-index-js-1e92b1c19286d0ba1939.js.map",
@@ -45,6 +48,7 @@
   "framework-b3b8bab242ee7ee9d98c.js.LICENSE.txt": "framework-b3b8bab242ee7ee9d98c.js.LICENSE.txt",
   "framework-b3b8bab242ee7ee9d98c.js.map": "framework-b3b8bab242ee7ee9d98c.js.map",
   "framework.js": "framework-b3b8bab242ee7ee9d98c.js",
+  "static/beer.mp4": "static/beer-8d97c40f31da7d02c3134d10ea82a7a2.mp4",
   "static/carla.mp4": "static/carla-fecc421697ff33a553367e85215652eb.mp4",
   "static/fv.mp3": "static/fv-67c190104ce44ea01d8608d6d3f263eb.mp3",
   "static/hand.mp4": "static/hand-5594e4d8b716a25d242963aa8ee78f03.mp4",
@@ -53,5 +57,6 @@
   "static/telepresence.mp4": "static/telepresence-2c7073405925a2e665cc1fe30c02d713.mp4",
   "styles.css": "styles.cd587c13d7535c16f4d5.css",
   "webpack-runtime-6eed4b1983236f13a6d3.js.map": "webpack-runtime-6eed4b1983236f13a6d3.js.map",
-  "webpack-runtime.js": "webpack-runtime-6eed4b1983236f13a6d3.js"
+  "webpack-runtime-e1159fc0118b2abb546a.js.map": "webpack-runtime-e1159fc0118b2abb546a.js.map",
+  "webpack-runtime.js": "webpack-runtime-e1159fc0118b2abb546a.js"
 }
