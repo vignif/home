@@ -19,6 +19,7 @@ import handShakeVideo from "../../data/videos/handshake.mp4"
 import { HiLink, HiFingerPrint } from 'react-icons/hi'
 import carlaVideo from "../../data/videos/carla.mp4"
 import teleVideo from "../../data/videos/telepresence.mp4"
+import beerVideo from "../../data/videos/beer.mp4"
 
 const IndexPage = ({ data }) => {
   // console.log(data)
@@ -81,9 +82,10 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls={false} muted={true} autoPlay={true} loop={true}>
-              <source className="embed-responsive-item" src={carlaVideo} type="video/mp4" />
+              <source className="embed-responsive-item" src={beerVideo} type="video/mp4" />
             </video>
-            <p className="lead text-muted">How do you <a href="https://github.com/vignif/carla-parking">park</a>?</p>
+            {/* <p className="lead text-muted">How do you <a href="https://github.com/vignif/carla-parking">park</a>?</p> */}
+            <p className="lead text-muted">Want a <a href="https://evm7.github.io/HOI4ABOT_page/" target="_blank">beer</a>?</p>
           </div>
           <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls={false} muted={true} autoPlay={true} loop={true}>
