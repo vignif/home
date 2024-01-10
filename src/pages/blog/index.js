@@ -26,7 +26,7 @@ const Blog = ({ data }) => {
           </div>
         </div>
         <section className="wrapper">
-          <div className="container-fostrap">
+          <div className="">
             <div className="content">
               <div className="container">
                 <div className="row justify-content-around m-auto">
@@ -55,10 +55,10 @@ const Blog = ({ data }) => {
                                   </a>
                                 </h4>
                                 <div className="content">
-                                  <a href={url}>
-                                    <p className="title is-4">{subtitle}</p>
-                                  </a>
-                                  <p className="subtitle is-6">{date}</p>
+                                  {/* <a href={url}> */}
+                                    <p className="title is-4 mt-1 mb-1 ">{subtitle}</p>
+                                  {/* </a> */}
+                                  <p className="subtitle is-4 mt-1 mb-1 fst-italic">{date}</p>
                                 </div>
 
                                 <div className="card-read-more">
