@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => {
               I am part of the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie International Training Network (ITN) funded by the European Commission that allows me to collaborate with the top European researchers in the field. <br />
               On this website, I collect some of my works and interests.
             </p>
-            <a href="/static/cv.pdf" download="/static/cv.pdf" style={{ float: "left" }}>Download CV</a>
+            <a href="cv.pdf" download="cv.pdf" style={{ float: "left" }}>Download CV</a>
           </div>
 
           <div className="col-sm-4 ms-auto mb-3">
