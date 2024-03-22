@@ -2,4 +2,4 @@
 date: 2023-07-15
 ---
 
-Grateful to collaborate with <a target="_blank" rel="noopener" href="https://noosware.com/">Noosware NV</a> as visiting researcher on the development of emotional aware mobile robotics.
+I was a visiting researcher at <a target="_blank" rel="noopener" href="https://noosware.com/">Noosware NV</a> in Eindhoven, The Netherlands for ~2 months working on the development of emotional aware mobile robotics.
