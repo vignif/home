@@ -21,6 +21,10 @@ These links will redirect you there!
 
 <table class="table table-striped">
   <tr>
+    <td><a href="https://www.perseo.eu/2024/02/12/understanding-perceiving-and-interacting/" target="_blank" rel="noopener">(Read more)</a></td>
+    <td>Understanding, perceiving and interacting</td>
+  </tr>
+  <tr>
     <td><a href="https://www.perseo.eu/2023/04/13/societies-are-evolving-and-robots-too/" target="_blank" rel="noopener">(Read more)</a></td>
     <td>Societies are evolving and robots too</td>
   </tr>
