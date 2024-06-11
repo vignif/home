@@ -160,12 +160,31 @@ exports.createSchemaCustomization = ({ actions }) => {
       type PublicationsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
       }
-    `);
-
-    createTypes(`
+      
       type MiscpubsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
         attach: File @fileByRelativePath
+      }
+
+      type Publication implements Node {
+        title: String!
+        date: Date! @dateformat
+        slug: String!
+        location: String
+        url: String
+        img: String
+        attach: PublicationAttach
+        alternate_link: String
+        tags: [String!]!
+        venue: String
+        authors: [String!]!
+        coFirstAuthors: Boolean!          
+        abstract: String
+      }
+  
+      type PublicationAttach {
+        get: String
+        video: String
       }
     `);
 };

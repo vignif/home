@@ -55,6 +55,7 @@ const Publications = ({ data }) => {
                             <div key={author.id} className="authors_list fw-light">
 
                               {/* // put a comma between authors_list */}
+                              {index > 0 && index <= 2 && pub.coFirstAuthors && "*"}
                               {index > 0 && index < pub.authors.length - 1 && ", "}
                               {index > 0 && index === pub.authors.length - 1 && " and "}
                               <p className="authors_list">{author.name} <a href={author.web} target="_blank" rel="noreferrer">{author.surname}</a></p>
@@ -228,6 +229,7 @@ query GetPublications {
           web
           slug
         }
+        coFirstAuthors
         abstract
         slug
         location

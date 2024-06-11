@@ -66,5 +66,20 @@
       "name": "Mario",
       "surname": "Turco",
       "slug": "mario-turco"
+    },
+    {
+      "name": "Dimitri",
+      "surname": "Maglietta",
+      "slug": "dimitri-maglietta"
+    },
+    {
+      "name": "Vasilis",
+      "surname": "Mizaridis",
+      "slug": "vasilis-mizaridis"
+    },
+    {
+      "name": "Stratos",
+      "surname": "Arampatzis",
+      "slug": "stratos-arampatzis"
     }
   ]

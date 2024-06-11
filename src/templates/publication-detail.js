@@ -27,6 +27,7 @@ const PublicationDetail = ({ data, pageContext }) => {
   const attach = pub.attach.get
   const video_link = pub.attach.video
   const tags = pub.tags
+  const co = pub.coFirstAuthors
   console.log(tags)
   return (
     <Layout>
@@ -37,6 +38,7 @@ const PublicationDetail = ({ data, pageContext }) => {
             {
               authors.map((author, index) => (
                 <div key={author.slug} className="authors_list">
+                  {index > 0 && index <= 2 && co && "*"}
                   {index > 0 && index < pub.authors.length - 1 && ", "}
                   {index > 0 && index === pub.authors.length - 1 && " and "}
                   <p className="authors_list">{author.name} {author.surname}</p>
@@ -83,16 +85,15 @@ const PublicationDetail = ({ data, pageContext }) => {
                     <a href={video_link} target="_blank" rel="noreferrer" className="btn btn-warning m-1">Video <HiPlay /></a>
                   }
                 </p>
-
-                <p>Tags:
-                  {
-                    tags.map((tag, index) => (
-                      <div key={tag} className="authors_list fw-light">
-                        {index > 0 && index < pub.authors.length + 1 && ", "}
-                        <p className="authors_list"> <Link to={`/tags/${tag}`}>{tag}</Link></p>
-                      </div>
-                    ))}
+                <p>Tags:{" "}
+                  {pub.tags.map((tag, index) => (
+                    <div key={tag} className="authors_list fw-light fst-italic">
+                      <Link to={`/tags/${tag}`}>{tag}</Link>
+                      {index < pub.tags.length - 1 && ", "}
+                    </div>
+                  ))}
                 </p>
+                <p>{co && "Notes: * co-first authorship"}</p>
               </div>
             </div>
             <div className="p-15 mt-4 col-lg-11">
@@ -134,6 +135,7 @@ query CreatePublicationPage($slug: String) {
     tags
     url
     alternate_link @include(if: true) 
+    coFirstAuthors
     abstract
     authors {
       slug
@@ -142,11 +144,6 @@ query CreatePublicationPage($slug: String) {
     }
     attach {
       get 
-      {
-        base
-        name
-        publicURL
-      }
       video
     }
     date(formatString: "MMMM DD, YYYY")
