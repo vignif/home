@@ -31,6 +31,7 @@
     "gatsby-transformer-remark": "^6.3.2",
     "gatsby-transformer-sharp": "^5.1.0",
     "husky": "8.0.3",
+    "joi": "^17.13.3",
     "js-search": "^2.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -70,6 +71,6 @@
   "homepage": "https://github.com/r-ichard/gatsby-starter-bootstrap-5#readme",
   "main": "gatsby-browser.js",
   "engines": {
-    "node": ">=18"
+    "node": ">=20.16.0"
   }
 }
