@@ -143,7 +143,10 @@ query CreatePublicationPage($slug: String) {
       surname
     }
     attach {
-      get 
+      get {
+        id
+        publicURL
+      }
       video
     }
     date(formatString: "MMMM DD, YYYY")
