@@ -4,9 +4,6 @@
   "description": "A simple starter to get up and developing quickly with Gatsby 5 and Bootstrap 5",
   "version": "2.0.2",
   "author": "Richard Raduly <richard@raduly.fr>",
-  "engines": {
-    "node": ">=16.x"
-  },
   "dependencies": {
     "@browniebroke/gatsby-image-gallery": "^8.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -33,12 +30,14 @@
     "gatsby-transformer-json": "^5.4.0",
     "gatsby-transformer-remark": "^6.3.2",
     "gatsby-transformer-sharp": "^5.1.0",
+    "husky": "8.0.3",
     "js-search": "^2.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.7.1",
     "sass": "1.49.11",
+    "semantic-release": "^24.0.0",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
@@ -46,15 +45,20 @@
     "prettier": "2.5.1"
   },
   "scripts": {
-    "deploy": "gatsby build && gh-pages -d public",
-    "build": "gatsby build --prefix-paths",
-    "live": "gatsby build --prefix-paths && gh-pages -d public",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "build": "npm run clean && gatsby build",
+    "clean": "rimraf .cache public",
+    "format": "npm run format:ts && npm run format:scss",
+    "format:scss": "stylelint \"src/**/*.scss\" --fix",
+    "format:ts": "eslint \"src\" --ext .tsx,.ts --fix && prettier --write .",
+    "lint": "npm run lint:ts && npm run lint:scss",
+    "lint:commit": "commitlint",
+    "lint:scss": "stylelint \"src/**/*.scss\"",
+    "lint:staged": "lint-staged",
+    "lint:ts": "eslint \"src\" --ext .tsx,.ts && prettier --check .",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "start": "npm run clean && gatsby develop"
   },
   "repository": {
     "type": "git",
@@ -64,5 +68,8 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "homepage": "https://github.com/r-ichard/gatsby-starter-bootstrap-5#readme",
-  "main": "gatsby-browser.js"
+  "main": "gatsby-browser.js",
+  "engines": {
+    "node": ">=18"
+  }
 }
