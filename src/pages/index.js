@@ -10,7 +10,7 @@ import { graphql } from "gatsby"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faGithub, faXTwitter, faGoogle, faGoogleScholar} from '@fortawesome/free-brands-svg-icons'
 
 
 import handVideo from "../../data/videos/hand.mp4"
@@ -38,16 +38,16 @@ const IndexPage = ({ data }) => {
           <div className="col-sm-8  mx-auto">
             <h1 className="fw-light">Francesco Vigni</h1>
             <p className="lead text-muted mb-0">/franˈt͡ʃe.sko ˈvi.ɲi/ - <AudioButton /></p>
-            <p className="lead text-muted">he/him  <a href="https://dpcpsi.nih.gov/sites/default/files/NIH-Draft-Guidance-on-Pronouns-Usage-PUBLIC-508_dmh.pdf" target="_blank" rel="noreferrer" className="lead text-muted" style={{ fontSize: "small" }}>why?</a></p>
+            <p className="lead text-muted">he/him  <a href="https://englishexplorations.check.uni-hamburg.de/academic-writing-how-do-we-use-gender-inclusive-language-in-academic-writing/" target="_blank" rel="noreferrer" className="lead text-muted" style={{ fontSize: "small" }}>why?</a></p>
             <p className="justify">
-              I spend my time exploring the world of robots, their  brains (AI) and their impact on our societies. <br />
-
-              Currently, I am pursuing my PhD at the University of Naples Federico II, Italy where I study how robots can learn to interact in a human-like way.
-              The future expects robots to be able to interact with humans naturally and somebody has to make it happen ;).<br />
-              I am part of the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie International Training Network (ITN) funded by the European Commission that allows me to collaborate with the top European researchers in the field. <br />
+              I spend my time exploring the world of robots, their  brains (AI) and their impact on our societies. 
+              I study how robots can learn to interact in a human-like way.
+              The future expects robots to be able to interact with humans spontaneously and somebody has to make it happen ;).<br />
+              {/* I am part of the <a href="http://www.perseo.eu/" target="_blank" rel="noreferrer">perseo</a> project, a Marie Skłodowska-Curie International Training Network (ITN) funded by the European Commission that allows me to collaborate with the top European researchers in the field. <br /> */}
               On this website, I collect some of my works and interests.
             </p>
-            <a href="cv.pdf" download="cv.pdf" style={{ float: "left" }}>Download CV</a>
+            <a href="cv.pdf" download="cv.pdf" style={{ float: "left" }}>Download CV</a><br/>
+            <a href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link" target="_blank" rel="noreferrer" style={{ float: "left" }}>PhD Thesis</a>
           </div>
 
           <div className="col-sm-4 ms-auto mb-3">
@@ -90,9 +90,9 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="col-sm-auto col-lg-3">
             <video className="embed-responsive embed-responsive-16by9 main-video img-fluid" controls={false} muted={true} autoPlay={true} loop={true}>
-              <source className="embed-responsive-item" src={teleVideo} type="video/mp4" />
+              <source className="embed-responsive-item" src={carlaVideo} type="video/mp4" />
             </video>
-            <p className="lead text-muted">Telepresence robot</p>
+            <p className="lead text-muted">Rule-based <a href="https://github.com/vignif/carla-parking" target="_blank">parking</a></p>
           </div>
         </div>
 
@@ -155,7 +155,9 @@ const IndexPage = ({ data }) => {
                             <a href={link} target="_blank" rel="noreferrer" className="">
                               <HiLink />
                             </a>{employer} - {where}</p>
-                          <p className="mb-0 fw-light">{start}</p>
+                          <p className="mb-0 fw-light">
+                          {end && end !== 'Invalid date' ? `${start} - ${end}` : start}
+                          </p>
                           <p className="mb-0 fw-light">{extra}</p>
 
                         </div>
@@ -179,7 +181,8 @@ const IndexPage = ({ data }) => {
         <div className="row justify-content-center">
           <div className="col-1 mx-1">
             <a href={social.google} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGoogle} size="2x" />
+              <FontAwesomeIcon icon={faGoogleScholar} size="2x" />
+              <FontAwesomeIcon icon="fa-brands fa-google-scholar" size="2x"/>
             </a>
           </div>
           <div className="col-1 mx-1">
@@ -189,7 +192,7 @@ const IndexPage = ({ data }) => {
           </div>
           <div className="col-1 mx-1">
             <a href={social.twitter} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faTwitter} size="2x" />
+              <FontAwesomeIcon icon={faXTwitter} size="2x" />
             </a>
           </div>
           <div className="col-1 mx-1">
@@ -234,6 +237,7 @@ cv: allCvJson {
       id
       employer
       date_start(formatString: "MMM, YYYY")
+      date_end(formatString: "MMM, YYYY")
       slug
       title
       url

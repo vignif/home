@@ -1,12 +1,24 @@
 [
     {
-        "title": "Early Stage Researcher - MSCA Fellow",
-        "employer": "University of Naples Federico II",
-        "date-start": "2022-12-01",
+        "title": "Sabbatical",
+        "employer": "Self-employee",
+        "date-start": "2025-02-01",
         "date-end": "",
+        "where": "Earth",
+        "slug": "perseo",
+        "extra":"Ah, life.",
+        "url": "/",
+        "icon": "fa-robot"
+        
+    },
+    {
+        "title": "PhD Student - MSCA Fellow",
+        "employer": "University of Naples Federico II",
+        "date-start": "2021-12-01",
+        "date-end": "2025-02-10",
         "where": "Naples, Italy",
         "slug": "perseo",
-        "extra":"Perseo Project",
+        "extra":"topic: spontaneous Human-Robot Interactions",
         "url": "https://www.perseo.eu/esr-12/",
         "icon": "fa-robot"
         
@@ -14,8 +26,8 @@
     {
         "title": "Robotics Engineer",
         "employer": "Roboception GmbH",
-        "date-start": "2022-07-01",
-        "date-end": "2022-11-30",
+        "date-start": "2021-07-01",
+        "date-end": "2021-12-30",
         "where": "Munich, Germany",
         "slug": "roboception",
         "extra":"",
@@ -25,7 +37,7 @@
     {
         "title": "Licensed Engineer",
         "employer": "Polytechnic University of Turin",
-        "date-start": "2022-12-01",
+        "date-start": "2020-12-01",
         "date-end": "",
         "where": "Turin, Italy",
         "slug": "engineer",
@@ -37,7 +49,7 @@
         "title": "Autonomous Systems Developer",
         "employer": "STtech GmbH",
         "date-start": "2020-04-01",
-        "date-end": "2021-06-31",
+        "date-end": "2021-06-30",
         "where": "Munich, Germany",
         "slug": "engineer",
         "extra":"",
@@ -58,8 +70,8 @@
     {
         "title": "Daimler Cloud Services Consultant",
         "employer": "Kadacon GmbH",
-        "date-start": "2019-02-01",
-        "date-end": "2020-03-31",
+        "date-start": "2019-01-01",
+        "date-end": "2019-03-31",
         "where": "Area Mid-North Italy",
         "slug": "engineer",
         "extra":"",
@@ -69,22 +81,22 @@
     {
         "title": "Master Degree in Robotics and Automation Engineering",
         "employer": "University of Siena",
-        "date-start": "2018-10-01",
-        "date-end": "2020-03-31",
+        "date-start": "2015-10-01",
+        "date-end": "2018-10-31",
         "where": "Siena, Italy",
         "slug": "engineer",
-        "extra": "Thesis: “A Closed Loop Approach to Human-Robot Handshake“ - 110/110 e Lode",
+        "extra": "topic: Human-Robot Handshakes",
         "url": "https://computer-automation.unisi.it/it",
         "icon": "fa-cicio"   
     },
     {
         "title": "Bachelor Degree in Management Engineering",
         "employer": "University of Siena",
-        "date-start": "2015-10-01",
-        "date-end": "2020-03-31",
+        "date-start": "2011-10-01",
+        "date-end": "2015-10-31",
         "where": "Siena, Italy",
         "slug": "engineer",
-        "extra":"Thesis: “Analisi e confronti di sistemi di trading basate sul trend following” - 92/110",
+        "extra":"topic: optimizing trading strategies",
         "url": "https://ing-gestionale.unisi.it/it",
         "icon": "fa-cicio"   
     }
