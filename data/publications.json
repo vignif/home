@@ -4,13 +4,13 @@
         "date": "2024-08-01",
         "slug": "roomba-emotion",
         "location": "Pasadena, California",
-        "url": "",
+        "url": "https://ieeexplore.ieee.org/document/10731180",
         "img": "./images/publications/roomba-emotion.png",
         "attach": {
             "get": "/",
             "video": ""
         },
-        "alternate_link": "",
+        "alternate_link": "https://doi.org/10.1109/RO-MAN60168.2024.10731180",
         "tags": [
             "emotions",
             "non-humanoid",
@@ -32,13 +32,13 @@
         "date": "2024-08-01",
         "slug": "too-close",
         "location": "Pasadena, California",
-        "url": "",
+        "url": "https://ieeexplore.ieee.org/document/10731458",
         "img": "./images/publications/too-close.png",
         "attach": {
             "get": "/",
             "video": ""
         },
-        "alternate_link": "",
+        "alternate_link": "https://doi.org/10.1109/RO-MAN60168.2024.10731458",
         "tags": [
             "proxemic",
             "humanoid",
