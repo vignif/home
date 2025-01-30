@@ -13,6 +13,8 @@ echo "Using Gatsby version: $(gatsby --version)"
 if ! yarn list --pattern "gatsby@" >/dev/null; then
     echo "Gatsby is missing in node_modules! Installing locally..."
     yarn add gatsby
+    yarn add babel-eslint@10.1.0 --dev
+
 fi
 
 # Serve the Gatsby site

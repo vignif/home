@@ -9,6 +9,7 @@ RUN npm install -g gatsby-cli && npm cache clean --force
 
 # Install project dependencies
 RUN yarn install
+RUN yarn cache clean
 
 # Copy remaining files
 COPY . .
