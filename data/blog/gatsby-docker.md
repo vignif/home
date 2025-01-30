@@ -29,7 +29,7 @@ Let's wrap it with a container.
 1. Create a ´Dockerfile´ with the following content
 
 
-´´´
+```
 FROM node:20.16.0-slim
 
 WORKDIR /app
@@ -55,21 +55,21 @@ EXPOSE 8000
 
 # Use CMD instead of ENTRYPOINT to allow easy overriding
 CMD ["/usr/local/bin/setup.sh"]
-´´´
+```
 
 2. Keep things nice and clean with a ´.dockerignore´ file with the following content
 
 
-´´´
+```
 .cache/
 node_modules/
 public/
-´´´
+```
 
 3. Create a file named ´setup.sh´ in the same folder with the content
 
 
-´´´
+```
 #!/bin/bash
 
 # Exit on error
@@ -89,25 +89,25 @@ fi
 
 # Serve the Gatsby site
 exec gatsby develop -H 0.0.0.0
-´´´
+```
 
 ## Build your docker container
 
 Substitute ´image-name´ with a name of your choice.
 
 
-´´´
+```
 docker build -t image-name .
-´´´
+```
 
 ## Run your container
 
 Substitute ´image-name´ as done above.
 
 
-´´´
+```
 docker run -it --rm -v $(pwd):/app -p 8000:8000 image-name
-´´´
+```
 
 Now you should be able to navigate to ´localhost:8000´ and see it running correctly.
 
