@@ -213,8 +213,14 @@ margin-right: auto !important;
 }
 
 pre {
-  color: aquamarine;
-  background-color: black;
+  color: #f8f8f2; /* Light text */
+  background-color: #272822; /* Dark background */
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 img {
