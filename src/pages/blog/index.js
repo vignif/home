@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
+import SocialLinks from "../../components/socials";
 import { HiOutlineNewspaper } from 'react-icons/hi';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -88,6 +89,7 @@ const Blog = ({ data }) => {
             </div>
           </div>
         </section>
+        <SocialLinks />
       </section>
     </Layout>
   )

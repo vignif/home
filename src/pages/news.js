@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
-import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
+import SocialLinks from "../components/socials";
 
 const News = ({ data }) => {
   const news = data.allFile.nodes
@@ -50,6 +50,7 @@ const News = ({ data }) => {
         <center>
           <Link to="/">Go back to the homepage</Link>
         </center>
+        <SocialLinks />
 
       </section>
     </Layout>

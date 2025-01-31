@@ -8,6 +8,8 @@ import { useSiteMetadata } from "../hooks/use-site-metadata"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { TbTie, TbHome } from 'react-icons/tb';
+import SocialLinks from "../components/socials";
+
 
 
 import mapVideo from "../../data/videos/map.mp4"
@@ -40,7 +42,7 @@ const Page404 = () => {
                 <div>
                 <iframe src="https://giphy.com/embed/26n6WywJyh39n1pBu" allowFullScreen></iframe>
 
-                <p className="">Maybe the <Link to="/">home page</Link> would help you!</p>
+                <p className="">Maybe the <Link to="/">home page</Link> might help you!</p>
 
                 </div>
 
@@ -48,36 +50,9 @@ const Page404 = () => {
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-12">
-            <hr className="hr-text" data-content="Socials" />
-          </div>
-        </div>
-        {/* SOCIAL ICONS */}
-        <div className="row justify-content-center">
-          <div className="col-1 mx-1">
-            <a href={social.google} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGoogle} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.github} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.twitter} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faTwitter} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-          </div>
-        </div>
-      </section>
+        <SocialLinks />
 
+      </section>
     </Layout >
   )
 }

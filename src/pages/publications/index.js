@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
+import SocialLinks from "../../components/socials"
 import { HiDocumentText, HiOutlineSearch } from 'react-icons/hi';
 import _ from "lodash"
 
@@ -203,6 +204,8 @@ const Publications = ({ data }) => {
         <center>
           <Link to="/">Go back to the homepage</Link>
         </center>
+
+     <SocialLinks />
 
       </section>
     </Layout >

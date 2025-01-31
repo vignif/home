@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import _ from "lodash"
-
+import SocialLinks from "../components/socials";
 import Layout from "../components/layout"
 
 const TagsPage = ({ data }) => {
@@ -53,6 +53,7 @@ const TagsPage = ({ data }) => {
         <center>
           <Link to="/">Go back to the homepage</Link>
         </center>
+        <SocialLinks />
 
       </section>
     </Layout>
