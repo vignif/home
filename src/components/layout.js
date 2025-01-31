@@ -2,6 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
+import SocialLinks from "../components/socials";
 import Navbar from "./navbar"
 import "./layout.scss"
 
@@ -20,7 +21,10 @@ const Layout = ({ children }) => {
     <div className="container-fluid p-0">
       <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
       <main>
+      <section className="py-5 text-center container own_container">
         {children}
+        <SocialLinks />
+        </section>
       </main>
       <footer className="footer mt-auto py-3">
         <div className="container">

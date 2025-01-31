@@ -28,7 +28,6 @@ const MiscDetail = ({ data, pageContext }) => {
   console.log(tags)
   return (
     <Layout>
-      <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-md-8 mx-auto">
             <h1 className="fw-light">{title}</h1>
@@ -82,7 +81,6 @@ const MiscDetail = ({ data, pageContext }) => {
             </div>
           </main>
         </div>
-      </section>
     </Layout>
   )
 }

@@ -5,14 +5,8 @@ import Layout from "../components/layout"
 import { Seo } from "../components/seo"
 
 import { useSiteMetadata } from "../hooks/use-site-metadata"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { TbTie, TbHome } from 'react-icons/tb';
 import SocialLinks from "../components/socials";
 
-
-
-import mapVideo from "../../data/videos/map.mp4"
 
 const Page404 = () => {
   const { social } = useSiteMetadata()
@@ -20,7 +14,6 @@ const Page404 = () => {
   return (
 
     <Layout>
-      <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">You got lost my friend!</h1>
@@ -50,9 +43,6 @@ const Page404 = () => {
             </div>
           </div>
         </div>
-        <SocialLinks />
-
-      </section>
     </Layout >
   )
 }

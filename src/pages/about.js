@@ -16,7 +16,7 @@ const Contacts = () => {
   return (
 
     <Layout>
-      <section className="py-5 text-center container own_container">
+
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">About</h1>
@@ -133,9 +133,6 @@ const Contacts = () => {
 
           </div>
         </div>
-
-        <SocialLinks />
-      </section>
 
     </Layout>
   )

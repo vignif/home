@@ -34,7 +34,6 @@ const IndexPage = ({ data }) => {
   // console.log(number_of_cv);
   return (
     <Layout>
-      <section className="py-5 text-center container own_container">
         <div className="row py-lg-3 pb-0 ">
           <div className="col-sm-8  mx-auto">
             <h1 className="fw-light">Francesco Vigni</h1>
@@ -171,9 +170,6 @@ const IndexPage = ({ data }) => {
             )}
           </div>
         </div>
-        <SocialLinks />
-
-      </section>
     </Layout>
   )
 }

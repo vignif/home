@@ -33,7 +33,6 @@ const BlogDetail = ({ props, data, pageContext }) => {
   
   return (
     <Layout>
-      <section className="py-5 text-center container own_container">
         <div className="row blog_header ">
           <GatsbyImage image={image} alt="" className="imgBlogTitle" />
           <div className="overlay blog_title animate-charcter">{title}</div>
@@ -67,7 +66,6 @@ const BlogDetail = ({ props, data, pageContext }) => {
             </div>
           </main>
         </div>
-      </section>
     </Layout>
 
   )

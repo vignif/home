@@ -31,7 +31,6 @@ const PublicationDetail = ({ data, pageContext }) => {
   console.log(tags)
   return (
     <Layout>
-      <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-md-8 mx-auto">
             <h1 className="fw-light">{title}</h1>
@@ -110,10 +109,7 @@ const PublicationDetail = ({ data, pageContext }) => {
               {next && <Link to={`/publications/${next}`} className="btn btn-outline-primary"><HiOutlineArrowCircleRight />&nbsp;Next</Link>}
             </div>
           </div>
-
         </main>
-
-      </section>
     </Layout>
   )
 }

@@ -14,8 +14,6 @@ const Blog = ({ data }) => {
 
   return (
     <Layout>
-
-      <section className="py-5 text-center container own_container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">Blog</h1>
@@ -89,8 +87,7 @@ const Blog = ({ data }) => {
             </div>
           </div>
         </section>
-        <SocialLinks />
-      </section>
+
     </Layout>
   )
 }
