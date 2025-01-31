@@ -37,14 +37,18 @@ const Contacts = () => {
           <div className="container">
             <div className="row justify-content-around">
               <div className="col-md-12">
-
                 <p className="lead" style={{ textAlign: "justify" }}>
-                Francesco is an Italian Dominican engineer investing his efforts in research in Human-Robot Interaction. 
-                He is an early-stage researcher in the European Horizon 2020 research and innovation programme PERSEO. 
-                He is affiliated with the Interdepartmental Center for Advances in Robotic Surgery (ICAROS) and enrolled in the graduate school Information and Communication Technology for Health (ICTH) of University of Naples Federico II in Naples, Italy. 
-                Before this experience, he received his M.Sc. in computer and automation engineering with honours at the University of Siena in Italy. 
-                His work focuses on exploiting the social cues of robots to facilitate spontaneous interactions. Within this focus, Francesco is designing and testing behaviours for social robots that are inspired by the natural bidirectional communication that commonly happens among humans.
-                This approach can improve natural encounters between humans and robots, paving the way for large-scale social robots’ adoption.
+                Francesco Vigni is an Italian-Dominican engineer studying how robots can spontaneously integrate into social environments.
+                He received his Ph.D. in Information and Communication Technology for Health (ICTH) in 2025 from the University of Naples Federico II, Italy, with a thesis titled "The Unscripted Encounter: Social Cues for Spontaneous Human-Robot Interactions." 
+                His doctoral research was funded by the European Horizon 2020 research and innovation programme PERSEO. During his doctoral studies, he was affiliated with the Interdepartmental Center for Advances in Robotic Surgery (ICAROS).
+                He has industry experience in robot perception, motion planning, and autonomous systems development. His work includes designing and implementing software for stereo vision and 3D perception, improving grasping strategies for robotic manipulation, and developing motion planning solutions for mobile robots in social environments applications. 
+                He has also worked on embedded vision systems for real-time object detection and classification, utilizing deep learning techniques on edge computing platforms.
+                In 2018, he completed his M.Sc. in Computer and Automation Engineering with honors at the University of Siena, Italy.
+                In 2015, he completed his B.Sc. in Management Engineering at University of Siena, Italy.
+                <br/>
+                His research focuses on leveraging social cues to enable natural and spontaneous interactions with robots. 
+                He designs and tests human-inspired robotic behaviours to enhance engagement and social acceptability. 
+                His work aims to bridge the gap between human communication and robotic systems, paving the way for large-scale adoption of social robots.
                 </p>
               </div>
 
