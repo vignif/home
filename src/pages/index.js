@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
+import SocialLinks from "../components/socials";
 import AudioButton from "../components/play_audio"
 import { graphql } from "gatsby"
 
@@ -170,37 +171,7 @@ const IndexPage = ({ data }) => {
             )}
           </div>
         </div>
-
-
-        <div className="row">
-          <div className="col-md-12">
-            <hr className="hr-text" data-content="Socials" />
-          </div>
-        </div>
-        {/* SOCIAL ICONS */}
-        <div className="row justify-content-center">
-          <div className="col-1 mx-1">
-            <a href={social.google} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGoogleScholar} size="2x" />
-              <FontAwesomeIcon icon="fa-brands fa-google-scholar" size="2x"/>
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.github} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.twitter} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faXTwitter} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-          </div>
-        </div>
+        <SocialLinks />
 
       </section>
     </Layout>

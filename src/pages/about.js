@@ -3,10 +3,8 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import { Seo } from "../components/seo.js"
-
+import SocialLinks from "../components/socials";
 import { useSiteMetadata } from "../hooks/use-site-metadata"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub, faTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { TbTie, TbHome, TbAlignJustified, TbSend } from 'react-icons/tb';
 import { GrSend } from "react-icons/gr"
 
@@ -135,34 +133,8 @@ const Contacts = () => {
 
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-12">
-            <hr className="hr-text" data-content="Socials" />
-          </div>
-        </div>
-        {/* SOCIAL ICONS */}
-        <div className="row justify-content-center">
-          <div className="col-1 mx-1">
-            <a href={social.google} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGoogle} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.github} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.twitter} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faTwitter} size="2x" />
-            </a>
-          </div>
-          <div className="col-1 mx-1">
-            <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-          </div>
-        </div>
+
+        <SocialLinks />
       </section>
 
     </Layout>
