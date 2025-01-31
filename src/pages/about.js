@@ -71,8 +71,7 @@ const Contacts = () => {
                 <p className="lead text-muted">Some of my important spots.</p>
               </div>
               <div className="col-md-6">
-                <p className="">Hi! I'm always looking for persons that share my same interests and want to collaborate or build cool stuff!</p>
-                <p className="">If this resonates with you feel free to email me @</p>
+                <p className="">Hi! I'm always up for collaborations! If our interests overlap, don't hesitate reaching me!</p>
                 <ul className="list-unstyled" style={{ border: "groove", alignContent: "center" }}>
                   <li className="lead text-black">
                     <TbHome /> <a href="mailto:vignif@gmail.com">vignif@gmail.com</a>
@@ -87,53 +86,6 @@ const Contacts = () => {
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-12">
-            <hr className="hr-text" data-content="" />
-          </div>
-        </div>
-
-        <div className="container my-2 own_sub_container">
-          <p className="text-center">Or use the following form.</p>
-          <div className="form">
-            <form
-              action="https://api.slapform.com/NuzhKyThj"
-              method="POST"
-              target="_blank"
-            >
-
-              <div className="mb-3">
-                <input className="form-control"
-                  type="text"
-                  name="name"
-                  placeholder="Full name"
-                  required
-                />
-
-              </div>
-              <div className="mb-3">
-                <input className="form-control"
-                  type="email"
-                  name="email"
-                  placeholder="name@example.com"
-                  required
-                />
-
-              </div>
-              <div className="mb-3">
-                <label for="exampleFormControlTextarea1" className="form-label">Your message</label>
-                <textarea className="form-control" type="text" id="exampleFormControlTextarea1" rows="3" name="message" required></textarea>
-              </div>
-
-              <button type="submit" className="btn btn-outline-primary mb-3 align-items-center">
-                <TbSend /> Send
-              </button>
-            </form>
-
-
-          </div>
-        </div>
-
     </Layout>
   )
 }
