@@ -35,9 +35,10 @@ const Contacts = () => {
             <div className="col-md-12">
               <p className="lead" style={{ textAlign: "justify" }}>
                 Francesco Vigni is an Italian-Dominican engineer researching how robots integrate into social environments. 
-                He earned his Ph.D. in Information and Communication Technology for Health (ICTH) in 2025 from the University of Naples Federico II, 
+                {/* He earned his Ph.D. in Information and Communication Technology for Health (ICTH) in 2025 from the University of Naples Federico II, 
                 with a thesis titled "The Unscripted Encounter: Social Cues for Spontaneous Human-Robot Interactions." His doctoral research was funded 
-                by the European Horizon 2020 research and innovation program PERSEO. During his Ph.D., he was affiliated with the ICAROS research center.
+                by the European Horizon 2020 research and innovation program PERSEO.  */}
+                During his Ph.D., he was affiliated with the ICAROS research center.
                 <br />
                 He has industry experience in robot perception, motion planning, and autonomous systems. His work includes software development for 
                 stereo vision and 3D perception, improving grasping strategies for robotic manipulation, and motion planning solutions for social robots.
