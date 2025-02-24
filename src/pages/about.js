@@ -4,15 +4,17 @@ import Layout from "../components/layout";
 import { Seo } from "../components/seo.js";
 import SocialLinks from "../components/socials";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-import { TbTie, TbHome, TbCopy } from "react-icons/tb";
+import { TbTie, TbHome, TbCopy, TbCheck } from "react-icons/tb";
 import mapVideo from "../../data/videos/map.mp4";
 
 const Contacts = () => {
   const { social } = useSiteMetadata();
+  const [copiedEmail, setCopiedEmail] = React.useState(null);
 
   const copyToClipboard = (email) => {
     navigator.clipboard.writeText(email);
-    alert(`Copied: ${email}`);
+    setCopiedEmail(email);
+    setTimeout(() => setCopiedEmail(null), 1000); // Clear after 1 second
   };
 
   return (
@@ -29,15 +31,14 @@ const Contacts = () => {
         </div>
       </div>
 
-      <div className="container my-2 own_sub_container">
         <div className="container">
           <div className="row justify-content-around">
             <div className="col-md-12">
-              <p className="lead" style={{ textAlign: "justify" }}>
+              <p className="" style={{ textAlign: "justify" }}>
                 Francesco Vigni is an Italian-Dominican engineer researching how robots integrate into social environments. 
-                {/* He earned his Ph.D. in Information and Communication Technology for Health (ICTH) in 2025 from the University of Naples Federico II, 
+                He earned his Ph.D. in Information and Communication Technology for Health (ICTH) in 2025 from the University of Naples Federico II, 
                 with a thesis titled "The Unscripted Encounter: Social Cues for Spontaneous Human-Robot Interactions." His doctoral research was funded 
-                by the European Horizon 2020 research and innovation program PERSEO.  */}
+                by the European Horizon 2020 research and innovation program PERSEO.
                 During his Ph.D., he was affiliated with the ICAROS research center.
                 <br />
                 He has industry experience in robot perception, motion planning, and autonomous systems. His work includes software development for 
@@ -53,7 +54,6 @@ const Contacts = () => {
             </div>
           </div>
         </div>
-      </div>
 
       <div className="row">
         <div className="col-md-12">
@@ -68,27 +68,37 @@ const Contacts = () => {
               <video className="embed-responsive embed-responsive-16by9 about-video img-fluid" controls={false} muted autoPlay loop>
                 <source className="embed-responsive-item" src={mapVideo} type="video/mp4" />
               </video>
-              <p className="lead text-muted">Some of my important spots.</p>
+              <p className="text-muted">Some of my important spots.</p>
             </div>
             <div className="col-md-6">
               <p>Hi! I'm always up for collaborations! If our interests overlap, feel free to reach out at either of these addresses.</p>
               <ul className="list-unstyled" >
-                <li className="lead text-black d-flex align-items-center">
+                <li className="text-black d-flex align-items-center">
                   <button
                     className="btn btn-sm btn-outline-secondary ms-2"
                     onClick={() => copyToClipboard("vignif@gmail.com")}
                   >
                     <TbCopy />
                   </button> &nbsp; vignif@gmail.com
+                  {copiedEmail === "vignif@gmail.com" && (
+                    <span className="ms-2 text-success">
+                      <TbCheck /> Copied
+                    </span>
+                  )}
                 </li>
 
-                <li className="lead text-black d-flex align-items-center mt-2">
+                <li className="text-black d-flex align-items-center mt-2">
                   <button
                     className="btn btn-sm btn-outline-secondary ms-2"
                     onClick={() => copyToClipboard("francesco.vgn@gmail.com")}
                   >
                     <TbCopy />
                   </button> &nbsp; francesco.vgn@gmail.com
+                  {copiedEmail === "francesco.vgn@gmail.com" && (
+                    <span className="ms-2 text-success">
+                      <TbCheck /> Copied
+                    </span>
+                  )}
                 </li>
               </ul>
             </div>
