@@ -28,7 +28,6 @@ const PublicationDetail = ({ data, pageContext }) => {
   const video_link = pub.attach.video
   const tags = pub.tags
   const co = pub.coFirstAuthors
-  console.log(tags)
   return (
     <Layout>
         <div className="row py-lg-5">
@@ -92,6 +91,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                     </div>
                   ))}
                 </p>
+                <p>DOI: <a href={`https://doi.org/${pub.doi}`} target="_blank" rel="noreferrer">{pub.doi}</a></p>
                 <p>{co && "Notes: * co-first authorship"}</p>
               </div>
             </div>
@@ -133,6 +133,7 @@ query CreatePublicationPage($slug: String) {
     alternate_link @include(if: true) 
     coFirstAuthors
     abstract
+    doi
     authors {
       slug
       name

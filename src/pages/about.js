@@ -49,7 +49,7 @@ const Contacts = () => {
                 In 2015, he earned his B.Sc. in Management Engineering from the same university.
                 <br />
                 His research focuses on leveraging social cues for natural and spontaneous human-robot interactions. He designs and tests human-inspired 
-                robotic behaviours to enhance engagement and social acceptability, aiming to bridge human communication and robotic systems.
+                robotic behaviours to enhance engagement and social acceptability, aiming to bridge human communication and robotic systems.  
               </p>
             </div>
           </div>
@@ -101,6 +101,7 @@ const Contacts = () => {
                   )}
                 </li>
               </ul>
+              ORCID: <a href="https://orcid.org/0000-0001-9918-8485" target="_blank" rel="noreferrer">0000-0001-9918-8485</a>
             </div>
           </div>
         </div>
