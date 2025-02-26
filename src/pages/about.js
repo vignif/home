@@ -92,43 +92,40 @@ const Contacts = () => {
             <div className="col-md-6">
               <p>Hi! I'm always open to collaborations. If our interests align, feel free to reach out. I also use <a href="https://www.openpgp.org/" target="_blank">OpenPGP</a> for encrypted emails.</p>
               <table className="table table-striped">
-          <tbody>
-            {emails.map(({ address, label, pgpLink }) => (
-              <tr key={address}>
-                <td>
-                  <button
-                    className="btn btn-sm btn-outline-secondary"
-                    onClick={() => copyToClipboard(address)}
-                  >
-                    <TbCopy />
-                  </button>
-                  {copiedEmail === address && (
-                    <span className="ms-2 text-success">
-                      <TbCheck />
-                    </span>
-                  )}
-                </td>
-                <td>
-                  {address} <span className="text-muted">({label})</span>
-                </td>
-                <td style={{ textAlign: "center" }}>
-                  <a
-                    href={pgpLink}
-                    className="btn btn-sm btn-outline-secondary"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <TbKey /> Get Key
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-            
+              <tbody>
+                {emails.map(({ address, label, pgpLink }) => (
+                  <tr key={address}>
+                    <td>
+                      <button
+                        className="btn btn-sm btn-outline-secondary"
+                        onClick={() => copyToClipboard(address)}
+                      >
+                        <TbCopy />
+                      </button>
+                      {copiedEmail === address && (
+                        <span className="ms-2 text-success">
+                          <TbCheck />
+                        </span>
+                      )}
+                    </td>
+                    <td>
+                      {address} <span className="text-muted">({label})</span>
+                    </td>
+                    <td style={{ textAlign: "center" }}>
+                      <a
+                        href={pgpLink}
+                        className="btn btn-sm btn-outline-secondary"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <TbKey /> Get Key
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              </table>
               ORCID: <a href="https://orcid.org/0000-0001-9918-8485" target="_blank" rel="noreferrer">0000-0001-9918-8485</a>
-            
             </div>
           </div>
         </div>
