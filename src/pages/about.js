@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 import { Seo } from "../components/seo.js";
 import SocialLinks from "../components/socials";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-import { TbTie, TbHome, TbCopy, TbCheck } from "react-icons/tb";
+import { TbTie, TbHome, TbCopy, TbCheck, TbMail, TbKey, TbLock } from "react-icons/tb";
 import mapVideo from "../../data/videos/map.mp4";
 
 const Contacts = () => {
@@ -16,6 +16,23 @@ const Contacts = () => {
     setCopiedEmail(email);
     setTimeout(() => setCopiedEmail(null), 1000); // Clear after 1 second
   };
+  const emails = [
+    {
+      address: "vignif@gmail.com",
+      label: "Main",
+      pgpLink: "https://keys.openpgp.org/vks/v1/by-email/vignif@gmail.com",
+    },
+    {
+      address: "francesco.vgn@gmail.com",
+      label: "Alternative",
+      pgpLink: "https://keys.openpgp.org/vks/v1/by-email/francesco.vgn@gmail.com",
+    },
+    {
+      address: "francesco.vigni@unina.it",
+      label: "Academic",
+      pgpLink: "https://keys.openpgp.org/vks/v1/by-email/francesco.vigni@unina.it",
+    },
+  ];
 
   return (
     <Layout>
@@ -71,37 +88,45 @@ const Contacts = () => {
               <p className="text-muted">Some of my important spots.</p>
             </div>
             <div className="col-md-6">
-              <p>Hi! I'm always up for collaborations! If our interests overlap, feel free to reach out at either of these addresses.</p>
-              <ul className="list-unstyled" >
-                <li className="text-black d-flex align-items-center">
+              <p>Hi! I'm always open to collaborations. If our interests align, feel free to reach out. I also use <a href="https://www.openpgp.org/" target="_blank">OpenPGP</a> for encrypted emails.</p>
+              <table className="table table-striped">
+          <tbody>
+            {emails.map(({ address, label, pgpLink }) => (
+              <tr key={address}>
+                <td>
                   <button
-                    className="btn btn-sm btn-outline-secondary ms-2"
-                    onClick={() => copyToClipboard("vignif@gmail.com")}
+                    className="btn btn-sm btn-outline-secondary"
+                    onClick={() => copyToClipboard(address)}
                   >
                     <TbCopy />
-                  </button> &nbsp; vignif@gmail.com
-                  {copiedEmail === "vignif@gmail.com" && (
+                  </button>
+                  {copiedEmail === address && (
                     <span className="ms-2 text-success">
-                      <TbCheck /> Copied
+                      <TbCheck />
                     </span>
                   )}
-                </li>
+                </td>
+                <td>
+                  {address} <span className="text-muted">({label})</span>
+                </td>
+                <td>
+                  <a
+                    href={pgpLink}
+                    className="btn btn-sm btn-outline-secondary"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <TbKey /> Get Key
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-                <li className="text-black d-flex align-items-center mt-2">
-                  <button
-                    className="btn btn-sm btn-outline-secondary ms-2"
-                    onClick={() => copyToClipboard("francesco.vgn@gmail.com")}
-                  >
-                    <TbCopy />
-                  </button> &nbsp; francesco.vgn@gmail.com
-                  {copiedEmail === "francesco.vgn@gmail.com" && (
-                    <span className="ms-2 text-success">
-                      <TbCheck /> Copied
-                    </span>
-                  )}
-                </li>
-              </ul>
+            
               ORCID: <a href="https://orcid.org/0000-0001-9918-8485" target="_blank" rel="noreferrer">0000-0001-9918-8485</a>
+            
             </div>
           </div>
         </div>
