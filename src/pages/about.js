@@ -81,12 +81,14 @@ const Contacts = () => {
       <div className="container my-2 own_sub_container">
         <div className="container">
           <div className="row justify-content-around">
-            <div className="col-md-6">
-              <video className="embed-responsive embed-responsive-16by9 about-video img-fluid" controls={false} muted autoPlay loop>
-                <source className="embed-responsive-item" src={mapVideo} type="video/mp4" />
+          <div className="col-lg-6 col-md-12">
+            <div className="ratio ratio-16x9">
+              <video className="img-fluid rounded shadow" controls={false} muted autoPlay loop>
+                <source src={mapVideo} type="video/mp4" />
               </video>
-              <p className="text-muted">Some of my important spots.</p>
             </div>
+            <p className="text-muted mt-2">Some of my important spots.</p>
+          </div>
             <div className="col-md-6">
               <p>Hi! I'm always open to collaborations. If our interests align, feel free to reach out. I also use <a href="https://www.openpgp.org/" target="_blank">OpenPGP</a> for encrypted emails.</p>
               <table className="table table-striped">
@@ -109,7 +111,7 @@ const Contacts = () => {
                 <td>
                   {address} <span className="text-muted">({label})</span>
                 </td>
-                <td>
+                <td style={{ textAlign: "center" }}>
                   <a
                     href={pgpLink}
                     className="btn btn-sm btn-outline-secondary"
