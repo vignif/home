@@ -1,24 +1,33 @@
-import * as React from "react";
-import { Link } from "gatsby";
+// React-related imports
+import React, { useMemo } from "react";
+
+// Gatsby-related imports
+import { Link, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import { graphql } from "gatsby";
+
+// React Icons
 import { HiLink } from "react-icons/hi";
 
+// Components
 import Layout from "../components/layout";
 import { Seo } from "../components/seo";
 import AudioButton from "../components/play_audio";
+
+// Custom Hooks
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
+// Video imports
 import carlaVideo from "../../data/videos/carla.mp4";
 import handVideo from "../../data/videos/hand_compressed.mp4";
 import handShakeVideo from "../../data/videos/handshake_compressed.mp4";
 import beerVideo from "../../data/videos/beer_compressed.mp4";
 
+
 const IndexPage = ({ data }) => {
   const { social } = useSiteMetadata();
-  const news = data.news.nodes;
-  const cvs = data.cv.nodes;
-
+  const news = useMemo(() => data.news.nodes, [data.news.nodes]);
+  const cvs = useMemo(() => data.cv.nodes, [data.cv.nodes]);
+  
   return (
     <Layout>
       <div className="row py-lg-3 pb-0">
@@ -110,7 +119,7 @@ const IndexPage = ({ data }) => {
               <div className="card-body p-2">
                 <h5>{cv.title}</h5>
                 <p className="mb-0">
-                  <a href={cv.url} target="_blank" rel="noreferrer">
+                  <a href={cv.url} target="_blank" rel="noreferrer" aria-label={`Link to ${cv.title}`}>
                     <HiLink />
                   </a>
                   {cv.employer} - {cv.where}
