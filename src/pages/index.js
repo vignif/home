@@ -4,23 +4,15 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
-import SocialLinks from "../components/socials";
 import AudioButton from "../components/play_audio"
 import { graphql } from "gatsby"
-
 import { useSiteMetadata } from "../hooks/use-site-metadata"
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faGithub, faXTwitter, faGoogle, faGoogleScholar} from '@fortawesome/free-brands-svg-icons'
-
-
-import handVideo from "../../data/videos/hand.mp4"
-import handShakeVideo from "../../data/videos/handshake.mp4"
-
 import { HiLink, HiFingerPrint } from 'react-icons/hi'
+
 import carlaVideo from "../../data/videos/carla.mp4"
-import teleVideo from "../../data/videos/telepresence.mp4"
-import beerVideo from "../../data/videos/beer.mp4"
+import handVideo from "../../data/videos/hand_compressed.mp4"
+import handShakeVideo from "../../data/videos/handshake_compressed.mp4"
+import beerVideo from "../../data/videos/beer_compressed.mp4"
 
 const IndexPage = ({ data }) => {
   // console.log(data)
