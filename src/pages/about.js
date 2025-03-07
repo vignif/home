@@ -36,11 +36,10 @@ const Contacts = () => {
 
   return (
     <Layout>
-      <div className="row py-lg-5">
-        <div className="col-lg-6 col-md-8 mx-auto">
-          <h1 className="fw-light">About</h1>
-        </div>
-      </div>
+      <section className="text-center py-5">
+        <h1 className="fw-bold">About</h1>
+        <hr className="custom-hr" />
+      </section>
 
       <div className="row">
         <div className="col-md-12">

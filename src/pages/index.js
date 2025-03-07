@@ -32,13 +32,12 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className="row py-lg-3 pb-0">
         <div className="col-sm-8 mx-auto">
-          <h1 className="fw-light">Francesco Vigni, Ph.D.</h1>
+          <h1 className="fw-bold">Francesco Vigni, Ph.D.</h1>
           <p className="lead text-muted mb-0">
             /franˈt͡ʃe.sko ˈvi.ɲi/ - <AudioButton />
           </p>
           <p className="lead text-muted">
-            he/him
-            <a
+            he/him <a
               href="https://englishexplorations.check.uni-hamburg.de/academic-writing-how-do-we-use-gender-inclusive-language-in-academic-writing/"
               target="_blank"
               rel="noreferrer"
