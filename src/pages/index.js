@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => {
             I spend my time exploring the world of robots, their brains (AI), and their impact on our societies. I study how robots can learn to interact in a human-like way. The future expects robots to be able to interact with humans spontaneously, and somebody has to make it happen ;).<br />
             On this website, I collect some of my works and interests.
           </p>
-          <a href="cv.pdf" download="cv.pdf" style={{ float: "left" }}>Download CV</a>
+          <a href="FRANCESCO_VIGNI_PHD.pdf" download="FRANCESCO_VIGNI_PHD.pdf" style={{ float: "left" }}>Download CV</a>
           <br />
           <a
             href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
