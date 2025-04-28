@@ -64,7 +64,7 @@ const IndexPage = ({ data }) => {
         </div>
         <div className="col-sm-4 ms-auto mb-3">
           <StaticImage
-            src="../../data/images/me_square.jpg"
+            src="../../data/images/EC9_8572.jpg"
             width={250}
             quality={95}
             formats={["AUTO", "WEBP"]}
