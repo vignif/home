@@ -51,21 +51,16 @@ const Contacts = () => {
           <div className="row justify-content-around">
             <div className="col-md-12">
               <p className="" style={{ textAlign: "justify" }}>
-                Francesco Vigni is an Italian-Dominican engineer researching how robots integrate into social environments. 
-                He earned his Ph.D. in Information and Communication Technology for Health (ICTH) in 2025 from the University of Naples Federico II, 
-                with a thesis titled "The Unscripted Encounter: Social Cues for Spontaneous Human-Robot Interactions." His doctoral research was funded 
-                by the European Horizon 2020 research and innovation program PERSEO.
-                During his Ph.D., he was affiliated with the ICAROS research center.
-                <br />
-                He has industry experience in robot perception, motion planning, and autonomous systems. His work includes software development for 
-                stereo vision and 3D perception, improving grasping strategies for robotic manipulation, and motion planning solutions for social robots.
-                Additionally, he has worked on embedded vision systems utilizing deep learning techniques for real-time object detection.
-                <br />
-                In 2018, he completed his M.Sc. in Computer and Automation Engineering with honors at the University of Siena, Italy. 
-                In 2015, he earned his B.Sc. in Management Engineering from the same university.
-                <br />
-                His research focuses on leveraging social cues for natural and spontaneous human-robot interactions. He designs and tests human-inspired 
-                robotic behaviours to enhance engagement and social acceptability, aiming to bridge human communication and robotic systems.  
+              Francesco Vigni is an Italian-Dominican engineer with a strong background in software development for robotics and autonomous systems. 
+              He earned his Ph.D. in Information and Communication Technology for Health (ICTH) from the University of Naples Federico II in 2025, with a thesis titled "The Unscripted Encounter: Social Cues for Spontaneous Human-Robot Interactions." 
+              His doctoral research, funded by the European Horizon 2020 PERSEO project, was conducted in affiliation with the ICAROS research center.
+              <br/>
+              Francesco brings extensive industry experience in robot perception, motion planning, and embedded systems. 
+              He has contributed to the development of real-time software solutions for stereo vision, 3D object detection, and deep learning-based embedded vision systems. 
+              His work has supported robotic grasping, scene understanding, and social-aware navigation, with a focus on creating robust and scalable software pipelines for autonomous and interactive robots.
+              <br/>
+              He holds an M.Sc. with honors in Computer and Automation Engineering (2018) and a B.Sc. in Management Engineering (2015), both from the University of Siena, Italy.
+              While his academic research explores human-inspired behaviors for socially engaging robots, his industrial focus lies in building reliable, efficient, and intelligent software architectures that bridge the gap between perception, decision-making, and robot behavior in dynamic environments.
               </p>
             </div>
           </div>

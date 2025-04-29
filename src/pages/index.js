@@ -22,6 +22,58 @@ import handVideo from "../../data/videos/hand_compressed.mp4";
 import handShakeVideo from "../../data/videos/handshake_compressed.mp4";
 import beerVideo from "../../data/videos/beer_compressed.mp4";
 
+const researchStack = [
+  // Core Research Areas
+  "Human-Robot Interaction (HRI)",
+  "Robotics",
+  "Artificial Intelligence",
+  "Computer Vision",
+
+  // Methodologies & Tools
+  "Experimental Design",
+  "Statistical Analysis",
+  "LaTeX Editing",
+
+  // Communication & Education
+  "Academic Writing & Editing",
+  "Public Speaking",
+
+  // Project & Collaboration Skills
+  "Team Management",
+];
+
+
+const developmentStack = [
+  // Programming Languages
+  "Python",
+  "C++",
+
+  // Robotics & Perception
+  "ROS / ROS2",
+  "OpenCV",
+  "PCL",
+  "MoveIt",
+  "Gazebo",
+  "RViz",
+  "Nav2",
+
+
+  // Web & Frontend
+  "Gatsby.js",
+
+  // DevOps & Tools
+  "Git",
+  "Docker",
+  "Unix",
+  "CI/CD",
+
+  // Data & ML Tools
+  "NumPy / SciPy",
+  "Pandas",
+  "scikit-learn",
+  "Matplotlib / Seaborn"
+];
+
 
 const IndexPage = ({ data }) => {
   const { social } = useSiteMetadata();
@@ -51,16 +103,25 @@ const IndexPage = ({ data }) => {
             I spend my time exploring the world of robots, their brains (AI), and their impact on our societies. I study how robots can learn to interact in a human-like way. The future expects robots to be able to interact with humans spontaneously, and somebody has to make it happen ;).<br />
             On this website, I collect some of my works and interests.
           </p>
-          <a href="FRANCESCO_VIGNI_PHD.pdf" download="FRANCESCO_VIGNI_PHD.pdf" style={{ float: "left" }}>Download CV</a>
-          <br />
-          <a
-            href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
-            target="_blank"
-            rel="noreferrer"
-            style={{ float: "left" }}
-          >
-            PhD Thesis
-          </a>
+          
+        <div className="col-sm-4 text-start">
+          <a href="FRANCESCO_VIGNI_PHD.pdf" 
+          download="FRANCESCO_VIGNI_PHD.pdf" 
+          className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
+          >Download CV</a>
+          <span> | </span>
+          <li className="list-inline-item float-left">
+              <a
+                href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
+                target="_blank"
+                rel="noreferrer"
+                className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
+                title="Download or view Francesco Vigni's PhD Thesis"
+              >
+                PhD Thesis
+              </a>
+          </li>
+</div>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
           <StaticImage
@@ -73,7 +134,7 @@ const IndexPage = ({ data }) => {
           />
         </div>
       </div>
-
+{/* 
       <hr className="hr-text" data-content="Highlights" />
       <div className="row justify-content-center">
         {[{ video: handVideo, text: "Handshake prototype" },
@@ -88,7 +149,36 @@ const IndexPage = ({ data }) => {
             <p className="lead text-muted" dangerouslySetInnerHTML={{ __html: text }} />
           </div>
         ))}
-      </div>
+      </div> */}
+
+<hr className="hr-text" data-content="What I use?" />
+<div className="row justify-content-center py-1">
+  <div className="col-lg-5">
+
+    <h3 className="fw-bold text-center mb-3">Research</h3>
+    <ul className="list-inline text-center mb-5">
+      {/* Replace these with actual skills/tools later */}
+      {researchStack.map((item, index) => (
+        <li key={index} className="list-inline-item m-2 badge bg-secondary text-white p-2 rounded-pill">
+          {item}
+        </li>
+      ))}
+    </ul>
+    </div>
+    <div className="col-lg-5">
+    <h3 className="fw-bold text-center mb-3">Development</h3>
+    <ul className="list-inline text-center">
+      {/* Replace these with actual dev tools/stacks later */}
+      {developmentStack.map((item, index) => (
+        <li key={index} className="list-inline-item m-2 badge bg-primary text-white p-2 rounded-pill">
+          {item}
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</div>
+
 
       <hr className="hr-text" data-content="News" />
       {news.map((node) => (
@@ -103,10 +193,14 @@ const IndexPage = ({ data }) => {
       ))}
 
       <div className="row justify-content-center">
+      <div className="col-sm-auto">
+            <Link className="btn btn-outline-primary mt-3" to="/publications">Go to publications</Link>
+        </div>
         <div className="col-sm-auto">
-          <a href="https://www.linkedin.com/in/francesco-vigni-1b1b0b1a5/" target="_blank" rel="noreferrer">
-            <Link className="btn btn-outline-primary mt-3" to="/news">All the news</Link>
-          </a>
+            <Link className="btn btn-outline-primary mt-3" to="/news">Go to news</Link>
+        </div>
+        <div className="col-sm-auto">
+            <Link className="btn btn-outline-primary mt-3" to="/blog">Go to blog</Link>
         </div>
       </div>
 
@@ -144,7 +238,7 @@ export const query = graphql`
     news: allFile(
       filter: { sourceInstanceName: { eq: "news" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
-      limit: 9
+      limit: 4
     ) {
       nodes {
         id
