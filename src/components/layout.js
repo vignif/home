@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
       </main>
       <footer className="footer mt-auto py-3">
         <div className="container">
-          <span className="text-muted"> &#169; Francesco Vigni {year} </span>
+          <span className="text-muted"> &#169; Francesco Vigni 2018 - {year} </span>
           </div>
       </footer>
     </div>

@@ -1,15 +1,14 @@
 [
     {
-        "title": "Sabbatical",
-        "employer": "Self-employed",
-        "date-start": "2025-02-01",
+        "title": "Independent Researcher",
+        "employer": "Self-directed",
+        "date-start": "2025-02-11",
         "date-end": "",
-        "where": "Earth",
-        "slug": "perseo",
-        "extra":"Ah, life.",
-        "url": "/",
-        "icon": "fa-robot"
-        
+        "where": "Forli, Italy",
+        "slug": "independent-research",
+        "extra": "Exploring new paradigms in spontaneous HRI",
+        "url": "",
+        "icon": "fa-flask"
     },
     {
         "title": "PhD Student - MSCA Fellow",
