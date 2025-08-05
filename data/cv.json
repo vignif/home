@@ -1,103 +1,101 @@
 [
-    {
-        "title": "Independent Researcher",
-        "employer": "Self-directed",
-        "date-start": "2025-02-11",
-        "date-end": "",
-        "where": "Forli, Italy",
-        "slug": "independent-research",
-        "extra": "Exploring new paradigms in spontaneous HRI",
-        "url": "",
-        "icon": "fa-flask"
-    },
-    {
-        "title": "PhD Student - MSCA Fellow",
-        "employer": "University of Naples Federico II",
-        "date-start": "2021-12-01",
-        "date-end": "2025-02-10",
-        "where": "Naples, Italy",
-        "slug": "perseo",
-        "extra":"topic: spontaneous Human-Robot Interactions",
-        "url": "https://www.perseo.eu/esr-12/",
-        "icon": "fa-robot"
-        
-    },
-    {
-        "title": "Robotics Engineer",
-        "employer": "Roboception GmbH",
-        "date-start": "2021-07-01",
-        "date-end": "2021-12-30",
-        "where": "Munich, Germany",
-        "slug": "roboception",
-        "extra":"",
-        "url": "https://roboception.com/en/",
-        "icon": "fa-cicio"
-    },
-    {
-        "title": "Licensed Engineer",
-        "employer": "Polytechnic University of Turin",
-        "date-start": "2020-12-01",
-        "date-end": "",
-        "where": "Turin, Italy",
-        "slug": "engineer",
-        "extra":"",
-        "url": "https://www.polito.it/",
-        "icon": "fa-cicio"
-    },
-    {
-        "title": "Autonomous Systems Developer",
-        "employer": "STtech GmbH",
-        "date-start": "2020-04-01",
-        "date-end": "2021-06-30",
-        "where": "Munich, Germany",
-        "slug": "engineer",
-        "extra":"",
-        "url": "https://www.sttech.de/",
-        "icon": "fa-cicio"   
-    },
-    {
-        "title": "Research Assistant",
-        "employer": "Technical University of Munich",
-        "date-start": "2019-04-01",
-        "date-end": "2020-03-31",
-        "where": "Munich, Germany",
-        "slug": "engineer",
-        "extra":"",
-        "url": "https://www.mirmi.tum.de/mirmi/home/",
-        "icon": "fa-cicio"   
-    },
-    {
-        "title": "Daimler Cloud Services Consultant",
-        "employer": "Kadacon GmbH",
-        "date-start": "2019-01-01",
-        "date-end": "2019-03-31",
-        "where": "Area Mid-North Italy",
-        "slug": "engineer",
-        "extra":"",
-        "url": "https://kadacon.com/",
-        "icon": "fa-cicio"   
-    },
-    {
-        "title": "Master Degree in Robotics and Automation Engineering",
-        "employer": "University of Siena",
-        "date-start": "2015-10-01",
-        "date-end": "2018-10-31",
-        "where": "Siena, Italy",
-        "slug": "engineer",
-        "extra": "topic: Human-Robot Handshakes",
-        "url": "https://computer-automation.unisi.it/it",
-        "icon": "fa-cicio"   
-    },
-    {
-        "title": "Bachelor Degree in Management Engineering",
-        "employer": "University of Siena",
-        "date-start": "2011-10-01",
-        "date-end": "2015-10-31",
-        "where": "Siena, Italy",
-        "slug": "engineer",
-        "extra":"topic: optimizing trading strategies",
-        "url": "https://ing-gestionale.unisi.it/it",
-        "icon": "fa-cicio"   
-    }
-
+  {
+    "title": "Sabbatical",
+    "employer": "Exploring",
+    "date-start": "2025-02-11",
+    "date-end": "",
+    "where": "🌎",
+    "slug": "sab",
+    "extra": "Watching sunsets",
+    "url": "",
+    "icon": "fa-flask"
+  },
+  {
+    "title": "PhD Student - MSCA Fellow",
+    "employer": "University of Naples Federico II",
+    "date-start": "2021-12-01",
+    "date-end": "2025-02-10",
+    "where": "Naples, Italy",
+    "slug": "perseo",
+    "extra": "topic: spontaneous Human-Robot Interactions",
+    "url": "https://www.perseo.eu/esr-12/",
+    "icon": "fa-robot"
+  },
+  {
+    "title": "Robotics Engineer",
+    "employer": "Roboception GmbH",
+    "date-start": "2021-07-01",
+    "date-end": "2021-12-30",
+    "where": "Munich, Germany",
+    "slug": "roboception",
+    "extra": "",
+    "url": "https://roboception.com/en/",
+    "icon": "fa-cicio"
+  },
+  {
+    "title": "Licensed Engineer",
+    "employer": "Polytechnic University of Turin",
+    "date-start": "2020-12-01",
+    "date-end": "",
+    "where": "Turin, Italy",
+    "slug": "engineer",
+    "extra": "",
+    "url": "https://www.polito.it/",
+    "icon": "fa-cicio"
+  },
+  {
+    "title": "Autonomous Systems Developer",
+    "employer": "STtech GmbH",
+    "date-start": "2020-04-01",
+    "date-end": "2021-06-30",
+    "where": "Munich, Germany",
+    "slug": "engineer",
+    "extra": "",
+    "url": "https://www.sttech.de/",
+    "icon": "fa-cicio"
+  },
+  {
+    "title": "Research Assistant",
+    "employer": "Technical University of Munich",
+    "date-start": "2019-04-01",
+    "date-end": "2020-03-31",
+    "where": "Munich, Germany",
+    "slug": "engineer",
+    "extra": "",
+    "url": "https://www.mirmi.tum.de/mirmi/home/",
+    "icon": "fa-cicio"
+  },
+  {
+    "title": "Daimler Cloud Services Consultant",
+    "employer": "Kadacon GmbH",
+    "date-start": "2019-01-01",
+    "date-end": "2019-03-31",
+    "where": "Area Mid-North Italy",
+    "slug": "engineer",
+    "extra": "",
+    "url": "https://kadacon.com/",
+    "icon": "fa-cicio"
+  },
+  {
+    "title": "Master Degree in Robotics and Automation Engineering",
+    "employer": "University of Siena",
+    "date-start": "2015-10-01",
+    "date-end": "2018-10-31",
+    "where": "Siena, Italy",
+    "slug": "engineer",
+    "extra": "topic: Human-Robot Handshakes",
+    "url": "https://computer-automation.unisi.it/it",
+    "icon": "fa-cicio"
+  },
+  {
+    "title": "Bachelor Degree in Management Engineering",
+    "employer": "University of Siena",
+    "date-start": "2011-10-01",
+    "date-end": "2015-10-31",
+    "where": "Siena, Italy",
+    "slug": "engineer",
+    "extra": "topic: optimizing trading strategies",
+    "url": "https://ing-gestionale.unisi.it/it",
+    "icon": "fa-cicio"
+  }
 ]
