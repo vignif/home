@@ -13,9 +13,6 @@ img: "../images/blogs/wien.jpg"
   </tr>
 </table>
 
-
-
-
 The QR code is a 2D barcode that can contain up to 7089 digits or 4296 characters.
 A traditional QR code is composed by a matrix of black and white squares, that can be read by a camera and decoded by a software.
 
@@ -33,4 +30,3 @@ QR codes have a built-in error correction, so that even if the code is partially
 The use case described here (a qr code on a poster) does not usually require a high error correction, so we can use a small QR code with a low error correction.
 
 This small project uses a python library and is deployed on pythonanywhere via a flask wrapper.
-

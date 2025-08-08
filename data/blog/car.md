@@ -17,11 +17,13 @@ img: "../images/blogs/car.png"
 To get started with the rule-based parking implementation, follow these installation steps:
 
 1. Navigate to your catkin workspace:
+
    ```bash
    cd ~/<catkin_ws>/src
    ```
 
 2. Clone the Carla parking repository:
+
    ```bash
    git clone https://github.com/vignif/carla_parking.git
    ```
@@ -37,6 +39,7 @@ To get started with the rule-based parking implementation, follow these installa
 Before running the rule-based parking, make sure to set up the environment properly:
 
 1. Run Carla using the command:
+
    ```bash
    ./CarlaUE4.sh
    ```
@@ -53,6 +56,7 @@ Before running the rule-based parking, make sure to set up the environment prope
 To execute the rule-based parking scenario:
 
 1. Source the setup file:
+
    ```bash
    source devel/setup.bash
    ```

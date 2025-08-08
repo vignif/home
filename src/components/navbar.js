@@ -1,47 +1,49 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import { Link, navigate } from "gatsby";
-import { FaSearch, FaTimes } from "react-icons/fa";
+import * as React from "react"
+import PropTypes from "prop-types"
+import { Link, navigate } from "gatsby"
+import { FaSearch, FaTimes } from "react-icons/fa"
 
 const isActive = ({ isCurrent }) => ({
   className: `nav-link ${isCurrent ? "active position-relative" : ""}`,
-  style: isCurrent ? { borderBottom: "3px solid white", paddingBottom: "2px" } : {},
-});
+  style: isCurrent
+    ? { borderBottom: "3px solid white", paddingBottom: "2px" }
+    : {},
+})
 
 const ExactNavLink = ({ to, children }) => (
   <Link to={to} getProps={isActive}>
     {children}
   </Link>
-);
+)
 
 ExactNavLink.propTypes = {
   to: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-};
+}
 
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-];
+]
 
 const Navbar = ({ siteTitle = "" }) => {
-  const [query, setQuery] = React.useState("");
-  const [showSearch, setShowSearch] = React.useState(false);
+  const [query, setQuery] = React.useState("")
+  const [showSearch, setShowSearch] = React.useState(false)
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
+  const handleSearchSubmit = e => {
+    e.preventDefault()
     if (query.trim()) {
-      setShowSearch(false);
-      navigate(`/search?s=${encodeURIComponent(query.trim())}`);
+      setShowSearch(false)
+      navigate(`/search?s=${encodeURIComponent(query.trim())}`)
     }
-  };
+  }
 
   const toggleSearch = () => {
-    setShowSearch(!showSearch);
+    setShowSearch(!showSearch)
     if (!showSearch) {
-      setQuery("");
+      setQuery("")
     }
-  };
+  }
 
   return (
     <>
@@ -69,7 +71,7 @@ const Navbar = ({ siteTitle = "" }) => {
                 </li>
               ))}
               <li className="nav-item">
-                <button 
+                <button
                   className="nav-link search-icon-button"
                   onClick={toggleSearch}
                   aria-label="Search"
@@ -86,8 +88,8 @@ const Navbar = ({ siteTitle = "" }) => {
       {showSearch && (
         <div className="search-overlay">
           <div className="search-container">
-            <button 
-              className="close-search" 
+            <button
+              className="close-search"
               onClick={toggleSearch}
               aria-label="Close search"
             >
@@ -101,10 +103,10 @@ const Navbar = ({ siteTitle = "" }) => {
                   type="search"
                   placeholder="What are you looking for?"
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={e => setQuery(e.target.value)}
                 />
-                <button 
-                  className="search-submit" 
+                <button
+                  className="search-submit"
                   type="submit"
                   disabled={!query.trim()}
                 >
@@ -128,7 +130,7 @@ const Navbar = ({ siteTitle = "" }) => {
         .search-icon-button:hover {
           transform: scale(1.1);
         }
-        
+
         .search-overlay {
           position: fixed;
           top: 0;
@@ -142,13 +144,13 @@ const Navbar = ({ siteTitle = "" }) => {
           align-items: center;
           animation: fadeIn 0.3s ease;
         }
-        
+
         .search-container {
           width: 90%;
           max-width: 800px;
           position: relative;
         }
-        
+
         .close-search {
           position: absolute;
           top: -60px;
@@ -158,12 +160,12 @@ const Navbar = ({ siteTitle = "" }) => {
           color: white;
           cursor: pointer;
         }
-        
+
         .search-input-group {
           display: flex;
           width: 100%;
         }
-        
+
         .search-input {
           flex: 1;
           padding: 20px;
@@ -174,7 +176,7 @@ const Navbar = ({ siteTitle = "" }) => {
           color: white;
           outline: none;
         }
-        
+
         .search-submit {
           background: none;
           border: none;
@@ -183,21 +185,25 @@ const Navbar = ({ siteTitle = "" }) => {
           cursor: pointer;
           transition: transform 0.2s;
         }
-        
+
         .search-submit:disabled {
           opacity: 0.5;
           cursor: not-allowed;
         }
-        
+
         .search-submit:not(:disabled):hover {
           transform: scale(1.1);
         }
-        
+
         @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
-        
+
         @media (max-width: 768px) {
           .search-input {
             font-size: 1.2rem;
@@ -206,11 +212,11 @@ const Navbar = ({ siteTitle = "" }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
 Navbar.propTypes = {
   siteTitle: PropTypes.string,
-};
+}
 
-export default Navbar;
+export default Navbar

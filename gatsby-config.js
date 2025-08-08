@@ -12,7 +12,7 @@ module.exports = {
       twitter: `https://twitter.com/superdado_5`,
       github: `https://github.com/vignif`,
       linkedin: `https://www.linkedin.com/in/francesco-vigni/`,
-      google: `https://scholar.google.com/citations?user=ksO3xN0AAAAJ&hl=en`
+      google: `https://scholar.google.com/citations?user=ksO3xN0AAAAJ&hl=en`,
     },
   },
   plugins: [
@@ -20,9 +20,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          "G-QHV4ZCMNJ9"
-        ],
+        trackingIds: ["G-QHV4ZCMNJ9"],
         // This object is used for configuration specific to this plugin
         pluginConfig: {
           // Puts tracking script in the head instead of the body
@@ -48,7 +46,7 @@ module.exports = {
         theme_color: `#334699`,
         display: `standalone`,
         icon: `src/images/space-suit.png`, // This path is relative to the root of the site.
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,

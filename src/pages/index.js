@@ -1,26 +1,26 @@
 // React-related imports
-import React, { useMemo } from "react";
+import React, { useMemo } from "react"
 
 // Gatsby-related imports
-import { Link, graphql } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { Link, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 // React Icons
-import { HiLink } from "react-icons/hi";
+import { HiLink } from "react-icons/hi"
 
 // Components
-import Layout from "../components/layout";
-import { Seo } from "../components/seo";
-import AudioButton from "../components/play_audio";
+import Layout from "../components/layout"
+import { Seo } from "../components/seo"
+import AudioButton from "../components/play_audio"
 
 // Custom Hooks
-import { useSiteMetadata } from "../hooks/use-site-metadata";
+import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 // Video imports
-import carlaVideo from "../../data/videos/carla.mp4";
-import handVideo from "../../data/videos/hand_compressed.mp4";
-import handShakeVideo from "../../data/videos/handshake_compressed.mp4";
-import beerVideo from "../../data/videos/beer_compressed.mp4";
+import carlaVideo from "../../data/videos/carla.mp4"
+import handVideo from "../../data/videos/hand_compressed.mp4"
+import handShakeVideo from "../../data/videos/handshake_compressed.mp4"
+import beerVideo from "../../data/videos/beer_compressed.mp4"
 
 const researchStack = [
   // Core Research Areas
@@ -40,8 +40,7 @@ const researchStack = [
 
   // Project & Collaboration Skills
   "Team Management",
-];
-
+]
 
 const developmentStack = [
   // Programming Languages
@@ -57,7 +56,6 @@ const developmentStack = [
   "RViz",
   "Nav2",
 
-
   // Web & Frontend
   "Gatsby.js",
 
@@ -71,15 +69,14 @@ const developmentStack = [
   "NumPy / SciPy",
   "Pandas",
   "scikit-learn",
-  "Matplotlib / Seaborn"
-];
-
+  "Matplotlib / Seaborn",
+]
 
 const IndexPage = ({ data }) => {
-  const { social } = useSiteMetadata();
-  const news = useMemo(() => data.news.nodes, [data.news.nodes]);
-  const cvs = useMemo(() => data.cv.nodes, [data.cv.nodes]);
-  
+  const { social } = useSiteMetadata()
+  const news = useMemo(() => data.news.nodes, [data.news.nodes])
+  const cvs = useMemo(() => data.cv.nodes, [data.cv.nodes])
+
   return (
     <Layout>
       <div className="row py-lg-3 pb-0">
@@ -89,7 +86,8 @@ const IndexPage = ({ data }) => {
             /franˈt͡ʃe.sko ˈvi.ɲi/ - <AudioButton />
           </p>
           <p className="lead text-muted">
-            he/him <a
+            he/him{" "}
+            <a
               href="https://englishexplorations.check.uni-hamburg.de/academic-writing-how-do-we-use-gender-inclusive-language-in-academic-writing/"
               target="_blank"
               rel="noreferrer"
@@ -100,17 +98,25 @@ const IndexPage = ({ data }) => {
             </a>
           </p>
           <p className="justify">
-            I spend my time exploring the world of robots, their brains (AI), and their impact on our societies. I study how robots can learn to interact in a human-like way. The future expects robots to be able to interact with humans spontaneously, and somebody has to make it happen ;).<br />
+            I spend my time exploring the world of robots, their brains (AI),
+            and their impact on our societies. I study how robots can learn to
+            interact in a human-like way. The future expects robots to be able
+            to interact with humans spontaneously, and somebody has to make it
+            happen ;).
+            <br />
             On this website, I collect some of my works and interests.
           </p>
-          
-        <div className="col-sm-4 text-start">
-          <a href="FRANCESCO_VIGNI_PHD.pdf" 
-          download="FRANCESCO_VIGNI_PHD.pdf" 
-          className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
-          >Download CV</a>
-          <span> | </span>
-          <li className="list-inline-item float-left">
+
+          <div className="col-sm-4 text-start">
+            <a
+              href="FRANCESCO_VIGNI_PHD.pdf"
+              download="FRANCESCO_VIGNI_PHD.pdf"
+              className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
+            >
+              Download CV
+            </a>
+            <span> | </span>
+            <li className="list-inline-item float-left">
               <a
                 href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
                 target="_blank"
@@ -120,8 +126,8 @@ const IndexPage = ({ data }) => {
               >
                 PhD Thesis
               </a>
-          </li>
-</div>
+            </li>
+          </div>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
           <StaticImage
@@ -134,7 +140,7 @@ const IndexPage = ({ data }) => {
           />
         </div>
       </div>
-{/* 
+      {/* 
       <hr className="hr-text" data-content="Highlights" />
       <div className="row justify-content-center">
         {[{ video: handVideo, text: "Handshake prototype" },
@@ -151,74 +157,100 @@ const IndexPage = ({ data }) => {
         ))}
       </div> */}
 
-<hr className="hr-text" data-content="What I use?" />
-<div className="row justify-content-center py-1">
-  <div className="col-lg-5">
-
-    <h3 className="fw-bold text-center mb-3">Research</h3>
-    <ul className="list-inline text-center mb-5">
-      {/* Replace these with actual skills/tools later */}
-      {researchStack.map((item, index) => (
-        <li key={index} className="list-inline-item m-2 badge bg-secondary text-white p-2 rounded-pill">
-          {item}
-        </li>
-      ))}
-    </ul>
-    </div>
-    <div className="col-lg-5">
-    <h3 className="fw-bold text-center mb-3">Development</h3>
-    <ul className="list-inline text-center">
-      {/* Replace these with actual dev tools/stacks later */}
-      {developmentStack.map((item, index) => (
-        <li key={index} className="list-inline-item m-2 badge bg-primary text-white p-2 rounded-pill">
-          {item}
-        </li>
-      ))}
-    </ul>
-
-  </div>
-</div>
-
+      <hr className="hr-text" data-content="What I use?" />
+      <div className="row justify-content-center py-1">
+        <div className="col-lg-5">
+          <h3 className="fw-bold text-center mb-3">Research</h3>
+          <ul className="list-inline text-center mb-5">
+            {/* Replace these with actual skills/tools later */}
+            {researchStack.map((item, index) => (
+              <li
+                key={index}
+                className="list-inline-item m-2 badge bg-secondary text-white p-2 rounded-pill"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="col-lg-5">
+          <h3 className="fw-bold text-center mb-3">Development</h3>
+          <ul className="list-inline text-center">
+            {/* Replace these with actual dev tools/stacks later */}
+            {developmentStack.map((item, index) => (
+              <li
+                key={index}
+                className="list-inline-item m-2 badge bg-primary text-white p-2 rounded-pill"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
       <hr className="hr-text" data-content="News" />
-      {news.map((node) => (
+      {news.map(node => (
         <div key={node.id} className="row">
           <div className="col-sm-2 own_sub_container">
-            <p className="own_date">{node.childMarkdownRemark.frontmatter.date}</p>
+            <p className="own_date">
+              {node.childMarkdownRemark.frontmatter.date}
+            </p>
           </div>
           <div className="col-md-10">
-            <div className="justify" dangerouslySetInnerHTML={{ __html: node.childMarkdownRemark.html }} />
+            <div
+              className="justify"
+              dangerouslySetInnerHTML={{
+                __html: node.childMarkdownRemark.html,
+              }}
+            />
           </div>
         </div>
       ))}
 
       <div className="row justify-content-center">
-      <div className="col-sm-auto">
-            <Link className="btn btn-outline-primary mt-3" to="/publications">Go to publications</Link>
+        <div className="col-sm-auto">
+          <Link className="btn btn-outline-primary mt-3" to="/publications">
+            Go to publications
+          </Link>
         </div>
         <div className="col-sm-auto">
-            <Link className="btn btn-outline-primary mt-3" to="/news">Go to news</Link>
+          <Link className="btn btn-outline-primary mt-3" to="/news">
+            Go to news
+          </Link>
         </div>
         <div className="col-sm-auto">
-            <Link className="btn btn-outline-primary mt-3" to="/blog">Go to blog</Link>
+          <Link className="btn btn-outline-primary mt-3" to="/blog">
+            Go to blog
+          </Link>
         </div>
       </div>
 
       <hr className="hr-text" data-content="Step by step" />
       <div className="py-5 main-timeline">
         {cvs.map((cv, index) => (
-          <div key={cv.id} className={`timeline ${index % 2 === 0 ? "left" : "right"}`}>
+          <div
+            key={cv.id}
+            className={`timeline ${index % 2 === 0 ? "left" : "right"}`}
+          >
             <div className="card">
               <div className="card-body p-2">
                 <h5>{cv.title}</h5>
                 <p className="mb-0">
-                  <a href={cv.url} target="_blank" rel="noreferrer" aria-label={`Link to ${cv.title}`}>
+                  <a
+                    href={cv.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Link to ${cv.title}`}
+                  >
                     <HiLink />
                   </a>
                   {cv.employer} - {cv.where}
                 </p>
                 <p className="mb-0 fw-light">
-                  {cv.date_end && cv.date_end !== "Invalid date" ? `${cv.date_start} - ${cv.date_end}` : cv.date_start}
+                  {cv.date_end && cv.date_end !== "Invalid date"
+                    ? `${cv.date_start} - ${cv.date_end}`
+                    : cv.date_start}
                 </p>
                 <p className="mb-0 fw-light">{cv.extra}</p>
               </div>
@@ -227,11 +259,11 @@ const IndexPage = ({ data }) => {
         ))}
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
-export const Head = () => <Seo />;
+export default IndexPage
+export const Head = () => <Seo />
 
 export const query = graphql`
   query NewsCV {
@@ -243,15 +275,24 @@ export const query = graphql`
       nodes {
         id
         childMarkdownRemark {
-          frontmatter { date(formatString: "DD MMM, YYYY") }
+          frontmatter {
+            date(formatString: "DD MMM, YYYY")
+          }
           html
         }
       }
     }
     cv: allCvJson {
       nodes {
-        id employer date_start(formatString: "MMM, YYYY") date_end(formatString: "MMM, YYYY") title url where extra
+        id
+        employer
+        date_start(formatString: "MMM, YYYY")
+        date_end(formatString: "MMM, YYYY")
+        title
+        url
+        where
+        extra
       }
     }
   }
-`;
+`

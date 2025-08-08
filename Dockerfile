@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y git && apt-get clean
 
 # Install Gatsby CLI globally
 RUN npm install -g gatsby-cli && npm cache clean --force
+RUN npm install gatsby-source-contentful gatsby-plugin-image
+
 
 # Install project dependencies
 RUN yarn install

@@ -11,11 +11,10 @@ img: "../images/blogs/math.jpg"
 You have a gatsby website but your dependencies are getting out of hands?
 Gatsby as a docker container can be the solution and this short tutorial will show you how.
 
-
 ## Prepare your workspace
+
 First, let's assume your gatsby website is currently inside folder on your machine.
 For the sake of the example let's take a popular starter kit.
-
 
 ```
 git clone https://github.com/gatsbyjs/gatsby-starter-default.git ~/home
@@ -27,7 +26,6 @@ now your gatsby project is located in the ´~/home´ directory.
 Let's wrap it with a container.
 
 1. Create a ´Dockerfile´ with the following content
-
 
 ```
 FROM node:20.16.0-slim
@@ -59,7 +57,6 @@ CMD ["/usr/local/bin/setup.sh"]
 
 2. Keep things nice and clean with a ´.dockerignore´ file with the following content
 
-
 ```
 .cache/
 node_modules/
@@ -67,7 +64,6 @@ public/
 ```
 
 3. Create a file named ´setup.sh´ in the same folder with the content
-
 
 ```
 #!/bin/bash
@@ -95,7 +91,6 @@ exec gatsby develop -H 0.0.0.0
 
 Substitute ´image-name´ with a name of your choice.
 
-
 ```
 docker build -t image-name .
 ```
@@ -104,10 +99,8 @@ docker build -t image-name .
 
 Substitute ´image-name´ as done above.
 
-
 ```
 docker run -it --rm -v $(pwd):/app -p 8000:8000 image-name
 ```
 
 Now you should be able to navigate to ´localhost:8000´ and see it running correctly.
-

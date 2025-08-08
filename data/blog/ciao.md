@@ -6,8 +6,6 @@ date: 2023-01-01
 img: "../images/blogs/barcelona.jpg"
 ---
 
-<H2>This is my first post on gatsby</H2>
-
 For long time, I have been using frameworks like Wordpress in order to set up my own website.
 Recently I learned about gatsby and I decided to give it a try.
 

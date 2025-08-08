@@ -1,11 +1,11 @@
-import * as React from "react";
-import { Link, graphql } from "gatsby";
-import Layout from "../../components/layout";
-import { Seo } from "../../components/seo";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import * as React from "react"
+import { Link, graphql } from "gatsby"
+import Layout from "../../components/layout"
+import { Seo } from "../../components/seo"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Blog = ({ data }) => {
-  const blogPosts = data.allFile.edges;
+  const blogPosts = data.allFile.edges
 
   return (
     <Layout>
@@ -17,15 +17,19 @@ const Blog = ({ data }) => {
       <section className="container">
         <div className="blog-grid">
           {blogPosts.map(({ node }) => {
-            const { id, childMarkdownRemark } = node;
-            const { title, date, subtitle, img } = childMarkdownRemark.frontmatter;
-            const slug = childMarkdownRemark.fields.slug;
-            const image = getImage(img);
+            const { id, childMarkdownRemark } = node
+            const { title, date, subtitle, img } =
+              childMarkdownRemark.frontmatter
+            const slug = childMarkdownRemark.fields.slug
+            const image = getImage(img)
 
             return (
               <div key={id} className="blog-card">
                 {image && (
-                  <Link to={`/blog${slug}`} aria-label={`Read more about ${title}`}>
+                  <Link
+                    to={`/blog${slug}`}
+                    aria-label={`Read more about ${title}`}
+                  >
                     <GatsbyImage
                       image={image}
                       alt={title}
@@ -36,7 +40,9 @@ const Blog = ({ data }) => {
                 )}
                 <div className="blog-content">
                   <h3 className="blog-title">
-                    <Link to={`/blog${slug}`} aria-label={`Read: ${title}`}>{title}</Link>
+                    <Link to={`/blog${slug}`} aria-label={`Read: ${title}`}>
+                      {title}
+                    </Link>
                   </h3>
                   <p className="blog-subtitle">{subtitle}</p>
                   <p className="blog-date">{date}</p>
@@ -45,22 +51,24 @@ const Blog = ({ data }) => {
                   </Link>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </section>
 
       <div className="text-center my-5">
         <hr className="custom-hr" />
-        <Link to="/" className="btn btn-primary btn-lg">🏡 Back to Home</Link>
+        <Link to="/" className="btn btn-primary btn-lg">
+          🏡 Back to Home
+        </Link>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default Blog;
+export default Blog
 
-export const Head = () => <Seo title="Blog" />;
+export const Head = () => <Seo title="Blog" />
 
 export const query = graphql`
   query BLOGS {
@@ -95,4 +103,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

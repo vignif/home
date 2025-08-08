@@ -6,9 +6,8 @@ date: 2023-05-01
 img: "../images/blogs/snow.jpg"
 ---
 
-<H2>Write, explore, share</H2>
-
 If you are not a geek like me, you may not know that
+
 <ol>
 <li>robots are already around us, and are here to stay</li>
 <li>robots cannot yet take human-like decisions autonomously</li>
@@ -17,7 +16,6 @@ If you are not a geek like me, you may not know that
 
 For a more soft introduction to the topic, I wrote some blogs for the Perseo project.
 These links will redirect you there!
-
 
 <table class="table table-striped">
   <tr>

@@ -21,6 +21,7 @@ The project aims to automatically download statistics for a set of researchers g
 To understand the impact of web crawling, I implemented different scripts, each employing a unique approach:
 
 1. **get_stats_serial.py:**
+
    - Waits for each task to complete before moving on to the next researcher.
    - Time complexity: O(N), suitable for a smaller number of researchers.
 
@@ -32,6 +33,7 @@ To understand the impact of web crawling, I implemented different scripts, each 
 ### Performance Comparison
 
 - **get_stats_serial.py:**
+
   - Downloaded info per second: 0.7
 
 - **get_stats_coroutine.py:**
