@@ -22,6 +22,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+exports.createPages = async ({ actions }) => {
+  const { createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/bc`, // the path you'll put in your QR code
+    toPath: `/`, // where visitors will land
+    isPermanent: true,
+    redirectInBrowser: true,
+  })
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
