@@ -22,19 +22,16 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = async ({ actions }) => {
-  const { createRedirect } = actions
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions
 
+  // Ensure redirect is registered (was previously in a separate createPages export and got overwritten)
   createRedirect({
     fromPath: `/bc`, // the path you'll put in your QR code
     toPath: `/`, // where visitors will land
     isPermanent: true,
     redirectInBrowser: true,
   })
-}
-
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
 
   const publications = graphql(`
     query PubPage {
@@ -170,7 +167,8 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([publications, blogs, tags])
+  // Await all page creations, including misc pages
+  return Promise.all([publications, blogs, tags, misc])
 }
 
 // link PersonsJson.slug to PublicationsJson.authors
