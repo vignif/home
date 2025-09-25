@@ -10,7 +10,7 @@ const News = ({ data }) => {
 
   return (
     <Layout>
-      <section className="text-center py-5">
+      <section className="text-center pt-5">
         <h1 className="fw-bold">News</h1>
         <hr className="custom-hr" />
       </section>
