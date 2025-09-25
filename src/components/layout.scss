@@ -1,17 +1,108 @@
 //Here you can customize bootstrap
-$primary: #334699;
+$primary: #0f1c4d; // new primary accent
+// Bootstrap overrides (must come before import)
+$body-bg: #ffffff;
+$body-color: #1f2937;
+$font-family-sans-serif: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$border-radius: 10px;
 @import "~bootstrap/scss/bootstrap";
 
 $detail: black;
 $highlight: #5371e1;
 $text: #ffffff;
 
+/* Runtime design tokens (light/dark via prefers-color-scheme) */
+:root {
+  --radius: 10px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --bg: #f8fafc;        /* light background */
+  --text: #0f172a;      /* slate-900 */
+  --muted: #475569;     /* slate-600 */
+  --card: #ffffff;
+  --accent: $primary;    /* aligned with $primary */
+  --accent-hover: #3e5fdc;
+  --accent-strong: #2f4fc8; /* darker for navbar */
+  --bg-card: var(--card);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1020;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --card: #0f172a;
+    --accent: #7aa2ff;
+    --accent-hover: #668fff;
+    --accent-strong: #597fe3;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: $font-family-sans-serif;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Unified button styling */
+.btn {
+  border-radius: var(--radius);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus { box-shadow: 0 0 0 0.2rem rgba(79, 110, 229, 0.25); }
+
+.btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-outline-primary {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-warning {
+  color: #1f2937;
+  font-weight: 700;
+  background-color: #f5c147;
+  border-color: #f5c147;
+}
+.btn-warning:hover {
+  background-color: #e3b23f;
+  border-color: #e3b23f;
+}
+
+.btn.disabled, .btn:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.btn-lg { padding: 0.8rem 1.4rem; border-radius: calc(var(--radius) + 2px); }
+.btn-sm { padding: 0.25rem 0.6rem; border-radius: calc(var(--radius) - 2px); }
+
 .own_container {
-  box-shadow: 0 30px 60px -10px rgb(0 0 0 / 22%),
-    0 18px 36px -18px rgb(0 0 0 / 25%);
-  padding-left: 3em;
-  padding-right: 3em;
-  // padding-top: 1em !important;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 2vw, 3rem);
+  padding-block: clamp(0.5rem, 1vw, 1.25rem);
+  box-shadow: var(--shadow);
+  background: var(--bg);
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -55,9 +146,18 @@ $text: #ffffff;
 }
 
 .my-navbar {
-  background-color: $primary;
+  background-color: rgba($primary, 0.95);
+  backdrop-filter: saturate(120%) blur(6px);
+  border-radius: 12px;
   max-width: 80%;
   margin: auto;
+  box-shadow: var(--shadow);
+}
+
+/* Ensure toggler and links keep good contrast */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
 }
 
 .hr-text {
@@ -79,11 +179,11 @@ $text: #ffffff;
     content: attr(data-content);
     position: relative;
     display: inline-block;
-    color: black;
     padding: 0 0.5em;
     line-height: 1.5em;
-    color: black;
-    background-color: white;
+    color: var(--text);
+    background-color: var(--bg);
+    border-radius: var(--radius);
   }
 }
 
@@ -128,18 +228,19 @@ $text: #ffffff;
 /* The actual timeline (the vertical ruler) */
 .main-timeline {
   position: relative;
+  margin: 2rem 0;
 }
 
 /* The actual timeline (the vertical ruler) */
 .main-timeline::after {
   content: "";
   position: absolute;
-  width: 6px;
+  width: 2px;
   background-color: $primary;
   top: 0;
   bottom: 0;
   left: 50%;
-  margin-left: -3px;
+  margin-left: -1px;
 }
 
 /* Container around content */
@@ -153,25 +254,25 @@ $text: #ffffff;
 .timeline::after {
   content: "";
   position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -13px;
+  width: 14px;
+  height: 14px;
+  right: -8px;
   background-color: $primary;
-  border: 5px solid #ffffff;
+  border: 3px solid var(--bg);
   top: 7px;
-  border-radius: 40%;
+  border-radius: 50%;
   z-index: 1;
 }
 
 /* Place the container to the left */
 .left {
-  padding: 0px 40px 20px 0px;
+  padding: 0 32px 20px 0;
   left: 0;
 }
 
 /* Place the container to the right */
 .right {
-  padding: 0px 0px 20px 40px;
+  padding: 0 0 20px 32px;
   left: 50%;
 }
 
@@ -203,33 +304,36 @@ $text: #ffffff;
 
 /* Fix the circle for containers on the right side */
 .right::after {
-  left: -12px;
+  left: -7px;
 }
 
 pre {
-  color: #f8f8f2; /* Light text */
-  background-color: #272822; /* Dark background */
-  padding: 12px;
-  border-radius: 8px;
+  color: #e5e7eb; /* Light text */
+  background-color: #0f172a; /* Dark background */
+  padding: 12px 16px;
+  border-radius: var(--radius);
   overflow-x: auto;
-  font-family: "Fira Code", "Courier New", monospace;
+  font-family: $font-family-monospace;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.55;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 img {
-  max-width: 85%;
+  max-width: 100%;
   height: auto;
   margin: auto;
   display: block;
-  padding: 2em;
+  padding: 0.5em;
+  border-radius: var(--radius);
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
   /* Place the timelime to the left */
   .main-timeline::after {
-    left: 10px;
+    left: 12px;
+    margin-left: 0;
   }
 
   /* Full-width containers */
@@ -237,6 +341,7 @@ img {
     width: 100%;
     padding-left: 30px;
     padding-right: 25px;
+    left: 0;
   }
 
   /* Make sure that all arrows are pointing leftwards */
@@ -274,14 +379,20 @@ img {
 
 .card {
   display: flex;
-  // flex-direction: column;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius);
   margin: 10px;
-  padding: 10px;
-  // width: 300px; /* Adjust this value as per your design */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
 
 .wrapper {
@@ -319,32 +430,20 @@ h1.heading {
     margin: 0 0 0.3em;
   }
 }
-.card {
-  display: block;
-  margin-bottom: 20px;
-  line-height: 1.42857143;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.25s;
-}
-.card:hover {
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+/* unified .card styles above */
 .img-card {
   width: 100%;
-  height: 200px;
+  height: auto;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   display: block;
   overflow: hidden;
-  vertical-align: bottom;
 }
 .img-card img {
   width: 100%;
-  // height: 200px;
-  height: 18vw;
-  margin: auto;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin: 0;
   object-fit: cover;
   transition: all 0.25s ease;
 }
@@ -440,30 +539,30 @@ h1.heading {
 /* Grid layout for blog posts */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1rem, 3vw, 2rem);
 }
 
 /* Blog card container */
 .blog-card {
-  background: var(--bg-card, #fff);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   overflow: hidden;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* Hover effect */
 .blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
 }
 
 /* Blog image */
 .blog-image {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 0.3s;
 }
@@ -474,34 +573,34 @@ h1.heading {
 
 /* Blog content section */
 .blog-content {
-  padding: 1.5rem;
-  text-align: center;
+  padding: 1.25rem 1.25rem 1.5rem;
+  text-align: left;
 }
 
 /* Blog title */
 .blog-title a {
   text-decoration: none;
-  color: var(--text-title, #333);
-  font-size: 1.5rem;
-  font-weight: 600;
+  color: var(--text);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 700;
   transition: color 0.3s;
 }
 
 .blog-title a:hover {
-  color: #007bff;
+  color: var(--accent);
 }
 
 /* Subtitle */
 .blog-subtitle {
   font-size: 1rem;
-  color: var(--text-muted, #666);
+  color: var(--muted);
   margin: 0.5rem 0;
 }
 
 /* Date */
 .blog-date {
   font-size: 0.9rem;
-  color: var(--text-light, #888);
+  color: var(--muted);
   margin-bottom: 0.75rem;
 }
 
@@ -509,21 +608,28 @@ h1.heading {
 .read-more {
   display: inline-block;
   margin-top: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #007bff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.9rem;
   text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .read-more:hover {
-  text-decoration: underline;
+  background-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 /* Custom HR styling */
 .custom-hr {
   width: 80px;
   height: 5px;
-  background: #007bff;
+  background: var(--accent);
   border: none;
   margin: 1.5rem auto;
 }

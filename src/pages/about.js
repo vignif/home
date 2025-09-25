@@ -48,7 +48,6 @@ const Contacts = () => {
     <Layout>
       <section className="text-center py-5">
         <h1 className="fw-bold">About</h1>
-        <hr className="custom-hr" />
       </section>
 
       <div className="row">

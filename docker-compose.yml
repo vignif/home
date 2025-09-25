@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  gatsby:
+    build: .
+    container_name: gatsby_dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: gatsby develop -H 0.0.0.0

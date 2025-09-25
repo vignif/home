@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
     <div className="container-fluid p-0">
       <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
       <main>
-        <section className="py-5 text-center container own_container">
+        <section className="text-center container own_container">
           {children}
           <SocialLinks />
         </section>

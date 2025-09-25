@@ -1,27 +1,31 @@
 FROM node:20.16.0-slim
 
+# Set working directory
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y git && apt-get clean
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Gatsby CLI globally
-RUN npm install -g gatsby-cli && npm cache clean --force
-RUN npm install gatsby-source-contentful gatsby-plugin-image
+RUN npm install -g gatsby-cli
 
+# Copy dependency files first for caching
+COPY package.json yarn.lock ./
 
-# Install project dependencies
-RUN yarn install
-RUN yarn cache clean
+# Install dependencies (use frozen-lockfile for reproducibility)
+RUN yarn install --frozen-lockfile
 
-# Copy remaining files
+# Copy the rest of the project
 COPY . .
 
-# Move setup script and make it executable
+# Copy setup script and make it executable
 COPY setup.sh /usr/local/bin/setup.sh
 RUN chmod +x /usr/local/bin/setup.sh
 
-# Expose the Gatsby development server port
+# Expose Gatsby dev server port
 EXPOSE 8000
 
-# Use CMD instead of ENTRYPOINT to allow easy overriding
+# Start Gatsby via your setup script
 CMD ["/usr/local/bin/setup.sh"]

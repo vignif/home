@@ -82,16 +82,16 @@ const IndexPage = ({ data }) => {
       <div className="row py-lg-3 pb-0">
         <div className="col-sm-8 mx-auto" style={{ textAlign: "start" }}>
           <h2 className="fw-bold">Francesco Vigni, Ph.D.</h2>
-          <p className="lead text-muted mb-0">
+          <p className="text-muted mb-0" style={{ fontSize: "small" }}>
             /franˈt͡ʃe.sko ˈvi.ɲi/
           </p>
-          <p className="lead text-muted">
+          <p className="text-muted">
             he/him{" "}
             <a
               href="https://englishexplorations.check.uni-hamburg.de/academic-writing-how-do-we-use-gender-inclusive-language-in-academic-writing/"
               target="_blank"
               rel="noreferrer"
-              className="lead text-muted"
+              className="text-muted"
               style={{ fontSize: "small" }}
             >
               why?
@@ -106,50 +106,49 @@ const IndexPage = ({ data }) => {
             <br />
             On this website, I collect some of my works and interests.
           </p>
-
-          <div className="col-sm-4 text-start">
-            <a
-              href="FRANCESCO_VIGNI_PHD.pdf"
-              download="FRANCESCO_VIGNI_PHD.pdf"
-              className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
-            >
-              Download CV
-            </a>
-            <span> | </span>
-            <li className="list-inline-item float-left">
-              <a
-                href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
-                target="_blank"
-                rel="noreferrer"
-                className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
-                title="Download or view Francesco Vigni's PhD Thesis"
-              >
-                PhD Thesis
-              </a>
-            </li>
-            <span> | </span> 
-            <a
-              href="apps.francescovigni.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Link to apps.francescovigni.com"
-              className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
-            >
-              My Apps
-            </a>
-
-          </div>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
           <StaticImage
             src="../../data/images/EC9_8572.jpg"
-            width={250}
+            width={200}
             quality={95}
             formats={["AUTO", "WEBP"]}
             alt="Francesco Vigni"
             className="img-fluid profilepic"
           />
+          
         </div>
+        <div className="col-sm-6 text-start">
+            <a
+              href="FRANCESCO_VIGNI_PHD.pdf"
+              download="FRANCESCO_VIGNI_PHD.pdf"
+              className="btn btn-tertiary"
+            >
+              Download CV
+            </a>
+            <span> | </span>
+            
+              <a
+                href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-tertiary"
+                title="Download or view Francesco Vigni's PhD Thesis"
+              >
+                PhD Thesis
+              </a>
+            
+            <span> | </span> 
+            <a
+              href="https://apps.francescovigni.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Link to apps.francescovigni.com"
+              className="btn btn-tertiary"
+            >
+              Portfolio
+            </a>
+          </div>
       </div>
       {/* 
       <hr className="hr-text" data-content="Highlights" />

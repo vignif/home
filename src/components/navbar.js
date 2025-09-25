@@ -6,7 +6,7 @@ import { FaSearch, FaTimes } from "react-icons/fa"
 const isActive = ({ isCurrent }) => ({
   className: `nav-link ${isCurrent ? "active position-relative" : ""}`,
   style: isCurrent
-    ? { borderBottom: "3px solid white", paddingBottom: "2px" }
+    ? { borderBottom: "3px solid white", paddingBottom: "5px" }
     : {},
 })
 
@@ -50,7 +50,7 @@ const Navbar = ({ siteTitle = "" }) => {
       <nav className="navbar navbar-expand-md navbar-dark bg-primary container">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
-            {siteTitle}
+            
           </Link>
           <button
             className="navbar-toggler"
@@ -64,12 +64,17 @@ const Navbar = ({ siteTitle = "" }) => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="main-navbar">
-            <ul className="navbar-nav ms-auto mb-2 mb-md-0 align-items-center">
+            {/* Left-aligned nav items */}
+            <ul className="navbar-nav me-auto mb-2 mb-md-0">
               {NAV_ITEMS.map(({ to, label }) => (
                 <li className="nav-item" key={to}>
                   <ExactNavLink to={to}>{label}</ExactNavLink>
                 </li>
               ))}
+            </ul>
+
+            {/* Right-aligned search icon */}
+            <ul className="navbar-nav ms-auto mb-2 mb-md-0 align-items-center">
               <li className="nav-item">
                 <button
                   className="nav-link search-icon-button"
