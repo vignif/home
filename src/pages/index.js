@@ -80,10 +80,10 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className="row py-lg-3 pb-0">
-        <div className="col-sm-8 mx-auto">
-          <h1 className="fw-bold">Francesco Vigni, Ph.D.</h1>
+        <div className="col-sm-8 mx-auto" style={{ textAlign: "start" }}>
+          <h2 className="fw-bold">Francesco Vigni, Ph.D.</h2>
           <p className="lead text-muted mb-0">
-            /franˈt͡ʃe.sko ˈvi.ɲi/ - <AudioButton />
+            /franˈt͡ʃe.sko ˈvi.ɲi/
           </p>
           <p className="lead text-muted">
             he/him{" "}
@@ -127,6 +127,17 @@ const IndexPage = ({ data }) => {
                 PhD Thesis
               </a>
             </li>
+            <span> | </span> 
+            <a
+              href="apps.francescovigni.com"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Link to apps.francescovigni.com"
+              className="badge bg-dark text-white p-2 my-1 rounded-pill text-decoration-none d-inline-block"
+            >
+              My Apps
+            </a>
+
           </div>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
@@ -157,12 +168,12 @@ const IndexPage = ({ data }) => {
         ))}
       </div> */}
 
+      {/*
       <hr className="hr-text" data-content="What I use?" />
       <div className="row justify-content-center py-1">
         <div className="col-lg-5">
           <h3 className="fw-bold text-center mb-3">Research</h3>
           <ul className="list-inline text-center mb-5">
-            {/* Replace these with actual skills/tools later */}
             {researchStack.map((item, index) => (
               <li
                 key={index}
@@ -176,7 +187,6 @@ const IndexPage = ({ data }) => {
         <div className="col-lg-5">
           <h3 className="fw-bold text-center mb-3">Development</h3>
           <ul className="list-inline text-center">
-            {/* Replace these with actual dev tools/stacks later */}
             {developmentStack.map((item, index) => (
               <li
                 key={index}
@@ -188,7 +198,7 @@ const IndexPage = ({ data }) => {
           </ul>
         </div>
       </div>
-
+*/}
       <hr className="hr-text" data-content="News" />
       {news.map(node => (
         <div key={node.id} className="row">
