@@ -18,6 +18,7 @@ const SocialLinks = () => {
           <hr className="hr-text" data-content="Socials" />
         </div>
       </div>
+      <div className="row justify-content-center my-3">
       <div className="col-1 mx-1">
         <a href={social.google} target="_blank" rel="noreferrer" className="">
           <FontAwesomeIcon icon={faGoogleScholar} size="2x" />
@@ -39,6 +40,7 @@ const SocialLinks = () => {
           <FontAwesomeIcon icon={faLinkedin} size="2x" />
         </a>
       </div>
+    </div>
     </div>
   )
 }
