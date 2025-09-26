@@ -129,7 +129,7 @@ const IndexPage = ({ data }) => {
             <span> | </span>
             
               <a
-                href="https://drive.google.com/file/d/1GoJtMYOZscexARxYDWhx_B8-EL3Q_lIU/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1_kec847ygcR6kId2rmPujNkQSnkms1Dv/view?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-tertiary"
