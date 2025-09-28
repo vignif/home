@@ -28,7 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Ensure redirect is registered (was previously in a separate createPages export and got overwritten)
   createRedirect({
     fromPath: `/bc`, // the path you'll put in your QR code
-    toPath: `/`, // where visitors will land
+    toPath: `/?mtm_campaign=bc`, // where visitors will land
     isPermanent: true,
     redirectInBrowser: true,
   })
