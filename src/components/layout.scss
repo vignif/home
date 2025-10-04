@@ -1,9 +1,11 @@
 //Here you can customize bootstrap
 $primary: #0f1c4d; // new primary accent
+// Import Titillium Web from Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap");
 // Bootstrap overrides (must come before import)
 $body-bg: #ffffff;
 $body-color: #1f2937;
-$font-family-sans-serif: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-sans-serif: "Titillium Web", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-family-monospace: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $border-radius: 10px;
 @import "~bootstrap/scss/bootstrap";
