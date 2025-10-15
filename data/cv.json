@@ -3,7 +3,7 @@
     "title": "Sabbatical",
     "employer": "Exploring",
     "date-start": "2025-02-11",
-    "date-end": "",
+    "date-end": "2025-09-01",
     "where": "🌎",
     "slug": "sab",
     "extra": "Watching sunsets",
@@ -29,7 +29,7 @@
     "where": "Munich, Germany",
     "slug": "roboception",
     "extra": "",
-    "url": "https://roboception.com/en/",
+    "url": "https://roboception.com/",
     "icon": "fa-cicio"
   },
   {
@@ -62,7 +62,7 @@
     "where": "Munich, Germany",
     "slug": "engineer",
     "extra": "",
-    "url": "https://www.mirmi.tum.de/mirmi/home/",
+    "url": "https://www.mirmi.tum.de/mirmi/startseite/",
     "icon": "fa-cicio"
   },
   {
