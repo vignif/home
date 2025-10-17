@@ -98,13 +98,10 @@ const IndexPage = ({ data }) => {
             </a>
           </p>
           <p className="justify">
-            I spend my time exploring the world of robots, their brains (AI),
-            and their impact on our societies. I study how robots can learn to
-            interact in a human-like way. The future expects robots to be able
-            to interact with humans spontaneously, and somebody has to make it
-            happen ;).
+            I explore how intelligent tools are redefining the way we work, create, and connect.
+            After years in HRI research, I’m now turning that experience into real-world innovation through cutting-edge technologies.
             <br />
-            On this website, I collect some of my works and interests.
+            Here, you’ll find a glimpse of that journey.
           </p>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
