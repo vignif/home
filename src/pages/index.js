@@ -118,10 +118,11 @@ const IndexPage = ({ data }) => {
         <div className="col-sm-6 text-start">
             <a
               href="FRANCESCO_VIGNI_PHD.pdf"
-              download="FRANCESCO_VIGNI_PHD.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-tertiary"
             >
-              Download CV
+            View CV
             </a>
             <span> | </span>
             
