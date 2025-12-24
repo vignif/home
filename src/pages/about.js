@@ -63,7 +63,7 @@ const Contacts = () => {
             Francesco Vigni is an independent ML engineer working at the intersection of robotics, and applied AI.
             After completing a Ph.D. in Information and Communication Technology for Health at the University of Naples Federico II (funded by the EU's Marie Skłodowska-Curie PERSEO project), he transitioned from academic research to building production systems.
             <br />
-            His background includes developing real-time perception software for industrial robotics (Roboception, STtech), autonomous navigation systems, and HRI research. 
+            His background includes developing real-time perception software for industrial robotics, autonomous navigation systems, and HRI research. 
             He has worked with stereo vision, deep learning pipelines, object detection, motion planning, and embedded vision systems across various robotics platforms.
             Francesco specializes in bridging the gap between research and deployment by building intelligent systems that are reliable, scalable, and work in real-world conditions. He's particularly drawn to projects where the challenge isn't just training a model, but making it robust enough for production.
             <br />
