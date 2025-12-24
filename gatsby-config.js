@@ -37,6 +37,95 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-remark-responsive-iframe`,
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: ['/dev-404-page', '/404', '/404.html'],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+          }
+        `,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://francescovigni.com',
+        sitemap: 'https://francescovigni.com/sitemap-index.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allFile } }) => {
+              return allFile.edges.map(edge => {
+                const frontmatter = edge.node.childMarkdownRemark.frontmatter
+                return Object.assign({}, frontmatter, {
+                  description: edge.node.childMarkdownRemark.excerpt,
+                  date: frontmatter.date,
+                  url: site.siteMetadata.siteUrl + '/blog' + edge.node.childMarkdownRemark.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/blog' + edge.node.childMarkdownRemark.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.childMarkdownRemark.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allFile(
+                  filter: {
+                    sourceInstanceName: { eq: "blog" }
+                    extension: { eq: "md" }
+                  }
+                  sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
+                ) {
+                  edges {
+                    node {
+                      childMarkdownRemark {
+                        excerpt
+                        html
+                        fields { slug }
+                        frontmatter {
+                          title
+                          date
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Francesco Vigni - Blog RSS Feed',
+            match: '^/blog/',
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Francesco Vigni`,

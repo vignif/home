@@ -6,16 +6,20 @@ WORKDIR /app
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    openssh-client \
+    python3 \
+    make \
+    g++ \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Gatsby CLI globally
 RUN npm install -g gatsby-cli
 
 # Copy dependency files first for caching
-COPY package.json yarn.lock ./
+COPY package*.json ./
 
-# Install dependencies (use frozen-lockfile for reproducibility)
-RUN yarn install --frozen-lockfile
+# Install dependencies
+RUN npm install --legacy-peer-deps
 
 # Copy the rest of the project
 COPY . .
