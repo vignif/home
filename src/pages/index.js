@@ -150,6 +150,85 @@ const IndexPage = ({ data }) => {
             </a>
           </div>
       </div>
+
+      <hr className="hr-text" data-content="Core Skills" />
+      <div className="row justify-content-center py-4">
+        <div className="col-lg-8">
+          <div className="row g-4">
+            <div className="col-md-6" style={{ animation: 'fadeInUp 0.6s ease-out' }}>
+              <h6 className="fw-bold mb-2 text-uppercase" style={{ fontSize: '0.85rem', letterSpacing: '1px', color: 'var(--muted)' }}>
+                ML & Robotics
+              </h6>
+              <ul className="list-unstyled mb-0" style={{ lineHeight: '1.8' }}>
+                {['ROS / ROS2', 
+                'Computer Vision', 
+                'Deep Learning', 
+                '3D Perception', 
+                'Motion Planning'].map((skill, index) => (
+                  <li 
+                    key={skill}
+                    style={{ 
+                      animation: `fadeInUp 0.6s ease-out ${0.1 + index * 0.1}s backwards`,
+                      transition: 'transform 0.2s ease, color 0.2s ease',
+                      cursor: 'default'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateX(5px)';
+                      e.currentTarget.style.color = 'var(--accent)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateX(0)';
+                      e.currentTarget.style.color = '';
+                    }}
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="col-md-6" style={{ animation: 'fadeInUp 0.6s ease-out 0.2s backwards' }}>
+              <h6 className="fw-bold mb-2 text-uppercase" style={{ fontSize: '0.85rem', letterSpacing: '1px', color: 'var(--muted)' }}>
+                Engineering
+              </h6>
+              <ul className="list-unstyled mb-0" style={{ lineHeight: '1.8' }}>
+                {['Python, C++', 'Docker, CI/CD', 'Real-time Systems', 'Production Pipelines'].map((skill, index) => (
+                  <li 
+                    key={skill}
+                    style={{ 
+                      animation: `fadeInUp 0.6s ease-out ${0.3 + index * 0.1}s backwards`,
+                      transition: 'transform 0.2s ease, color 0.2s ease',
+                      cursor: 'default'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateX(5px)';
+                      e.currentTarget.style.color = 'var(--accent)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateX(0)';
+                      e.currentTarget.style.color = '';
+                    }}
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+
       {/* 
       <hr className="hr-text" data-content="Highlights" />
       <div className="row justify-content-center">
