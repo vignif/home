@@ -98,8 +98,8 @@ const IndexPage = ({ data }) => {
             </a>
           </p>
           <p className="justify">            
-            Machine Learning Engineer turning HRI research into production-ready AI solutions.
-            After years of developing robotics systems and intelligent tools in research, I now focus on building scalable, real-world ML applications for distributed teams.
+            Machine Learning Engineer turning HRI research into production-ready ML solutions.
+            After years of developing robotics systems and intelligent tools in research, I now tackle real-world problems and unstructured data exploting cutting edge ML techniques.
             <br />
             Worldwide remote contracts welcome.
             <br /> 
