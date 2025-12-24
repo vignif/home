@@ -1,23 +1,23 @@
 [
   {
-    "title": "Exploring Tech Ventures",
-    "employer": "Independent",
+    "title": "Independent ML Engineer",
+    "employer": "Freelance",
     "date-start": "2025-09-01",
     "date-end": "",
-    "where": "Forlì, Italy",
-    "slug": "ventures",
-    "extra": "Shaping new projects",
-    "url": "",
+    "where": "Remote/Forlì, Italy",
+    "slug": "ml",
+    "extra": "Applied ML, Computer Vision, Robotics",
+    "url": "https://apps.francescovigni.com",
     "icon": "fa-compass"
   },
   {
     "title": "Sabbatical",
     "employer": "Exploring",
     "date-start": "2025-02-11",
-    "date-end": "2025-09-01",
+    "date-end": "2025-08-01",
     "where": "🌎",
     "slug": "sab",
-    "extra": "Watching sunsets",
+    "extra": "",
     "url": "",
     "icon": "fa-flask"
   },
@@ -28,7 +28,7 @@
     "date-end": "2025-02-10",
     "where": "Naples, Italy",
     "slug": "perseo",
-    "extra": "topic: spontaneous Human-Robot Interactions",
+    "extra": "",
     "url": "https://www.perseo.eu/esr-12/",
     "icon": "fa-robot"
   },
