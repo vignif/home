@@ -60,16 +60,15 @@ const Contacts = () => {
         <div className="row justify-content-around">
           <div className="col-md-12">
             <p className="" style={{ textAlign: "justify" }}>
-            Francesco Vigni is an Italian–Dominican engineer passionate about intelligent robotics and applied AI. 
-            He earned his Ph.D. in Information and Communication Technology for Health at the University of Naples Federico II, with a thesis titled “The Unscripted Encounter: Social Cues for Spontaneous Human–Robot Interactions.”
-            His doctoral research was funded by the Marie Skłodowska-Curie Horizon 2020 PERSEO project. 
-            It explored how robots can use social signals to engage naturally with people.
+            Francesco Vigni is an independent ML engineer working at the intersection of robotics, and applied AI.
+            After completing a Ph.D. in Information and Communication Technology for Health at the University of Naples Federico II (funded by the EU's Marie Skłodowska-Curie PERSEO project), he transitioned from academic research to building production systems.
             <br />
-            Beyond research, Francesco has hands-on experience developing real-time software for robot perception, motion planning, and embedded vision systems. 
-            He has contributed to projects involving stereo vision, deep learning pipelines, and autonomous behaviors that help machines understand and interact with complex environments.
+            His background includes developing real-time perception software for industrial robotics (Roboception, STtech), autonomous navigation systems, and HRI research. 
+            He has worked with stereo vision, deep learning pipelines, object detection, motion planning, and embedded vision systems across various robotics platforms.
+            Francesco specializes in bridging the gap between research and deployment by building intelligent systems that are reliable, scalable, and work in real-world conditions. He's particularly drawn to projects where the challenge isn't just training a model, but making it robust enough for production.
             <br />
-            His work connects human-centered research with practical engineering. 
-            He focuses on creating intelligent systems that are reliable, adaptive, and meaningful in the way they interact with people and the world.
+            <br />
+            Currently available for freelance work in applied ML, computer vision, and robotics perception.
             </p>
           </div>
         </div>

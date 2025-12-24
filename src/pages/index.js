@@ -97,11 +97,13 @@ const IndexPage = ({ data }) => {
               why?
             </a>
           </p>
-          <p className="justify">
-            I explore how intelligent tools are redefining the way we work, create, and connect.
-            After years in HRI research, I’m now turning that experience into real-world innovation through cutting-edge technologies.
+          <p className="justify">            
+            Machine Learning Engineer turning HRI research into production-ready AI solutions.
+            After years of developing robotics systems and intelligent tools in research, I now focus on building scalable, real-world ML applications for distributed teams.
             <br />
-            Here, you’ll find a glimpse of that journey.
+            Worldwide remote contracts welcome.
+            <br /> 
+            UTC+1.
           </p>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
