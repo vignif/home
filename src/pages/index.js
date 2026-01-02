@@ -23,7 +23,7 @@ const IndexPage = () => {
   
   useEffect(() => {
     if (clicks === 10) {
-      window.location.href = "mailto:francesco@francescovigni.com?subject=🎉%20I%20Found%20Your%20Secret%20Easter%20Egg!&body=Hey%20Francesco!%0A%0AI%20just%20discovered%20your%20%22under%20development%22%20page%20and%20couldn't%20resist%20clicking%20that%20emoji%2010%20times.%20Looks%20like%20my%20persistence%20paid%20off!%20%F0%9F%98%84%0A%0AI'm%20clearly%20someone%20who%20appreciates%20attention%20to%20detail%20and%20hidden%20gems.%20Since%20I%E2%80%99m%20here%2C%20I%20thought%20I'd%20reach%20out%20and%20say%20hi!%0A%0A%5BFeel%20free%20to%20tell%20me%20why%20you%E2%80%99re%20reaching%20out%20-%20whether%20it's%20about%20a%20project%2C%20collaboration%2C%20or%20just%20to%20connect!%5D%0A%0ACheers%2C%0A%5BYour%20Name%5D"
+      window.location.href = "mailto:vignif@gmail.com?subject=🎉%20I%20Found%20Your%20Secret%20Easter%20Egg!&body=Hey%20Francesco!%0A%0AI%20just%20discovered%20your%20%22under%20development%22%20page%20and%20couldn't%20resist%20clicking%20that%20emoji%2010%20times.%20Looks%20like%20my%20persistence%20paid%20off!%20%F0%9F%98%84%0A%0AI'm%20clearly%20someone%20who%20appreciates%20attention%20to%20detail%20and%20hidden%20gems.%20Since%20I%E2%80%99m%20here%2C%20I%20thought%20I'd%20reach%20out%20and%20say%20hi!%0A%0A%5BFeel%20free%20to%20tell%20me%20why%20you%E2%80%99re%20reaching%20out%20-%20whether%20it's%20about%20a%20project%2C%20collaboration%2C%20or%20just%20to%20connect!%5D%0A%0ACheers%2C%0A%5BYour%20Name%5D"
     }
   }, [clicks])
   
