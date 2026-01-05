@@ -83,7 +83,9 @@ const IndexPage = ({ data }) => {
         <div className="col-sm-8 mx-auto" style={{ textAlign: "start" }}>
           <h2 className="fw-bold">Francesco Vigni, Ph.D.</h2>
           <p className="text-muted mb-0" style={{ fontSize: "small" }}>
+            <a href="https://ipa-reader.com/?text=fran%CB%88t%CD%A1%CA%83e.sko%20%CB%88vi.%C9%B2i&voice=Bianca" target="_blank" rel="noreferrer" className="text-muted">
             /franˈt͡ʃe.sko ˈvi.ɲi/
+            </a>
           </p>
           <p className="text-muted">
             he/him{" "}
@@ -97,13 +99,12 @@ const IndexPage = ({ data }) => {
               why?
             </a>
           </p>
-          <p className="justify">            
-            Machine Learning Engineer turning HRI research into production-ready ML solutions.
-            After years of developing robotics systems and intelligent tools in research, I now tackle real-world problems and unstructured data exploting cutting edge ML techniques.
+          <p className="justify">
+            Freelance Machine Learning Engineer (Ing.)
+            with a Ph.D. and research background in Human-Robot Interaction and Robotics.
+            I design and deploy production-ready ML systems using real-world data.
             <br />
-            Worldwide remote contracts welcome.
-            <br /> 
-            UTC+1.
+            Based in Italy · Available worldwide for remote work · UTC+1
           </p>
         </div>
         <div className="col-sm-4 ms-auto mb-3">
