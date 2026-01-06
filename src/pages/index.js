@@ -148,20 +148,18 @@ const IndexPage = ({ data }) => {
       </div>
 
       <hr className="hr-text" data-content="Skills" />
-      <div className="row g-3">
+      <div className="skills-masonry">
         {skillsGroups.map(group => (
-          <div className="col-md-6" key={group.title}>
-            <div className="card">
-              <div className="card-content">
-                <h5 className="card-title">{group.title}</h5>
-                <div className="skills-list">
-                  {group.items.map(item => (
-                    <Link key={item} to={`/skills/${skillSlug(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
-                      {item}
-                      <span className="skill-count">{skillCounts[item] || 0}</span>
-                    </Link>
-                  ))}
-                </div>
+          <div className="card" key={group.title}>
+            <div className="card-content">
+              <h5 className="card-title">{group.title}</h5>
+              <div className="skills-list">
+                {group.items.map(item => (
+                  <Link key={item} to={`/skills/${skillSlug(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
+                    {item}
+                    <span className="skill-count">{skillCounts[item] || 0}</span>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
