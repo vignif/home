@@ -5,8 +5,8 @@ import { Seo } from "../../components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const skillSlug = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 
-const Blog = ({ data }) => {
-  const blogPosts = data.allFile.edges
+const Insights = ({ data }) => {
+  const posts = data.allFile.edges
 
   return (
     <Layout>
@@ -17,24 +17,21 @@ const Blog = ({ data }) => {
 
       <section className="container">
         <div className="blog-grid">
-          {blogPosts.map(({ node }, idx) => {
+          {posts.map(({ node }, idx) => {
             const { id, childMarkdownRemark } = node
-            const { title, date, subtitle, img } =
-              childMarkdownRemark.frontmatter
+            const { title, date, subtitle, img } = childMarkdownRemark.frontmatter
             const slug = childMarkdownRemark.fields.slug
-            const image = getImage(img)
+            const image = getImage(img?.childImageSharp?.gatsbyImageData || img)
 
             return (
               <div key={id} className="blog-card">
                 {image && (
-                  <Link
-                    to={`/insights${slug}`}
-                    aria-label={`Read more about ${title}`}
-                  >
+                  <Link to={`/insights${slug}`} aria-label={`Read more: ${title}`}>
                     <GatsbyImage
                       image={image}
                       alt={title}
                       className="blog-image"
+                      imgClassName="blog-image"
                       loading={idx < 4 ? "eager" : "lazy"}
                     />
                   </Link>
@@ -54,9 +51,7 @@ const Blog = ({ data }) => {
                       ))}
                     </div>
                   )}
-                  <Link to={`/insights${slug}`} className="read-more">
-                    Read More →
-                  </Link>
+                  <Link to={`/insights${slug}`} className="read-more">Read More →</Link>
                 </div>
               </div>
             )
@@ -66,31 +61,27 @@ const Blog = ({ data }) => {
 
       <div className="text-center my-5">
         <hr className="custom-hr" />
-        <Link to="/" className="btn btn-primary btn-lg">
-          🏡 Back to Home
-        </Link>
+        <Link to="/" className="btn btn-primary btn-lg">🏡 Back to Home</Link>
       </div>
     </Layout>
   )
 }
 
-export default Blog
+export default Insights
 
 export const Head = () => <Seo title="Insights" />
 
 export const query = graphql`
-  query BLOGS {
+  query INSIGHTS {
     allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
+      filter: { sourceInstanceName: { eq: "insights" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
     ) {
       edges {
         node {
           id
           childMarkdownRemark {
-            fields {
-              slug
-            }
+            fields { slug }
             frontmatter {
               title
               date(formatString: "DD MMM, YYYY")
@@ -100,12 +91,10 @@ export const query = graphql`
                   gatsbyImageData(
                     layout: CONSTRAINED
                     width: 960
-                    placeholder: DOMINANT_COLOR
-                    quality: 85
-                    breakpoints: [360, 480, 640, 768, 1024, 1280]
-                    sizes: "(min-width: 1400px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 45vw, 100vw"
+                    placeholder: BLURRED
+                    quality: 95
                     transformOptions: { cropFocus: ATTENTION }
-                    formats: [AUTO, WEBP, AVIF]
+                    formats: [AUTO, WEBP]
                   )
                 }
               }

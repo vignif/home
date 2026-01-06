@@ -4,8 +4,8 @@ import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const Blog = ({ data }) => {
-  const blogPosts = data.allFile.edges
+const Projects = ({ data }) => {
+  const projects = data.allFile.edges
 
   return (
     <Layout>
@@ -15,10 +15,10 @@ const Blog = ({ data }) => {
       </section>
 
       <section className="container">
-        <div className="blog-grid">
-          {blogPosts.map(({ node }) => {
+        <div className="masonry">
+          {projects.map(({ node }) => {
             const { id, childMarkdownRemark } = node
-            const { title, date, subtitle, img } =
+            const { title, date, subtitle, img, tags, skills } =
               childMarkdownRemark.frontmatter
             const slug = childMarkdownRemark.fields.slug
             const image = getImage(img)
@@ -27,26 +27,33 @@ const Blog = ({ data }) => {
               <div key={id} className="blog-card">
                 {image && (
                   <Link
-                    to={`/blog${slug}`}
-                    aria-label={`Read more about ${title}`}
+                    to={`/projects${slug}`}
+                    aria-label={`Read more: ${title}`}
                   >
                     <GatsbyImage
                       image={image}
                       alt={title}
                       className="blog-image"
+                      imgClassName="blog-image"
                       loading="lazy"
                     />
                   </Link>
                 )}
                 <div className="blog-content">
                   <h3 className="blog-title">
-                    <Link to={`/blog${slug}`} aria-label={`Read: ${title}`}>
+                    <Link to={`/projects${slug}`} aria-label={`Read: ${title}`}>
                       {title}
                     </Link>
                   </h3>
                   <p className="blog-subtitle">{subtitle}</p>
                   <p className="blog-date">{date}</p>
-                  <Link to={`/blog${slug}`} className="read-more">
+                  <div className="skills-list mb-2">
+                    {(skills || []).map(s => (
+                      <span key={s} className="skill-badge">{s}</span>
+                    ))}
+                  </div>
+                  {/* Tags removed per request */}
+                  <Link to={`/projects${slug}`} className="read-more">
                     Read More →
                   </Link>
                 </div>
@@ -66,14 +73,14 @@ const Blog = ({ data }) => {
   )
 }
 
-export default Blog
+export default Projects
 
-export const Head = () => <Seo title="Blog" />
+export const Head = () => <Seo title="Projects" />
 
 export const query = graphql`
-  query BLOGS {
+  query PROJECTS {
     allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
+      filter: { sourceInstanceName: { eq: "projects" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
     ) {
       edges {
@@ -87,6 +94,8 @@ export const query = graphql`
               title
               date(formatString: "DD MMM, YYYY")
               subtitle
+              tags
+              skills
               img {
                 childImageSharp {
                   gatsbyImageData(

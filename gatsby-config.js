@@ -10,7 +10,7 @@ module.exports = {
     twitterUsername: `@fra_cescovigni`,
     social: {
       twitter: `https://x.com/fra_cescovigni`,
-      github: `https://github.com/vignif`,
+      github: `https://github.com/francescovigni`,
       linkedin: `https://linkedin.com/in/francesco-vigni/`,
       google: `https://scholar.google.com/citations?user=ksO3xN0AAAAJ&hl=en`,
     },
@@ -87,8 +87,8 @@ module.exports = {
                 return Object.assign({}, frontmatter, {
                   description: edge.node.childMarkdownRemark.excerpt,
                   date: frontmatter.date,
-                  url: site.siteMetadata.siteUrl + '/blog' + edge.node.childMarkdownRemark.fields.slug,
-                  guid: site.siteMetadata.siteUrl + '/blog' + edge.node.childMarkdownRemark.fields.slug,
+                  url: site.siteMetadata.siteUrl + '/insights' + edge.node.childMarkdownRemark.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/insights' + edge.node.childMarkdownRemark.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.childMarkdownRemark.html }],
                 })
               })
@@ -97,7 +97,7 @@ module.exports = {
               {
                 allFile(
                   filter: {
-                    sourceInstanceName: { eq: "blog" }
+                    sourceInstanceName: { eq: "insights" }
                     extension: { eq: "md" }
                   }
                   sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
@@ -119,8 +119,8 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Francesco Vigni - Blog RSS Feed',
-            match: '^/blog/',
+            title: 'Francesco Vigni - Insights RSS Feed',
+            match: '^/insights/',
           },
         ],
       },
@@ -162,8 +162,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/data/blog/`,
+        name: `insights`,
+        path: `${__dirname}/data/insights/`,
       },
     },
     {
@@ -206,6 +206,13 @@ module.exports = {
       options: {
         name: `research`,
         path: `${__dirname}/data/research/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/data/projects/`,
       },
     },
   ],

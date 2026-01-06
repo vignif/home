@@ -24,6 +24,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
+  const slugifySkill = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 
   // Ensure redirect is registered (was previously in a separate createPages export and got overwritten)
   createRedirect({
@@ -68,7 +69,58 @@ exports.createPages = async ({ graphql, actions }) => {
   const blogs = graphql(`
     query QueryBlogs {
       allFile(
-        filter: { sourceInstanceName: { eq: "blog" } }
+        filter: { sourceInstanceName: { eq: "insights" } }
+        sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
+      ) {
+        edges {
+          node {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+            }
+          }
+          next {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+            }
+          }
+          previous {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    result.data.allFile.edges.forEach(({ node, next, previous }) => {
+      const slug = node.childMarkdownRemark.fields.slug
+      const insightsPath = "/insights" + slug
+      const blogPath = "/blog" + slug
+      createPage({
+        path: insightsPath,
+        component: path.resolve("./src/templates/blog-detail.js"),
+        context: { slug, next, previous },
+      })
+      // Redirect old blog URLs to insights
+      createRedirect({
+        fromPath: blogPath,
+        toPath: insightsPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+      })
+    })
+  })
+
+  const works = graphql(`
+    query QueryWorks {
+      allFile(
+        filter: { sourceInstanceName: { eq: "projects" } }
         sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
       ) {
         edges {
@@ -99,8 +151,8 @@ exports.createPages = async ({ graphql, actions }) => {
   `).then(result => {
     result.data.allFile.edges.forEach(({ node, next, previous }) => {
       createPage({
-        path: "/blog" + node.childMarkdownRemark.fields.slug,
-        component: path.resolve("./src/templates/blog-detail.js"),
+        path: "/projects" + node.childMarkdownRemark.fields.slug,
+        component: path.resolve("./src/templates/project-detail.js"),
         context: {
           slug: node.childMarkdownRemark.fields.slug,
           next: next,
@@ -110,29 +162,54 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  const tags = graphql(`
+  // Redirect blog listing to insights listing
+  createRedirect({
+    fromPath: `/blog`,
+    toPath: `/insights`,
+    isPermanent: true,
+    redirectInBrowser: true,
+  })
+
+  // Tags removed: no tag pages are generated
+
+  // Create unified skill pages aggregating projects, insights, and publications
+  const skills = graphql(`
     {
-      allPublicationsJson {
-        edges {
-          node {
-            tags
-          }
-        }
+      proj: allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+        edges { node { childMarkdownRemark { frontmatter { skills } } } }
       }
+      blog: allFile(filter: { sourceInstanceName: { eq: "insights" } }) {
+        edges { node { childMarkdownRemark { frontmatter { skills } } } }
+      }
+      pubs: allPublicationsJson { edges { node { skills } } }
+      misc: allMiscpubsJson { edges { node { skills } } }
     }
   `).then(result => {
-    const tags = result.data.allPublicationsJson.edges
-      .map(edge => edge.node.tags)
-      .reduce((acc, curr) => acc.concat(curr), [])
-      .filter((tag, index, self) => self.indexOf(tag) === index)
+    const pSkills = result.data.proj.edges
+      .map(e => {
+        const fm = e.node.childMarkdownRemark.frontmatter || {}
+        return [...(fm.skills || [])]
+      })
+      .flat()
+    const bSkills = result.data.blog.edges
+      .map(e => {
+        const fm = e.node.childMarkdownRemark?.frontmatter || {}
+        return [...(fm.skills || [])]
+      })
+      .flat()
+    const pubSkills = result.data.pubs.edges
+      .map(e => e.node.skills || [])
+      .flat()
+    const miscSkills = result.data.misc.edges
+      .map(e => e.node.skills || [])
+      .flat()
+    const allSkills = Array.from(new Set([...pSkills, ...bSkills, ...pubSkills, ...miscSkills])).filter(Boolean)
 
-    tags.forEach(tag => {
+    allSkills.forEach(skill => {
       createPage({
-        path: `/tags/${tag}/`,
-        component: path.resolve("./src/templates/tag-template.js"),
-        context: {
-          tag,
-        },
+        path: `/skills/${slugifySkill(skill)}`,
+        component: path.resolve("./src/templates/skill-template.js"),
+        context: { skill },
       })
     })
   })
@@ -168,7 +245,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Await all page creations, including misc pages
-  return Promise.all([publications, blogs, tags, misc])
+  return Promise.all([publications, blogs, misc, works, skills])
 }
 
 // link PersonsJson.slug to PublicationsJson.authors
@@ -177,11 +254,13 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(`
       type PublicationsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
+        skills: [String]
       }
       
       type MiscpubsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
         attach: File @fileByRelativePath
+        skills: [String]
       }
 
       type Publication implements Node {
@@ -205,4 +284,40 @@ exports.createSchemaCustomization = ({ actions }) => {
         video: String
       }
     `)
+
+  // Explicitly declare Markdown frontmatter fields used by 'projects'
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      title: String
+      subtitle: String
+      date: Date @dateformat
+      tags: [String]
+      skills: [String]
+      img: File @fileByRelativePath
+    }
+  `)
+}
+
+// Expose publication JSON tags as skills without normalization
+exports.createResolvers = ({ createResolvers }) => {
+  createResolvers({
+    PublicationsJson: {
+      skills: {
+        type: "[String]",
+        resolve: source => {
+          const tags = source.tags || []
+          return Array.from(new Set(tags.filter(Boolean)))
+        },
+      },
+    },
+    MiscpubsJson: {
+      skills: {
+        type: "[String]",
+        resolve: source => {
+          const tags = source.tags || []
+          return Array.from(new Set(tags.filter(Boolean)))
+        },
+      },
+    },
+  })
 }
