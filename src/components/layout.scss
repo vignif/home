@@ -765,10 +765,10 @@ h1.heading {
   }
   /* Reduce reserved header space on phones */
   .blog_header {
-    padding-bottom: 160px;
+    #padding-bottom: 160px;
   }
   .blog_header--insights {
-    padding-bottom: 110px;
+    #padding-bottom: 110px;
   }
   /* Shorter overlay height for compact headers */
   .overlay {
@@ -858,10 +858,10 @@ h1.heading {
     padding: clamp(1rem, 2.2vw, 2.5rem);
   }
   .blog_header {
-    padding-bottom: 240px;
+    #padding-bottom: 240px;
   }
   .blog_header--insights {
-    padding-bottom: 160px;
+    #padding-bottom: 160px;
   }
   .overlay {
     height: 200px;
