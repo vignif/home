@@ -7,7 +7,7 @@
     "img": "./images/publications/irim.png",
     "attach": "",
     "type": "I-RIM 3D",
-    "tags": ["social robot", "HRI"],
+    "tags": ["Pal Robotics ARI", "HRI"],
     "venue": "5th Edition of 3D I-RIM Conference",
     "authors": ["francesco-vigni", "antonio-andriella", "silvia-rossi"],
     "abstract": "Humans naturally hold conversations and interact swiftly with each other, conveying content and biases (un)consciously with verbal and non-verbal communication. This phenomenon is inherently shipped with social robots, whose tasks include interacting with people verbally and eventually helping them to complete a task. To understand the impact of verbal and non-verbal communication on the task at hand, we built a game scenario and endowed a social robot with two clearly distinguishable communication styles. The user study allowed us to understand how the communication style of the robot can impact task performance and shed some light on its gradient. Additionally, our results show that participants with lower prior experience with robots obtained higher game scores, suggesting a shift of interest of experienced participants in the communication strategies of the robot rather than in the game."

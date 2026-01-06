@@ -96,6 +96,7 @@ const IndexPage = ({ data }) => {
     "aldebaran pepper",
     "lidar", 
     "imu",
+    "raspberrypi",
     "arduino"
   ].includes(t)) return "Robotics Systems"
 
@@ -122,6 +123,7 @@ const IndexPage = ({ data }) => {
     "scikit-learn",
     "matplotlib / seaborn",
     "data engineering",
+    "stereo vision",
     "ntp sync"
   ].includes(t)) return "Applied Machine Learning"
 
@@ -135,6 +137,7 @@ const IndexPage = ({ data }) => {
     "handshake",
     "ieee roman",
     "icsr",
+    "prototyping",
     "ieee icra",
     "acm/ieee hri"
   ].includes(t)) return "Research & Experimentation"
@@ -146,14 +149,15 @@ const IndexPage = ({ data }) => {
     "social robot",
     "humanoid",
     "non-humanoid"
-  ].includes(t)) return "Additional Domains & Technologies"
+  ].includes(t)) return null
 
-  return "Additional Domains & Technologies"
+  return null
 }
 
   const usedSkills = useMemo(() => Object.keys(skillCounts).filter(k => (skillCounts[k] || 0) > 0), [skillCounts])
   const grouped = usedSkills.reduce((acc, key) => {
     const g = groupFor(key)
+    if (!g) return acc
     if (!acc[g]) acc[g] = []
     acc[g].push(key)
     return acc
@@ -254,6 +258,17 @@ const IndexPage = ({ data }) => {
                     </Link>
                   ))}
                 </div>
+                {!skillsExpanded && (group.items.length - visibleItems.length) > 0 && (
+                  <div className="text-end mt-2">
+                    <span
+                      className="badge rounded-pill bg-light text-muted"
+                      aria-label={`${group.items.length - visibleItems.length} more skills hidden in ${group.title}`}
+                      title={`${group.items.length - visibleItems.length} more skills hidden`}
+                    >
+                      +{group.items.length - visibleItems.length}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           )

@@ -250,13 +250,13 @@ a:hover { text-decoration: underline; }
 
 /* Place the container to the left */
 .left {
-  padding: 0 32px 20px 0;
+  padding: 0 32px 10px 0; /* reduced bottom padding to tighten vertical spacing */
   left: 0;
 }
 
 /* Place the container to the right */
 .right {
-  padding: 0 0 20px 32px;
+  padding: 0 0 10px 32px; /* reduced bottom padding to tighten vertical spacing */
   left: 50%;
 }
 
@@ -602,6 +602,11 @@ h1.heading {
   break-inside: avoid; /* prevent card splitting across columns */
 }
 
+/* Tighten vertical spacing specifically for timeline cards */
+.main-timeline .card {
+  margin: 6px; /* reduce outer margin between timeline cards */
+}
+
 /* Masonry layout for project cards */
 .masonry {
   column-gap: 1rem;
@@ -764,12 +769,7 @@ h1.heading {
     margin-right: auto !important;
   }
   /* Reduce reserved header space on phones */
-  .blog_header {
-    #padding-bottom: 160px;
-  }
-  .blog_header--insights {
-    #padding-bottom: 110px;
-  }
+  /* Removed empty rulesets with invalid commented properties */
   /* Shorter overlay height for compact headers */
   .overlay {
     height: 140px;
@@ -857,12 +857,7 @@ h1.heading {
     gap: clamp(1rem, 1.8vw, 2rem);
     padding: clamp(1rem, 2.2vw, 2.5rem);
   }
-  .blog_header {
-    #padding-bottom: 240px;
-  }
-  .blog_header--insights {
-    #padding-bottom: 160px;
-  }
+  /* Removed empty rulesets with invalid commented properties */
   .overlay {
     height: 200px;
   }
@@ -878,12 +873,7 @@ h1.heading {
     gap: 2rem;
     padding: 2.5rem;
   }
-  .blog_header {
-    padding-bottom: 260px;
-  }
-  .blog_header--insights {
-    padding-bottom: 180px;
-  }
+  /* Removed empty rulesets with invalid commented properties */
   .overlay {
     height: 220px;
   }

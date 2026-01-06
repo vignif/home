@@ -225,6 +225,18 @@ const Contacts = () => {
                   <a href="mailto:hello@francescovigni.com" className="btn btn-primary btn-lg" aria-label="Email hello@francescovigni.com">
                     <TbMail className="me-2" /> hello@francescovigni.com
                   </a>
+                  <p className="text-center text-muted small">
+                      I use{" "}
+                      <a
+                        href={pgpHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="View or download my PGP public key"
+                      >
+                        <TbLock /> OpenPGP
+                      </a>{" "}
+                      for encrypted communications
+                    </p>
                   <div className="mt-4">
                     <button
                       type="button"
@@ -247,7 +259,7 @@ const Contacts = () => {
                       {/* Honeypot field to trap bots */}
                       <input type="text" name="_honeypot" style={{ display: "none" }} tabIndex="-1" autoComplete="off" aria-hidden="true" />
                       {siteKey && (
-                        <div className="mb-3">
+                        <div className="">
                           <div
                             className="cf-turnstile"
                             data-sitekey={siteKey}
@@ -375,19 +387,6 @@ const Contacts = () => {
                         </form>
                       </div>
                     </div>
-
-                    <p className="mt-4 text-center text-muted small">
-                      I use{" "}
-                      <a
-                        href={pgpHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label="View or download my PGP public key"
-                      >
-                        <TbLock /> OpenPGP
-                      </a>{" "}
-                      for encrypted communications
-                    </p>
                   </div>
                 </div>
                 )}

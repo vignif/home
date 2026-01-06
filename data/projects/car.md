@@ -2,7 +2,7 @@
 title: Carla Rule-Based Parking
 subtitle: Easy, Breezy, Beautiful
 date: 2023-01-02
-skills: ["Carla Simulator", "ROS", "Autonomous Driving", "Python", "Simulation"]
+skills: ["Carla Simulator", "ROS", "Prototyping", "Python", "Simulation", "Computer Vision"]
 ---
 
 ## Exploring Rule-Based Parking with Carla and ROS
