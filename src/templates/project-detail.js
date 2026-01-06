@@ -17,10 +17,11 @@ const ProjectDetail = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <div className="row blog_header ">
-        {image && <GatsbyImage image={image} alt="" className="imgBlogTitle" />}
-        <div className="overlay blog_title animate-charcter">{title}</div>
-        {subtitle && <div className="overlay blog_subtitle">{subtitle}</div>}
+      <div className="row blog_header blog_header--project">
+        <div className="project-header">
+          <h1 className="project-title">{title}</h1>
+          {subtitle && <p className="project-subtitle">{subtitle}</p>}
+        </div>
       </div>
       <div className="row">
         <div className="col-md-12">

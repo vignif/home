@@ -220,6 +220,9 @@ const IndexPage = ({ data }) => {
       </div>
 
       <hr className="hr-text" data-content="Skills" />
+      <p className="text-muted" style={{ fontSize: "0.9rem" }}>
+        Numbers show how many items reference each skill across projects, insights, and publications.
+      </p>
       <div className="skills-masonry">
         {skillsGroups.map(group => {
           const visibleItems = skillsExpanded ? group.items : group.items.slice(0, 5)
@@ -229,9 +232,18 @@ const IndexPage = ({ data }) => {
                 <h5 className="card-title">{group.title}</h5>
                 <div className="skills-list">
                   {visibleItems.map(item => (
-                    <Link key={item} to={`/skills/${skillSlug(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
+                    <Link
+                      key={item}
+                      to={`/skills/${skillSlug(item)}`}
+                      className="skill-badge"
+                      aria-label={`Skill: ${item} (${skillCounts[item] || 0} items)`}
+                      title={`${skillCounts[item] || 0} items tagged with ${item}`}
+                    >
                       {item}
-                      <span className="skill-count">{skillCounts[item] || 0}</span>
+                      <span className="skill-count">
+                        {skillCounts[item] || 0}
+                        <span className="visually-hidden"> items</span>
+                      </span>
                     </Link>
                   ))}
                 </div>

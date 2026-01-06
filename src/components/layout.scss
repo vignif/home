@@ -497,6 +497,10 @@ h1.heading {
   /* Insights need less reserved space below the overlay */
   padding-bottom: 14px;
 }
+.blog_header--project {
+  /* Projects: no top image overlay; use compact spacing */
+  padding-bottom: 0;
+}
 .imgBlogTitle {
   border-radius: 5px;
 }
@@ -557,6 +561,20 @@ h1.heading {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Project post header (no image overlay) */
+.project-header {
+  padding: 1rem 1.25rem;
+}
+.project-title {
+  font-size: clamp(2rem, 3vw, 2.4rem);
+  margin: 0;
+}
+.project-subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
 }
 
 /* Grid layout for blog posts */
