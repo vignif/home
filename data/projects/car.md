@@ -7,7 +7,7 @@ skills: ["Carla Simulator", "ROS", "Autonomous Driving", "Python", "Simulation"]
 
 ## Exploring Rule-Based Parking with Carla and ROS
 
-[ProjectRepo](https://github.com/vignif/carla_parking)
+[ProjectRepo](https://github.com/francescovigni/carla_parking)
 
 <video width="50%" controls>
    <source src="/videos/carla.mp4" type="video/mp4">
@@ -29,7 +29,7 @@ To get started with the rule-based parking implementation, follow these installa
 2. Clone the Carla parking repository:
 
    ```bash
-   git clone https://github.com/vignif/carla_parking.git
+   git clone https://github.com/francescovigni/carla_parking.git
    ```
 
 3. Move to the root of the catkin workspace and build the project:

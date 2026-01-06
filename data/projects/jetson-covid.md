@@ -2,8 +2,7 @@
 title: "Ceiling-Mounted Occupancy Monitoring"
 subtitle: "Top-view projection, ML tracking, and zone-based light automation"
 date: "2024-05-12"
-skills: ["NVIDIA Jetson", "OpenCV", "PyTorch", "MQTT", "Python", "Computer Vision", "Docker", "C++", "YOLO", "SQLite"]
-img: ../images/publications/sample.jpg
+skills: ["NVIDIA Jetson", "OpenCV", "PyTorch", "MQTT", "Python", "Computer Vision", "Docker", "C++", "YOLO", "SQLite", "Prototyping"]
 ---
 
 This project delivers a ceiling-mounted occupancy monitoring system that detects and tracks people, estimates inter-person distances, and controls bulblights via MQTT when distance violation events occur.

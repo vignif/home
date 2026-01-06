@@ -176,7 +176,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div className="row py-lg-3 pb-0">
         <div className="col-sm-8 mx-auto" style={{ textAlign: "start" }}>
-          <h2 className="fw-bold">Francesco Vigni, Ph.D.</h2>
+          <h2>Francesco Vigni, Ph.D.</h2>
           <p className="text-muted mb-0" style={{ fontSize: "small" }}>
             <a href="https://ipa-reader.com/?text=fran%CB%88t%CD%A1%CA%83e.sko%20%CB%88vi.%C9%B2i&voice=Bianca" target="_blank" rel="noreferrer" className="text-muted">
             /franˈt͡ʃe.sko ˈvi.ɲi/
@@ -255,56 +255,6 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       ))}
-
-      <div className="row justify-content-center">
-        <div className="col-sm-auto">
-          <Link className="btn btn-outline-primary mt-3" to="/publications">
-            Go to publications
-          </Link>
-        </div>
-        <div className="col-sm-auto">
-          <Link className="btn btn-outline-primary mt-3" to="/news">
-            Go to news
-          </Link>
-        </div>
-        <div className="col-sm-auto">
-          <Link className="btn btn-outline-primary mt-3" to="/insights">
-            Go to insights
-          </Link>
-        </div>
-      </div>
-
-      <hr className="hr-text" data-content="Documents" />
-      <div className="row mb-2">
-        <div className="col-sm-12 text-start">
-          <a
-            href="FRANCESCO_VIGNI_PHD.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-tertiary me-2"
-          >
-            View CV
-          </a>
-          <a
-            href="https://drive.google.com/file/d/1_kec847ygcR6kId2rmPujNkQSnkms1Dv/view?usp=sharing"
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-tertiary me-2"
-            title="Download or view Francesco Vigni's PhD Thesis"
-          >
-            PhD Thesis
-          </a>
-          <a
-            href="https://apps.francescovigni.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Link to apps.francescovigni.com"
-            className="btn btn-tertiary"
-          >
-            Portfolio
-          </a>
-        </div>
-      </div>
 
       <hr className="hr-text" data-content="Step by step" />
       <div className="py-5 main-timeline">

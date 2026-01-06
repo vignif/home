@@ -36,7 +36,7 @@ export const Seo = ({
     url: siteUrl,
     sameAs: [
       "https://x.com/fra_cescovigni",
-      "https://github.com/vignif",
+      "https://github.com/francescovigni",
       "https://linkedin.com/in/francesco-vigni/",
       "https://scholar.google.com/citations?user=ksO3xN0AAAAJ&hl=en"
     ],

@@ -33,7 +33,7 @@ A modern, performant personal website built with Gatsby, React, and Bootstrap. F
 
 ```bash
 # Clone the repository
-git clone https://github.com/vignif/home.git
+git clone https://github.com/francescovigni/home.git
 cd home
 
 # Install dependencies
@@ -259,7 +259,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Francesco Vigni**
 - Website: [francescovigni.com](https://francescovigni.com)
 - Twitter: [@fra_cescovigni](https://x.com/fra_cescovigni)
-- GitHub: [@vignif](https://github.com/vignif)
+- GitHub: [@vignif](https://github.com/francescovigni)
 - LinkedIn: [francesco-vigni](https://linkedin.com/in/francesco-vigni/)
 
 ## 🙏 Acknowledgments

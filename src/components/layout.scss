@@ -609,15 +609,15 @@ h1.heading {
 .blog-card {
   background: var(--card);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.15s ease;
 }
 
-/* Hover effect */
+/* Hover effect (aligned with homepage cards) */
 .blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 /* Blog image */

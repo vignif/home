@@ -9,7 +9,7 @@ skills: ["FastAPI", "Python", "SQLite", "Docker", "WebDev"]
 
 Pasty is a simple online clipboard to move text between two Internet‑connected machines. When you save text you get a unique identifier; retrieve the text later using that ID. It’s a minimal FastAPI app with SQLite that demonstrates clean CRUD, background expiry, and a lightweight deployment story.
 
-[Repository](https://github.com/vignif/pasty)
+[Repository](https://github.com/francescovigni/pasty)
 
 ### Features
 
@@ -30,7 +30,7 @@ Pasty is a simple online clipboard to move text between two Internet‑connected
 Clone and enter the project:
 
 ```bash
-git clone https://github.com/vignif/pasty.git
+git clone https://github.com/francescovigni/pasty.git
 cd pasty
 ```
 

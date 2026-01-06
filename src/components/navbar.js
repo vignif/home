@@ -24,8 +24,6 @@ ExactNavLink.propTypes = {
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Projects" },
-  { to: "/insights", label: "Insights" },
-  { to: "/about", label: "Contact" },
 ]
 
 const Navbar = ({ siteTitle = "" }) => {
@@ -73,6 +71,44 @@ const Navbar = ({ siteTitle = "" }) => {
                   <ExactNavLink to={to}>{label}</ExactNavLink>
                 </li>
               ))}
+              {/* Explore dropdown grouping Insights, Publications, News */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="exploreDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Explore
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="exploreDropdown">
+                  <li>
+                    <Link className="dropdown-item" to="/insights">Insights</Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/publications">Publications</Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/news">News</Link>
+                  </li>
+                  <li><hr className="dropdown-divider" /></li>
+                  <li>
+                    <a className="dropdown-item" href="FRANCESCO_VIGNI_PHD.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="https://drive.google.com/file/d/1_kec847ygcR6kId2rmPujNkQSnkms1Dv/view?usp=sharing" target="_blank" rel="noreferrer">PhD Thesis</a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="https://apps.francescovigni.com" target="_blank" rel="noreferrer">Portfolio</a>
+                  </li>
+                </ul>
+              </li>
+              {/* Contact after Explore */}
+              <li className="nav-item">
+                <ExactNavLink to="/about">Contact</ExactNavLink>
+              </li>
             </ul>
 
             {/* Right-aligned search icon */}

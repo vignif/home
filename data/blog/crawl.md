@@ -8,7 +8,7 @@ img: "../images/blogs/bot.png"
 
 ## Exploring Web Scraping for Researcher Statistics: A Google Scholar Adventure
 
-[ProjectRepo](https://github.com/vignif/crawler-google-scholar)
+[ProjectRepo](https://github.com/francescovigni/crawler-google-scholar)
 
 In the ever-evolving landscape of data retrieval, I embarked on a journey to explore the nuances of web scraping for obtaining statistics of researchers or professors from Google Scholar. While existing solutions like [scholarly](https://pypi.org/project/scholarly/) offer a structured approach, I was intrigued by the intricacies of HTTP requests and the implications of crawling the web efficiently.
 
