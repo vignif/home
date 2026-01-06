@@ -39,7 +39,7 @@ const SkillPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <section className="text-center py-5">
-        <h1 className="fw-bold">Skill: {skill}</h1>
+        <h1 className="fw-semibold">Skill: {skill}</h1>
         <hr className="custom-hr" />
       </section>
 
@@ -52,7 +52,7 @@ const SkillPage = ({ data, pageContext }) => {
       {hasAny && (
         <section className="container mb-5">
           <h2 className="fw-semibold mb-3">Items</h2>
-          <div className="blog-grid">
+          <div className="masonry">
             {[
               ...projects.map(cmr => ({
                 type: "Work",
@@ -106,9 +106,8 @@ const SkillPage = ({ data, pageContext }) => {
         </section>
       )}
 
-      <div className="text-center my-5">
-        <hr className="custom-hr" />
-        <Link to="/" className="btn btn-primary btn-lg">🏡 Back to Home</Link>
+      <div className="text-center my-4">
+        <Link to="/" className="btn btn-sm btn-outline-secondary" aria-label="Go to home">← Home</Link>
       </div>
     </Layout>
   )

@@ -9,7 +9,7 @@ skills: ["WebRTC", "WebSocket", "Next.js", "NodeJS", "TypeScript", "Docker", "We
 
 A minimal 1:1 online clipboard that creates a temporary tunnel between two devices using a PIN. Text-only MVP using WebRTC DataChannels with a lightweight WebSocket signaling server.
 
-Live demo: https://apps.francescovigni.com/PasteRelay
+<a  class="btn btn-primary m-3" href="https://apps.francescovigni.com/PasteRelay" target="_blank" rel="noopener">open app</a>
 
 Author: Francesco Vigni · License: MIT
 

@@ -10,7 +10,7 @@ const Projects = ({ data }) => {
   return (
     <Layout>
       <section className="text-center py-5">
-        <h1 className="fw-bold">Projects</h1>
+        <h1 className="fw-semibold">Projects</h1>
         <hr className="custom-hr" />
       </section>
 
@@ -63,11 +63,8 @@ const Projects = ({ data }) => {
         </div>
       </section>
 
-      <div className="text-center my-5">
-        <hr className="custom-hr" />
-        <Link to="/" className="btn btn-primary btn-lg">
-          🏡 Back to Home
-        </Link>
+      <div className="text-center my-4">
+        <Link to="/" className="btn btn-sm btn-outline-secondary" aria-label="Go to home">← Home</Link>
       </div>
     </Layout>
   )

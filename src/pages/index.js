@@ -1,5 +1,5 @@
 // React-related imports
-import React, { useMemo } from "react"
+import React, { useMemo, useState } from "react"
 
 // Gatsby-related imports
 import { Link, graphql } from "gatsby"
@@ -172,11 +172,15 @@ const IndexPage = ({ data }) => {
 
   // Dynamic groups cover all used skills; no remaining list needed
 
+  // Compact view state: limit skills per group, with a toggle to expand
+  const [skillsExpanded, setSkillsExpanded] = useState(false)
+  const hasMoreSkills = useMemo(() => skillsGroups.some(g => g.items.length > 5), [skillsGroups])
+
   return (
     <Layout>
       <div className="row py-lg-3 pb-0">
         <div className="col-sm-8 mx-auto" style={{ textAlign: "start" }}>
-          <h2>Francesco Vigni, Ph.D.</h2>
+          <h2 className="fw-semibold">Francesco Vigni, Ph.D.</h2>
           <p className="text-muted mb-0" style={{ fontSize: "small" }}>
             <a href="https://ipa-reader.com/?text=fran%CB%88t%CD%A1%CA%83e.sko%20%CB%88vi.%C9%B2i&voice=Bianca" target="_blank" rel="noreferrer" className="text-muted">
             /franˈt͡ʃe.sko ˈvi.ɲi/
@@ -195,8 +199,7 @@ const IndexPage = ({ data }) => {
             </a>
           </p>
           <p className="justify">
-            Freelance Machine Learning Engineer (Ing.)
-            with a Ph.D. and research background in Human-Robot Interaction and Robotics.
+            Hi! I'm Francesco a Freelance Machine Learning Engineer with a Ph.D. and research background in Human-Robot Interaction and Robotics.
             I design and deploy production-ready ML systems using real-world data.
             <br />
             Based in Italy · Available worldwide for remote work · UTC+1
@@ -218,26 +221,36 @@ const IndexPage = ({ data }) => {
 
       <hr className="hr-text" data-content="Skills" />
       <div className="skills-masonry">
-        {skillsGroups.map(group => (
-          <div className="card" key={group.title}>
-            <div className="card-content">
-              <h5 className="card-title">{group.title}</h5>
-              <div className="skills-list">
-                {group.items.map(item => (
-                  <Link key={item} to={`/skills/${skillSlug(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
-                    {item}
-                    <span className="skill-count">{skillCounts[item] || 0}</span>
-                  </Link>
-                ))}
+        {skillsGroups.map(group => {
+          const visibleItems = skillsExpanded ? group.items : group.items.slice(0, 5)
+          return (
+            <div className="card" key={group.title}>
+              <div className="card-content">
+                <h5 className="card-title">{group.title}</h5>
+                <div className="skills-list">
+                  {visibleItems.map(item => (
+                    <Link key={item} to={`/skills/${skillSlug(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
+                      {item}
+                      <span className="skill-count">{skillCounts[item] || 0}</span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
+      {hasMoreSkills && (
+        <div className="text-center my-3">
+          <button type="button" className="btn btn-sm btn-outline-secondary" onClick={() => setSkillsExpanded(v => !v)}>
+            {skillsExpanded ? "Show fewer skills" : "Show more skills"}
+          </button>
+        </div>
+      )}
 
       {/* Dynamic grouping lists all skills with count > 0 */}
 
-      <hr className="hr-text" data-content="News" />
+      <hr className="hr-text" data-content="Last News" />
       {news.map(node => (
         <div key={node.id} className="row">
           <div className="col-sm-2 own_sub_container">
@@ -300,7 +313,7 @@ export const query = graphql`
     news: allFile(
       filter: { sourceInstanceName: { eq: "news" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
-      limit: 4
+      limit: 3
     ) {
       nodes {
         id

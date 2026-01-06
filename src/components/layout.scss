@@ -430,7 +430,6 @@ h1.heading {
   transition: none;
 }
 .card-content {
-  padding: 15px;
   text-align: left;
 }
 .card-title {
@@ -634,7 +633,7 @@ h1.heading {
 
 /* Blog content section */
 .blog-content {
-  padding: 1.25rem 1.25rem 1.5rem;
+  padding: 1rem 1rem;
   text-align: left;
 }
 
@@ -643,7 +642,7 @@ h1.heading {
   text-decoration: none;
   color: var(--text);
   font-size: clamp(1.1rem, 2vw, 1.35rem);
-  font-weight: 700;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
@@ -705,8 +704,9 @@ h1.heading {
 }
 
 .read-more:hover {
-  background-color: var(--accent);
-  color: #fff;
+  background-color: rgba(62, 95, 220, 0.10); /* light accent background for contrast */
+  color: var(--accent); /* keep readable accent text */
+  border-color: var(--accent-hover);
   text-decoration: none;
   transform: translateY(-1px);
 }

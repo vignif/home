@@ -1,7 +1,7 @@
 ---
 title: Autonomous Navigation for a scrubber robot
-subtitle: Robust indoor navigation on a ride-on cleaning robot (case study)
-date: 2026-01-06
+subtitle: Robust indoor navigation on a ride-on cleaning robot
+date: 2019-01-06
 skills: ["ROS2", "Nav2", "SLAM", "Localization", "Lidar", "IMU", "Docker", "CoppeliaSIM", "C++", "Python"]
 ---
 

@@ -11,7 +11,7 @@ const News = ({ data }) => {
   return (
     <Layout>
       <section className="text-center pt-5">
-        <h1 className="fw-bold">News</h1>
+        <h1 className="fw-semibold">News</h1>
         <hr className="custom-hr" />
       </section>
       <div className="row">

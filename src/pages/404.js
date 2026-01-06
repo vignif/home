@@ -21,7 +21,7 @@ const Page404 = () => {
           }}>
             404
           </div>
-          <h1 className="fw-bold mb-3">Page Not Found</h1>
+          <h1 className="fw-semibold mb-3">Page Not Found</h1>
           <p className="lead text-muted mb-4">
             Oops! The page you're looking for seems to have wandered off into the digital void.
           </p>

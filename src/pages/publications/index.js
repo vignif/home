@@ -29,7 +29,7 @@ const Publications = ({ data }) => {
   return (
     <Layout>
       <section className="text-center py-5">
-        <h1 className="fw-bold">Publications</h1>
+        <h1 className="fw-semibold">Publications</h1>
         <hr className="custom-hr" />
       </section>
       <div className="row">
