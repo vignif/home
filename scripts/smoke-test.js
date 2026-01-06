@@ -7,7 +7,7 @@ const fs = require('fs')
 const path = require('path')
 
 const PD = path.join(process.cwd(), 'public', 'page-data')
-const requiredRoutes = ['index', 'projects', 'insights', 'services', 'publications', 'about']
+const requiredRoutes = ['index', 'projects', 'insights', 'publications', 'about']
 
 function existsRoute(route) {
   // route folder holds page-data.json or index/page-data.json depending on Gatsby version

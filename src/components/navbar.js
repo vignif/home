@@ -25,7 +25,6 @@ const NAV_ITEMS = [
   { to: "/", label: "Home" },
   { to: "/projects", label: "Work" },
   { to: "/insights", label: "Insights" },
-  { to: "/services", label: "Services" },
   { to: "/about", label: "Contact" },
 ]
 

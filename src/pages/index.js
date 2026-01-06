@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => {
     const t = String(k).toLowerCase()
     if (["turtlebot", "nvidia jetson", "pisa/iit hand", "protom classmate", "pal robotics ari", "pal robotics tiago", "aldebaran pepper"].includes(t)) return "Robotics & Platforms"
     if (["ros", "ros2", "moveit", "nav2", "gazebo", "rviz", "carla simulator", "opencv", "pcl", "slam", "computer vision", "motion planning"].includes(t)) return "Robot Software"
-    if (["python", "c++", "git", "docker", "unix", "ci/cd", "gatsby", "nodejs", "mqtt" ].includes(t)) return "Softwares & Tools"
+    if (["python", "c++", "git", "docker", "unix", "ci/cd", "gatsby", "nodejs", "mqtt", "flask", "fastapi"].includes(t)) return "Softwares & Tools"
     if (["numpy / scipy", "pandas", "scikit-learn", "matplotlib / seaborn", "data engineering","pytorch", "tensorflow", "dataset reliability", "ntp sync", "yolo"].includes(t)) return "Data & ML"
     if (["ieee roman", "icsr", "ieee icra", "acm/ieee hri", "hri", "affective computing", "metrics", "experimental design", "statistical analysis", "academic writing & editing", "handshake", "garch", "finance", ].includes(t)) return "Research & Methods"
     return "Other"
