@@ -1,9 +1,7 @@
 ---
 title: Gatsby via Docker
 subtitle: Portable and clean
-slug: gatsby
 date: 2024-10-02
-img: "../images/blogs/math.jpg"
 skills: ["Gatsby", "Docker", "NodeJS"]
 ---
 

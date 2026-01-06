@@ -21,7 +21,7 @@ const Insights = ({ data }) => {
             const { id, childMarkdownRemark } = node
             const { title, date, subtitle, img } = childMarkdownRemark.frontmatter
             const slug = childMarkdownRemark.fields.slug
-            const image = getImage(img)
+            const image = getImage(img?.childImageSharp?.gatsbyImageData || img)
 
             return (
               <div key={id} className="blog-card">
@@ -31,6 +31,7 @@ const Insights = ({ data }) => {
                       image={image}
                       alt={title}
                       className="blog-image"
+                      imgClassName="blog-image"
                       loading={idx < 4 ? "eager" : "lazy"}
                     />
                   </Link>
@@ -90,12 +91,10 @@ export const query = graphql`
                   gatsbyImageData(
                     layout: CONSTRAINED
                     width: 960
-                    placeholder: DOMINANT_COLOR
-                    quality: 85
-                    breakpoints: [360, 480, 640, 768, 1024, 1280]
-                    sizes: "(min-width: 1400px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 45vw, 100vw"
+                    placeholder: BLURRED
+                    quality: 95
                     transformOptions: { cropFocus: ATTENTION }
-                    formats: [AUTO, WEBP, AVIF]
+                    formats: [AUTO, WEBP]
                   )
                 }
               }

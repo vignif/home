@@ -1,9 +1,8 @@
 ---
 title: smallQR
 subtitle: All you need is a small QR code
-slug: robots
+skills: ["Python", "Flask", "QR Code", "Web Development"]
 date: 2023-12-20
-img: "../images/blogs/wien.jpg"
 ---
 
 <table>
