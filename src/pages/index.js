@@ -75,12 +75,12 @@ const IndexPage = ({ data }) => {
   // Clean, dynamic grouping based on used skills only
   const groupFor = k => {
     const t = String(k).toLowerCase()
-    if (["turtlebot", "nvidia jetson", "pisa/iit hand", "protom classmate", "pal robotics ari", "pal robotics tiago", "aldebaran pepper"].includes(t)) return "Robotics & Platforms"
-    if (["ros", "ros2", "moveit", "nav2", "gazebo", "rviz", "carla simulator", "opencv", "pcl", "slam", "computer vision", "motion planning"].includes(t)) return "Robot Software"
-    if (["python", "c++", "git", "docker", "unix", "ci/cd", "gatsby", "nodejs", "mqtt", "flask", "fastapi"].includes(t)) return "Softwares & Tools"
-    if (["numpy / scipy", "pandas", "scikit-learn", "matplotlib / seaborn", "data engineering","pytorch", "tensorflow", "dataset reliability", "ntp sync", "yolo"].includes(t)) return "Data & ML"
-    if (["ieee roman", "icsr", "ieee icra", "acm/ieee hri", "hri", "affective computing", "metrics", "experimental design", "statistical analysis", "academic writing & editing", "handshake", "garch", "finance", ].includes(t)) return "Research & Methods"
-    return "Other"
+    if (["python", "c++", "git", "docker", "unix", "ci/cd", "gatsby", "nodejs", "mqtt", "flask", "fastapi"].includes(t)) return "Engineering Stack"
+    if (["turtlebot", "nvidia jetson", "pisa/iit hand", "protom classmate", "pal robotics ari", "pal robotics tiago", "aldebaran pepper"].includes(t)) return "Robotics Systems"
+    if (["ros", "ros2", "moveit", "nav2", "gazebo", "rviz", "carla simulator", "opencv", "pcl", "slam", "computer vision", "motion planning"].includes(t)) return "Robot Software & Autonomy"
+    if (["numpy / scipy", "pandas", "scikit-learn", "matplotlib / seaborn", "data engineering","pytorch", "tensorflow", "dataset reliability", "ntp sync", "yolo"].includes(t)) return "Applied Machine Learning"
+    if (["ieee roman", "icsr", "ieee icra", "acm/ieee hri", "hri", "affective computing", "metrics", "experimental design", "statistical analysis", "academic writing & editing", "handshake", "garch", "finance", ].includes(t)) return "Research & Experimentation"
+    return "Additional Domains & Technologies"
   }
   const usedSkills = useMemo(() => Object.keys(skillCounts).filter(k => (skillCounts[k] || 0) > 0), [skillCounts])
   const grouped = usedSkills.reduce((acc, key) => {
@@ -90,12 +90,12 @@ const IndexPage = ({ data }) => {
     return acc
   }, {})
   const groupOrder = {
-    "Softwares & Tools": 0,
-    "Robotics & Platforms": 1,
-    "Robot Software": 2,
-    "Data & ML": 3,
-    "Research & Methods": 4,
-    "Other": 5,
+    "Engineering Stack": 0,
+    "Robotics Systems": 1,
+    "Robot Software & Autonomy": 2,
+    "Applied Machine Learning": 3,
+    "Research & Experimentation": 4,
+    "Additional Domains & Technologies": 5,
   }
   const skillsGroups = Object.entries(grouped)
     .map(([title, items]) => ({ title, items: items.sort((a, b) => (skillCounts[b] - skillCounts[a]) || a.localeCompare(b)) }))

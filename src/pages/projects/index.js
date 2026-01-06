@@ -15,7 +15,7 @@ const Projects = ({ data }) => {
       </section>
 
       <section className="container">
-        <div className="blog-grid">
+        <div className="masonry">
           {projects.map(({ node }) => {
             const { id, childMarkdownRemark } = node
             const { title, date, subtitle, img, tags, skills } =
@@ -34,6 +34,7 @@ const Projects = ({ data }) => {
                       image={image}
                       alt={title}
                       className="blog-image"
+                      imgClassName="blog-image"
                       loading="lazy"
                     />
                   </Link>

@@ -1,14 +1,14 @@
 ---
-title: smallQR
+title: A light QR code generator
 subtitle: All you need is a small QR code
-skills: ["Python", "Flask", "QR Code", "Web Development"]
+skills: ["Python", "Flask", "QR Code", "WebDev"]
 date: 2023-12-20
 ---
 
 <table>
   <tr>
     <td><H2>smallQR</H2></td>
-    <td><a  class="btn btn-primary m-3" href="https://smallqr.pythonanywhere.com/" target="_blank" rel="noopener">open app</a></td>
+    <td><a  class="btn btn-primary m-3" href="https://apps.francescovigni.com/smallqr/" target="_blank" rel="noopener">open app</a></td>
   </tr>
 </table>
 

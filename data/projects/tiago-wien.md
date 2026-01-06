@@ -2,7 +2,7 @@
 title: "Non‑Verbal Interaction with TIAGo at TU Wien"
 subtitle: "Gaze and arm coordination in a collaborative bartending scenario"
 date: "2024-06-01"
-skills: ["HRI", "MoveIt", "ROS", "Pal Robotics TIAGo", "Motion Planning", "experimental design", "Python", "C++"]
+skills: ["HRI", "MoveIt", "ROS", "Pal Robotics TIAGo", "Motion Planning", "experimental design", "Python", "C++", "SQLite", "GroundingDINO"]
 img: ../images/publications/sample.jpg
 ---
 

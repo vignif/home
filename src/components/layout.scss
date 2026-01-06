@@ -585,6 +585,26 @@ h1.heading {
   break-inside: avoid; /* prevent card splitting across columns */
 }
 
+/* Masonry layout for project cards */
+.masonry {
+  column-gap: 1rem;
+}
+@media (max-width: 767.98px) {
+  .masonry { column-count: 1; }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .masonry { column-count: 2; }
+}
+@media (min-width: 1200px) {
+  .masonry { column-count: 3; }
+}
+.masonry .blog-card {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+}
+
 /* Blog card container */
 .blog-card {
   background: var(--card);

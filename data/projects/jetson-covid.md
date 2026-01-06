@@ -2,7 +2,7 @@
 title: "Ceiling-Mounted Occupancy Monitoring"
 subtitle: "Top-view projection, ML tracking, and zone-based light automation"
 date: "2024-05-12"
-skills: ["NVIDIA Jetson", "OpenCV", "PyTorch", "MQTT", "Python", "Computer Vision", "Docker", "C++", "YOLO"]
+skills: ["NVIDIA Jetson", "OpenCV", "PyTorch", "MQTT", "Python", "Computer Vision", "Docker", "C++", "YOLO", "SQLite"]
 img: ../images/publications/sample.jpg
 ---
 
