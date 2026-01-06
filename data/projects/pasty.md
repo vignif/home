@@ -5,6 +5,8 @@ date: 2025-10-01
 skills: ["FastAPI", "Python", "SQLite", "Docker", "WebDev"]
 ---
 
+<a  class="btn btn-primary m-3" href="https://apps.francescovigni.com/pasty/" target="_blank" rel="noopener">open app</a>
+
 Pasty is a simple online clipboard to move text between two Internet‑connected machines. When you save text you get a unique identifier; retrieve the text later using that ID. It’s a minimal FastAPI app with SQLite that demonstrates clean CRUD, background expiry, and a lightweight deployment story.
 
 [Repository](https://github.com/vignif/pasty)

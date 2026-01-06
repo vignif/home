@@ -10,7 +10,7 @@ const Projects = ({ data }) => {
   return (
     <Layout>
       <section className="text-center py-5">
-        <h1 className="fw-bold">Work</h1>
+        <h1 className="fw-bold">Projects</h1>
         <hr className="custom-hr" />
       </section>
 
@@ -75,7 +75,7 @@ const Projects = ({ data }) => {
 
 export default Projects
 
-export const Head = () => <Seo title="Work" />
+export const Head = () => <Seo title="Projects" />
 
 export const query = graphql`
   query PROJECTS {

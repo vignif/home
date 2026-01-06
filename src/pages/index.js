@@ -73,15 +73,84 @@ const IndexPage = ({ data }) => {
     return counts
   }, [projectNodes, blogNodes, pubSkills, miscSkills])
   // Clean, dynamic grouping based on used skills only
-  const groupFor = k => {
-    const t = String(k).toLowerCase()
-    if (["python", "c++", "git", "docker", "unix", "ci/cd", "gatsby", "nodejs", "mqtt", "flask", "fastapi"].includes(t)) return "Engineering Stack"
-    if (["turtlebot", "nvidia jetson", "pisa/iit hand", "protom classmate", "pal robotics ari", "pal robotics tiago", "aldebaran pepper"].includes(t)) return "Robotics Systems"
-    if (["ros", "ros2", "moveit", "nav2", "gazebo", "rviz", "carla simulator", "opencv", "pcl", "slam", "computer vision", "motion planning"].includes(t)) return "Robot Software & Autonomy"
-    if (["numpy / scipy", "pandas", "scikit-learn", "matplotlib / seaborn", "data engineering","pytorch", "tensorflow", "dataset reliability", "ntp sync", "yolo"].includes(t)) return "Applied Machine Learning"
-    if (["ieee roman", "icsr", "ieee icra", "acm/ieee hri", "hri", "affective computing", "metrics", "experimental design", "statistical analysis", "academic writing & editing", "handshake", "garch", "finance", ].includes(t)) return "Research & Experimentation"
-    return "Additional Domains & Technologies"
-  }
+ const groupFor = k => {
+  const t = String(k).toLowerCase()
+
+  if ([
+    "python", "c++", "git", "unix",
+    "docker", "ci/cd",
+    "fastapi", "flask",
+    "nodejs", "gatsby", "next.js",
+    "typescript", "sqlite",
+    "mqtt", "webrtc", "websocket",
+    "caddy", "qr code"
+  ].includes(t)) return "Engineering Stack"
+
+  if ([
+    "turtlebot",
+    "nvidia jetson",
+    "pisa/iit hand",
+    "protom classmate",
+    "pal robotics ari",
+    "pal robotics tiago",
+    "aldebaran pepper",
+    "lidar", 
+    "imu",
+    "arduino"
+  ].includes(t)) return "Robotics Systems"
+
+  if ([
+    "ros", "ros2",
+    "moveit", "nav2",
+    "gazebo", "rviz",
+    "carla simulator",
+    "slam",
+    "motion planning",
+    "localization",
+    "simulation",
+    "coppeliasim"
+  ].includes(t)) return "Robot Software & Autonomy"
+
+  if ([
+    "pytorch", "torchvision",
+    "tensorflow",
+    "yolo", "groundingdino",
+    "opencv", "computer vision",
+    "dataset reliability",
+    "numpy / scipy",
+    "pandas",
+    "scikit-learn",
+    "matplotlib / seaborn",
+    "data engineering",
+    "ntp sync"
+  ].includes(t)) return "Applied Machine Learning"
+
+  if ([
+    "academic writing & editing",
+    "experimental design",
+    "statistical analysis",
+    "metrics",
+    "hri",
+    "affective computing",
+    "handshake",
+    "ieee roman",
+    "icsr",
+    "ieee icra",
+    "acm/ieee hri"
+  ].includes(t)) return "Research & Experimentation"
+
+  if ([
+    "finance",
+    "garch",
+    "autonomous driving",
+    "social robot",
+    "humanoid",
+    "non-humanoid"
+  ].includes(t)) return "Additional Domains & Technologies"
+
+  return "Additional Domains & Technologies"
+}
+
   const usedSkills = useMemo(() => Object.keys(skillCounts).filter(k => (skillCounts[k] || 0) > 0), [skillCounts])
   const grouped = usedSkills.reduce((acc, key) => {
     const g = groupFor(key)

@@ -139,19 +139,19 @@ a:hover { text-decoration: underline; }
 
 .hr-text {
   font-size: 20px;
-  .blog_header .blog_title {
-    font-size: clamp(1.8rem, 6vw, 2.2rem);
-    margin: 0.5rem;
+  position: relative;
+  border: 0;
+  height: 1.5em;
+  color: $primary;
+  &:before {
+    content: "";
+    background: linear-gradient(to right, transparent, $detail, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
   }
-  .blog_header .blog_subtitle {
-    font-size: clamp(0.9rem, 3.6vw, 1rem);
-    top: 4em;
-    margin: 0.5rem;
-  }
-  top: 50%;
-  width: 100%;
-  height: 1px;
-
   &:after {
     content: attr(data-content);
     position: relative;
