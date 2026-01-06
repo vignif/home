@@ -199,7 +199,7 @@ const IndexPage = ({ data }) => {
             </a>
           </p>
           <p className="justify">
-            Hi! I'm Francesco a Freelance Machine Learning Engineer with a Ph.D. and research background in Human-Robot Interaction and Robotics.
+            Hi! I'm Francesco a freelance machine learning engineer with a Ph.D. and research background in Human-Robot Interaction and Robotics.
             I design and deploy production-ready ML systems using real-world data.
             <br />
             Based in Italy · Available worldwide for remote work · UTC+1
@@ -217,6 +217,13 @@ const IndexPage = ({ data }) => {
           
         </div>
         
+      </div>
+
+      <div className="text-center my-3">
+        <Link to="/about#contact" className="btn btn-primary btn-lg" aria-label="Get in touch via contact form">Get in touch</Link>
+        <p className="text-muted mt-2" style={{ fontSize: "0.95rem" }}>
+          Prefer email? <a href="mailto:hello@francescovigni.com" aria-label="Email hello@francescovigni.com">hello@francescovigni.com</a>
+        </p>
       </div>
 
       <hr className="hr-text" data-content="Skills" />

@@ -21,6 +21,7 @@ import emailjs from "@emailjs/browser"
 const Contacts = () => {
   const { social } = useSiteMetadata()
   const formRef = React.useRef()
+  const pgpHref = '/hello@francescovigni.pub'
   const [formStatus, setFormStatus] = React.useState({
     loading: false,
     success: false,
@@ -31,6 +32,7 @@ const Contacts = () => {
   const [cooldownUntil, setCooldownUntil] = React.useState(0)
   const [captchaError, setCaptchaError] = React.useState("")
   const [turnstileToken, setTurnstileToken] = React.useState("")
+  const [showForm, setShowForm] = React.useState(false)
   const siteKey = process.env.GATSBY_TURNSTILE_SITE_KEY
   const verifyUrl = process.env.GATSBY_TURNSTILE_VERIFY_URL || "/api/verify-turnstile"
 
@@ -189,15 +191,12 @@ const Contacts = () => {
         <div className="row justify-content-around">
           <div className="col-md-12">
             <p className="" style={{ textAlign: "justify" }}>
-            Francesco Vigni is an independent ML engineer working at the intersection of robotics, and applied AI.
+            Francesco Vigni is a freelance ML engineer working at the intersection of robotics, and applied AI.
             After completing a Ph.D. in Information and Communication Technology for Health at the University of Naples Federico II (funded by the EU's Marie Skłodowska-Curie PERSEO project), he transitioned from academic research to building production systems.
             <br />
             His background includes developing real-time perception software for industrial robotics, autonomous navigation systems, and HRI research. 
             He has worked with stereo vision, deep learning pipelines, object detection, motion planning, and embedded vision systems across various robotics platforms.
             Francesco specializes in bridging the gap between research and deployment by building intelligent systems that are reliable, scalable, and work in real-world conditions. He's particularly drawn to projects where the challenge isn't just training a model, but making it robust enough for production.
-            <br />
-            <br />
-            Currently available for freelance work in applied ML, computer vision, and robotics perception.
             </p>
           </div>
         </div>
@@ -205,7 +204,7 @@ const Contacts = () => {
 
       <div className="row">
         <div className="col-md-12">
-          <hr className="hr-text" data-content="Contacts" />
+          <hr className="hr-text" data-content=" " />
         </div>
       </div>
 
@@ -214,16 +213,34 @@ const Contacts = () => {
           <div className="row justify-content-around">
             
             <div className="col-md-12">
-              <div className="py-4">
+              <div className="">
                 <h3 className="text-center mb-3">Let's Work Together</h3>
-                <p className="text-center lead mb-4">
-                  I'm currently available for freelance projects in ML, computer vision, and robotics.
+                <p className="text-center ">
+                  I'm available for consulting projects in ML, computer vision, and robotics.
                   <br />
                   If you have an interesting challenge, let's talk.
                 </p>
 
-                <div className="row justify-content-center">
-                  <div className="col-md-8 col-lg-6">
+                <div id="contact" className="text-center mb-3">
+                  <a href="mailto:hello@francescovigni.com" className="btn btn-primary btn-lg" aria-label="Email hello@francescovigni.com">
+                    <TbMail className="me-2" /> hello@francescovigni.com
+                  </a>
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-outline-secondary"
+                      aria-expanded={showForm ? "true" : "false"}
+                      aria-controls="contact-form"
+                      onClick={() => setShowForm(v => !v)}
+                    >
+                      {showForm ? "Hide form" : "Prefer a quick form?"}
+                    </button>
+                  </div>
+                </div>
+
+                {showForm && (
+                <div className="row justify-content-center" id="contact-form">
+                  <div className="col-md-10 col-lg-8">
                     <div className="card shadow-sm contact-card">
                       <div className="card-body p-4">
                         <form ref={formRef} onSubmit={sendEmail} noValidate>
@@ -244,45 +261,47 @@ const Contacts = () => {
                           )}
                         </div>
                       )}
-                      <div className="mb-3">
-                        <div className="input-group">
-                          <span className="input-group-text bg-transparent"><TbUser /></span>
-                          <input
-                            type="text"
-                            className={`form-control${errors.user_name ? " is-invalid" : ""}`}
-                            id="user_name"
-                            name="user_name"
-                            placeholder="Your full name"
-                            autoComplete="name"
-                            minLength={2}
-                            required
-                            aria-invalid={!!errors.user_name}
-                            aria-describedby={errors.user_name ? "err-name" : undefined}
-                          />
+                      <div className="row g-3 mb-3">
+                        <div className="col-md-6">
+                          <div className="input-group">
+                            <span className="input-group-text bg-transparent"><TbUser /></span>
+                            <input
+                              type="text"
+                              className={`form-control${errors.user_name ? " is-invalid" : ""}`}
+                              id="user_name"
+                              name="user_name"
+                              placeholder="Your full name"
+                              autoComplete="name"
+                              minLength={2}
+                              required
+                              aria-invalid={!!errors.user_name}
+                              aria-describedby={errors.user_name ? "err-name" : undefined}
+                            />
+                          </div>
+                          {errors.user_name && (
+                            <div id="err-name" className="invalid-feedback">{errors.user_name}</div>
+                          )}
                         </div>
-                        {errors.user_name && (
-                          <div id="err-name" className="invalid-feedback">{errors.user_name}</div>
-                        )}
-                      </div>
 
-                      <div className="mb-3">
-                        <div className="input-group">
-                          <span className="input-group-text bg-transparent"><TbMail /></span>
-                          <input
-                            type="email"
-                            className={`form-control${errors.user_email ? " is-invalid" : ""}`}
-                            id="user_email"
-                            name="user_email"
-                            placeholder="your@email.com"
-                            autoComplete="email"
-                            required
-                            aria-invalid={!!errors.user_email}
-                            aria-describedby={errors.user_email ? "err-email" : undefined}
-                          />
+                        <div className="col-md-6">
+                          <div className="input-group">
+                            <span className="input-group-text bg-transparent"><TbMail /></span>
+                            <input
+                              type="email"
+                              className={`form-control${errors.user_email ? " is-invalid" : ""}`}
+                              id="user_email"
+                              name="user_email"
+                              placeholder="your@email.com"
+                              autoComplete="email"
+                              required
+                              aria-invalid={!!errors.user_email}
+                              aria-describedby={errors.user_email ? "err-email" : undefined}
+                            />
+                          </div>
+                          {errors.user_email && (
+                            <div id="err-email" className="invalid-feedback">{errors.user_email}</div>
+                          )}
                         </div>
-                        {errors.user_email && (
-                          <div id="err-email" className="invalid-feedback">{errors.user_email}</div>
-                        )}
                       </div>
                       <div className="mb-3">
 
@@ -291,8 +310,8 @@ const Contacts = () => {
                           id="message"
                           name="message"
                           rows="5"
-                          placeholder="Tell me about your project, goals, timelines, and constraints…"
-                          minLength={20}
+                          placeholder="Tell me about your challenges and how I can help..."
+                          minLength={10}
                           maxLength={2000}
                           required
                           aria-invalid={!!errors.message}
@@ -324,7 +343,7 @@ const Contacts = () => {
                           ) : (
                             <>
                               <TbSend className="me-2" />
-                              {now() < cooldownUntil ? "Please wait…" : ((!!siteKey && !turnstileToken) ? "Verify to send" : "Send Message")}
+                              {now() < cooldownUntil ? "Please wait…" : ((!!siteKey && !turnstileToken) ? "Send" : "Send Message")}
                             </>
                           )}
                         </button>
@@ -348,8 +367,8 @@ const Contacts = () => {
                           aria-live="assertive"
                         >
                           Failed to send message. Please try emailing me directly at{" "}
-                          <a href="mailto:vignif@gmail.com">
-                            vignif@gmail.com
+                          <a href="mailto:hello@francescovigni.com">
+                            hello@francescovigni.com
                           </a>
                         </div>
                       )}
@@ -360,9 +379,10 @@ const Contacts = () => {
                     <p className="mt-4 text-center text-muted small">
                       I use{" "}
                       <a
-                        href="https://keys.openpgp.org/vks/v1/by-email/vignif@gmail.com"
+                        href={pgpHref}
                         target="_blank"
                         rel="noreferrer"
+                        aria-label="View or download my PGP public key"
                       >
                         <TbLock /> OpenPGP
                       </a>{" "}
@@ -370,6 +390,7 @@ const Contacts = () => {
                     </p>
                   </div>
                 </div>
+                )}
               </div>
             </div>
           </div>
