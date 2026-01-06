@@ -10,13 +10,13 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <section className="text-center py-5">
-        <h1 className="fw-bold">Blog</h1>
+        <h1 className="fw-bold">Insights</h1>
         <hr className="custom-hr" />
       </section>
 
       <section className="container">
         <div className="blog-grid">
-          {blogPosts.map(({ node }) => {
+          {blogPosts.map(({ node }, idx) => {
             const { id, childMarkdownRemark } = node
             const { title, date, subtitle, img } =
               childMarkdownRemark.frontmatter
@@ -27,26 +27,33 @@ const Blog = ({ data }) => {
               <div key={id} className="blog-card">
                 {image && (
                   <Link
-                    to={`/blog${slug}`}
+                    to={`/insights${slug}`}
                     aria-label={`Read more about ${title}`}
                   >
                     <GatsbyImage
                       image={image}
                       alt={title}
                       className="blog-image"
-                      loading="lazy"
+                      loading={idx < 4 ? "eager" : "lazy"}
                     />
                   </Link>
                 )}
                 <div className="blog-content">
                   <h3 className="blog-title">
-                    <Link to={`/blog${slug}`} aria-label={`Read: ${title}`}>
+                    <Link to={`/insights${slug}`} aria-label={`Read: ${title}`}>
                       {title}
                     </Link>
                   </h3>
                   <p className="blog-subtitle">{subtitle}</p>
                   <p className="blog-date">{date}</p>
-                  <Link to={`/blog${slug}`} className="read-more">
+                  {childMarkdownRemark.frontmatter.skills && childMarkdownRemark.frontmatter.skills.length > 0 && (
+                    <div className="skills-list mt-1">
+                      {childMarkdownRemark.frontmatter.skills.map(s => (
+                        <Link key={s} to={`/skills/${encodeURIComponent(s)}`} className="skill-badge" aria-label={`Skill: ${s}`}>{s}</Link>
+                      ))}
+                    </div>
+                  )}
+                  <Link to={`/insights${slug}`} className="read-more">
                     Read More →
                   </Link>
                 </div>
@@ -68,7 +75,7 @@ const Blog = ({ data }) => {
 
 export default Blog
 
-export const Head = () => <Seo title="Blog" />
+export const Head = () => <Seo title="Insights" />
 
 export const query = graphql`
   query BLOGS {
@@ -90,9 +97,13 @@ export const query = graphql`
               img {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 500
-                    placeholder: BLURRED
-                    quality: 90
+                    layout: CONSTRAINED
+                    width: 960
+                    placeholder: DOMINANT_COLOR
+                    quality: 85
+                    breakpoints: [360, 480, 640, 768, 1024, 1280]
+                    sizes: "(min-width: 1400px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 45vw, 100vw"
+                    transformOptions: { cropFocus: ATTENTION }
                     formats: [AUTO, WEBP, AVIF]
                   )
                 }

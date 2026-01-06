@@ -100,25 +100,7 @@ a:hover { text-decoration: underline; }
   background: var(--bg);
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .own_container {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-
-  .blog_cards > div > a {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    // text-center: center;
-    // vertical-align: middle;
-  }
-
-  div > div.card {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
+/* Legacy mobile block consolidated under @media (max-width: 576px) */
 
 .own_sub_container {
   text-align: left;
@@ -375,19 +357,18 @@ img {
 .card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
   background: var(--card);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius);
   margin: 10px;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.9rem;
+  box-shadow: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 .wrapper {
@@ -403,7 +384,6 @@ img {
   vertical-align: middle;
 }
 h1.heading {
-  color: #fff;
   font-size: 1.15em;
   font-weight: 900;
   margin: 0 0 0.5em;
@@ -440,7 +420,7 @@ h1.heading {
   height: auto;
   margin: 0;
   object-fit: cover;
-  transition: all 0.25s ease;
+  transition: none;
 }
 .card-content {
   padding: 15px;
@@ -448,8 +428,8 @@ h1.heading {
 }
 .card-title {
   margin-top: 0px;
-  font-weight: 700;
-  font-size: 1.65em;
+  font-weight: 600;
+  font-size: 1.25em;
 }
 .card-title a {
   color: #000;
@@ -466,8 +446,50 @@ h1.heading {
   text-transform: uppercase;
 }
 
+/* Compact skill badges */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.6rem;
+}
+.skill-badge {
+  display: inline-block;
+  padding: 0.3rem 0.55rem;
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.skill-badge .skill-count {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0 0.35rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--muted);
+}
+
+/* Footer socials compact styling */
+.footer-socials a {
+  color: var(--muted);
+}
+.footer-socials a:hover {
+  color: var(--accent);
+}
+
 .blog_header {
   position: relative;
+  /* Reserve space so absolutely-positioned overlay doesn't overlap content */
+  padding-bottom: 220px;
+}
+.blog_header--insights {
+  /* Insights need less reserved space below the overlay */
+  padding-bottom: 14px;
 }
 .imgBlogTitle {
   border-radius: 5px;
@@ -487,7 +509,7 @@ h1.heading {
   /* Here we go */
   block-size: auto;
   width: auto;
-  background: #fff;
+  background: transparent;
 
   mix-blend-mode: normal;
   margin: 1rem;
@@ -507,7 +529,7 @@ h1.heading {
   /* Here we go */
   block-size: auto;
   width: auto;
-  background: #fff;
+  background: transparent;
   mix-blend-mode: normal;
   margin: 1rem;
 }
@@ -633,5 +655,71 @@ h1.heading {
 @media (max-width: 768px) {
   .blog-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Small screen optimizations */
+@media (max-width: 576px) {
+  /* Ensure container padding is comfortable on phones */
+  .own_container {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  /* Space blog action links vertically on phones */
+  .blog_cards > div > a {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  /* Center cards within their columns */
+  div > div.card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* Reduce reserved header space on phones */
+  .blog_header {
+    padding-bottom: 160px;
+  }
+  .blog_header--insights {
+    padding-bottom: 110px;
+  }
+  /* Shorter overlay height for compact headers */
+  .overlay {
+    height: 140px;
+  }
+  /* Scale title/subtitle down and tighten spacing */
+  .blog_header .blog_title {
+    font-size: 2.2em;
+    margin: 0.5rem;
+  }
+  .blog_header .blog_subtitle {
+    font-size: 0.9em;
+    top: 4.2em;
+    margin: 0.5rem;
+  }
+  /* Navbar fits full width on phones */
+  .my-navbar {
+    max-width: 100%;
+    border-radius: 0;
+  }
+  /* Compact card padding */
+  .card {
+    margin: 8px;
+    padding: 0.7rem;
+  }
+  /* Tighten skills for small displays */
+  .skills-list {
+    gap: 0.4rem 0.5rem;
+  }
+  .skill-badge {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+  .skill-badge .skill-count {
+    font-size: 0.75rem;
+  }
+  /* Reduce grid padding to maximize content area */
+  .blog-grid {
+    padding: 0.75rem;
   }
 }

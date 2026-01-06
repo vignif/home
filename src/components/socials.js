@@ -12,35 +12,19 @@ const SocialLinks = () => {
   const { social } = useSiteMetadata()
 
   return (
-    <div className="row justify-content-center">
-      <div className="row">
-        <div className="col-md-12">
-          <hr className="hr-text" data-content="Socials" />
-        </div>
-      </div>
-      <div className="row justify-content-center my-3">
-      <div className="col-1 mx-1">
-        <a href={social.google} target="_blank" rel="noreferrer" className="">
-          <FontAwesomeIcon icon={faGoogleScholar} size="2x" />
-          <FontAwesomeIcon icon="fa-brands fa-google-scholar" size="2x" />
-        </a>
-      </div>
-      <div className="col-1 mx-1">
-        <a href={social.github} target="_blank" rel="noreferrer" className="">
-          <FontAwesomeIcon icon={faGithub} size="2x" />
-        </a>
-      </div>
-      <div className="col-1 mx-1">
-        <a href={social.twitter} target="_blank" rel="noreferrer" className="">
-          <FontAwesomeIcon icon={faXTwitter} size="2x" />
-        </a>
-      </div>
-      <div className="col-1 mx-1">
-        <a href={social.linkedin} target="_blank" rel="noreferrer" className="">
-          <FontAwesomeIcon icon={faLinkedin} size="2x" />
-        </a>
-      </div>
-    </div>
+    <div className="footer-socials d-flex align-items-center gap-3">
+      <a href={social.google} aria-label="Google Scholar" target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faGoogleScholar} size="lg" />
+      </a>
+      <a href={social.github} aria-label="GitHub" target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faGithub} size="lg" />
+      </a>
+      <a href={social.twitter} aria-label="X (Twitter)" target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faXTwitter} size="lg" />
+      </a>
+      <a href={social.linkedin} aria-label="LinkedIn" target="_blank" rel="noreferrer">
+        <FontAwesomeIcon icon={faLinkedin} size="lg" />
+      </a>
     </div>
   )
 }

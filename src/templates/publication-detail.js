@@ -12,11 +12,8 @@ import {
   HiDocumentText,
 } from "react-icons/hi"
 import { Seo } from "../components/seo"
-
 const PublicationDetail = ({ data, pageContext }) => {
-  // console.log(data)
   const pub = data.publication
-  // console.log(pageContext)
   var next = ""
   var prev = ""
   if (pageContext.previous) {
@@ -25,14 +22,11 @@ const PublicationDetail = ({ data, pageContext }) => {
   if (pageContext.next) {
     next = pageContext.next.slug
   }
-  // console.log("prev", prev)
-  // console.log("next", next)
   const { title, slug, venue, date, url, abstract } = pub
   const authors = pub.authors
   const img = getImage(pub.img)
   const attach = pub.attach.get
   const video_link = pub.attach.video
-  const tags = pub.tags
   const co = pub.coFirstAuthors
   return (
     <Layout>
@@ -108,15 +102,17 @@ const PublicationDetail = ({ data, pageContext }) => {
                   </a>
                 )}
               </p>
-              <p>
-                Tags:{" "}
-                {pub.tags.map((tag, index) => (
-                  <div key={tag} className="authors_list fw-light fst-italic">
-                    <Link to={`/tags/${tag}`}>{tag}</Link>
-                    {index < pub.tags.length - 1 && ", "}
-                  </div>
-                ))}
-              </p>
+              {pub.skills && pub.skills.length > 0 && (
+                <p>
+                  Skills:{" "}
+                  {pub.skills.map((skill, index) => (
+                    <div key={skill} className="authors_list fw-light fst-italic">
+                      <Link to={`/skills/${encodeURIComponent(skill)}`}>{skill}</Link>
+                      {index < pub.skills.length - 1 && ", "}
+                    </div>
+                  ))}
+                </p>
+              )}
               <p>
                 DOI:{" "}
                 <a
@@ -181,7 +177,7 @@ export const query = graphql`
       title
       slug
       venue
-      tags
+      skills
       url
       alternate_link @include(if: true)
       coFirstAuthors

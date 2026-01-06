@@ -4,57 +4,52 @@ import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const Projects = ({ data }) => {
-  const projects = data.allFile.edges
+const Insights = ({ data }) => {
+  const posts = data.allFile.edges
 
   return (
     <Layout>
       <section className="text-center py-5">
-        <h1 className="fw-bold">Work</h1>
+        <h1 className="fw-bold">Insights</h1>
         <hr className="custom-hr" />
       </section>
 
       <section className="container">
         <div className="blog-grid">
-          {projects.map(({ node }) => {
+          {posts.map(({ node }, idx) => {
             const { id, childMarkdownRemark } = node
-            const { title, date, subtitle, img, tags, skills } =
-              childMarkdownRemark.frontmatter
+            const { title, date, subtitle, img } = childMarkdownRemark.frontmatter
             const slug = childMarkdownRemark.fields.slug
             const image = getImage(img)
 
             return (
               <div key={id} className="blog-card">
                 {image && (
-                  <Link
-                    to={`/projects${slug}`}
-                    aria-label={`Read more: ${title}`}
-                  >
+                  <Link to={`/insights${slug}`} aria-label={`Read more: ${title}`}>
                     <GatsbyImage
                       image={image}
                       alt={title}
                       className="blog-image"
-                      loading="lazy"
+                      loading={idx < 4 ? "eager" : "lazy"}
                     />
                   </Link>
                 )}
                 <div className="blog-content">
                   <h3 className="blog-title">
-                    <Link to={`/projects${slug}`} aria-label={`Read: ${title}`}>
+                    <Link to={`/insights${slug}`} aria-label={`Read: ${title}`}>
                       {title}
                     </Link>
                   </h3>
                   <p className="blog-subtitle">{subtitle}</p>
                   <p className="blog-date">{date}</p>
-                  <div className="skills-list mb-2">
-                    {(skills || []).map(s => (
-                      <span key={s} className="skill-badge">{s}</span>
-                    ))}
-                  </div>
-                  {/* Tags removed per request */}
-                  <Link to={`/projects${slug}`} className="read-more">
-                    Read More →
-                  </Link>
+                  {childMarkdownRemark.frontmatter.skills && childMarkdownRemark.frontmatter.skills.length > 0 && (
+                    <div className="skills-list mt-1">
+                      {childMarkdownRemark.frontmatter.skills.map(s => (
+                        <Link key={s} to={`/skills/${encodeURIComponent(s)}`} className="skill-badge" aria-label={`Skill: ${s}`}>{s}</Link>
+                      ))}
+                    </div>
+                  )}
+                  <Link to={`/insights${slug}`} className="read-more">Read More →</Link>
                 </div>
               </div>
             )
@@ -64,43 +59,41 @@ const Projects = ({ data }) => {
 
       <div className="text-center my-5">
         <hr className="custom-hr" />
-        <Link to="/" className="btn btn-primary btn-lg">
-          🏡 Back to Home
-        </Link>
+        <Link to="/" className="btn btn-primary btn-lg">🏡 Back to Home</Link>
       </div>
     </Layout>
   )
 }
 
-export default Projects
+export default Insights
 
-export const Head = () => <Seo title="Work" />
+export const Head = () => <Seo title="Insights" />
 
 export const query = graphql`
-  query PROJECTS {
+  query INSIGHTS {
     allFile(
-      filter: { sourceInstanceName: { eq: "projects" } }
+      filter: { sourceInstanceName: { eq: "blog" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
     ) {
       edges {
         node {
           id
           childMarkdownRemark {
-            fields {
-              slug
-            }
+            fields { slug }
             frontmatter {
               title
               date(formatString: "DD MMM, YYYY")
               subtitle
-              tags
-              skills
               img {
                 childImageSharp {
                   gatsbyImageData(
-                    width: 500
-                    placeholder: BLURRED
-                    quality: 90
+                    layout: CONSTRAINED
+                    width: 960
+                    placeholder: DOMINANT_COLOR
+                    quality: 85
+                    breakpoints: [360, 480, 640, 768, 1024, 1280]
+                    sizes: "(min-width: 1400px) 25vw, (min-width: 992px) 33vw, (min-width: 768px) 45vw, 100vw"
+                    transformOptions: { cropFocus: ATTENTION }
                     formats: [AUTO, WEBP, AVIF]
                   )
                 }

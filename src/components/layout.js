@@ -23,15 +23,17 @@ const Layout = ({ children }) => {
       <main>
         <section className="text-center container own_container">
           {children}
-          <SocialLinks />
         </section>
       </main>
       <footer className="footer mt-auto py-3">
         <div className="container">
-          <span className="text-muted">
-            {" "}
-            &#169; Francesco Vigni 2018 - {year}{" "}
-          </span>
+          <div className="d-flex justify-content-between align-items-center">
+            <span className="text-muted">
+              {" "}
+              &#169; Francesco Vigni 2018 - {year}{" "}
+            </span>
+            <SocialLinks />
+          </div>
         </div>
       </footer>
     </div>

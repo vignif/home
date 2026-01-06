@@ -98,9 +98,60 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `).then(result => {
     result.data.allFile.edges.forEach(({ node, next, previous }) => {
+      const slug = node.childMarkdownRemark.fields.slug
+      const insightsPath = "/insights" + slug
+      const blogPath = "/blog" + slug
       createPage({
-        path: "/blog" + node.childMarkdownRemark.fields.slug,
+        path: insightsPath,
         component: path.resolve("./src/templates/blog-detail.js"),
+        context: { slug, next, previous },
+      })
+      // Redirect old blog URLs to insights
+      createRedirect({
+        fromPath: blogPath,
+        toPath: insightsPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+      })
+    })
+  })
+
+  const works = graphql(`
+    query QueryWorks {
+      allFile(
+        filter: { sourceInstanceName: { eq: "projects" } }
+        sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
+      ) {
+        edges {
+          node {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+            }
+          }
+          next {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+            }
+          }
+          previous {
+            childMarkdownRemark {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  `).then(result => {
+    result.data.allFile.edges.forEach(({ node, next, previous }) => {
+      createPage({
+        path: "/projects" + node.childMarkdownRemark.fields.slug,
+        component: path.resolve("./src/templates/project-detail.js"),
         context: {
           slug: node.childMarkdownRemark.fields.slug,
           next: next,
@@ -110,29 +161,75 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
+  // Redirect blog listing to insights listing
+  createRedirect({
+    fromPath: `/blog`,
+    toPath: `/insights`,
+    isPermanent: true,
+    redirectInBrowser: true,
+  })
+
   const tags = graphql(`
     {
-      allPublicationsJson {
+      allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
         edges {
           node {
-            tags
+            childMarkdownRemark {
+              frontmatter { tags }
+            }
           }
         }
       }
     }
   `).then(result => {
-    const tags = result.data.allPublicationsJson.edges
-      .map(edge => edge.node.tags)
+    const tags = result.data.allFile.edges
+      .map(edge => edge.node.childMarkdownRemark.frontmatter.tags || [])
       .reduce((acc, curr) => acc.concat(curr), [])
       .filter((tag, index, self) => self.indexOf(tag) === index)
 
     tags.forEach(tag => {
       createPage({
-        path: `/tags/${tag}/`,
-        component: path.resolve("./src/templates/tag-template.js"),
-        context: {
-          tag,
-        },
+        path: `/projects/tags/${tag}/`,
+        component: path.resolve("./src/templates/project-tag-template.js"),
+        context: { tag },
+      })
+    })
+  })
+
+  // Create unified skill pages aggregating projects, insights, and publications
+  const skills = graphql(`
+    {
+      proj: allFile(filter: { sourceInstanceName: { eq: "projects" } }) {
+        edges { node { childMarkdownRemark { frontmatter { skills tags } } } }
+      }
+      blog: allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+        edges { node { childMarkdownRemark { frontmatter { skills tags } } } }
+      }
+      pubs: allPublicationsJson { edges { node { skills } } }
+    }
+  `).then(result => {
+    const pSkills = result.data.proj.edges
+      .map(e => {
+        const fm = e.node.childMarkdownRemark.frontmatter || {}
+        return [...(fm.skills || []), ...(fm.tags || [])]
+      })
+      .flat()
+    const bSkills = result.data.blog.edges
+      .map(e => {
+        const fm = e.node.childMarkdownRemark?.frontmatter || {}
+        return [...(fm.skills || []), ...(fm.tags || [])]
+      })
+      .flat()
+    const pubSkills = result.data.pubs.edges
+      .map(e => e.node.skills || [])
+      .flat()
+    const allSkills = Array.from(new Set([...pSkills, ...bSkills, ...pubSkills])).filter(Boolean)
+
+    allSkills.forEach(skill => {
+      createPage({
+        path: `/skills/${encodeURIComponent(skill)}`,
+        component: path.resolve("./src/templates/skill-template.js"),
+        context: { skill },
       })
     })
   })
@@ -168,7 +265,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Await all page creations, including misc pages
-  return Promise.all([publications, blogs, tags, misc])
+  return Promise.all([publications, blogs, tags, misc, works, skills])
 }
 
 // link PersonsJson.slug to PublicationsJson.authors
@@ -177,11 +274,13 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(`
       type PublicationsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
+        skills: [String]
       }
       
       type MiscpubsJson implements Node @infer { 
         authors: [PersonsJson] @link(by: "slug", from: "authors")
         attach: File @fileByRelativePath
+        skills: [String]
       }
 
       type Publication implements Node {
@@ -205,4 +304,77 @@ exports.createSchemaCustomization = ({ actions }) => {
         video: String
       }
     `)
+
+  // Explicitly declare Markdown frontmatter fields used by 'projects'
+  createTypes(`
+    type MarkdownRemarkFrontmatter {
+      title: String
+      subtitle: String
+      date: Date @dateformat
+      tags: [String]
+      skills: [String]
+      img: File @fileByRelativePath
+    }
+  `)
+}
+
+// Map publication tags to a standardized skill vocabulary
+exports.createResolvers = ({ createResolvers }) => {
+  const mapTagToSkill = tag => {
+    if (!tag) return null
+    const t = String(tag).toLowerCase().trim()
+    const dictionary = {
+      // Robotics & Platforms
+      ros: "ROS",
+      ros2: "ROS",
+      turtlebot: "ROS",
+      icra: "Robotics",
+      humanoid: "Robotics",
+      "non-humanoid": "Robotics",
+      // HRI & Interaction
+      hri: "HRI",
+      roman: "HRI",
+      icsr: "HRI",
+      proxemic: "HRI",
+      "social-cues": "HRI",
+      "non-verbal cues": "HRI",
+      "robot game": "HRI",
+      "social robot": "HRI",
+      "interaction-centric": "HRI",
+      metrics: "Metrics",
+      handshake: "HRI",
+      // Perception & CV
+      "computer vision": "Computer Vision",
+      // Data & Tools
+      rosbags: "ROS",
+      "tools for hri": "HRI",
+      "dataset tools": "Data Engineering",
+      // Affective
+      emotions: "Affective Computing",
+    }
+    return dictionary[t] || tag
+  }
+
+  createResolvers({
+    PublicationsJson: {
+      skills: {
+        type: "[String]",
+        resolve: source => {
+          const tags = source.tags || []
+          const mapped = tags.map(mapTagToSkill).filter(Boolean)
+          return Array.from(new Set(mapped))
+        },
+      },
+    },
+    MiscpubsJson: {
+      skills: {
+        type: "[String]",
+        resolve: source => {
+          const tags = source.tags || []
+          const mapped = tags.map(mapTagToSkill).filter(Boolean)
+          return Array.from(new Set(mapped))
+        },
+      },
+    },
+  })
 }

@@ -11,9 +11,6 @@ import {
 } from "react-icons/hi"
 
 const BlogDetail = ({ props, data, pageContext }) => {
-  // console.log(data)
-  console.log(pageContext)
-  // console.log(props)
   var next = ""
   var prev = ""
   if (pageContext.previous) {
@@ -22,21 +19,19 @@ const BlogDetail = ({ props, data, pageContext }) => {
   if (pageContext.next) {
     next = pageContext.next.childMarkdownRemark.fields.slug
   }
-  console.log("prev", prev)
-  console.log("next", next)
 
   const blog = data.file.childMarkdownRemark
-  console.log(data.file.childMarkdownRemark)
   const title = blog.frontmatter.title
   const subtitle = blog.frontmatter.subtitle
   const date = blog.frontmatter.date
+  const skills = blog.frontmatter.skills || []
   const content = blog.html
 
   const image = getImage(blog.frontmatter.img)
 
   return (
     <Layout>
-      <div className="row blog_header ">
+      <div className="row blog_header blog_header--insights">
         <GatsbyImage image={image} alt="" className="imgBlogTitle" />
         <div className="overlay blog_title animate-charcter">{title}</div>
         <div className="overlay blog_subtitle">{subtitle}</div>
@@ -46,6 +41,15 @@ const BlogDetail = ({ props, data, pageContext }) => {
           <hr className="hr-text" data-content={date} />
         </div>
       </div>
+      {skills.length > 0 && (
+        <div className="container own_sub_container">
+          <div className="skills-list mb-2">
+            {skills.map(s => (
+              <Link key={s} to={`/skills/${encodeURIComponent(s)}`} className="skill-badge" aria-label={`Skill: ${s}`}>{s}</Link>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="container own_sub_container">
         <main className="spotlight">
           <div className="container">
@@ -63,7 +67,7 @@ const BlogDetail = ({ props, data, pageContext }) => {
             <div className="row mt-5">
               <div className="col text-start">
                 {prev && (
-                  <Link to={`/blog${prev}`} className="btn btn-outline-primary">
+                  <Link to={`/insights${prev}`} className="btn btn-outline-primary">
                     <HiOutlineArrowCircleLeft />
                     &nbsp;Newer
                   </Link>
@@ -71,7 +75,7 @@ const BlogDetail = ({ props, data, pageContext }) => {
               </div>
               <div className="col text-end">
                 {next && (
-                  <Link to={`/blog${next}`} className="btn btn-outline-primary">
+                  <Link to={`/insights${next}`} className="btn btn-outline-primary">
                     <HiOutlineArrowCircleRight />
                     &nbsp;Older
                   </Link>
@@ -108,6 +112,7 @@ export const query = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           subtitle
+              skills
           slug
           img {
             childImageSharp {

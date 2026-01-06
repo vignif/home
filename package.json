@@ -50,7 +50,8 @@
     "prettier": "2.5.1"
   },
   "scripts": {
-    "build": "npm run clean && gatsby build",
+    "build": "npm run clean && gatsby build && node scripts/smoke-test.js",
+    "test:smoke": "node scripts/smoke-test.js",
     "clean": "rimraf .cache public",
     "format": "npm run format:ts && npm run format:scss",
     "format:scss": "stylelint \"src/**/*.scss\" --fix",

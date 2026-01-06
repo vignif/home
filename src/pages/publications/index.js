@@ -10,7 +10,7 @@ import _ from "lodash"
 
 const Publications = ({ data }) => {
   const tagCounts = _.countBy(
-    data.tags.edges.map(edge => edge.node.tags).flat()
+    data.tags.edges.map(edge => edge.node.skills).flat()
   )
   // console.log(data)
   const publications = data.publications.nodes
@@ -68,6 +68,11 @@ const Publications = ({ data }) => {
                       <p className="m-auto fw-lighter">
                         {pub.venue} - {pub.date}
                       </p>
+                      <div className="skills-list mt-2">
+                        {(pub.tags || []).map(tag => (
+                          <Link key={tag} to={`/skills/${encodeURIComponent(tag)}`} className="skill-badge" aria-label={`Skill: ${tag}`}>{tag}</Link>
+                        ))}
+                      </div>
                     </div>
 
                     <div className="col-md-2">
@@ -122,6 +127,11 @@ const Publications = ({ data }) => {
                             </div>
                           </>
                         )}
+                      </div>
+                      <div className="skills-list mt-2">
+                        {(pub.tags || []).map(tag => (
+                          <Link key={tag} to={`/skills/${encodeURIComponent(tag)}`} className="skill-badge" aria-label={`Skill: ${tag}`}>{tag}</Link>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -219,7 +229,7 @@ const Publications = ({ data }) => {
         <div className="col">
           {sortedTags.map(tagObj => (
             <div key={tagObj.name} className="authors_list fw-light col-2">
-              <Link className="btn btn-warning m-2" to={`/tags/${tagObj.name}`}>
+              <Link className="btn btn-warning m-2" to={`/skills/${encodeURIComponent(tagObj.name)}`}>
                 {tagObj.name} ({tagObj.count})
               </Link>
             </div>
@@ -227,8 +237,8 @@ const Publications = ({ data }) => {
         </div>
 
         <div className="col-md-12 p-2">
-          <Link to={`/tags/`} className="btn btn-primary m-2">
-            All Tags
+          <Link to={`/projects/tags/`} className="btn btn-primary m-2">
+            Project Tags
           </Link>
         </div>
       </div>
@@ -275,7 +285,7 @@ export const query = graphql`
     tags: allPublicationsJson {
       edges {
         node {
-          tags
+          skills
         }
       }
     }

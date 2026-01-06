@@ -76,6 +76,99 @@ const IndexPage = ({ data }) => {
   const { social } = useSiteMetadata()
   const news = useMemo(() => data.news.nodes, [data.news.nodes])
   const cvs = useMemo(() => data.cv.nodes, [data.cv.nodes])
+  const projectNodes = useMemo(() => data.projects?.nodes || [], [data.projects])
+  const blogNodes = useMemo(() => data.blogs?.nodes || [], [data.blogs])
+  const pubSkills = useMemo(() => data.publications?.nodes || [], [data.publications])
+  const miscSkills = useMemo(() => data.miscpubs?.nodes || [], [data.miscpubs])
+
+  const normalizeSkill = s => {
+    if (!s) return null
+    const t = String(s).toLowerCase().trim()
+    const dictionary = {
+      // Robotics & Platforms
+      ros: "ROS",
+      ros2: "ROS",
+      turtlebot: "ROS",
+      // HRI & Interaction
+      hri: "HRI",
+      roman: "HRI",
+      icsr: "HRI",
+      proxemic: "HRI",
+      "social-cues": "HRI",
+      "non-verbal cues": "HRI",
+      "robot game": "HRI",
+      "social robot": "HRI",
+      handshake: "HRI",
+      // Perception & CV
+      "computer vision": "Computer Vision",
+      // Data & Tools
+      rosbags: "ROS",
+      "tools for hri": "HRI",
+      "dataset tools": "Data Engineering",
+      // Affective
+      emotions: "Affective Computing",
+    }
+    return dictionary[t] || s
+  }
+
+  const skillCounts = useMemo(() => {
+    const counts = {}
+    // Projects: count both skills and tags
+    projectNodes.forEach(n => {
+      const fm = n.childMarkdownRemark?.frontmatter || {}
+      ;[...(fm.skills || []), ...(fm.tags || [])].forEach(s => {
+        const key = normalizeSkill(s)
+        if (!key) return
+        counts[key] = (counts[key] || 0) + 1
+      })
+    })
+    // Blogs: count both skills and tags
+    blogNodes.forEach(n => {
+      const fm = n.childMarkdownRemark?.frontmatter || {}
+      ;[...(fm.skills || []), ...(fm.tags || [])].forEach(s => {
+        const key = normalizeSkill(s)
+        if (!key) return
+        counts[key] = (counts[key] || 0) + 1
+      })
+    })
+    // Publications & miscpubs: already mapped to canonical skills
+    pubSkills.forEach(node => {
+      (node.skills || []).forEach(s => {
+        const key = normalizeSkill(s)
+        if (!key) return
+        counts[key] = (counts[key] || 0) + 1
+      })
+    })
+    miscSkills.forEach(node => {
+      (node.skills || []).forEach(s => {
+        const key = normalizeSkill(s)
+        if (!key) return
+        counts[key] = (counts[key] || 0) + 1
+      })
+    })
+    return counts
+  }, [projectNodes, blogNodes, pubSkills, miscSkills])
+  const skillsGroups = [
+    { title: "Research & Domain", items: researchStack },
+    {
+      title: "Robotics & Perception",
+      items: developmentStack.filter(i =>
+        ["ROS / ROS2", "OpenCV", "PCL", "MoveIt", "Gazebo", "RViz", "Nav2"].includes(i)
+      ),
+    },
+    {
+      title: "Development & Tools",
+      items: developmentStack.filter(i =>
+        ["Python", "C++", "Git", "Docker", "Unix", "CI/CD", "Gatsby.js"].includes(i)
+      ),
+    },
+    {
+      title: "Data & ML Tools",
+      items: developmentStack.filter(i =>
+        ["NumPy / SciPy", "Pandas", "scikit-learn", "Matplotlib / Seaborn"].includes(i)
+      ),
+    },
+  ]
 
   return (
     <Layout>
@@ -118,38 +211,28 @@ const IndexPage = ({ data }) => {
           />
           
         </div>
-        <div className="col-sm-6 text-start">
-            <a
-              href="FRANCESCO_VIGNI_PHD.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-tertiary"
-            >
-            View CV
-            </a>
-            <span> | </span>
-            
-              <a
-                href="https://drive.google.com/file/d/1_kec847ygcR6kId2rmPujNkQSnkms1Dv/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-tertiary"
-                title="Download or view Francesco Vigni's PhD Thesis"
-              >
-                PhD Thesis
-              </a>
-            
-            <span> | </span> 
-            <a
-              href="https://apps.francescovigni.com"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Link to apps.francescovigni.com"
-              className="btn btn-tertiary"
-            >
-              Portfolio
-            </a>
+        
+      </div>
+
+      <hr className="hr-text" data-content="Skills" />
+      <div className="row g-3">
+        {skillsGroups.map(group => (
+          <div className="col-md-6" key={group.title}>
+            <div className="card">
+              <div className="card-content">
+                <h5 className="card-title">{group.title}</h5>
+                <div className="skills-list">
+                  {group.items.map(item => (
+                    <Link key={item} to={`/skills/${encodeURIComponent(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
+                      {item}
+                      <span className="skill-count">{skillCounts[item] || 0}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
+        ))}
       </div>
 
       <hr className="hr-text" data-content="News" />
@@ -186,6 +269,38 @@ const IndexPage = ({ data }) => {
           <Link className="btn btn-outline-primary mt-3" to="/blog">
             Go to blog
           </Link>
+        </div>
+      </div>
+
+      <hr className="hr-text" data-content="Documents" />
+      <div className="row mb-2">
+        <div className="col-sm-12 text-start">
+          <a
+            href="FRANCESCO_VIGNI_PHD.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-tertiary me-2"
+          >
+            View CV
+          </a>
+          <a
+            href="https://drive.google.com/file/d/1_kec847ygcR6kId2rmPujNkQSnkms1Dv/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-tertiary me-2"
+            title="Download or view Francesco Vigni's PhD Thesis"
+          >
+            PhD Thesis
+          </a>
+          <a
+            href="https://apps.francescovigni.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Link to apps.francescovigni.com"
+            className="btn btn-tertiary"
+          >
+            Portfolio
+          </a>
         </div>
       </div>
 
@@ -256,6 +371,32 @@ export const query = graphql`
         where
         extra
       }
+    }
+    projects: allFile(
+      filter: { sourceInstanceName: { eq: "projects" } }
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter { skills tags }
+        }
+      }
+    }
+    blogs: allFile(
+      filter: { sourceInstanceName: { eq: "blog" } }
+      sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
+      limit: 100
+    ) {
+      nodes {
+        childMarkdownRemark {
+          frontmatter { skills tags }
+        }
+      }
+    }
+    publications: allPublicationsJson {
+      nodes { skills }
+    }
+    miscpubs: allMiscpubsJson {
+      nodes { skills }
     }
   }
 `

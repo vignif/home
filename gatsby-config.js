@@ -87,8 +87,8 @@ module.exports = {
                 return Object.assign({}, frontmatter, {
                   description: edge.node.childMarkdownRemark.excerpt,
                   date: frontmatter.date,
-                  url: site.siteMetadata.siteUrl + '/blog' + edge.node.childMarkdownRemark.fields.slug,
-                  guid: site.siteMetadata.siteUrl + '/blog' + edge.node.childMarkdownRemark.fields.slug,
+                  url: site.siteMetadata.siteUrl + '/insights' + edge.node.childMarkdownRemark.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/insights' + edge.node.childMarkdownRemark.fields.slug,
                   custom_elements: [{ 'content:encoded': edge.node.childMarkdownRemark.html }],
                 })
               })
@@ -119,8 +119,8 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Francesco Vigni - Blog RSS Feed',
-            match: '^/blog/',
+            title: 'Francesco Vigni - Insights RSS Feed',
+            match: '^/insights/',
           },
         ],
       },
@@ -206,6 +206,13 @@ module.exports = {
       options: {
         name: `research`,
         path: `${__dirname}/data/research/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `projects`,
+        path: `${__dirname}/data/projects/`,
       },
     },
   ],

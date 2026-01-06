@@ -23,7 +23,10 @@ ExactNavLink.propTypes = {
 
 const NAV_ITEMS = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  { to: "/projects", label: "Work" },
+  { to: "/insights", label: "Insights" },
+  { to: "/services", label: "Services" },
+  { to: "/about", label: "Contact" },
 ]
 
 const Navbar = ({ siteTitle = "" }) => {
