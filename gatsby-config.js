@@ -97,7 +97,7 @@ module.exports = {
               {
                 allFile(
                   filter: {
-                    sourceInstanceName: { eq: "blog" }
+                    sourceInstanceName: { eq: "insights" }
                     extension: { eq: "md" }
                   }
                   sort: { childMarkdownRemark: { frontmatter: { date: DESC } } }
@@ -162,8 +162,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/data/blog/`,
+        name: `insights`,
+        path: `${__dirname}/data/insights/`,
       },
     },
     {

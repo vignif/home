@@ -139,19 +139,19 @@ a:hover { text-decoration: underline; }
 
 .hr-text {
   font-size: 20px;
-  position: relative;
-  border: 0;
-  height: 1.5em;
-  color: $primary;
-  &:before {
-    content: "";
-    background: linear-gradient(to right, transparent, $detail, transparent);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
+  .blog_header .blog_title {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    margin: 0.5rem;
   }
+  .blog_header .blog_subtitle {
+    font-size: clamp(0.9rem, 3.6vw, 1rem);
+    top: 4em;
+    margin: 0.5rem;
+  }
+  top: 50%;
+  width: 100%;
+  height: 1px;
+
   &:after {
     content: attr(data-content);
     position: relative;
@@ -173,6 +173,13 @@ a:hover { text-decoration: underline; }
 }
 
 .main-video {
+    /* Ensure card titles and subtitles remain readable */
+    .blog-title a {
+      font-size: clamp(1rem, 4.5vw, 1.2rem);
+    }
+    .blog-subtitle {
+      font-size: clamp(0.9rem, 3.8vw, 1rem);
+    }
   height: 360px;
   max-width: 270px;
   margin: auto;
@@ -603,6 +610,21 @@ h1.heading {
   transition: color 0.3s;
 }
 
+/* Prevent overly-long titles/subtitles from overlapping content */
+.blog-title,
+.blog-title a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* clamp to 2 lines on cards */
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
 .blog-title a:hover {
   color: var(--accent);
 }
@@ -612,6 +634,16 @@ h1.heading {
   font-size: 1rem;
   color: var(--muted);
   margin: 0.5rem 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* clamp to 2 lines on cards */
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 /* Date */
@@ -691,11 +723,33 @@ h1.heading {
   .blog_header .blog_title {
     font-size: 2.2em;
     margin: 0.5rem;
+    max-width: 92%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* clamp overlay title on phones */
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
   .blog_header .blog_subtitle {
     font-size: 0.9em;
     top: 4.2em;
     margin: 0.5rem;
+    max-width: 92%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* clamp overlay subtitle on phones */
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
   /* Navbar fits full width on phones */
   .my-navbar {
@@ -721,5 +775,61 @@ h1.heading {
   /* Reduce grid padding to maximize content area */
   .blog-grid {
     padding: 0.75rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 576px) and (max-width: 992px) {
+  .overlay {
+    height: 160px;
+  }
+  .blog_header .blog_title {
+    font-size: clamp(2.2rem, 3vw, 2.6rem);
+  }
+  .blog_header .blog_subtitle {
+    font-size: clamp(1rem, 1.6vw, 1.1rem);
+    top: 4.6em;
+  }
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 992px) {
+  .blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(1rem, 1.8vw, 2rem);
+    padding: clamp(1rem, 2.2vw, 2.5rem);
+  }
+  .blog_header {
+    padding-bottom: 240px;
+  }
+  .blog_header--insights {
+    padding-bottom: 160px;
+  }
+  .overlay {
+    height: 200px;
+  }
+  .blog_header .blog_title {
+    font-size: clamp(2.6rem, 2.8vw, 3rem);
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1400px) {
+  .blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+  .blog_header {
+    padding-bottom: 260px;
+  }
+  .blog_header--insights {
+    padding-bottom: 180px;
+  }
+  .overlay {
+    height: 220px;
   }
 }

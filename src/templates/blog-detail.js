@@ -101,7 +101,7 @@ export const Head = ({ data }) => (
 export const query = graphql`
   query GetBlog($slug: String) {
     file(
-      sourceInstanceName: { eq: "blog" }
+      sourceInstanceName: { eq: "insights" }
       childMarkdownRemark: { fields: { slug: { eq: $slug } } }
     ) {
       childMarkdownRemark {

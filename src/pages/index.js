@@ -11,69 +11,21 @@ import { HiLink } from "react-icons/hi"
 // Components
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
-import AudioButton from "../components/play_audio"
+// AudioButton import removed (unused)
 
 // Custom Hooks
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+// useSiteMetadata import removed (unused)
 
 // Video imports
-import carlaVideo from "../../data/videos/carla.mp4"
-import handVideo from "../../data/videos/hand_compressed.mp4"
-import handShakeVideo from "../../data/videos/handshake_compressed.mp4"
-import beerVideo from "../../data/videos/beer_compressed.mp4"
+// Demo video imports removed (unused)
 
-const researchStack = [
-  // Core Research Areas
-  "Human-Robot Interaction (HRI)",
-  "Robotics",
-  "Artificial Intelligence",
-  "Computer Vision",
+// Legacy static stacks removed; dynamic grouping is used below
 
-  // Methodologies & Tools
-  "Experimental Design",
-  "Statistical Analysis",
-  "LaTeX Editing",
-
-  // Communication & Education
-  "Academic Writing & Editing",
-  "Public Speaking",
-
-  // Project & Collaboration Skills
-  "Team Management",
-]
-
-const developmentStack = [
-  // Programming Languages
-  "Python",
-  "C++",
-
-  // Robotics & Perception
-  "ROS / ROS2",
-  "OpenCV",
-  "PCL",
-  "MoveIt",
-  "Gazebo",
-  "RViz",
-  "Nav2",
-
-  // Web & Frontend
-  "Gatsby.js",
-
-  // DevOps & Tools
-  "Git",
-  "Docker",
-  "Unix",
-  "CI/CD",
-
-  // Data & ML Tools
-  "NumPy / SciPy",
-  "Pandas",
-  "scikit-learn",
-  "Matplotlib / Seaborn",
-]
+// Legacy static stacks removed; dynamic grouping is used below
 
 const IndexPage = ({ data }) => {
-  const { social } = useSiteMetadata()
+  const skillSlug = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  // Removed unused site metadata
   const news = useMemo(() => data.news.nodes, [data.news.nodes])
   const cvs = useMemo(() => data.cv.nodes, [data.cv.nodes])
   const projectNodes = useMemo(() => data.projects?.nodes || [], [data.projects])
@@ -81,52 +33,24 @@ const IndexPage = ({ data }) => {
   const pubSkills = useMemo(() => data.publications?.nodes || [], [data.publications])
   const miscSkills = useMemo(() => data.miscpubs?.nodes || [], [data.miscpubs])
 
-  const normalizeSkill = s => {
-    if (!s) return null
-    const t = String(s).toLowerCase().trim()
-    const dictionary = {
-      // Robotics & Platforms
-      ros: "ROS",
-      ros2: "ROS",
-      turtlebot: "ROS",
-      // HRI & Interaction
-      hri: "HRI",
-      roman: "HRI",
-      icsr: "HRI",
-      proxemic: "HRI",
-      "social-cues": "HRI",
-      "non-verbal cues": "HRI",
-      "robot game": "HRI",
-      "social robot": "HRI",
-      handshake: "HRI",
-      // Perception & CV
-      "computer vision": "Computer Vision",
-      // Data & Tools
-      rosbags: "ROS",
-      "tools for hri": "HRI",
-      "dataset tools": "Data Engineering",
-      // Affective
-      emotions: "Affective Computing",
-    }
-    return dictionary[t] || s
-  }
+  // Skills are used as-is (no normalization)
 
   const skillCounts = useMemo(() => {
     const counts = {}
-    // Projects: count both skills and tags
+    // Projects: count skills only
     projectNodes.forEach(n => {
       const fm = n.childMarkdownRemark?.frontmatter || {}
-      ;[...(fm.skills || []), ...(fm.tags || [])].forEach(s => {
-        const key = normalizeSkill(s)
+      ;(fm.skills || []).forEach(s => {
+        const key = s
         if (!key) return
         counts[key] = (counts[key] || 0) + 1
       })
     })
-    // Blogs: count both skills and tags
+    // Blogs: count skills only
     blogNodes.forEach(n => {
       const fm = n.childMarkdownRemark?.frontmatter || {}
-      ;[...(fm.skills || []), ...(fm.tags || [])].forEach(s => {
-        const key = normalizeSkill(s)
+      ;(fm.skills || []).forEach(s => {
+        const key = s
         if (!key) return
         counts[key] = (counts[key] || 0) + 1
       })
@@ -134,41 +58,50 @@ const IndexPage = ({ data }) => {
     // Publications & miscpubs: already mapped to canonical skills
     pubSkills.forEach(node => {
       (node.skills || []).forEach(s => {
-        const key = normalizeSkill(s)
+        const key = s
         if (!key) return
         counts[key] = (counts[key] || 0) + 1
       })
     })
     miscSkills.forEach(node => {
       (node.skills || []).forEach(s => {
-        const key = normalizeSkill(s)
+        const key = s
         if (!key) return
         counts[key] = (counts[key] || 0) + 1
       })
     })
     return counts
   }, [projectNodes, blogNodes, pubSkills, miscSkills])
-  const skillsGroups = [
-    { title: "Research & Domain", items: researchStack },
-    {
-      title: "Robotics & Perception",
-      items: developmentStack.filter(i =>
-        ["ROS / ROS2", "OpenCV", "PCL", "MoveIt", "Gazebo", "RViz", "Nav2"].includes(i)
-      ),
-    },
-    {
-      title: "Development & Tools",
-      items: developmentStack.filter(i =>
-        ["Python", "C++", "Git", "Docker", "Unix", "CI/CD", "Gatsby.js"].includes(i)
-      ),
-    },
-    {
-      title: "Data & ML Tools",
-      items: developmentStack.filter(i =>
-        ["NumPy / SciPy", "Pandas", "scikit-learn", "Matplotlib / Seaborn"].includes(i)
-      ),
-    },
-  ]
+  // Clean, dynamic grouping based on used skills only
+  const groupFor = k => {
+    const t = String(k).toLowerCase()
+    if (["turtlebot", "nvidia jetson", "pisa/iit hand", "protom classmate", "pal robotics ari", "pal robotics tiago", "aldebaran pepper"].includes(t)) return "Robotics & Platforms"
+    if (["ros", "ros2", "moveit", "nav2", "gazebo", "rviz", "carla simulator", "opencv", "pcl", "slam", "computer vision", "motion planning"].includes(t)) return "Robot Software"
+    if (["python", "c++", "git", "docker", "unix", "ci/cd", "gatsby", "nodejs", "mqtt" ].includes(t)) return "Softwares & Tools"
+    if (["numpy / scipy", "pandas", "scikit-learn", "matplotlib / seaborn", "data engineering","pytorch", "tensorflow", "dataset reliability", "ntp sync", "yolo"].includes(t)) return "Data & ML"
+    if (["ieee roman", "icsr", "ieee icra", "acm/ieee hri", "hri", "affective computing", "metrics", "experimental design", "statistical analysis", "academic writing & editing", "handshake", "garch", "finance", ].includes(t)) return "Research & Methods"
+    return "Other"
+  }
+  const usedSkills = useMemo(() => Object.keys(skillCounts).filter(k => (skillCounts[k] || 0) > 0), [skillCounts])
+  const grouped = usedSkills.reduce((acc, key) => {
+    const g = groupFor(key)
+    if (!acc[g]) acc[g] = []
+    acc[g].push(key)
+    return acc
+  }, {})
+  const groupOrder = {
+    "Softwares & Tools": 0,
+    "Robotics & Platforms": 1,
+    "Robot Software": 2,
+    "Data & ML": 3,
+    "Research & Methods": 4,
+    "Other": 5,
+  }
+  const skillsGroups = Object.entries(grouped)
+    .map(([title, items]) => ({ title, items: items.sort((a, b) => (skillCounts[b] - skillCounts[a]) || a.localeCompare(b)) }))
+    .sort((a, b) => (groupOrder[a.title] ?? 999) - (groupOrder[b.title] ?? 999) || a.title.localeCompare(b.title))
+
+  // Dynamic groups cover all used skills; no remaining list needed
 
   return (
     <Layout>
@@ -223,7 +156,7 @@ const IndexPage = ({ data }) => {
                 <h5 className="card-title">{group.title}</h5>
                 <div className="skills-list">
                   {group.items.map(item => (
-                    <Link key={item} to={`/skills/${encodeURIComponent(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
+                    <Link key={item} to={`/skills/${skillSlug(item)}`} className="skill-badge" aria-label={`Skill: ${item}`}>
                       {item}
                       <span className="skill-count">{skillCounts[item] || 0}</span>
                     </Link>
@@ -234,6 +167,8 @@ const IndexPage = ({ data }) => {
           </div>
         ))}
       </div>
+
+      {/* Dynamic grouping lists all skills with count > 0 */}
 
       <hr className="hr-text" data-content="News" />
       {news.map(node => (
@@ -266,8 +201,8 @@ const IndexPage = ({ data }) => {
           </Link>
         </div>
         <div className="col-sm-auto">
-          <Link className="btn btn-outline-primary mt-3" to="/blog">
-            Go to blog
+          <Link className="btn btn-outline-primary mt-3" to="/insights">
+            Go to insights
           </Link>
         </div>
       </div>
@@ -377,18 +312,18 @@ export const query = graphql`
     ) {
       nodes {
         childMarkdownRemark {
-          frontmatter { skills tags }
+          frontmatter { skills }
         }
       }
     }
     blogs: allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
+      filter: { sourceInstanceName: { eq: "insights" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
       limit: 100
     ) {
       nodes {
         childMarkdownRemark {
-          frontmatter { skills tags }
+          frontmatter { skills }
         }
       }
     }

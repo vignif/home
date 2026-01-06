@@ -52,8 +52,8 @@ const Page404 = () => {
                 <Link to="/about" className="btn btn-outline-primary">
                   <span>👤</span> About
                 </Link>
-                <Link to="/blog" className="btn btn-outline-primary">
-                  <span>📝</span> Blog
+                <Link to="/insights" className="btn btn-outline-primary">
+                  <span>📝</span> Insights
                 </Link>
                 <Link to="/publications" className="btn btn-outline-primary">
                   <span>📚</span> Publications

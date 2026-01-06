@@ -6,14 +6,13 @@ import { Seo } from "../components/seo"
 const SkillPage = ({ data, pageContext }) => {
   const { skill } = pageContext
   const projSkills = data.projectsSkills.edges
-  const projTags = data.projectsTags.edges
   const insSkills = data.insightsSkills.edges
-  const insTags = data.insightsTags.edges
   const publications = data.publications.nodes
+  const misc = data.miscPublications.nodes
 
-  // Merge projects (skills + tags) unique by slug
+  // Merge projects (skills only) unique by slug
   const projectMap = new Map()
-  ;[...projSkills, ...projTags].forEach(({ node }) => {
+  ;[...projSkills].forEach(({ node }) => {
     const cmr = node.childMarkdownRemark
     if (!cmr) return
     const slug = cmr.fields.slug
@@ -23,9 +22,9 @@ const SkillPage = ({ data, pageContext }) => {
   })
   const projects = Array.from(projectMap.values())
 
-  // Merge insights (skills + tags) unique by slug
+  // Merge insights (skills only) unique by slug
   const insightMap = new Map()
-  ;[...insSkills, ...insTags].forEach(({ node }) => {
+  ;[...insSkills].forEach(({ node }) => {
     const cmr = node.childMarkdownRemark
     if (!cmr) return
     const slug = cmr.fields.slug
@@ -35,7 +34,7 @@ const SkillPage = ({ data, pageContext }) => {
   })
   const insights = Array.from(insightMap.values())
 
-  const hasAny = projects.length + insights.length + publications.length > 0
+  const hasAny = projects.length + insights.length + publications.length + misc.length > 0
 
   return (
     <Layout>
@@ -79,6 +78,14 @@ const SkillPage = ({ data, pageContext }) => {
                 dateRaw: pub.dateRaw,
                 href: `/publications/${pub.slug}`,
               })),
+              ...misc.map(m => ({
+                type: "Miscellaneous",
+                title: m.title,
+                subtitle: m.venue || m.type,
+                date: m.date,
+                dateRaw: m.dateRaw,
+                href: m.attach?.publicURL ? m.attach.publicURL : `/publications/${m.slug}`,
+              })),
             ]
               .sort((a, b) => new Date(b.dateRaw || b.date) - new Date(a.dateRaw || a.date))
               .map(item => (
@@ -119,26 +126,17 @@ export const query = graphql`
     ) {
       edges { node { childMarkdownRemark { fields { slug } frontmatter { title subtitle date(formatString: "DD MMM, YYYY") dateRaw: date(formatString: "YYYY-MM-DD") skills } } } }
     }
-    projectsTags: allFile(
-      filter: { sourceInstanceName: { eq: "projects" }, childrenMarkdownRemark: { elemMatch: { frontmatter: { tags: { in: [$skill] } } } } }
-      sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
-    ) {
-      edges { node { childMarkdownRemark { fields { slug } frontmatter { title subtitle date(formatString: "DD MMM, YYYY") dateRaw: date(formatString: "YYYY-MM-DD") tags } } } }
-    }
     insightsSkills: allFile(
-      filter: { sourceInstanceName: { eq: "blog" }, childrenMarkdownRemark: { elemMatch: { frontmatter: { skills: { in: [$skill] } } } } }
+      filter: { sourceInstanceName: { eq: "insights" }, childrenMarkdownRemark: { elemMatch: { frontmatter: { skills: { in: [$skill] } } } } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
     ) {
       edges { node { childMarkdownRemark { fields { slug } frontmatter { title subtitle date(formatString: "DD MMM, YYYY") dateRaw: date(formatString: "YYYY-MM-DD") skills } } } }
     }
-    insightsTags: allFile(
-      filter: { sourceInstanceName: { eq: "blog" }, childrenMarkdownRemark: { elemMatch: { frontmatter: { tags: { in: [$skill] } } } } }
-      sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
-    ) {
-      edges { node { childMarkdownRemark { fields { slug } frontmatter { title subtitle date(formatString: "DD MMM, YYYY") dateRaw: date(formatString: "YYYY-MM-DD") tags } } } }
-    }
     publications: allPublicationsJson(filter: { skills: { in: [$skill] } }, sort: { date: DESC }) {
       nodes { slug title venue date(formatString: "MMM YYYY") dateRaw: date(formatString: "YYYY-MM-DD") }
+    }
+    miscPublications: allMiscpubsJson(filter: { skills: { in: [$skill] } }, sort: { date: DESC }) {
+      nodes { slug title venue type date(formatString: "MMM YYYY") dateRaw: date(formatString: "YYYY-MM-DD") attach { publicURL } }
     }
   }
 `

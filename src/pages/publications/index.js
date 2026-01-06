@@ -5,6 +5,7 @@ import { Seo } from "../../components/seo"
 import SocialLinks from "../../components/socials"
 import { HiDocumentText, HiOutlineSearch } from "react-icons/hi"
 import _ from "lodash"
+const skillSlug = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 
 // #TODO: handshake is a JOURNAL, is RAL! CHANGE IT!
 
@@ -70,7 +71,7 @@ const Publications = ({ data }) => {
                       </p>
                       <div className="skills-list mt-2">
                         {(pub.tags || []).map(tag => (
-                          <Link key={tag} to={`/skills/${encodeURIComponent(tag)}`} className="skill-badge" aria-label={`Skill: ${tag}`}>{tag}</Link>
+                          <Link key={tag} to={`/skills/${skillSlug(tag)}`} className="skill-badge" aria-label={`Skill: ${tag}`}>{tag}</Link>
                         ))}
                       </div>
                     </div>
@@ -130,7 +131,7 @@ const Publications = ({ data }) => {
                       </div>
                       <div className="skills-list mt-2">
                         {(pub.tags || []).map(tag => (
-                          <Link key={tag} to={`/skills/${encodeURIComponent(tag)}`} className="skill-badge" aria-label={`Skill: ${tag}`}>{tag}</Link>
+                          <Link key={tag} to={`/skills/${skillSlug(tag)}`} className="skill-badge" aria-label={`Skill: ${tag}`}>{tag}</Link>
                         ))}
                       </div>
                     </div>
@@ -229,7 +230,7 @@ const Publications = ({ data }) => {
         <div className="col">
           {sortedTags.map(tagObj => (
             <div key={tagObj.name} className="authors_list fw-light col-2">
-              <Link className="btn btn-warning m-2" to={`/skills/${encodeURIComponent(tagObj.name)}`}>
+              <Link className="btn btn-warning m-2" to={`/skills/${skillSlug(tagObj.name)}`}>
                 {tagObj.name} ({tagObj.count})
               </Link>
             </div>

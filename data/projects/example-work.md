@@ -2,8 +2,7 @@
 title: "Stereo Depth Pipeline for Warehouse Robotics"
 subtitle: "From prototype to production with ROS2 and OpenCV"
 date: "2025-11-20"
-tags: [perception, robotics, ros2]
-skills: ["OpenCV", "ROS / ROS2", "Python", "Docker", "CI/CD"]
+skills: ["OpenCV", "ROS", "Python", "Docker", "CI/CD"]
 img: ../images/publications/sample.jpg
 ---
 

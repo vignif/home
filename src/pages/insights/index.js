@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../../components/layout"
 import { Seo } from "../../components/seo"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+const skillSlug = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 
 const Insights = ({ data }) => {
   const posts = data.allFile.edges
@@ -45,7 +46,7 @@ const Insights = ({ data }) => {
                   {childMarkdownRemark.frontmatter.skills && childMarkdownRemark.frontmatter.skills.length > 0 && (
                     <div className="skills-list mt-1">
                       {childMarkdownRemark.frontmatter.skills.map(s => (
-                        <Link key={s} to={`/skills/${encodeURIComponent(s)}`} className="skill-badge" aria-label={`Skill: ${s}`}>{s}</Link>
+                        <Link key={s} to={`/skills/${skillSlug(s)}`} className="skill-badge" aria-label={`Skill: ${s}`}>{s}</Link>
                       ))}
                     </div>
                   )}
@@ -72,7 +73,7 @@ export const Head = () => <Seo title="Insights" />
 export const query = graphql`
   query INSIGHTS {
     allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
+      filter: { sourceInstanceName: { eq: "insights" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
     ) {
       edges {

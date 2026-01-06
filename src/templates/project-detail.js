@@ -8,7 +8,7 @@ import { HiOutlineArrowCircleRight, HiOutlineArrowCircleLeft } from "react-icons
 const ProjectDetail = ({ data, pageContext }) => {
   const { previous, next } = pageContext
   const project = data.file.childMarkdownRemark
-  const { title, subtitle, date, img, tags, skills } = project.frontmatter
+  const { title, subtitle, date, img, skills } = project.frontmatter
   const content = project.html
   const image = getImage(img)
 
@@ -87,7 +87,6 @@ export const query = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           subtitle
-          tags
           skills
           img {
             childImageSharp {

@@ -18,15 +18,15 @@ const parseDate = dateString => {
 const SearchPage = ({ data, location }) => {
   const query = new URLSearchParams(location.search).get("s") || ""
 
-  // Process blog posts
+  // Process insights posts
   const blogPosts = data.blogPosts.edges.map(edge => ({
     id: edge.node.id,
-    type: "blog",
+    type: "insight",
     title: edge.node.childMarkdownRemark?.frontmatter?.title || "",
     subtitle: edge.node.childMarkdownRemark?.frontmatter?.subtitle || "",
     date: edge.node.childMarkdownRemark?.frontmatter?.date || "",
     rawDate: parseDate(edge.node.childMarkdownRemark?.frontmatter?.date),
-    slug: `/blog${edge.node.childMarkdownRemark?.fields?.slug || ""}`,
+    slug: `/insights${edge.node.childMarkdownRemark?.fields?.slug || ""}`,
     content: edge.node.childMarkdownRemark?.rawMarkdownBody || "",
     excerpt: edge.node.childMarkdownRemark?.excerpt || "",
   }))
@@ -126,8 +126,8 @@ const SearchPage = ({ data, location }) => {
               }
 
               const typeLabel =
-                item.type === "blog"
-                  ? "Blog Post"
+                item.type === "insight"
+                  ? "Insight"
                   : item.type === "misc"
                   ? "Miscellaneous"
                   : "Publication"
@@ -189,7 +189,7 @@ export const Head = () => <Seo title="Search" />
 export const query = graphql`
   query {
     blogPosts: allFile(
-      filter: { sourceInstanceName: { eq: "blog" } }
+      filter: { sourceInstanceName: { eq: "insights" } }
       sort: { childrenMarkdownRemark: { frontmatter: { date: DESC } } }
     ) {
       edges {

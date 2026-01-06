@@ -12,6 +12,7 @@ import {
   HiDocumentText,
 } from "react-icons/hi"
 import { Seo } from "../components/seo"
+const skillSlug = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 const PublicationDetail = ({ data, pageContext }) => {
   const pub = data.publication
   var next = ""
@@ -107,7 +108,7 @@ const PublicationDetail = ({ data, pageContext }) => {
                   Skills:{" "}
                   {pub.skills.map((skill, index) => (
                     <div key={skill} className="authors_list fw-light fst-italic">
-                      <Link to={`/skills/${encodeURIComponent(skill)}`}>{skill}</Link>
+                      <Link to={`/skills/${skillSlug(skill)}`}>{skill}</Link>
                       {index < pub.skills.length - 1 && ", "}
                     </div>
                   ))}
