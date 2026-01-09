@@ -40,11 +40,11 @@ const Projects = ({ data }) => {
                   </Link>
                 )}
                 <div className="blog-content">
-                  <h3 className="blog-title">
+                  <h5 style={{ fontWeight: 600 }}>
                     <Link to={`/projects${slug}`} aria-label={`Read: ${title}`}>
                       {title}
                     </Link>
-                  </h3>
+                  </h5>
                   <p className="blog-subtitle">{subtitle}</p>
                   <p className="blog-date">{date}</p>
                   <div className="skills-list mb-2">

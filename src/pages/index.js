@@ -311,7 +311,7 @@ const IndexPage = ({ data }) => {
             className={`timeline ${index % 2 === 0 ? "left" : "right"}`}
           >
             <div className="card">
-              <div className="card-body p-2">
+              <div className="">
                 <h5 style={{ fontWeight: 600 }}>{cv.title}</h5>
                 <p className="mb-0">
                   <a
