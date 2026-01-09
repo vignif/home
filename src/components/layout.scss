@@ -1,36 +1,57 @@
-//Here you can customize bootstrap
-$primary: #0f1c4d; // new primary accent
+
+// =============================
+// GLOBAL DESIGN TOKENS & PALETTE
+// =============================
+
+// Color palette
+$color-primary: #0f1c4d;
+$color-accent: #5371e1;
+$color-accent-hover: #3e5fdc;
+$color-accent-strong: #2f4fc8;
+$color-bg: #f8fafc;
+$color-bg-card: #ffffff;
+$color-text: #0f172a;
+$color-muted: #475569;
+$color-detail: #000000;
+$color-highlight: #5371e1;
+
+// Shadows & radius
+$radius: 10px;
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+$shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+// Typography
+$font-family-sans: "Titillium Web", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Bootstrap overrides (must come before import)
+$body-bg: $color-bg-card;
+$body-color: $color-text;
+$font-family-sans-serif: $font-family-sans;
+$font-family-monospace: $font-family-mono;
+$border-radius: $radius;
+
 // Import Titillium Web from Google Fonts
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap");
-// Bootstrap overrides (must come before import)
-$body-bg: #ffffff;
-$body-color: #1f2937;
-$font-family-sans-serif: "Titillium Web", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family-monospace: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$border-radius: 10px;
 @import "~bootstrap/scss/bootstrap";
 
-$detail: black;
-$highlight: #5371e1;
-$text: #ffffff;
-
-/* Runtime design tokens (light/dark via prefers-color-scheme) */
+// CSS custom properties for runtime theming
 :root {
-  --radius: 10px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --bg: #f8fafc;        /* light background */
-  --text: #0f172a;      /* slate-900 */
-  --muted: #475569;     /* slate-600 */
-  --card: #ffffff;
-  --accent: $primary;    /* aligned with $primary */
-  --accent-hover: #3e5fdc;
-  --accent-strong: #2f4fc8; /* darker for navbar */
-  --bg-card: var(--card);
+  --radius: #{$radius};
+  --shadow: #{$shadow};
+  --bg: #{$color-bg};
+  --text: #{$color-text};
+  --muted: #{$color-muted};
+  --card: #{$color-bg-card};
+  --accent: #{$color-primary};
+  --accent-hover: #{$color-accent-hover};
+  --accent-strong: #{$color-accent-strong};
+  --bg-card: #{$color-bg-card};
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow: #{$shadow-dark};
   }
 }
 
@@ -51,16 +72,19 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.2px;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
+.btn:hover {
+   transform: translateY(-1px); 
+    border-color: var(--muted);
+  }
+
 .btn:active { transform: translateY(1px); }
 .btn:focus { box-shadow: 0 0 0 0.2rem rgba(79, 110, 229, 0.25); }
 
 .btn-primary {
   background-color: $primary;
-  border-color: var(--accent);
 }
 .btn-primary:hover {
   background-color: var(--muted);
-  border-color: var(--muted);
 }
 
 .btn-outline-primary {
@@ -145,7 +169,7 @@ a:hover { text-decoration: underline; }
   color: $primary;
   &:before {
     content: "";
-    background: linear-gradient(to right, transparent, $detail, transparent);
+    background: linear-gradient(to right, transparent, $color-detail, transparent);
     position: absolute;
     left: 0;
     top: 50%;

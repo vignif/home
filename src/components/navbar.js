@@ -165,7 +165,7 @@ const Navbar = ({ siteTitle = "" }) => {
         .search-icon-button {
           background: none;
           border: none;
-          color: white;
+          color: var(--text);
           padding: 8px 12px;
           cursor: pointer;
           transition: transform 0.2s;
@@ -180,7 +180,7 @@ const Navbar = ({ siteTitle = "" }) => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.95);
+          background: rgba(15, 28, 77, 0.97); /* fallback to primary with opacity */
           z-index: 9999;
           display: flex;
           justify-content: center;
@@ -200,7 +200,7 @@ const Navbar = ({ siteTitle = "" }) => {
           right: 0;
           background: none;
           border: none;
-          color: white;
+          color: var(--text);
           cursor: pointer;
         }
 
@@ -214,16 +214,16 @@ const Navbar = ({ siteTitle = "" }) => {
           padding: 20px;
           font-size: 1.5rem;
           border: none;
-          border-bottom: 2px solid #fff;
+          border-bottom: 2px solid var(--accent);
           background: transparent;
-          color: white;
+          color: var(--text);
           outline: none;
         }
 
         .search-submit {
           background: none;
           border: none;
-          color: white;
+          color: var(--accent);
           padding: 0 20px;
           cursor: pointer;
           transition: transform 0.2s;
