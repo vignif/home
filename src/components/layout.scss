@@ -233,18 +233,20 @@ a:hover { text-decoration: underline; }
   background-color: inherit;
   width: 50%;
 }
+// Timeline marker size variable
+$timeline-marker-size: 12px;
 
-/* The circles on the timeline */
+/* The markers on the timeline - diamond shape */
 .timeline::after {
   content: "";
   position: absolute;
-  width: 14px;
-  height: 14px;
-  right: -8px;
+  width: $timeline-marker-size;
+  height: $timeline-marker-size;
+  right: calc(-1 * #{$timeline-marker-size} / 2);
   background-color: $primary;
-  border: 3px solid var(--bg);
-  top: 7px;
-  border-radius: 50%;
+  border: 2px solid var(--bg);
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
   z-index: 1;
 }
 
@@ -286,9 +288,9 @@ a:hover { text-decoration: underline; }
   border-color: transparent white transparent transparent;
 }
 
-/* Fix the circle for containers on the right side */
+/* Fix the marker for containers on the right side */
 .right::after {
-  left: -7px;
+  left: calc(-1 * #{$timeline-marker-size} / 2);
 }
 
 pre {
@@ -337,10 +339,10 @@ img {
     border-color: transparent white transparent transparent;
   }
 
-  /* Make sure all circles are at the same spot */
+  /* Make sure all markers are at the same spot */
   .left::after,
   .right::after {
-    left: -2px;
+    left: 6px;
   }
 
   .left::before {
@@ -878,4 +880,13 @@ h1.heading {
   .overlay {
     height: 220px;
   }
+}
+
+/* News list styling */
+.news-row {
+  padding: 0.5rem 0;
+  transition: background-color 0.15s ease;
+}
+.news-row:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.07);
 }

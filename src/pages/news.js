@@ -19,8 +19,8 @@ const News = ({ data }) => {
         </div>
       </div>
       <div className="container">
-        {news.map(node => (
-        <div key={node.id} className="row">
+        {news.map((node) => (
+        <div key={node.id} className="row news-row">
           <div className="col-md-auto">
             <p className="own_date">
               {node.childMarkdownRemark.frontmatter.date}
