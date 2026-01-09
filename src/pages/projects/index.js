@@ -39,8 +39,8 @@ const Projects = ({ data }) => {
                     />
                   </Link>
                 )}
-                <div className="blog-content">
-                  <h5 style={{ fontWeight: 600 }}>
+                <div className="blog-content text-center">
+                  <h5 className="card-title">
                     <Link to={`/projects${slug}`} aria-label={`Read: ${title}`}>
                       {title}
                     </Link>
@@ -54,7 +54,7 @@ const Projects = ({ data }) => {
                   </div>
                   {/* Tags removed per request */}
                   <Link to={`/projects${slug}`} className="read-more">
-                    Read More →
+                    Read More
                   </Link>
                 </div>
               </div>
