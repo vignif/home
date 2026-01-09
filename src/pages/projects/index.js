@@ -25,20 +25,6 @@ const Projects = ({ data }) => {
 
             return (
               <div key={id} className="blog-card">
-                {image && (
-                  <Link
-                    to={`/projects${slug}`}
-                    aria-label={`Read more: ${title}`}
-                  >
-                    <GatsbyImage
-                      image={image}
-                      alt={title}
-                      className="blog-image"
-                      imgClassName="blog-image"
-                      loading="lazy"
-                    />
-                  </Link>
-                )}
                 <div className="blog-content text-center">
                   <h5 className="card-title">
                     <Link to={`/projects${slug}`} aria-label={`Read: ${title}`}>
@@ -93,16 +79,6 @@ export const query = graphql`
               subtitle
               tags
               skills
-              img {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 500
-                    placeholder: BLURRED
-                    quality: 90
-                    formats: [AUTO, WEBP, AVIF]
-                  )
-                }
-              }
             }
           }
         }
