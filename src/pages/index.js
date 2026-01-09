@@ -232,7 +232,7 @@ const IndexPage = ({ data }) => {
 
       <hr className="hr-text" data-content="Skills" />
       <p className="text-muted" style={{ fontSize: "0.9rem" }}>
-        Numbers show how many items reference each skill across projects, insights, and publications.
+        Numbers show the occurrence of each skill across my portfolio.
       </p>
       <div className="skills-masonry">
         {skillsGroups.map(group => {
@@ -287,12 +287,12 @@ const IndexPage = ({ data }) => {
       <hr className="hr-text" data-content="Last News" />
       {news.map(node => (
         <div key={node.id} className="row">
-          <div className="col-sm-2 own_sub_container">
+          <div className="col-md-2">
             <p className="own_date">
               {node.childMarkdownRemark.frontmatter.date}
             </p>
           </div>
-          <div className="col-md-10">
+          <div className="col-md-9">
             <div
               className="justify"
               dangerouslySetInnerHTML={{
