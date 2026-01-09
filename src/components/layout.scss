@@ -1,4 +1,3 @@
-
 // =============================
 // GLOBAL DESIGN TOKENS & PALETTE
 // =============================
@@ -62,8 +61,14 @@ body {
   line-height: 1.6;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 /* Unified button styling */
 .btn {
@@ -72,17 +77,24 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.2px;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
-.btn:hover {
-   transform: translateY(-1px); 
-    border-color: var(--muted);
-  }
 
-.btn:active { transform: translateY(1px); }
-.btn:focus { box-shadow: 0 0 0 0.2rem rgba(79, 110, 229, 0.25); }
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--muted);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(79, 110, 229, 0.25);
+}
 
 .btn-primary {
   background-color: $primary;
 }
+
 .btn-primary:hover {
   background-color: var(--muted);
 }
@@ -91,6 +103,7 @@ a:hover { text-decoration: underline; }
   color: var(--accent);
   border-color: var(--accent);
 }
+
 .btn-outline-primary:hover {
   color: #000000;
   background-color: var(--accent);
@@ -103,18 +116,27 @@ a:hover { text-decoration: underline; }
   background-color: #f5c147;
   border-color: #f5c147;
 }
+
 .btn-warning:hover {
   background-color: #e3b23f;
   border-color: #e3b23f;
 }
 
-.btn.disabled, .btn:disabled {
+.btn.disabled,
+.btn:disabled {
   opacity: 0.6;
   pointer-events: none;
 }
 
-.btn-lg { padding: 0.8rem 1.4rem; border-radius: calc(var(--radius) + 2px); }
-.btn-sm { padding: 0.25rem 0.6rem; border-radius: calc(var(--radius) - 2px); }
+.btn-lg {
+  padding: 0.8rem 1.4rem;
+  border-radius: calc(var(--radius) + 2px);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.6rem;
+  border-radius: calc(var(--radius) - 2px);
+}
 
 .own_container {
   margin: 0 auto;
@@ -167,6 +189,7 @@ a:hover { text-decoration: underline; }
   border: 0;
   height: 1.5em;
   color: $primary;
+
   &:before {
     content: "";
     background: linear-gradient(to right, transparent, $color-detail, transparent);
@@ -176,6 +199,7 @@ a:hover { text-decoration: underline; }
     width: 100%;
     height: 1px;
   }
+
   &:after {
     content: attr(data-content);
     position: relative;
@@ -197,13 +221,16 @@ a:hover { text-decoration: underline; }
 }
 
 .main-video {
-    /* Ensure card titles and subtitles remain readable */
-    .blog-title a {
-      font-size: clamp(1rem, 4.5vw, 1.2rem);
-    }
-    .blog-subtitle {
-      font-size: clamp(0.9rem, 3.8vw, 1rem);
-    }
+
+  /* Ensure card titles and subtitles remain readable */
+  .blog-title a {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+
+  .blog-subtitle {
+    font-size: clamp(0.9rem, 3.8vw, 1rem);
+  }
+
   height: 360px;
   max-width: 270px;
   margin: auto;
@@ -227,7 +254,7 @@ a:hover { text-decoration: underline; }
   margin: auto;
 }
 
-.blog_cards > div > * {
+.blog_cards>div>* {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   // vertical-align: middle;
@@ -257,6 +284,7 @@ a:hover { text-decoration: underline; }
   background-color: inherit;
   width: 50%;
 }
+
 // Timeline marker size variable
 $timeline-marker-size: 12px;
 
@@ -276,13 +304,15 @@ $timeline-marker-size: 12px;
 
 /* Place the container to the left */
 .left {
-  padding: 0 32px 10px 0; /* reduced bottom padding to tighten vertical spacing */
+  padding: 0 32px 10px 0;
+  /* reduced bottom padding to tighten vertical spacing */
   left: 0;
 }
 
 /* Place the container to the right */
 .right {
-  padding: 0 0 10px 32px; /* reduced bottom padding to tighten vertical spacing */
+  padding: 0 0 10px 32px;
+  /* reduced bottom padding to tighten vertical spacing */
   left: 50%;
 }
 
@@ -318,8 +348,10 @@ $timeline-marker-size: 12px;
 }
 
 pre {
-  color: #e5e7eb; /* Light text */
-  background-color: #0f172a; /* Dark background */
+  color: #e5e7eb;
+  /* Light text */
+  background-color: #0f172a;
+  /* Dark background */
   padding: 12px 16px;
   border-radius: var(--radius);
   overflow-x: auto;
@@ -340,6 +372,7 @@ img {
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
 @media screen and (max-width: 600px) {
+
   /* Place the timelime to the left */
   .main-timeline::after {
     left: 12px;
@@ -416,28 +449,33 @@ img {
   text-align: center;
   vertical-align: middle;
 }
+
 h1.heading {
   font-size: 1.15em;
   font-weight: 900;
   margin: 0 0 0.5em;
   color: #505050;
 }
+
 @media (min-width: 450px) {
   h1.heading {
     font-size: 3.55em;
   }
 }
+
 @media (min-width: 760px) {
   h1.heading {
     font-size: 3.05em;
   }
 }
+
 @media (min-width: 900px) {
   h1.heading {
     font-size: 3.25em;
     margin: 0 0 0.3em;
   }
 }
+
 /* unified .card styles above */
 .img-card {
   width: 100%;
@@ -447,6 +485,7 @@ h1.heading {
   display: block;
   overflow: hidden;
 }
+
 .img-card img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -455,23 +494,28 @@ h1.heading {
   object-fit: cover;
   transition: none;
 }
+
 .card-content {
   text-align: left;
 }
+
 .card-title {
   margin-top: 0px;
   font-weight: 600;
-  font-size: 1.25em;  
+  font-size: 1.25em;
   text-align: center;
 }
+
 .card-title a {
   color: #000;
   text-decoration: none !important;
 }
+
 .card-read-more {
   border-top: 1px solid #d4d4d4;
   text-align: center;
 }
+
 .card-read-more a {
   text-decoration: none !important;
   padding: 10px;
@@ -485,6 +529,7 @@ h1.heading {
   flex-wrap: wrap;
   gap: 0.5rem 0.6rem;
 }
+
 .skill-badge {
   display: inline-block;
   padding: 0.3rem 0.55rem;
@@ -511,6 +556,7 @@ h1.heading {
 .footer-socials a {
   color: var(--muted);
 }
+
 .footer-socials a:hover {
   color: var(--accent);
 }
@@ -520,20 +566,24 @@ h1.heading {
   /* Reserve space so absolutely-positioned overlay doesn't overlap content */
   padding-bottom: 220px;
 }
+
 .blog_header--insights {
   /* Insights need less reserved space below the overlay */
   padding-bottom: 14px;
 }
+
 .blog_header--project {
   /* Projects: no top image overlay; use compact spacing */
   padding-bottom: 0;
 }
+
 .imgBlogTitle {
   border-radius: 5px;
 }
 
 .blog_header .blog_title {
-  position: absolute; /* Position the background text */
+  position: absolute;
+  /* Position the background text */
   text-align: left;
   font-size: 3em;
   vertical-align: middle;
@@ -575,12 +625,10 @@ h1.heading {
   position: absolute;
   // background: rgba(57, 57, 57, 0.5);
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 26%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(0, 0, 0, 1) 26%,
+      rgba(255, 255, 255, 0) 100%);
   background-size: inherit;
 
   height: 200px;
@@ -594,10 +642,12 @@ h1.heading {
 .project-header {
   padding: 1rem 1.25rem;
 }
+
 .project-title {
   font-size: clamp(2rem, 3vw, 2.4rem);
   margin: 0;
 }
+
 .project-subtitle {
   font-size: 1rem;
   color: var(--muted);
@@ -616,37 +666,60 @@ h1.heading {
 .skills-masonry {
   column-gap: 1rem;
 }
-@media (max-width: 767.98px) { /* bootstrap md breakpoint -1 */
-  .skills-masonry { column-count: 1; }
+
+@media (max-width: 767.98px) {
+
+  /* bootstrap md breakpoint -1 */
+  .skills-masonry {
+    column-count: 1;
+  }
 }
+
 @media (min-width: 768px) {
-  .skills-masonry { column-count: 2; }
+  .skills-masonry {
+    column-count: 2;
+  }
 }
+
 .skills-masonry .card {
-  display: inline-block; /* allow column flow */
+  display: inline-block;
+  /* allow column flow */
   width: 100%;
-  margin: 0 0 1rem; /* bottom spacing between packed cards */
-  break-inside: avoid; /* prevent card splitting across columns */
+  margin: 0 0 1rem;
+  /* bottom spacing between packed cards */
+  break-inside: avoid;
+  /* prevent card splitting across columns */
 }
 
 /* Tighten vertical spacing specifically for timeline cards */
 .main-timeline .card {
-  margin: 6px; /* reduce outer margin between timeline cards */
+  margin: 6px;
+  /* reduce outer margin between timeline cards */
 }
 
 /* Masonry layout for project cards */
 .masonry {
   column-gap: 1rem;
 }
+
 @media (max-width: 767.98px) {
-  .masonry { column-count: 1; }
+  .masonry {
+    column-count: 1;
+  }
 }
+
 @media (min-width: 768px) and (max-width: 1199.98px) {
-  .masonry { column-count: 2; }
+  .masonry {
+    column-count: 2;
+  }
 }
+
 @media (min-width: 1200px) {
-  .masonry { column-count: 3; }
+  .masonry {
+    column-count: 3;
+  }
 }
+
 .masonry .blog-card {
   display: inline-block;
   width: 100%;
@@ -701,7 +774,8 @@ h1.heading {
 .blog-title a {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* clamp to 2 lines on cards */
+  -webkit-line-clamp: 2;
+  /* clamp to 2 lines on cards */
   line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -722,7 +796,8 @@ h1.heading {
   margin: 0.5rem 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* clamp to 2 lines on cards */
+  -webkit-line-clamp: 2;
+  /* clamp to 2 lines on cards */
   line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -754,8 +829,10 @@ h1.heading {
 }
 
 .read-more:hover {
-  background-color: rgba(62, 95, 220, 0.10); /* light accent background for contrast */
-  color: var(--accent); /* keep readable accent text */
+  background-color: rgba(62, 95, 220, 0.10);
+  /* light accent background for contrast */
+  color: var(--accent);
+  /* keep readable accent text */
   border-color: var(--accent-hover);
   text-decoration: none;
   transform: translateY(-1px);
@@ -779,28 +856,33 @@ h1.heading {
 
 /* Small screen optimizations */
 @media (max-width: 576px) {
+
   /* Ensure container padding is comfortable on phones */
   .own_container {
     padding-left: 1em;
     padding-right: 1em;
   }
+
   /* Space blog action links vertically on phones */
-  .blog_cards > div > a {
+  .blog_cards>div>a {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     text-align: center;
   }
+
   /* Center cards within their columns */
-  div > div.card {
+  div>div.card {
     margin-left: auto !important;
     margin-right: auto !important;
   }
+
   /* Reduce reserved header space on phones */
   /* Removed empty rulesets with invalid commented properties */
   /* Shorter overlay height for compact headers */
   .overlay {
     height: 140px;
   }
+
   /* Scale title/subtitle down and tighten spacing */
   .blog_header .blog_title {
     font-size: 2.2em;
@@ -808,7 +890,8 @@ h1.heading {
     max-width: 92%;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* clamp overlay title on phones */
+    -webkit-line-clamp: 2;
+    /* clamp overlay title on phones */
     line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -817,6 +900,7 @@ h1.heading {
     overflow-wrap: anywhere;
     hyphens: auto;
   }
+
   .blog_header .blog_subtitle {
     font-size: 0.9em;
     top: 4.2em;
@@ -824,7 +908,8 @@ h1.heading {
     max-width: 92%;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* clamp overlay subtitle on phones */
+    -webkit-line-clamp: 2;
+    /* clamp overlay subtitle on phones */
     line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -833,27 +918,33 @@ h1.heading {
     overflow-wrap: anywhere;
     hyphens: auto;
   }
+
   /* Navbar fits full width on phones */
   .my-navbar {
     max-width: 100%;
     border-radius: 0;
   }
+
   /* Compact card padding */
   .card {
     margin: 8px;
     padding: 0.7rem;
   }
+
   /* Tighten skills for small displays */
   .skills-list {
     gap: 0.4rem 0.5rem;
   }
+
   .skill-badge {
     font-size: 0.85rem;
     padding: 0.25rem 0.5rem;
   }
+
   .skill-badge .skill-count {
     font-size: 0.75rem;
   }
+
   /* Reduce grid padding to maximize content area */
   .blog-grid {
     padding: 0.75rem;
@@ -865,13 +956,16 @@ h1.heading {
   .overlay {
     height: 160px;
   }
+
   .blog_header .blog_title {
     font-size: clamp(2.2rem, 3vw, 2.6rem);
   }
+
   .blog_header .blog_subtitle {
     font-size: clamp(1rem, 1.6vw, 1.1rem);
     top: 4.6em;
   }
+
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -884,10 +978,12 @@ h1.heading {
     gap: clamp(1rem, 1.8vw, 2rem);
     padding: clamp(1rem, 2.2vw, 2.5rem);
   }
+
   /* Removed empty rulesets with invalid commented properties */
   .overlay {
     height: 200px;
   }
+
   .blog_header .blog_title {
     font-size: clamp(2.6rem, 2.8vw, 3rem);
   }
@@ -900,6 +996,7 @@ h1.heading {
     gap: 2rem;
     padding: 2.5rem;
   }
+
   /* Removed empty rulesets with invalid commented properties */
   .overlay {
     height: 220px;
@@ -911,6 +1008,103 @@ h1.heading {
   padding: 0.5rem 0;
   transition: background-color 0.15s ease;
 }
+
 .news-row:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.07);
+}
+
+
+.search-icon-button {
+  background: none;
+  border: none;
+  color: var(--text);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search-icon-button:hover {
+  transform: scale(1.1);
+}
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 28, 77, 0.97);
+  /* fallback to primary with opacity */
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.search-container {
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+}
+
+.close-search {
+  position: absolute;
+  top: -60px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.search-input-group {
+  display: flex;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  padding: 20px;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  outline: none;
+}
+
+.search-submit {
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 0 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.search-submit:not(:disabled):hover {
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-input {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
 }
