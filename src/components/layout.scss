@@ -78,10 +78,6 @@ a:hover {
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  border-color: var(--muted);
-}
 
 .btn:active {
   transform: translateY(1px);
@@ -1107,4 +1103,36 @@ h1.heading {
     font-size: 1.2rem;
     padding: 15px;
   }
+}
+
+
+.pub-main{
+  text-align: start;
+}
+
+.pub-title{
+  font-weight: 600;
+}
+
+.pub-actions{
+  text-align: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.pub-actions-row{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+@media (max-width: 768px) {
+  .pub-actions-row a{
+    display: table-caption;
+  }
+
 }

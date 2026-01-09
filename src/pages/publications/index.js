@@ -72,17 +72,17 @@ const Publications = ({ data }) => {
                     <>
                       <div className="col text-center">
                         {pub.url !== "" ? (
-                          <a href={pub.url} rel="noreferrer" target="_blank" className="btn btn-outline-primary">
+                          <a href={pub.url} rel="noreferrer" target="_blank" className="btn">
                             <HiDocumentText />&nbsp;Paper
                           </a>
                         ) : (
-                          <span className="btn btn-outline-primary disabled">
+                          <span className="btn disabled">
                             <HiDocumentText />&nbsp;Paper
                           </span>
                         )}
                       </div>
                       <div className="col text-center">
-                        <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2">
+                        <Link to={`/publications/${pub.slug}`} className="btn me-2">
                           <HiOutlineSearch />&nbsp;Info
                         </Link>
                       </div>
@@ -127,13 +127,13 @@ const Publications = ({ data }) => {
                 <div className="pub-actions-row row">
                   <div className="col text-center">
                     {pub.attach && (
-                      <a href={pub.attach.publicURL} rel="noreferrer" target="_blank" className="btn btn-outline-primary">
+                      <a href={pub.attach.publicURL} rel="noreferrer" target="_blank" className="btn">
                         <HiDocumentText />&nbsp;Paper
                       </a>
                     )}
                   </div>
                   <div className="col text-center">
-                    <Link to={`/publications/${pub.slug}`} className="btn btn-outline-primary me-2">
+                    <Link to={`/publications/${pub.slug}`} className="btn me-2">
                       <HiOutlineSearch />&nbsp;Info
                     </Link>
                   </div>
