@@ -312,7 +312,7 @@ const IndexPage = ({ data }) => {
           >
             <div className="card">
               <div className="card-body p-2">
-                <h5>{cv.title}</h5>
+                <h5 style={{ fontWeight: 600 }}>{cv.title}</h5>
                 <p className="mb-0">
                   <a
                     href={cv.url}
