@@ -287,12 +287,12 @@ const IndexPage = ({ data }) => {
       <hr className="hr-text" data-content="Last News" />
       {news.map(node => (
         <div key={node.id} className="row">
-          <div className="col-md-2">
+          <div className="col-md-auto">
             <p className="own_date">
               {node.childMarkdownRemark.frontmatter.date}
             </p>
           </div>
-          <div className="col-md-9">
+          <div className="col">
             <div
               className="justify"
               dangerouslySetInnerHTML={{

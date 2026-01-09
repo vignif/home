@@ -6,7 +6,6 @@ import SocialLinks from "../components/socials"
 
 const News = ({ data }) => {
   const news = data.allFile.nodes
-  console.log(news)
 
   return (
     <Layout>
@@ -19,27 +18,24 @@ const News = ({ data }) => {
           <hr className="hr-text" data-content="" />
         </div>
       </div>
-      <div className="container own_sub_container">
+      <div className="container">
         {news.map(node => (
-          <div key={node.id} className="row p-2">
-            <>
-              <div className="col-sm-2 own_sub_container">
-                <p className="own_date">
-                  {node.childMarkdownRemark.frontmatter.date}
-                </p>
-              </div>
-
-              <div className="col-md-10">
-                <div
-                  className="justify"
-                  dangerouslySetInnerHTML={{
-                    __html: node.childMarkdownRemark.html,
-                  }}
-                />
-              </div>
-            </>
+        <div key={node.id} className="row">
+          <div className="col-md-auto">
+            <p className="own_date">
+              {node.childMarkdownRemark.frontmatter.date}
+            </p>
           </div>
-        ))}
+          <div className="col">
+            <div
+              className="justify"
+              dangerouslySetInnerHTML={{
+                __html: node.childMarkdownRemark.html,
+              }}
+            />
+          </div>
+        </div>
+      ))}
       </div>
 
       <div className="row">
