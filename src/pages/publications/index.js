@@ -145,19 +145,19 @@ const Publications = ({ data }) => {
       </div>
 
       <hr className="hr-text" data-content="Tags" />
-      <div className="tags-list row pb-5">
+      <div className="row">
         <div className="col">
           {sortedTags.map(tagObj => (
             <span key={tagObj.name} className="pub-tag authors_list fw-light col-2">
-              <Link className="btn btn-warning m-2" to={`/skills/${skillSlug(tagObj.name)}`}>
+              <Link className="skill-badge m-1" to={`/skills/${skillSlug(tagObj.name)}`}>
                 {tagObj.name} ({tagObj.count})
               </Link>
             </span>
           ))}
         </div>
-        <div className="col-md-12 p-2">
-          <Link to={`/projects/tags/`} className="btn btn-primary m-2">
-            Project Tags
+        <div className="col-md-12">
+          <Link to={`/projects/tags/`} className="btn btn-primary my-2">
+            All publications tags
           </Link>
         </div>
       </div>
