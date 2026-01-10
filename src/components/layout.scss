@@ -78,6 +78,10 @@ a:hover {
   transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-muted);
+}
 
 .btn:active {
   transform: translateY(1px);
