@@ -4,16 +4,17 @@
 
 // Color palette
 $color-primary: #0f1c4d;
-$color-accent: #5371e1;
-$color-accent-hover: #3e5fdc;
-$color-accent-strong: #2f4fc8;
+$color-accent: #0b1846;
+$color-accent-hover: #0d1d58;
+$color-accent-strong: #030e37;
 $color-bg: #f8fafc;
 $color-bg-card: #ffffff;
 $color-text: #0f172a;
 $color-muted: #475569;
 $color-detail: #000000;
-$color-highlight: #5371e1;
+$color-highlight: #091e6b;
 
+$primary: $color-primary;
 // Shadows & radius
 $radius: 10px;
 $shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -105,7 +106,6 @@ a:hover {
 }
 
 .btn-outline-primary:hover {
-  color: #000000;
   background-color: var(--accent);
   border-color: var(--accent);
 }
