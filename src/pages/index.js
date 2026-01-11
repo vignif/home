@@ -11,17 +11,9 @@ import { HiLink } from "react-icons/hi"
 // Components
 import Layout from "../components/layout"
 import { Seo } from "../components/seo"
-// AudioButton import removed (unused)
 
-// Custom Hooks
-// useSiteMetadata import removed (unused)
+import AudioPlayer from "../components/play_audio"
 
-// Video imports
-// Demo video imports removed (unused)
-
-// Legacy static stacks removed; dynamic grouping is used below
-
-// Legacy static stacks removed; dynamic grouping is used below
 
 const IndexPage = ({ data }) => {
   const skillSlug = s => String(s).trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
@@ -225,11 +217,11 @@ const IndexPage = ({ data }) => {
 
       <div className="text-center my-3">
         <Link to="/about#contact" className="btn btn-primary btn-lg" aria-label="Get in touch via contact form">Get in touch</Link>
+          <AudioPlayer />
         <p className="text-muted mt-2" style={{ fontSize: "0.95rem" }}>
           Prefer email? <a href="mailto:hello@francescovigni.com" aria-label="Email hello@francescovigni.com">hello@francescovigni.com</a>
         </p>
       </div>
-
       <hr className="hr-text" data-content="Skills" />
       <p className="text-muted" style={{ fontSize: "0.9rem" }}>
         Numbers show the occurrence of each skill across my portfolio.
