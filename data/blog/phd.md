@@ -15,7 +15,7 @@ With this small post I want to celebrate the event. I want to log it. In case th
 I would like to extend the gratitude for this achievement to the external reviewers of my thesis (Prof. Barbara Bruno and Dr. Guillem Alenyà).
 Thank you so much for feedbacks. They were essential for improving the manuscript.
 
-I would also like to thank my friend <a href="https://ceciliamarzocchi.com/" target="_blank"> Cecilia Marzocchi</a> for her inputs in designing the cover. She is the most creative human I personally know.
+I would also like to thank my friend <a href="https://ceciliamarzocchi.com/" target="_blank">Cecilia Marzocchi</a> for her inputs in designing the cover. She is the most creative human I personally know.
 
 Finally, using the words of <a href="https://www.youtube.com/watch?v=NfF3bThOW0Q" target="_blank">Snoop Dogg</a>:
 "I want to thank me for believing in me, I want to thank me for doing all this hard work. I wanna thank me for having no days off. I wanna thank me for never quitting. I wanna thank me for always been a giver and trying to give more than I receive. I want to thank me for trying to do more right than wrong. I want to thank me for just being me at all times."

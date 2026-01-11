@@ -51,7 +51,7 @@ const Insights = ({ data }) => {
                       ))}
                     </div>
                   )}
-                  <Link to={`/insights${slug}`} className="read-more">Read More →</Link>
+                  <Link to={`/insights${slug}`} className="read-more">Read More</Link>
                 </div>
               </div>
             )

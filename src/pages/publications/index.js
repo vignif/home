@@ -69,21 +69,32 @@ const Publications = ({ data }) => {
                       <span className="btn disabled me-2">Not Yet Presented</span>
                     </div>
                   ) : (
-                    <>
+                <>
                       <div className="col text-center">
                         {pub.url !== "" ? (
-                          <a href={pub.url} rel="noreferrer" target="_blank" className="btn">
-                            <HiDocumentText />&nbsp;Paper
+                          <a
+                            href={pub.url}
+                            rel="noreferrer"
+                            target="_blank"
+                            className="btn d-flex align-items-center justify-content-center"
+                          >
+                            <HiDocumentText className="me-1" />
+                            Paper
                           </a>
                         ) : (
-                          <span className="btn disabled">
-                            <HiDocumentText />&nbsp;Paper
+                          <span className="btn disabled d-flex align-items-center justify-content-center">
+                            <HiDocumentText className="me-1" />
+                            Paper
                           </span>
                         )}
                       </div>
                       <div className="col text-center">
-                        <Link to={`/publications/${pub.slug}`} className="btn me-2">
-                          <HiOutlineSearch />&nbsp;Info
+                        <Link
+                          to={`/publications/${pub.slug}`}
+                          className="btn me-2 d-flex align-items-center justify-content-center"
+                        >
+                          <HiOutlineSearch className="me-1" />
+                          Info
                         </Link>
                       </div>
                     </>
