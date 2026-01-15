@@ -223,7 +223,7 @@ const Contacts = () => {
 
                 <div id="contact" className="text-center mb-3">
                   <a href="mailto:hello@francescovigni.com" className="btn btn-primary btn-lg" aria-label="Email hello@francescovigni.com">
-                    <TbMail className="me-2" /> hello@francescovigni.com
+                    <TbMail className="me-2" />hello@francescovigni.com
                   </a>
                   <p className="text-center text-muted small">
                       I use{" "}
@@ -233,7 +233,7 @@ const Contacts = () => {
                         rel="noreferrer"
                         aria-label="View or download my PGP public key"
                       >
-                        <TbLock /> OpenPGP
+                        <TbLock />OpenPGP
                       </a>{" "}
                       for encrypted communications
                     </p>
