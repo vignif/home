@@ -21,7 +21,7 @@ A traditional use case for research is to include a QR code in a poster or prese
 
 The problem is that the QR code is usually too big to be included in a poster, and its resolution is too low to be scanned from a distance.
 
-![img](https://raw.githubusercontent.com/vignif/smallQR/main/main.png)
+![img](https://raw.githubusercontent.com/francescovigni/smallQR/main/main.png)
 
 The solution is to encode whatever information we want in a small QR code, and then use a software to enlarge it.
 
