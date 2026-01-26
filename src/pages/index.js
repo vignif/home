@@ -317,7 +317,7 @@ const IndexPage = ({ data }) => {
                   {cv.employer} - {cv.where}
                 </p>
                 <p className="mb-0 fw-light">{cv.extra}</p>
-                <p className="mb-0 fw-light">
+                <p className="mb-0 fw-light" style={{ fontSize: "0.9rem", color: "grey"  }}>
                   {cv.date_end && cv.date_end !== "Invalid date"
                     ? `${cv.date_start} - ${cv.date_end}`
                     : cv.date_start}
